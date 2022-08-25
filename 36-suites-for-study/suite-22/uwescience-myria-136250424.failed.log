@@ -1,0 +1,238 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ cd failed/uwescience/myria
+travis_fold:start:postgresql[0K[33;1mStarting PostgreSQL v9.3[0m
+travis_time:start:09d169b3[0K$ sudo service postgresql stop
+ * Stopping PostgreSQL 9.1 database server
+   ...done.
+ * Stopping PostgreSQL 9.2 database server
+   ...done.
+ * Stopping PostgreSQL 9.3 database server
+   ...done.
+ * Stopping PostgreSQL 9.4 database server
+   ...done.
+
+travis_time:end:09d169b3:start=1604575783676471914,finish=1604575784342464751,duration=665992837[0Ktravis_time:start:06090c48[0K$ sudo service postgresql start 9.3
+ * Starting PostgreSQL 9.3 database server
+   ...done.
+
+travis_time:end:06090c48:start=1604575784353625693,finish=1604575786795396346,duration=2441770653[0Ktravis_time:start:20df2b50[0K$ sudo -u postgres createuser -s -p 5432 travis &>/dev/null
+
+travis_time:end:20df2b50:start=1604575786806198285,finish=1604575786865822125,duration=59623840[0Ktravis_time:start:04b33560[0K$ sudo -u postgres createdb -O travis -p 5432 travis &>/dev/null
+
+travis_time:end:04b33560:start=1604575786875050574,finish=1604575787162207902,duration=287157328[0Ktravis_time:start:2fc0ca25[0K$ sudo -u postgres createuser -s -p 5433 travis &>/dev/null
+
+travis_time:end:2fc0ca25:start=1604575787173508694,finish=1604575787229050295,duration=55541601[0Ktravis_time:start:150b99a0[0K$ sudo -u postgres createdb -O travis -p 5433 travis &>/dev/null
+
+travis_time:end:150b99a0:start=1604575787240355670,finish=1604575787298165563,duration=57809893[0Ktravis_fold:end:postgresql[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export AWS_ACCESS_KEY_ID=[secure]
+$ export AWS_SECRET_ACCESS_KEY=[secure]
+
+$ export TERM=dumb
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:096f3db0[0K$ Installing caching utilities
+
+travis_time:end:096f3db0:start=1604575787955825195,finish=1604575788083773138,duration=127947943[0Ktravis_time:start:0e99ccc9[0K
+travis_time:end:0e99ccc9:start=1604575788098303964,finish=1604575788109160781,duration=10856817[0Ktravis_time:start:026e3688[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:026e3688:start=1604575788120776061,finish=1604575788991006570,duration=870230509[0Ktravis_time:start:124d50e0[0K
+travis_time:end:124d50e0:start=1604575789004396982,finish=1604575789015343362,duration=10946380[0Ktravis_time:start:026f822a[0K[32;1madding /home/travis/.gradle/caches to cache[0m
+[32;1mcreating directory /home/travis/.gradle/caches[0m
+
+travis_time:end:026f822a:start=1604575789027788407,finish=1604575789899716308,duration=871927901[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:before_install.1[0Ktravis_time:start:0e593d28[0K$ sh travis/before_install.sh
+CREATE DATABASE
+
+travis_time:end:0e593d28:start=1604575790200779001,finish=1604575790702288449,duration=501509448[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:0db03ca2[0K$ export TERM=dumb
+
+travis_time:end:0db03ca2:start=1604575790712949971,finish=1604575790721625291,duration=8675320[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:install[0Ktravis_time:start:00e9f9a0[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions/gradle-2.10-bin.zip
+..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/bin/gradle
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/failed/uwescience/myria/build.gradle' line: 42
+
+* What went wrong:
+Could not compile build file '/home/travis/build/failed/uwescience/myria/build.gradle'.
+> startup failed:
+  build file '/home/travis/build/failed/uwescience/myria/build.gradle': 42: all buildscript {} blocks must appear before any plugins {} blocks in the script
+  
+  See https://docs.gradle.org/2.10/userguide/plugins.html#sec:plugins_block for information on the plugins {} block
+  
+   @ line 42, column 1.
+     buildscript {
+     ^
+  
+  1 error
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 15.072 secs
+
+[31;1mThe command "eval ./gradlew assemble " failed. Retrying, 2 of 3.[0m
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/failed/uwescience/myria/build.gradle' line: 42
+
+* What went wrong:
+Could not compile build file '/home/travis/build/failed/uwescience/myria/build.gradle'.
+> startup failed:
+  build file '/home/travis/build/failed/uwescience/myria/build.gradle': 42: all buildscript {} blocks must appear before any plugins {} blocks in the script
+  
+  See https://docs.gradle.org/2.10/userguide/plugins.html#sec:plugins_block for information on the plugins {} block
+  
+   @ line 42, column 1.
+     buildscript {
+     ^
+  
+  1 error
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1.784 secs
+
+[31;1mThe command "eval ./gradlew assemble " failed. Retrying, 3 of 3.[0m
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/failed/uwescience/myria/build.gradle' line: 42
+
+* What went wrong:
+Could not compile build file '/home/travis/build/failed/uwescience/myria/build.gradle'.
+> startup failed:
+  build file '/home/travis/build/failed/uwescience/myria/build.gradle': 42: all buildscript {} blocks must appear before any plugins {} blocks in the script
+  
+  See https://docs.gradle.org/2.10/userguide/plugins.html#sec:plugins_block for information on the plugins {} block
+  
+   @ line 42, column 1.
+     buildscript {
+     ^
+  
+  1 error
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1.784 secs
+
+[31;1mThe command "eval ./gradlew assemble " failed 3 times.[0m
+
+
+travis_time:end:00e9f9a0:start=1604575790732751650,finish=1604575812803562257,duration=22070810607[0K
+[31;1mThe command "./gradlew assemble" failed and exited with 1 during .[0m
+
+Your build has been stopped.

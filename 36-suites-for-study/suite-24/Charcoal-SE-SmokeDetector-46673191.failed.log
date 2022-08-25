@@ -1,0 +1,157 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Sat Dec 13 00:10:36 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/Charcoal-SE/SmokeDetector
+travis_fold:start:git.submodule[0Ktravis_time:start:0159fca8[0K$ git submodule update --init --recursive
+Submodule 'ChatExchange' (https://github.com/Manishearth/ChatExchange.git) registered for path 'ChatExchange'
+Cloning into 'ChatExchange'...
+Submodule path 'ChatExchange': checked out '2cbd9f4c47efda49b614712ee5632f1616d33204'
+
+travis_time:end:0159fca8:start=1606373955421047605,finish=1606373957998429618,duration=2577382013[0Ktravis_fold:end:git.submodule[0Ktravis_time:start:0f9bd04e[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:0f9bd04e:start=1606373958137685751,finish=1606373958148041282,duration=10355531[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 1.5.6 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install[0Ktravis_time:start:011069e4[0K$ pip install beautifulsoup4==4.3.2 requests==2.5.1 websocket-client==0.23.0 coverage==4.0a1 pytest==2.6.4 phonenumbers==7.0.1
+Downloading/unpacking beautifulsoup4==4.3.2
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/beautifulsoup4/setup.py) egg_info for package beautifulsoup4
+    
+Downloading/unpacking requests==2.5.1
+Downloading/unpacking websocket-client==0.23.0
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/websocket-client/setup.py) egg_info for package websocket-client
+    
+Downloading/unpacking coverage==4.0a1
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/coverage/setup.py) egg_info for package coverage
+    
+    warning: no previously-included files matching '*.pyc' found anywhere in distribution
+Requirement already satisfied (use --upgrade to upgrade): pytest==2.6.4 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages
+Downloading/unpacking phonenumbers==7.0.1
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/phonenumbers/setup.py) egg_info for package phonenumbers
+    
+    warning: no files found matching 'MANIFEST'
+    warning: no previously-included files found matching '.*ignore'
+Downloading/unpacking six (from websocket-client==0.23.0)
+  Downloading six-1.15.0-py2.py3-none-any.whl
+Downloading/unpacking backports.ssl-match-hostname (from websocket-client==0.23.0)
+  Downloading backports.ssl_match_hostname-3.7.0.1.tar.gz
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/backports.ssl-match-hostname/setup.py) egg_info for package backports.ssl-match-hostname
+    
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.25 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from pytest==2.6.4)
+Installing collected packages: beautifulsoup4, requests, websocket-client, coverage, phonenumbers, six, backports.ssl-match-hostname
+  Running setup.py install for beautifulsoup4
+    
+  Running setup.py install for websocket-client
+    changing mode of build/scripts-2.7/wsdump.py from 644 to 755
+    
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/wsdump.py to 755
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/tracer.c -o build/temp.linux-x86_64-2.7/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    
+    warning: no previously-included files matching '*.pyc' found anywhere in distribution
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for phonenumbers
+    
+    warning: no files found matching 'MANIFEST'
+    warning: no previously-included files found matching '.*ignore'
+  Running setup.py install for backports.ssl-match-hostname
+    
+Successfully installed beautifulsoup4 requests websocket-client coverage phonenumbers six backports.ssl-match-hostname
+Cleaning up...
+
+travis_time:end:011069e4:start=1606373958759539162,finish=1606373969444101701,duration=10684562539[0Ktravis_fold:end:install[0Ktravis_time:start:0024e7f3[0K$ python -W default::Warning -m pytest test
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.9 -- py-1.4.26 -- pytest-2.6.4
+collected 12 items / 1 errors
+
+test/test_parsing.py ............
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test/test_regexes.py _____________________
+../../../../virtualenv/python2.7.9/lib/python2.7/site-packages/_pytest/python.py:463: in _importtestmodule
+    mod = self.fspath.pyimport(ensuresyspath=True)
+../../../../virtualenv/python2.7.9/lib/python2.7/site-packages/py/_path/local.py:641: in pyimport
+    __import__(modname)
+../../../../virtualenv/python2.7.9/lib/python2.7/site-packages/_pytest/assertion/rewrite.py:159: in load_module
+    py.builtin.exec_(co, mod.__dict__)
+test/test_regexes.py:1: in <module>
+    from findspam import FindSpam
+E     File "findspam.py", line 7
+E       <<<<<<< HEAD
+E        ^
+E   SyntaxError: invalid syntax
+====================== 12 passed, 1 error in 0.07 seconds ======================
+
+travis_time:end:0024e7f3:start=1606373969455994946,finish=1606373969751120065,duration=295125119[0K
+[31;1mThe command "python -W default::Warning -m pytest test" exited with 1.[0m
+
+Done. Your build exited with 1.

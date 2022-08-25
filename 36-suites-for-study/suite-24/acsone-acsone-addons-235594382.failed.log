@@ -1,0 +1,599 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/acsone/acsone-addons
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:00775c32[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:00775c32:start=1606429256510615100,finish=1606429261045128756,duration=4534513656[0Ktravis_time:start:09daee4c[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install expect-dev python-lxml
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  expect
+Suggested packages:
+  python-lxml-dbg
+The following NEW packages will be installed:
+  expect expect-dev python-lxml
+0 upgraded, 3 newly installed, 0 to remove and 238 not upgraded.
+Need to get 904 kB of archives.
+After this operation, 2,814 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main expect amd64 5.45-2 [163 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main expect-dev amd64 5.45-2 [80.0 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main python-lxml amd64 2.3.2-1ubuntu0.2 [661 kB]
+Fetched 904 kB in 0s (1,473 kB/s)
+Selecting previously unselected package expect.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking expect (from .../expect_5.45-2_amd64.deb) ...
+Selecting previously unselected package expect-dev.
+Unpacking expect-dev (from .../expect-dev_5.45-2_amd64.deb) ...
+Selecting previously unselected package python-lxml.
+Unpacking python-lxml (from .../python-lxml_2.3.2-1ubuntu0.2_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up expect (5.45-2) ...
+Setting up expect-dev (5.45-2) ...
+Setting up python-lxml (2.3.2-1ubuntu0.2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:09daee4c:start=1606429261055750591,finish=1606429270211623855,duration=9155873264[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export VERSION="10.0"
+$ export TESTS="0"
+$ export LINT_CHECK="0"
+$ export TRANSIFEX="0"
+$ export TESTS="1"
+$ export ODOO_REPO="OCA/OCB"
+
+travis_time:start:0bf38983[0K$ source ~/virtualenv/python2.7_with_system_site_packages/bin/activate
+
+travis_time:end:0bf38983:start=1606429270232523916,finish=1606429270243443504,duration=10919588[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:036d4297[0K$ Installing caching utilities
+
+travis_time:end:036d4297:start=1606429270700700451,finish=1606429270761821139,duration=61120688[0Ktravis_time:start:236a4f23[0K
+travis_time:end:236a4f23:start=1606429270778197284,finish=1606429270788152939,duration=9955655[0Ktravis_time:start:1e35dd80[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:1e35dd80:start=1606429270799682133,finish=1606429271707534782,duration=907852649[0Ktravis_fold:end:cache.1[0Ktravis_fold:start:cache.pip[0K
+travis_time:start:070db68d[0K
+travis_time:end:070db68d:start=1606429271720689536,finish=1606429271731961287,duration=11271751[0Ktravis_time:start:0cadb176[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:0cadb176:start=1606429271745356505,finish=1606429272652890762,duration=907534257[0Ktravis_fold:end:cache.pip[0K$ python --version
+Python 2.7.3
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:21e7b7b4[0K$ pip install anybox.testing.openerp==1.3.1
+Collecting anybox.testing.openerp==1.3.1
+  Downloading https://files.pythonhosted.org/packages/ac/77/80f9253d6ae44090219d8d258eab1b42b17ec51208e2dcbd160a592b7f94/anybox.testing.openerp-1.3.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from anybox.testing.openerp==1.3.1)
+Installing collected packages: anybox.testing.openerp
+  Running setup.py install for anybox.testing.openerp
+Successfully installed anybox.testing.openerp-1.3.1
+
+travis_time:end:21e7b7b4:start=1606429272984608994,finish=1606429274295031118,duration=1310422124[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:02b9f5d0[0K$ git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+Cloning into '/home/travis/maintainer-quality-tools'...
+
+travis_time:end:02b9f5d0:start=1606429274306926563,finish=1606429275411211403,duration=1104284840[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:03a9bcd8[0K$ export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+
+travis_time:end:03a9bcd8:start=1606429275423512413,finish=1606429275432522321,duration=9009908[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:0effe132[0K$ travis_install_nightly
+npm WARN engine less@3.0.4: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN engine mime@1.6.0: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine request@2.88.2: wanted: {"node":">= 6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN engine form-data@2.3.3: wanted: {"node":">= 0.12"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-validator@5.1.5: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-schema@2.0.0: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+/home/travis/.nvm/v0.10.36/bin/lessc -> /home/travis/.nvm/v0.10.36/lib/node_modules/less/bin/lessc
+less-plugin-clean-css@1.5.1 /home/travis/.nvm/v0.10.36/lib/node_modules/less-plugin-clean-css
+└── clean-css@3.4.28 (commander@2.8.1, source-map@0.4.4)
+
+less@3.0.4 /home/travis/.nvm/v0.10.36/lib/node_modules/less
+├── graceful-fs@4.2.4
+├── image-size@0.5.5
+├── mime@1.6.0
+├── errno@0.1.7 (prr@1.0.1)
+├── promise@7.3.1 (asap@2.0.6)
+├── mkdirp@0.5.5 (minimist@1.2.5)
+├── source-map@0.6.1
+└── request@2.88.2 (is-typedarray@1.0.0, aws-sign2@0.7.0, oauth-sign@0.9.0, forever-agent@0.6.1, tunnel-agent@0.6.0, caseless@0.12.0, isstream@0.1.2, json-stringify-safe@5.0.1, aws4@1.11.0, safe-buffer@5.2.1, extend@3.0.2, performance-now@2.1.0, uuid@3.4.0, qs@6.5.2, combined-stream@1.0.8, form-data@2.3.3, mime-types@2.1.27, tough-cookie@2.5.0, http-signature@1.2.0, har-validator@5.1.5)
+npm WARN deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN engine request@2.88.2: wanted: {"node":">= 6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN engine form-data@2.3.3: wanted: {"node":">= 0.12"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-validator@5.1.5: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-schema@2.0.0: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+
+> phantomjs-prebuilt@2.1.16 install /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt
+> node install.js
+
+Considering PhantomJS found at /usr/local/phantomjs/bin/phantomjs
+Found PhantomJS at /usr/local/phantomjs/bin/phantomjs ...verifying
+PhantomJS detected, but wrong version 1.9.8 @ /usr/local/phantomjs/bin/phantomjs.
+Downloading https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
+Saving to /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2
+Receiving...
+
+Received 22866K total.
+Extracting tar contents (via spawned process)
+Removing /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom
+Copying extracted folder /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2-extract-1606429286992/phantomjs-2.1.1-linux-x86_64 -> /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom
+Writing location.js file
+Done. Phantomjs binary available at /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs
+phantomjs-prebuilt@2.1.16 node_modules/phantomjs-prebuilt
+├── progress@1.1.8
+├── kew@0.7.0
+├── which@1.3.1 (isexe@2.0.0)
+├── request-progress@2.0.1 (throttleit@1.0.0)
+├── hasha@2.2.0 (is-stream@1.1.0, pinkie-promise@2.0.1)
+├── fs-extra@1.0.0 (klaw@1.3.1, jsonfile@2.4.0, graceful-fs@4.2.4)
+├── es6-promise@4.2.8
+├── extract-zip@1.7.0 (mkdirp@0.5.5, debug@2.6.9, yauzl@2.10.0, concat-stream@1.6.2)
+└── request@2.88.2 (is-typedarray@1.0.0, aws-sign2@0.7.0, oauth-sign@0.9.0, forever-agent@0.6.1, tunnel-agent@0.6.0, caseless@0.12.0, isstream@0.1.2, json-stringify-safe@5.0.1, aws4@1.11.0, safe-buffer@5.2.1, extend@3.0.2, performance-now@2.1.0, combined-stream@1.0.8, uuid@3.4.0, qs@6.5.2, mime-types@2.1.27, form-data@2.3.3, tough-cookie@2.5.0, http-signature@1.2.0, har-validator@5.1.5)
+Downloading Odoo
+Cloning into '/home/travis/OCB-10.0'...
+Checking out files:  36% (7966/22037)   Checking out files:  37% (8154/22037)   Checking out files:  38% (8375/22037)   Checking out files:  39% (8595/22037)   Checking out files:  40% (8815/22037)   Checking out files:  41% (9036/22037)   Checking out files:  42% (9256/22037)   Checking out files:  43% (9476/22037)   Checking out files:  44% (9697/22037)   Checking out files:  45% (9917/22037)   Checking out files:  46% (10138/22037)   Checking out files:  47% (10358/22037)   Checking out files:  48% (10578/22037)   Checking out files:  49% (10799/22037)   Checking out files:  50% (11019/22037)   Checking out files:  51% (11239/22037)   Checking out files:  52% (11460/22037)   Checking out files:  53% (11680/22037)   Checking out files:  54% (11900/22037)   Checking out files:  55% (12121/22037)   Checking out files:  56% (12341/22037)   Checking out files:  57% (12562/22037)   Checking out files:  58% (12782/22037)   Checking out files:  59% (13002/22037)   Checking out files:  60% (13223/22037)   Checking out files:  61% (13443/22037)   Checking out files:  62% (13663/22037)   Checking out files:  63% (13884/22037)   Checking out files:  64% (14104/22037)   Checking out files:  65% (14325/22037)   Checking out files:  66% (14545/22037)   Checking out files:  67% (14765/22037)   Checking out files:  68% (14986/22037)   Checking out files:  69% (15206/22037)   Checking out files:  70% (15426/22037)   Checking out files:  71% (15647/22037)   Checking out files:  72% (15867/22037)   Checking out files:  72% (15978/22037)   Checking out files:  73% (16088/22037)   Checking out files:  74% (16308/22037)   Checking out files:  75% (16528/22037)   Checking out files:  76% (16749/22037)   Checking out files:  77% (16969/22037)   Checking out files:  78% (17189/22037)   Checking out files:  79% (17410/22037)   Checking out files:  80% (17630/22037)   Checking out files:  81% (17850/22037)   Checking out files:  82% (18071/22037)   Checking out files:  83% (18291/22037)   Checking out files:  84% (18512/22037)   Checking out files:  85% (18732/22037)   Checking out files:  86% (18952/22037)   Checking out files:  87% (19173/22037)   Checking out files:  88% (19393/22037)   Checking out files:  89% (19613/22037)   Checking out files:  90% (19834/22037)   Checking out files:  91% (20054/22037)   Checking out files:  92% (20275/22037)   Checking out files:  93% (20495/22037)   Checking out files:  94% (20715/22037)   Checking out files:  95% (20936/22037)   Checking out files:  96% (21156/22037)   Checking out files:  97% (21376/22037)   Checking out files:  98% (21597/22037)   Checking out files:  99% (21817/22037)   Checking out files: 100% (22037/22037)   Checking out files: 100% (22037/22037), done.
+From https://github.com/oca/OCB
+ * branch            10.0       -> FETCH_HEAD
+Collecting pip from https://files.pythonhosted.org/packages/cb/28/91f26bd088ce8e22169032100d4260614fc3da435025ff389ef1d396a433/pip-20.2.4-py2.py3-none-any.whl#sha256=51f1c7514530bd5c145d8f13ed936ad6b8bfcb8cf74e10403d0890bc986f0033
+  Downloading https://files.pythonhosted.org/packages/cb/28/91f26bd088ce8e22169032100d4260614fc3da435025ff389ef1d396a433/pip-20.2.4-py2.py3-none-any.whl (1.5MB)
+Installing collected packages: pip
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-20.2.4
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Getting addons dependencies
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Collecting cachetools>=2.0.1
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading cachetools-3.1.1-py2.py3-none-any.whl (11 kB)
+Requirement already up-to-date: unittest2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.1.0)
+Requirement already satisfied, skipping upgrade: six>=1.4 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.10.0)
+Requirement already satisfied, skipping upgrade: traceback2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.4.0)
+Requirement already satisfied, skipping upgrade: argparse in /usr/lib/python2.7 (from unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.2.1)
+Requirement already satisfied, skipping upgrade: linecache2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from traceback2->unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.0.0)
+Installing collected packages: cachetools
+Successfully installed cachetools-3.1.1
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Collecting xlwt
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading xlwt-1.3.0-py2.py3-none-any.whl (99 kB)
+Collecting xlsxwriter
+  Downloading XlsxWriter-1.3.7-py2.py3-none-any.whl (144 kB)
+Collecting py3o.template
+  Downloading py3o.template-0.10.0.tar.gz (1.0 MB)
+Collecting py3o.formats
+  Downloading py3o.formats-0.3-py2-none-any.whl (4.4 kB)
+Requirement already satisfied, skipping upgrade: setuptools in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (12.0.5)
+Requirement already satisfied, skipping upgrade: six>=1.9 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (1.10.0)
+Requirement already satisfied, skipping upgrade: babel in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (2.3.4)
+Requirement already satisfied, skipping upgrade: lxml in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (3.5.0)
+Collecting genshi>=0.7
+  Downloading Genshi-0.7.5.tar.gz (266 kB)
+Collecting pyjon.utils>0.6
+  Downloading pyjon.utils-0.7-py2-none-any.whl (6.5 kB)
+Requirement already satisfied, skipping upgrade: Pillow in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (3.4.1)
+Requirement already satisfied, skipping upgrade: pytz>=0a in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from babel->py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (2016.7)
+Building wheels for collected packages: py3o.template, genshi
+  Building wheel for py3o.template (setup.py): started
+  Building wheel for py3o.template (setup.py): finished with status 'done'
+  Created wheel for py3o.template: filename=py3o.template-0.10.0-py2-none-any.whl size=613993 sha256=88cb2f855bf408da28682a0e7e6cddb76a90f6b1d8065aa7a564429c90813412
+  Stored in directory: /home/travis/.cache/pip/wheels/29/9e/a0/ba802b7a352ccefe825244b56b5372b6a67e40205e566a8f61
+  Building wheel for genshi (setup.py): started
+  Building wheel for genshi (setup.py): finished with status 'done'
+  Created wheel for genshi: filename=Genshi-0.7.5-cp27-none-linux_x86_64.whl size=185557 sha256=f4d33c7dae4aaa751059c7866f024633d662f3304c391403d42b0648440044cb
+  Stored in directory: /home/travis/.cache/pip/wheels/1e/10/a3/7601b2874c3b0a79ddfda79e6a1dcd26b575d0e79ec9d1c11f
+Successfully built py3o.template genshi
+Installing collected packages: xlwt, xlsxwriter, genshi, pyjon.utils, py3o.template, py3o.formats
+  Attempting uninstall: xlwt
+    Found existing installation: xlwt 1.1.2
+    Uninstalling xlwt-1.1.2:
+      Successfully uninstalled xlwt-1.1.2
+  Attempting uninstall: xlsxwriter
+    Found existing installation: XlsxWriter 0.9.3
+    Uninstalling XlsxWriter-0.9.3:
+      Successfully uninstalled XlsxWriter-0.9.3
+Successfully installed genshi-0.7.5 py3o.formats-0.3 py3o.template-0.10.0 pyjon.utils-0.7 xlsxwriter-1.3.7 xlwt-1.3.0
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Collecting python-ldap
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading python-ldap-3.3.1.tar.gz (379 kB)
+Collecting unidecode
+  Downloading Unidecode-1.1.1-py2.py3-none-any.whl (238 kB)
+Collecting acme_tiny
+  Downloading acme_tiny-4.1.0-py2.py3-none-any.whl (6.8 kB)
+Collecting IPy
+  Downloading IPy-1.00.tar.gz (35 kB)
+Collecting email_validator
+  Downloading email_validator-1.1.2-py2.py3-none-any.whl (17 kB)
+Collecting pyotp<2.4
+  Downloading pyotp-2.3.0-py2.py3-none-any.whl (10 kB)
+Collecting pysftp
+  Downloading pysftp-0.2.9.tar.gz (25 kB)
+Collecting fdb
+  Downloading fdb-2.0.1-py2.py3-none-any.whl (160 kB)
+Collecting sqlalchemy
+  Downloading SQLAlchemy-1.3.20-cp27-cp27mu-manylinux2010_x86_64.whl (1.2 MB)
+Collecting raven
+  Downloading raven-6.10.0-py2.py3-none-any.whl (284 kB)
+Collecting checksumdir
+  Downloading checksumdir-1.1.7.tar.gz (3.1 kB)
+Requirement already up-to-date: python-stdnum in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/server-tools/requirements.txt (line 12)) (1.14)
+Requirement already up-to-date: pyopenssl in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (19.1.0)
+Collecting odoorpc
+  Downloading OdooRPC-0.7.0-py2.py3-none-any.whl (42 kB)
+Collecting openupgradelib
+  Downloading openupgradelib-2.0.0.tar.gz (53 kB)
+Collecting pyasn1>=0.3.7
+  Downloading pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Collecting pyasn1_modules>=0.1.5
+  Downloading pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Collecting dnspython>=1.15.0
+  Downloading dnspython-1.16.0-py2.py3-none-any.whl (188 kB)
+Requirement already satisfied, skipping upgrade: idna>=2.0.0 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from email_validator->-r /home/travis/dependencies/server-tools/requirements.txt (line 5)) (2.7)
+Collecting paramiko>=1.17
+  Downloading paramiko-2.7.2-py2.py3-none-any.whl (206 kB)
+Collecting future>=0.16.0
+  Downloading future-0.18.2.tar.gz (829 kB)
+Collecting contextlib2; python_version < "3.2"
+  Downloading contextlib2-0.6.0.post1-py2.py3-none-any.whl (9.8 kB)
+Requirement already satisfied, skipping upgrade: six>=1.5.2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.10.0)
+Requirement already satisfied, skipping upgrade: cryptography>=2.8 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (3.2.1)
+Collecting bcrypt>=3.1.3
+  Downloading bcrypt-3.1.7-cp27-cp27mu-manylinux1_x86_64.whl (59 kB)
+Collecting pynacl>=1.0.1
+  Downloading PyNaCl-1.4.0-cp27-cp27mu-manylinux1_x86_64.whl (964 kB)
+Requirement already satisfied, skipping upgrade: cffi!=1.11.3,>=1.8 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.14.4)
+Requirement already satisfied, skipping upgrade: enum34; python_version < "3" in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.1.10)
+Requirement already satisfied, skipping upgrade: ipaddress; python_version < "3" in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.0.23)
+Requirement already satisfied, skipping upgrade: pycparser in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cffi!=1.11.3,>=1.8->cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (2.20)
+Building wheels for collected packages: python-ldap, IPy, pysftp, checksumdir, openupgradelib, future
+  Building wheel for python-ldap (setup.py): started
+  Building wheel for python-ldap (setup.py): finished with status 'done'
+  Created wheel for python-ldap: filename=python_ldap-3.3.1-cp27-none-linux_x86_64.whl size=275388 sha256=668266cb663a1b3b711b667ac660e49e4d1da3714ac1cb8a0a0cbecaaab3fb3d
+  Stored in directory: /home/travis/.cache/pip/wheels/49/ce/54/be503766a8177f97a00858751af232700e87785e93037d12ac
+  Building wheel for IPy (setup.py): started
+  Building wheel for IPy (setup.py): finished with status 'done'
+  Created wheel for IPy: filename=IPy-1.0-py2-none-any.whl size=23886 sha256=9a59774b5dbeffa9cd0935d323b39fd923a4019999ca73697ea690c66dfac857
+  Stored in directory: /home/travis/.cache/pip/wheels/2b/39/82/65aed76b9759f250b21e5eaf5eaff2a233a7f214ba47bf403d
+  Building wheel for pysftp (setup.py): started
+  Building wheel for pysftp (setup.py): finished with status 'done'
+  Created wheel for pysftp: filename=pysftp-0.2.9-py2-none-any.whl size=17696 sha256=9e09654b05dcfad6746342cf8a84a4f9f70db30163fdbaad5557afad68cd1f10
+  Stored in directory: /home/travis/.cache/pip/wheels/5c/fa/42/67db66025f7f2de3c82585f4fc6d9817de0b6c6012fc93a398
+  Building wheel for checksumdir (setup.py): started
+  Building wheel for checksumdir (setup.py): finished with status 'done'
+  Created wheel for checksumdir: filename=checksumdir-1.1.7-py2-none-any.whl size=5596 sha256=b1a5ab3c60b84d823e612d535ef8ac7212b94d6324c2bf9eda2449fcfc60c3c1
+  Stored in directory: /home/travis/.cache/pip/wheels/f2/ee/d8/f8f57f7721c30ee9935d7dd40401ec8e282c2d1895831c33dd
+  Building wheel for openupgradelib (setup.py): started
+  Building wheel for openupgradelib (setup.py): finished with status 'done'
+  Created wheel for openupgradelib: filename=openupgradelib-2.0.0-py2.py3-none-any.whl size=36849 sha256=31e1917877a7f2930eb79c74b00e4713ca00f664d88436d30f49dd1526d8c855
+  Stored in directory: /home/travis/.cache/pip/wheels/56/62/c0/d15f8f07dd0fd69383d6e657c233d9fe011725f3ff4dc4d48c
+  Building wheel for future (setup.py): started
+  Building wheel for future (setup.py): finished with status 'done'
+  Created wheel for future: filename=future-0.18.2-py2-none-any.whl size=504726 sha256=cd507de4a8ad9f6cea04967dfe3c190873b80de9f022cf60d194705bed6073ad
+  Stored in directory: /home/travis/.cache/pip/wheels/5f/11/0c/aad680baf5ef4fbcbab992c9f03e1130357e0c173a4fdabfff
+Successfully built python-ldap IPy pysftp checksumdir openupgradelib future
+Installing collected packages: pyasn1, pyasn1-modules, python-ldap, unidecode, acme-tiny, IPy, dnspython, email-validator, pyotp, bcrypt, pynacl, paramiko, pysftp, future, fdb, sqlalchemy, contextlib2, raven, checksumdir, odoorpc, openupgradelib
+  Attempting uninstall: paramiko
+    Found existing installation: paramiko 1.7.7.1
+    Not uninstalling paramiko at /usr/lib/python2.7/dist-packages, outside environment /home/travis/virtualenv/python2.7_with_system_site_packages
+    Can't uninstall 'paramiko'. No files were found to uninstall.
+Successfully installed IPy-1.0 acme-tiny-4.1.0 bcrypt-3.1.7 checksumdir-1.1.7 contextlib2-0.6.0.post1 dnspython-1.16.0 email-validator-1.1.2 fdb-2.0.1 future-0.18.2 odoorpc-0.7.0 openupgradelib-2.0.0 paramiko-2.7.2 pyasn1-0.4.8 pyasn1-modules-0.2.8 pynacl-1.4.0 pyotp-2.3.0 pysftp-0.2.9 python-ldap-3.3.1 raven-6.10.0 sqlalchemy-1.3.20 unidecode-1.1.1
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Requirement already up-to-date: python-stdnum in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/partner-contact/requirements.txt (line 1)) (1.14)
+Collecting suds
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading suds-0.4.tar.gz (104 kB)
+Collecting requests
+  Downloading requests-2.25.0-py2.py3-none-any.whl (61 kB)
+Collecting unicodecsv
+  Downloading unicodecsv-0.14.1.tar.gz (10 kB)
+Requirement already up-to-date: email_validator in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/partner-contact/requirements.txt (line 5)) (1.1.2)
+Requirement already satisfied, skipping upgrade: urllib3<1.27,>=1.21.1 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (1.24.3)
+Requirement already satisfied, skipping upgrade: idna<3,>=2.5 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (2.7)
+Requirement already satisfied, skipping upgrade: chardet<4,>=3.0.2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (3.0.4)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (2020.11.8)
+Requirement already satisfied, skipping upgrade: dnspython>=1.15.0 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from email_validator->-r /home/travis/dependencies/partner-contact/requirements.txt (line 5)) (1.16.0)
+Building wheels for collected packages: suds, unicodecsv
+  Building wheel for suds (setup.py): started
+  Building wheel for suds (setup.py): finished with status 'done'
+  Created wheel for suds: filename=suds-0.4-py2-none-any.whl size=290051 sha256=9f2f917147bd91104269951aed82c7c27f5d5861c020be53ca5ff9a1322cec63
+  Stored in directory: /home/travis/.cache/pip/wheels/16/1f/2b/ac835cbf5c6be07acaa55267c5cf3f1a709ff0a698ed62a6a4
+  Building wheel for unicodecsv (setup.py): started
+  Building wheel for unicodecsv (setup.py): finished with status 'done'
+  Created wheel for unicodecsv: filename=unicodecsv-0.14.1-py2-none-any.whl size=12316 sha256=ef62bfebf577ebd3bffea51555e3fda354dfc8f7bbc827e26b71a451c07078b9
+  Stored in directory: /home/travis/.cache/pip/wheels/55/3d/12/a2c6a68a7c6b63f31a4050a791bc2db54ee3e731e06c1e2b5b
+Successfully built suds unicodecsv
+Installing collected packages: suds, requests, unicodecsv
+  Attempting uninstall: requests
+    Found existing installation: requests 2.20.0
+    Uninstalling requests-2.20.0:
+      Successfully uninstalled requests-2.20.0
+Successfully installed requests-2.25.0 suds-0.4 unicodecsv-0.14.1
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Requirement already up-to-date: openupgradelib==2.0.0 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/stock-logistics-warehouse/requirements.txt (line 1)) (2.0.0)
+Collecting odoo-test-helper
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading odoo-test-helper-1.1.0.tar.gz (7.2 kB)
+Building wheels for collected packages: odoo-test-helper
+  Building wheel for odoo-test-helper (setup.py): started
+  Building wheel for odoo-test-helper (setup.py): finished with status 'done'
+  Created wheel for odoo-test-helper: filename=odoo_test_helper-1.1.0-py2.py3-none-any.whl size=7398 sha256=666257f547bc879e13847eb33b49878eda1995ed98003b693e4e2de39d6f3c91
+  Stored in directory: /home/travis/.cache/pip/wheels/39/01/91/e623db3e7af6611706e63e9463313ee844bbca934d21fcee2f
+Successfully built odoo-test-helper
+Installing collected packages: odoo-test-helper
+Successfully installed odoo-test-helper-1.1.0
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Collecting viivakoodi
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading viivakoodi-0.8.0.tar.gz (224 kB)
+Building wheels for collected packages: viivakoodi
+  Building wheel for viivakoodi (setup.py): started
+  Building wheel for viivakoodi (setup.py): finished with status 'done'
+  Created wheel for viivakoodi: filename=viivakoodi-0.8.0-py2-none-any.whl size=210741 sha256=7ee1b7a7baa5a9337f40e0453f3ed56ff826bea667ced740f164a2bafc1d3256
+  Stored in directory: /home/travis/.cache/pip/wheels/b8/61/0b/8a3d6bca28c46edf7cc7e8cdc9eccc6c78e75290358869b030
+Successfully built viivakoodi
+Installing collected packages: viivakoodi
+Successfully installed viivakoodi-0.8.0
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:387: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning,
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+Collecting coverage
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_vendor/urllib3/util/ssl_.py:142: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning,
+  Downloading coverage-5.3-cp27-cp27mu-manylinux1_x86_64.whl (226 kB)
+Installing collected packages: coverage
+Successfully installed coverage-5.3
+Content of /home/travis:
+total 64
+-rw-r--r--  1 travis travis  3775 Nov 26 22:21 apt-get-update.log
+drwxrwxrwx  1 root   root      28 Apr 30  2019 build
+drwxr-xr-x  2 travis travis    10 Feb  5  2015 builds
+drwxr-xr-x 28 travis travis  4096 Nov 26 22:24 dependencies
+-rw-r--r--  1 travis travis 52250 Nov 26 22:25 failed.log
+drwxr-xr-x  7 travis travis   264 Nov 26 22:21 maintainer-quality-tools
+drwxr-xr-x 10 travis travis  4096 Nov 26 22:22 OCB-10.0
+drwxr-xr-x  1 travis travis    57 Feb  5  2015 virtualenv
+Content of /home/travis/dependencies:
+total 108
+drwxr-xr-x  38 travis travis 4096 Nov 26 22:24 account-analytic
+drwxr-xr-x  15 travis travis 4096 Nov 26 22:24 account-closing
+drwxr-xr-x  15 travis travis 4096 Nov 26 22:23 account-financial-reporting
+drwxr-xr-x  57 travis travis 4096 Nov 26 22:24 account-financial-tools
+drwxr-xr-x  45 travis travis 4096 Nov 26 22:24 account-invoicing
+drwxr-xr-x  22 travis travis 4096 Nov 26 22:24 bank-payment
+drwxr-xr-x  10 travis travis 4096 Nov 26 22:23 connector
+drwxr-xr-x  32 travis travis 4096 Nov 26 22:24 crm
+drwxr-xr-x  83 travis travis 4096 Nov 26 22:24 hr
+drwxr-xr-x  22 travis travis 4096 Nov 26 22:23 hr-timesheet
+drwxr-xr-x  36 travis travis 4096 Nov 26 22:24 manufacture
+drwxr-xr-x  73 travis travis 4096 Nov 26 22:24 partner-contact
+drwxr-xr-x  52 travis travis 4096 Nov 26 22:24 product-attribute
+drwxr-xr-x  43 travis travis 4096 Nov 26 22:24 project
+drwxr-xr-x  63 travis travis 4096 Nov 26 22:24 purchase-workflow
+drwxr-xr-x   8 travis travis 4096 Nov 26 22:24 queue
+drwxr-xr-x  19 travis travis 4096 Nov 26 22:24 reporting-engine
+drwxr-xr-x  93 travis travis 4096 Nov 26 22:24 sale-workflow
+drwxr-xr-x 105 travis travis 4096 Nov 26 22:24 server-tools
+drwxr-xr-x  20 travis travis 4096 Nov 26 22:24 stock-logistics-barcode
+drwxr-xr-x  21 travis travis 4096 Nov 26 22:24 stock-logistics-tracking
+drwxr-xr-x  11 travis travis 4096 Nov 26 22:24 stock-logistics-transport
+drwxr-xr-x  64 travis travis 4096 Nov 26 22:24 stock-logistics-warehouse
+drwxr-xr-x  50 travis travis 4096 Nov 26 22:24 stock-logistics-workflow
+drwxr-xr-x  78 travis travis 4096 Nov 26 22:24 web
+drwxr-xr-x   6 travis travis  224 Nov 26 22:24 webkit-tools
+
+travis_time:end:0effe132:start=1606429275444045390,finish=1606429509694298942,duration=234250253552[0Ktravis_fold:end:install.4[0Ktravis_time:start:02a78d0a[0K$ travis_run_tests
+createdb: could not connect to database template1: could not connect to server: Connection refused
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+createdb: could not connect to database template1: could not connect to server: Connection refused
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+======== Testing test_server.py ========
+Working in /home/travis/build/failed/acsone/acsone-addons
+Using repo OCA/OCB and addons path /home/travis/build/failed/acsone/acsone-addons,/home/travis/dependencies/account-analytic,/home/travis/dependencies/account-closing,/home/travis/dependencies/account-financial-reporting,/home/travis/dependencies/account-financial-tools,/home/travis/dependencies/account-invoicing,/home/travis/dependencies/bank-payment,/home/travis/dependencies/connector,/home/travis/dependencies/crm,/home/travis/dependencies/hr,/home/travis/dependencies/hr-timesheet,/home/travis/dependencies/manufacture,/home/travis/dependencies/partner-contact,/home/travis/dependencies/product-attribute,/home/travis/dependencies/project,/home/travis/dependencies/purchase-workflow,/home/travis/dependencies/queue,/home/travis/dependencies/reporting-engine,/home/travis/dependencies/sale-workflow,/home/travis/dependencies/server-tools,/home/travis/dependencies/stock-logistics-barcode,/home/travis/dependencies/stock-logistics-warehouse,/home/travis/dependencies/stock-logistics-workflow,/home/travis/dependencies/web,/home/travis/OCB-10.0/addons
+Modules to test: ['pos_cagnotte_coupon']
+Modules to preinstall: ['web', 'product', 'base_setup', 'procurement', 'web_planner', 'bus', 'account', 'web_kanban', 'cagnotte_coupon', 'analytic', 'web_tour', 'point_of_sale', 'base', 'stock_account', 'report', 'mail', 'stock', 'decimal_precision', 'barcodes']
+
+Creating instance:
+Using previous openerp_template database.
+
+Testing ['pos_cagnotte_coupon']:
+unbuffer coverage run /home/travis/OCB-10.0/odoo-bin -d openerp_test --db-filter=^openerp_test$ --stop-after-init --log-level info --log-handler openerp.tools.yaml_import:DEBUG --test-enable --init pos_cagnotte_coupon
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/OpenSSL/crypto.py:12: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in a future release.
+from cryptography import x509
+2020-11-26 22:25:11,253 5147 [1;32m[1;49mINFO[0m ? odoo: Odoo version 10.0
+2020-11-26 22:25:11,253 5147 [1;32m[1;49mINFO[0m ? odoo: Using configuration file at /home/travis/.openerp_serverrc
+2020-11-26 22:25:11,253 5147 [1;32m[1;49mINFO[0m ? odoo: addons paths: ['/home/travis/data_dir/addons/10.0', u'/home/travis/build/failed/acsone/acsone-addons', u'/home/travis/dependencies/account-analytic', u'/home/travis/dependencies/account-closing', u'/home/travis/dependencies/account-financial-reporting', u'/home/travis/dependencies/account-financial-tools', u'/home/travis/dependencies/account-invoicing', u'/home/travis/dependencies/bank-payment', u'/home/travis/dependencies/connector', u'/home/travis/dependencies/crm', u'/home/travis/dependencies/hr', u'/home/travis/dependencies/hr-timesheet', u'/home/travis/dependencies/manufacture', u'/home/travis/dependencies/partner-contact', u'/home/travis/dependencies/product-attribute', u'/home/travis/dependencies/project', u'/home/travis/dependencies/purchase-workflow', u'/home/travis/dependencies/queue', u'/home/travis/dependencies/reporting-engine', u'/home/travis/dependencies/sale-workflow', u'/home/travis/dependencies/server-tools', u'/home/travis/dependencies/stock-logistics-barcode', u'/home/travis/dependencies/stock-logistics-warehouse', u'/home/travis/dependencies/stock-logistics-workflow', u'/home/travis/dependencies/web', u'/home/travis/OCB-10.0/addons', '/home/travis/OCB-10.0/odoo/addons']
+2020-11-26 22:25:11,254 5147 [1;32m[1;49mINFO[0m ? odoo: database: default@default:default
+2020-11-26 22:25:11,254 5147 [1;32m[1;49mINFO[0m ? odoo.sql_db: Connection to the database failed
+Traceback (most recent call last):
+File "/home/travis/OCB-10.0/odoo-bin", line 9, in <module>
+odoo.cli.main()
+File "/home/travis/OCB-10.0/odoo/cli/command.py", line 64, in main
+o.run(args)
+File "/home/travis/OCB-10.0/odoo/cli/server.py", line 175, in run
+main(args)
+File "/home/travis/OCB-10.0/odoo/cli/server.py", line 140, in main
+odoo.service.db._create_empty_database(db_name)
+File "/home/travis/OCB-10.0/odoo/service/db.py", line 82, in _create_empty_database
+with closing(db.cursor()) as cr:
+File "/home/travis/OCB-10.0/odoo/sql_db.py", line 638, in cursor
+return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+File "/home/travis/OCB-10.0/odoo/sql_db.py", line 177, in __init__
+self._cnx = pool.borrow(dsn)
+File "/home/travis/OCB-10.0/odoo/sql_db.py", line 521, in _locked
+return fun(self, *args, **kwargs)
+File "/home/travis/OCB-10.0/odoo/sql_db.py", line 589, in borrow
+**connection_info)
+File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/psycopg2/__init__.py", line 130, in connect
+conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+Is the server running locally and accepting
+connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+
+----------
+Message not found: 'Modules loaded.'
+----------
+('\x1b[1;31mFAIL\x1b[0;m', 'Command exited with code 1')
+('\x1b[1;31mFAIL\x1b[0;m', 'Found 1 lines with errors')
+Module test summary
+('\x1b[1;31mFAIL\x1b[0;m', 'pos_cagnotte_coupon')
+
++=======================================
+|  Tests summary:
+|---------------------------------------
+| test_server.py              [1;31mFAIL[0;m
++=======================================
+
+travis_time:end:02a78d0a:start=1606429509706336469,finish=1606429511422785035,duration=1716448566[0K
+[31;1mThe command "travis_run_tests" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:03e994f9[0K
+travis_time:end:03e994f9:start=1606429511435987767,finish=1606429511446470332,duration=10482565[0Ktravis_time:start:22b37875[0K/home/travis/.casher/bin/casher:190: warning: Insecure world writable dir /home/travis/build/failed/acsone/acsone-addons/. in PATH, mode 040777
+[32;1mchanges detected, packing new archive[0m
+/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:143:in `push'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+
+travis_time:end:22b37875:start=1606429511458505349,finish=1606429515312610002,duration=3854104653[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

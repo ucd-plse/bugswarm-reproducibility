@@ -1,0 +1,162 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/marshallward/f90nml
+travis_time:start:1709b5a1[0K$ source ~/virtualenv/python3.2/bin/activate
+
+travis_time:end:1709b5a1:start=1603996890432022051,finish=1603996890441913897,duration=9891846[0K$ python --version
+Python 3.2.5
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.2.5/lib/python3.2/site-packages (python 3.2)
+travis_fold:start:install.1[0Ktravis_time:start:02de3bfb[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install ordereddict==1.1; fi
+
+travis_time:end:02de3bfb:start=1603996890801675027,finish=1603996890810988584,duration=9313557[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:07df7ad0[0K$ pip install .
+Processing /home/travis/build/failed/marshallward/f90nml
+Installing collected packages: f90nml
+  Running setup.py install for f90nml
+Successfully installed f90nml-0.19
+
+travis_time:end:07df7ad0:start=1603996890822341681,finish=1603996893070830218,duration=2248488537[0Ktravis_fold:end:install.2[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:0f8e22b8[0K$ cd test
+
+travis_time:end:0f8e22b8:start=1603996893082619416,finish=1603996893092367795,duration=9748379[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:1f6f5a50[0K$ pip install -r requirements_test.txt
+Collecting coverage==3.7.1 (from -r requirements_test.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/09/4f/89b06c7fdc09687bca507dc411c342556ef9c5a3b26756137a4878ff19bf/coverage-3.7.1.tar.gz (284kB)
+Collecting coveralls (from -r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/18/41/818c8fae7c6295fdbaab45e2627fddb460e9a999aa1aea503ca0d9bf59d9/coveralls-2.1.2-py2.py3-none-any.whl
+Collecting docopt>=0.6.1 (from coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting requests>=1.0.0 (from coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl (61kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting certifi>=2017.4.17 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl (156kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/56/aa/4ef5aa67a9a62505db124a5cb5262332d1d4153462eb8fd89c9fa41e5d92/urllib3-1.25.11-py2.py3-none-any.whl (127kB)
+Collecting chardet<4,>=3.0.2 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Installing collected packages: chardet, urllib3, certifi, idna, requests, docopt, coveralls, coverage
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  Running setup.py install for docopt
+
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.2.5/include/python3.2mu -c coverage/tracer.c -o build/temp.linux-x86_64-3.2/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/3.2.5/lib -Wl,-rpath=/opt/python/3.2.5/lib build/temp.linux-x86_64-3.2/coverage/tracer.o -L/opt/python/3.2.5/lib -lpython3.2mu -o build/lib.linux-x86_64-3.2/coverage/tracer.cpython-32mu.so
+    Installing coverage3 script to /home/travis/virtualenv/python3.2.5/bin
+    Installing coverage-3.2 script to /home/travis/virtualenv/python3.2.5/bin
+    Installing coverage script to /home/travis/virtualenv/python3.2.5/bin
+Successfully installed certifi-2020.6.20 chardet-3.0.4 coverage-3.7.1 coveralls-2.1.2 docopt-0.6.2 idna-2.10 requests-2.24.0 urllib3-1.25.11
+
+travis_time:end:1f6f5a50:start=1603996893104313812,finish=1603996897815049258,duration=4710735446[0Ktravis_fold:end:before_script.2[0Ktravis_time:start:04b4c622[0K$ coverage run --source f90nml test_f90nml.py
+..........................E................
+======================================================================
+ERROR: test_multiline_index (__main__.Test)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_f90nml.py", line 386, in test_multiline_index
+    test_nml = f90nml.read('multiline_index.nml')
+  File "../f90nml/__init__.py", line 57, in read
+    return parser.read(nml_path)
+  File "../f90nml/parser.py", line 106, in read
+    nml_file = open(nml_fname, 'r') if nml_is_path else nml_fname
+IOError: [Errno 2] No such file or directory: 'multiline_index.nml'
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.137s
+
+FAILED (errors=1)
+
+travis_time:end:04b4c622:start=1603996897826404441,finish=1603996899486371018,duration=1659966577[0K
+[31;1mThe command "coverage run --source f90nml test_f90nml.py" exited with 1.[0m
+
+Done. Your build exited with 1.

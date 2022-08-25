@@ -1,0 +1,566 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd passed/zimmerman-zimmerman/OIPA
+travis_fold:start:services[0Ktravis_time:start:1b7376fa[0K$ sudo service elasticsearch start
+ * Starting Elasticsearch Server
+error: "Read-only file system" setting key "vm.max_map_count"
+   ...done.
+
+travis_time:end:1b7376fa:start=1605319966321342322,finish=1605319966356857263,duration=35514941[0Ktravis_fold:end:services[0Ktravis_fold:start:postgresql[0K[33;1mStarting PostgreSQL v9.4[0m
+travis_time:start:000f6f63[0K$ sudo service postgresql stop
+ * Stopping PostgreSQL 9.1 database server
+   ...done.
+ * Stopping PostgreSQL 9.2 database server
+   ...done.
+ * Stopping PostgreSQL 9.3 database server
+   ...done.
+ * Stopping PostgreSQL 9.4 database server
+   ...done.
+
+travis_time:end:000f6f63:start=1605319969370196567,finish=1605319970042576821,duration=672380254[0Ktravis_time:start:21c05cf3[0K$ sudo service postgresql start 9.4
+ * Starting PostgreSQL 9.4 database server
+   ...done.
+
+travis_time:end:21c05cf3:start=1605319970053500454,finish=1605319972330704255,duration=2277203801[0Ktravis_time:start:04686735[0K$ sudo -u postgres createuser -s -p 5432 travis &>/dev/null
+
+travis_time:end:04686735:start=1605319972339959085,finish=1605319972397270812,duration=57311727[0Ktravis_time:start:295f9dc8[0K$ sudo -u postgres createdb -O travis -p 5432 travis &>/dev/null
+
+travis_time:end:295f9dc8:start=1605319972407239521,finish=1605319972689138106,duration=281898585[0Ktravis_time:start:04777f16[0K$ sudo -u postgres createuser -s -p 5433 travis &>/dev/null
+
+travis_time:end:04777f16:start=1605319972699200062,finish=1605319972753633208,duration=54433146[0Ktravis_time:start:13647ca0[0K$ sudo -u postgres createdb -O travis -p 5433 travis &>/dev/null
+
+travis_time:end:13647ca0:start=1605319972763646583,finish=1605319972819650007,duration=56003424[0Ktravis_fold:end:postgresql[0Ktravis_time:start:001d83b0[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:001d83b0:start=1605319973015178139,finish=1605319973025509561,duration=10331422[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:1e089c60[0K$ Installing caching utilities
+
+travis_time:end:1e089c60:start=1605319973426368495,finish=1605319973485672364,duration=59303869[0Ktravis_time:start:150caf5a[0K
+travis_time:end:150caf5a:start=1605319973498384314,finish=1605319973507185457,duration=8801143[0Ktravis_time:start:1c04623e[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:1c04623e:start=1605319973517798944,finish=1605319974292855422,duration=775056478[0Ktravis_time:start:057bc850[0K
+travis_time:end:057bc850:start=1605319974303269769,finish=1605319974312235135,duration=8965366[0Ktravis_time:start:20d9c951[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:20d9c951:start=1605319974323025495,finish=1605319975099966907,duration=776941412[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:31c75cbe[0K$ pip install -r OIPA/requirements.txt
+Collecting git+git://github.com/gkuhn1/django-admin-multiupload.git (from -r OIPA/requirements.txt (line 30))
+  Cloning git://github.com/gkuhn1/django-admin-multiupload.git to /tmp/pip-vUDk2Q-build
+Collecting lxml==3.4.4 (from -r OIPA/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/63/c7/4f2a2a4ad6c6fa99b14be6b3c1cece9142e2d915aa7c43c908677afc8fa4/lxml-3.4.4.tar.gz (3.5MB)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'bugtrack_url'
+      warnings.warn(msg)
+    Building lxml version 3.4.4.
+    Building without Cython.
+    Using build configuration of libxslt 1.1.26
+    Building against libxml2/libxslt in the following directory: /usr/lib/x86_64-linux-gnu
+Collecting psycopg2==2.6.1 (from -r OIPA/requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/86/fd/cc8315be63a41fe000cce20482a917e874cdc1151e62cb0141f5e55f711e/psycopg2-2.6.1.tar.gz (371kB)
+Collecting django-debug-toolbar==1.3.2 (from -r OIPA/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/b2/16/67eeeb95cc02f1d068d25282444052836d4be4274c941fe21b7c5ea7a8fd/django_debug_toolbar-1.3.2-py2.py3-none-any.whl (206kB)
+Collecting Django==1.8.4 (from -r OIPA/requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/7e/c3/2574a681af30d99b8fd60008c3e56f4ab0acad2af70fea6c135b8bff60a2/Django-1.8.4-py2.py3-none-any.whl (6.2MB)
+Collecting python-dateutil==2.2 (from -r OIPA/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/75/c5/85d027471fa665f8c8b8eb0b925f9d84b4eee745a257b16de4957de99e81/python-dateutil-2.2.tar.gz (259kB)
+Collecting defusedxml==0.4.1 (from -r OIPA/requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/09/3b/b1afa9649f48517d027e99413fec54f387f648c90156b3cf6451c8cd45f9/defusedxml-0.4.1.tar.gz (48kB)
+Collecting contexttimer==0.3.0 (from -r OIPA/requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/00/b7/0d2b64022fd14a76c2eb3e82ae6d7fe4aac5ab3fab652686aa02b24759bd/contexttimer-0.3.0.tar.gz
+Collecting mechanize==0.2.5 (from -r OIPA/requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/32/bc/d5b44fe4a3b5079f035240a7c76bd0c71a60c6082f4bfcb1c7585604aa35/mechanize-0.2.5.tar.gz (383kB)
+Collecting django-suit==0.2.14 (from -r OIPA/requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/ef/ec/44c2392311d66aabb0e0ab71d418608729fc40dccdde0c85e3ff81b90fae/django-suit-0.2.14.tar.gz (1.4MB)
+Collecting objgraph==1.8.1 (from -r OIPA/requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/09/20/6d58b4f659212e1b3adae0d52efc430d395cc79828b6a45a2ece3f4e8fed/objgraph-1.8.1.tar.gz (549kB)
+Collecting guppy==0.1.10 (from -r OIPA/requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/2b/b0/8614c981bc40c10ec4e24a7428e998d05d11e4b9680c718952207ff63a26/guppy-0.1.10.tar.gz (484kB)
+Collecting ujson==1.33 (from -r OIPA/requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/98/8c/47949a4e454b7ee27cf82a81735414187368fb94bae94de0291903c9881b/ujson-1.33.zip (197kB)
+Collecting redis==2.10.3 (from -r OIPA/requirements.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/37/a8/42e2f2785339cd0a4b4f42316b767ccbf68acf05eb1ba20d737599cccecd/redis-2.10.3.tar.gz (86kB)
+Collecting rq==0.4.6 (from -r OIPA/requirements.txt (line 14))
+  Downloading https://files.pythonhosted.org/packages/b1/27/2cbca4255e6efed0b389ea7e5aed7cfe24662bc4d4bc295e8fb60bf414f5/rq-0.4.6-py2.py3-none-any.whl (43kB)
+Collecting rq-scheduler==0.5.0 (from -r OIPA/requirements.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/4a/0e/5b7d9460be830af0a3e99c337b7198b3a677417e03c68497e15775fca13a/rq-scheduler-0.5.0.tar.gz
+Collecting django-rq==0.7.0 (from -r OIPA/requirements.txt (line 16))
+  Downloading https://files.pythonhosted.org/packages/12/61/874eb0a36fd972d83f038ad564277753f97b3c81ede6cd231d3d16f3511a/django-rq-0.7.0.tar.gz
+Collecting supervisor==3.1.3 (from -r OIPA/requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/a6/41/65ad5bd66230b173eb4d0b8810230f3a9c59ef52ae066e540b6b99895db7/supervisor-3.1.3.tar.gz (391kB)
+Collecting django-supervisor==0.3.2 (from -r OIPA/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/65/01/bcb90600985a497274af93fde9d2a6cdacbeb6bb82e9cd45d8fc002a56e7/django-supervisor-0.3.2.tar.gz
+Collecting djangorestframework==3.2.3 (from -r OIPA/requirements.txt (line 19))
+  Downloading https://files.pythonhosted.org/packages/34/24/7d7e7c93325fccd101e5b6bed62c01992b047763e608f8fdde842c6fc568/djangorestframework-3.2.3-py2.py3-none-any.whl (515kB)
+Collecting django-cors-headers==0.11 (from -r OIPA/requirements.txt (line 20))
+  Downloading https://files.pythonhosted.org/packages/fe/12/a1fb0f5808a66c1fda5ecd3270015895a713417d7c599a513008360d8fad/django-cors-headers-0.11.tar.gz
+Collecting django-filter==0.11.0 (from -r OIPA/requirements.txt (line 21))
+  Downloading https://files.pythonhosted.org/packages/3f/c0/04e6fcdf9bd63fb381db12037a2cc1be2d322c5cb6a1e61544dac1308285/django_filter-0.11.0-py2.py3-none-any.whl
+Collecting markdown==2.6.2 (from -r OIPA/requirements.txt (line 22))
+  Downloading https://files.pythonhosted.org/packages/59/bf/6bce4d6d91d25eaa58d8e88d8994b2b603ed1b223b25a92f68c3fd0e8fd9/Markdown-2.6.2-py2.py3-none-any.whl (157kB)
+Collecting django-otp==0.3.1 (from -r OIPA/requirements.txt (line 23))
+  Downloading https://files.pythonhosted.org/packages/e8/25/68c7a5e186da2723fbe2a6f50a95ed91c026c716f74ba5f2731a6463b04c/django-otp-0.3.1.tar.gz
+Collecting django-otp-yubikey==0.3.1 (from -r OIPA/requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/22/fd/0ae631b9ce401e46b1860df6d37fab84b72ec8febeced5e99f74556ac1c7/django-otp-yubikey-0.3.1.tar.gz
+Collecting django-two-factor-auth==1.2.0 (from -r OIPA/requirements.txt (line 25))
+  Downloading https://files.pythonhosted.org/packages/88/c2/d3080818cdb0ef57bc553260cb51d8bc16cf5e8c0d793cd7772be11a8800/django_two_factor_auth-1.2.0-py2.py3-none-any.whl (137kB)
+Collecting django-formtools==1.0 (from -r OIPA/requirements.txt (line 26))
+  Downloading https://files.pythonhosted.org/packages/c7/14/a1b162c1ceeba8b5276fb0905d3bfdb996b2fdaa8279ff26a677a7259727/django_formtools-1.0-py2.py3-none-any.whl (132kB)
+Collecting django-haystack==2.4.0 (from -r OIPA/requirements.txt (line 27))
+  Downloading https://files.pythonhosted.org/packages/ea/5a/161abe73efb58a11217491d714b0f62de11468bea82fee6de3e42660a462/django-haystack-2.4.0.tar.gz (160kB)
+Collecting elasticsearch==1.7.0 (from -r OIPA/requirements.txt (line 28))
+  Downloading https://files.pythonhosted.org/packages/47/79/1b5574b0417de61392f04c0742aaed0977f6fd246be3cb377907b0d1e3ce/elasticsearch-1.7.0-py2.py3-none-any.whl (58kB)
+Collecting django-nested-inline==0.3.5 (from -r OIPA/requirements.txt (line 29))
+  Downloading https://files.pythonhosted.org/packages/45/f9/2729ab8abfe99420f092f2dc9e4a5f7b5ea234cfecbafad34496855ac3c1/django-nested-inline-0.3.5.tar.gz
+Collecting django-grappelli==2.7.2 (from -r OIPA/requirements.txt (line 31))
+  Downloading https://files.pythonhosted.org/packages/21/d8/6056cd89c49d1e0f254d8f7ee58c2461bf348e30edd2516ce4862fa691a8/django-grappelli-2.7.2.tar.gz (2.3MB)
+Collecting sqlparse (from django-debug-toolbar==1.3.2->-r OIPA/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a2/54/da10f9a0235681179144a5ca02147428f955745e9393f859dec8d0d05b41/sqlparse-0.4.1.tar.gz (67kB)
+Collecting six (from python-dateutil==2.2->-r OIPA/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting meld3>=0.6.5 (from supervisor==3.1.3->-r OIPA/requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/d8/5b/65a655a1090d98c8d604ac9e97d5df3a2ae276f881d4e2911ba38800f2ed/meld3-2.0.1-py2.py3-none-any.whl
+Collecting watchdog (from django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/0e/06/121302598a4fc01aca942d937f4a2c33430b7181137b35758913a8db10ad/watchdog-0.10.3.tar.gz (94kB)
+Collecting YubiOTP>=0.2.1 (from django-otp-yubikey==0.3.1->-r OIPA/requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/3b/d2/80f6582e4a94c0ed07ca6d3921276a19a4479a19c3600132d2b272039044/YubiOTP-1.0.0.post1-py2.py3-none-any.whl
+Collecting qrcode<4.99,>=4.0.0 (from django-two-factor-auth==1.2.0->-r OIPA/requirements.txt (line 25))
+  Downloading https://files.pythonhosted.org/packages/bb/33/76a698147ecafc258c070eb36193399a4db05e19d43828f1519864a2cbf0/qrcode-4.0.4.tar.gz
+Collecting urllib3<2.0,>=1.8 (from elasticsearch==1.7.0->-r OIPA/requirements.txt (line 28))
+  Downloading https://files.pythonhosted.org/packages/f5/71/45d36a8df68f3ebb098d6861b2c017f3d094538c0fb98fa61d4dc43e69b9/urllib3-1.26.2-py2.py3-none-any.whl (136kB)
+Collecting pathtools>=0.1.1 (from watchdog->django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/e7/7f/470d6fcdf23f9f3518f6b0b76be9df16dcc8630ad409947f8be2eb0ed13a/pathtools-0.1.2.tar.gz
+Collecting pycryptodome (from YubiOTP>=0.2.1->django-otp-yubikey==0.3.1->-r OIPA/requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/c4/3a/5bca2cb1648b171afd6b7d29a11c6bca8b305bb75b7e2d78a0f5c61ff95e/pycryptodome-3.9.9.tar.gz (15.5MB)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    Testing support for clang
+    Target does not support clang
+    Testing support for gcc
+    Target does support gcc
+    Testing support for stdint.h header
+    Target does support stdint.h header
+    Testing support for 128-bit integer
+    Target does support 128-bit integer
+    Testing support for cpuid.h header
+    Target does support cpuid.h header
+    Testing support for intrin.h header
+    Target does not support intrin.h header
+    Testing support for posix_memalign
+    Target does support posix_memalign
+    Testing support for SSE2(intrin.h)
+    Target does not support SSE2(intrin.h)
+    Testing support for SSE2(x86intrin.h)
+    Target does support SSE2(x86intrin.h)
+    Testing support for AESNI intrinsics
+    Target does support AESNI intrinsics
+    Compiling support for AESNI instructions
+    Testing support for CLMUL intrinsics
+    Target does support CLMUL intrinsics
+    Compiling support for CLMUL instructions
+Installing collected packages: pycryptodome, pathtools, urllib3, qrcode, YubiOTP, watchdog, meld3, six, sqlparse, admin-multiupload, django-grappelli, django-nested-inline, elasticsearch, django-haystack, django-formtools, django-two-factor-auth, django-otp-yubikey, django-otp, markdown, django-filter, django-cors-headers, djangorestframework, django-supervisor, supervisor, django-rq, rq-scheduler, rq, redis, ujson, guppy, objgraph, django-suit, mechanize, contexttimer, defusedxml, python-dateutil, Django, django-debug-toolbar, psycopg2, lxml
+  Running setup.py install for pycryptodome
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    Testing support for clang
+    Target does not support clang
+    Testing support for gcc
+    Target does support gcc
+    Testing support for stdint.h header
+    Target does support stdint.h header
+    Testing support for 128-bit integer
+    Target does support 128-bit integer
+    Testing support for cpuid.h header
+    Target does support cpuid.h header
+    Testing support for intrin.h header
+    Target does not support intrin.h header
+    Testing support for posix_memalign
+    Target does support posix_memalign
+    Testing support for SSE2(intrin.h)
+    Target does not support SSE2(intrin.h)
+    Testing support for SSE2(x86intrin.h)
+    Target does support SSE2(x86intrin.h)
+    Testing support for AESNI intrinsics
+    Target does support AESNI intrinsics
+    Compiling support for AESNI instructions
+    Testing support for CLMUL intrinsics
+    Target does support CLMUL intrinsics
+    Compiling support for CLMUL instructions
+    building 'Crypto.Hash._MD2' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD2.c -o build/temp.linux-x86_64-2.7/src/MD2.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD2.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD2.so
+    building 'Crypto.Hash._MD4' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD4.c -o build/temp.linux-x86_64-2.7/src/MD4.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD4.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD4.so
+    building 'Crypto.Hash._MD5' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD5.c -o build/temp.linux-x86_64-2.7/src/MD5.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD5.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD5.so
+    building 'Crypto.Hash._SHA1' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA1.c -o build/temp.linux-x86_64-2.7/src/SHA1.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA1.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA1.so
+    building 'Crypto.Hash._SHA256' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA256.c -o build/temp.linux-x86_64-2.7/src/SHA256.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA256.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA256.so
+    building 'Crypto.Hash._SHA224' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA224.c -o build/temp.linux-x86_64-2.7/src/SHA224.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA224.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA224.so
+    building 'Crypto.Hash._SHA384' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA384.c -o build/temp.linux-x86_64-2.7/src/SHA384.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA384.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA384.so
+    building 'Crypto.Hash._SHA512' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA512.c -o build/temp.linux-x86_64-2.7/src/SHA512.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA512.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA512.so
+    building 'Crypto.Hash._RIPEMD160' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/RIPEMD160.c -o build/temp.linux-x86_64-2.7/src/RIPEMD160.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/RIPEMD160.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_RIPEMD160.so
+    building 'Crypto.Hash._keccak' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/keccak.c -o build/temp.linux-x86_64-2.7/src/keccak.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/keccak.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_keccak.so
+    building 'Crypto.Hash._BLAKE2b' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/blake2b.c -o build/temp.linux-x86_64-2.7/src/blake2b.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/blake2b.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_BLAKE2b.so
+    building 'Crypto.Hash._BLAKE2s' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/blake2s.c -o build/temp.linux-x86_64-2.7/src/blake2s.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/blake2s.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_BLAKE2s.so
+    building 'Crypto.Hash._ghash_portable' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ghash_portable.c -o build/temp.linux-x86_64-2.7/src/ghash_portable.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ghash_portable.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_ghash_portable.so
+    building 'Crypto.Hash._ghash_clmul' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_WMMINTRIN_H -DHAVE_TMMINTRIN_H -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ghash_clmul.c -o build/temp.linux-x86_64-2.7/src/ghash_clmul.o -mpclmul -mssse3 -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ghash_clmul.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_ghash_clmul.so
+    building 'Crypto.Hash._poly1305' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/poly1305.c -o build/temp.linux-x86_64-2.7/src/poly1305.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/poly1305.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Hash/_poly1305.so
+    building 'Crypto.Cipher._raw_aes' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/AES.c -o build/temp.linux-x86_64-2.7/src/AES.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/AES.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_aes.so
+    building 'Crypto.Cipher._raw_aesni' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/AESNI.c -o build/temp.linux-x86_64-2.7/src/AESNI.o -maes -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/AESNI.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_aesni.so
+    building 'Crypto.Cipher._raw_arc2' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ARC2.c -o build/temp.linux-x86_64-2.7/src/ARC2.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ARC2.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_arc2.so
+    building 'Crypto.Cipher._raw_blowfish' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/blowfish.c -o build/temp.linux-x86_64-2.7/src/blowfish.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/blowfish.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_blowfish.so
+    building 'Crypto.Cipher._raw_eksblowfish' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DEKS -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/blowfish.c -o build/temp.linux-x86_64-2.7/src/blowfish.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/blowfish.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_eksblowfish.so
+    building 'Crypto.Cipher._raw_cast' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/CAST.c -o build/temp.linux-x86_64-2.7/src/CAST.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/CAST.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_cast.so
+    building 'Crypto.Cipher._raw_des' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/DES.c -o build/temp.linux-x86_64-2.7/src/DES.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/DES.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_des.so
+    building 'Crypto.Cipher._raw_des3' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/DES3.c -o build/temp.linux-x86_64-2.7/src/DES3.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/DES3.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_des3.so
+    building 'Crypto.Util._cpuid_c' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/cpuid.c -o build/temp.linux-x86_64-2.7/src/cpuid.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/cpuid.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Util/_cpuid_c.so
+    building 'Crypto.Cipher._raw_ecb' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/raw_ecb.c -o build/temp.linux-x86_64-2.7/src/raw_ecb.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/raw_ecb.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_ecb.so
+    building 'Crypto.Cipher._raw_cbc' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/raw_cbc.c -o build/temp.linux-x86_64-2.7/src/raw_cbc.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/raw_cbc.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_cbc.so
+    building 'Crypto.Cipher._raw_cfb' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/raw_cfb.c -o build/temp.linux-x86_64-2.7/src/raw_cfb.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/raw_cfb.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_cfb.so
+    building 'Crypto.Cipher._raw_ofb' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/raw_ofb.c -o build/temp.linux-x86_64-2.7/src/raw_ofb.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/raw_ofb.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_ofb.so
+    building 'Crypto.Cipher._raw_ctr' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/raw_ctr.c -o build/temp.linux-x86_64-2.7/src/raw_ctr.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/raw_ctr.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_ctr.so
+    building 'Crypto.Cipher._raw_ocb' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -I/opt/python/2.7.9/include/python2.7 -c src/raw_ocb.c -o build/temp.linux-x86_64-2.7/src/raw_ocb.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/raw_ocb.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_raw_ocb.so
+    building 'Crypto.Cipher._ARC4' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ARC4.c -o build/temp.linux-x86_64-2.7/src/ARC4.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ARC4.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_ARC4.so
+    building 'Crypto.Cipher._Salsa20' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/Salsa20.c -o build/temp.linux-x86_64-2.7/src/Salsa20.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/Salsa20.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_Salsa20.so
+    building 'Crypto.Cipher._chacha20' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/chacha20.c -o build/temp.linux-x86_64-2.7/src/chacha20.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/chacha20.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_chacha20.so
+    building 'Crypto.Protocol._scrypt' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/scrypt.c -o build/temp.linux-x86_64-2.7/src/scrypt.o -msse2
+    src/scrypt.c: In function ‘scryptBlockMix’:
+    src/scrypt.c:92:11: warning: assignment from incompatible pointer type [enabled by default]
+    src/scrypt.c: In function ‘scryptROMix’:
+    src/scrypt.c:137:9: warning: passing argument 1 of ‘scryptBlockMix’ from incompatible pointer type [enabled by default]
+    src/scrypt.c:77:13: note: expected ‘const uint8_t (*)[64]’ but argument is of type ‘uint8_t (*)[64]’
+    src/scrypt.c:151:9: warning: passing argument 1 of ‘scryptBlockMix’ from incompatible pointer type [enabled by default]
+    src/scrypt.c:77:13: note: expected ‘const uint8_t (*)[64]’ but argument is of type ‘uint8_t (*)[64]’
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/scrypt.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Protocol/_scrypt.so
+    building 'Crypto.Util._strxor' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/strxor.c -o build/temp.linux-x86_64-2.7/src/strxor.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/strxor.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Util/_strxor.so
+    building 'Crypto.PublicKey._ec_ws' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/modexp_utils.c -o build/temp.linux-x86_64-2.7/src/modexp_utils.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/siphash.c -o build/temp.linux-x86_64-2.7/src/siphash.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ec_ws.c -o build/temp.linux-x86_64-2.7/src/ec_ws.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/mont.c -o build/temp.linux-x86_64-2.7/src/mont.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/p256_table.c -o build/temp.linux-x86_64-2.7/src/p256_table.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/p384_table.c -o build/temp.linux-x86_64-2.7/src/p384_table.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/p521_table.c -o build/temp.linux-x86_64-2.7/src/p521_table.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/modexp_utils.o build/temp.linux-x86_64-2.7/src/siphash.o build/temp.linux-x86_64-2.7/src/ec_ws.o build/temp.linux-x86_64-2.7/src/mont.o build/temp.linux-x86_64-2.7/src/p256_table.o build/temp.linux-x86_64-2.7/src/p384_table.o build/temp.linux-x86_64-2.7/src/p521_table.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/PublicKey/_ec_ws.so
+    building 'Crypto.Math._modexp' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/modexp.c -o build/temp.linux-x86_64-2.7/src/modexp.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/siphash.c -o build/temp.linux-x86_64-2.7/src/siphash.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/modexp_utils.c -o build/temp.linux-x86_64-2.7/src/modexp_utils.o -msse2
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DHAVE_STDINT_H -DPYCRYPTO_LITTLE_ENDIAN -DSYS_BITS=64 -DLTC_NO_ASM -DHAVE_UINT128 -DHAVE_CPUID_H -DHAVE_POSIX_MEMALIGN -DHAVE_X86INTRIN_H -DUSE_SSE2 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/mont.c -o build/temp.linux-x86_64-2.7/src/mont.o -msse2
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/modexp.o build/temp.linux-x86_64-2.7/src/siphash.o build/temp.linux-x86_64-2.7/src/modexp_utils.o build/temp.linux-x86_64-2.7/src/mont.o -L/opt/python/2.7.9/lib -o build/lib.linux-x86_64-2.7/Crypto/Math/_modexp.so
+  Running setup.py install for pathtools
+
+  Running setup.py install for qrcode
+    changing mode of build/scripts-2.7/qr from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/qr to 755
+
+  Running setup.py install for watchdog
+    Installing watchmedo script to /home/travis/virtualenv/python2.7.9/bin
+
+
+  Running setup.py install for sqlparse
+  Running setup.py install for admin-multiupload
+  Running setup.py install for django-grappelli
+  Running setup.py install for django-nested-inline
+
+  Running setup.py install for django-haystack
+
+
+  Running setup.py install for django-otp-yubikey
+  Running setup.py install for django-otp
+
+
+  Running setup.py install for django-cors-headers
+
+  Running setup.py install for django-supervisor
+  Running setup.py install for supervisor
+    Skipping installation of /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/supervisor/__init__.py (namespace package)
+    Installing /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/supervisor-3.1.3-py2.7-nspkg.pth
+    Installing echo_supervisord_conf script to /home/travis/virtualenv/python2.7.9/bin
+    Installing pidproxy script to /home/travis/virtualenv/python2.7.9/bin
+    Installing supervisorctl script to /home/travis/virtualenv/python2.7.9/bin
+    Installing supervisord script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for django-rq
+  Running setup.py install for rq-scheduler
+    Installing rqscheduler script to /home/travis/virtualenv/python2.7.9/bin
+
+  Running setup.py install for redis
+  Running setup.py install for ujson
+    building 'ujson' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./python/ujson.c -o build/temp.linux-x86_64-2.7/./python/ujson.o -D_GNU_SOURCE
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./python/objToJSON.c -o build/temp.linux-x86_64-2.7/./python/objToJSON.o -D_GNU_SOURCE
+    ./python/objToJSON.c:94:14: warning: ‘PyIntToINT32’ defined but not used [-Wunused-function]
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./python/JSONtoObj.c -o build/temp.linux-x86_64-2.7/./python/JSONtoObj.o -D_GNU_SOURCE
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./lib/ultrajsonenc.c -o build/temp.linux-x86_64-2.7/./lib/ultrajsonenc.o -D_GNU_SOURCE
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./lib/ultrajsondec.c -o build/temp.linux-x86_64-2.7/./lib/ultrajsondec.o -D_GNU_SOURCE
+    ./lib/ultrajsondec.c:78:13: warning: ‘ClearError’ defined but not used [-Wunused-function]
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/./python/ujson.o build/temp.linux-x86_64-2.7/./python/objToJSON.o build/temp.linux-x86_64-2.7/./python/JSONtoObj.o build/temp.linux-x86_64-2.7/./lib/ultrajsonenc.o build/temp.linux-x86_64-2.7/./lib/ultrajsondec.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/ujson.so
+  Running setup.py install for guppy
+    building 'guppy.sets.setsc' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/sets/sets.c -o build/temp.linux-x86_64-2.7/src/sets/sets.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/sets/bitset.c -o build/temp.linux-x86_64-2.7/src/sets/bitset.o
+    src/sets/bitset.c: In function ‘mutbitset_findpos_ins’:
+    src/sets/bitset.c:1241:14: warning: variable ‘lo’ set but not used [-Wunused-but-set-variable]
+    src/sets/bitset.c: In function ‘mutbitset_iop_PyLongObject’:
+    src/sets/bitset.c:2021:2: warning: passing argument 1 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘struct PyLongObject *’ but argument is of type ‘struct PyObject *’
+    src/sets/bitset.c:2021:2: warning: passing argument 2 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘Py_ssize_t *’ but argument is of type ‘int *’
+    src/sets/bitset.c:2034:2: warning: passing argument 1 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘struct PyLongObject *’ but argument is of type ‘struct PyObject *’
+    src/sets/bitset.c:2034:2: warning: passing argument 2 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘Py_ssize_t *’ but argument is of type ‘int *’
+    src/sets/bitset.c: In function ‘NyImmBitSet_Range’:
+    src/sets/bitset.c:4546:26: warning: variable ‘fhi’ set but not used [-Wunused-but-set-variable]
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/sets/nodeset.c -o build/temp.linux-x86_64-2.7/src/sets/nodeset.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/sets/sets.o build/temp.linux-x86_64-2.7/src/sets/bitset.o build/temp.linux-x86_64-2.7/src/sets/nodeset.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/guppy/sets/setsc.so
+    building 'guppy.heapy.heapyc' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/heapy/heapyc.c -o build/temp.linux-x86_64-2.7/src/heapy/heapyc.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/heapy/stdtypes.c -o build/temp.linux-x86_64-2.7/src/heapy/stdtypes.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/heapy/heapyc.o build/temp.linux-x86_64-2.7/src/heapy/stdtypes.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/guppy/heapy/heapyc.so
+  Running setup.py install for objgraph
+  Running setup.py install for django-suit
+  Running setup.py install for mechanize
+  Running setup.py install for contexttimer
+  Running setup.py install for defusedxml
+  Running setup.py install for python-dateutil
+
+
+  Running setup.py install for psycopg2
+    building 'psycopg2._psycopg' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/psycopgmodule.c -o build/temp.linux-x86_64-2.7/psycopg/psycopgmodule.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/green.c -o build/temp.linux-x86_64-2.7/psycopg/green.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/pqpath.c -o build/temp.linux-x86_64-2.7/psycopg/pqpath.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/utils.c -o build/temp.linux-x86_64-2.7/psycopg/utils.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/bytes_format.c -o build/temp.linux-x86_64-2.7/psycopg/bytes_format.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/connection_int.c -o build/temp.linux-x86_64-2.7/psycopg/connection_int.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/connection_type.c -o build/temp.linux-x86_64-2.7/psycopg/connection_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/cursor_int.c -o build/temp.linux-x86_64-2.7/psycopg/cursor_int.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/cursor_type.c -o build/temp.linux-x86_64-2.7/psycopg/cursor_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/diagnostics_type.c -o build/temp.linux-x86_64-2.7/psycopg/diagnostics_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/error_type.c -o build/temp.linux-x86_64-2.7/psycopg/error_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/lobject_int.c -o build/temp.linux-x86_64-2.7/psycopg/lobject_int.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/lobject_type.c -o build/temp.linux-x86_64-2.7/psycopg/lobject_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/notify_type.c -o build/temp.linux-x86_64-2.7/psycopg/notify_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/xid_type.c -o build/temp.linux-x86_64-2.7/psycopg/xid_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_asis.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_asis.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_binary.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_binary.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_datetime.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_datetime.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_list.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_list.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pboolean.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pboolean.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pdecimal.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pdecimal.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pint.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pint.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pfloat.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pfloat.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_qstring.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_qstring.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/microprotocols.c -o build/temp.linux-x86_64-2.7/psycopg/microprotocols.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/microprotocols_proto.c -o build/temp.linux-x86_64-2.7/psycopg/microprotocols_proto.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/typecast.c -o build/temp.linux-x86_64-2.7/psycopg/typecast.o -Wdeclaration-after-statement
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/psycopg/psycopgmodule.o build/temp.linux-x86_64-2.7/psycopg/green.o build/temp.linux-x86_64-2.7/psycopg/pqpath.o build/temp.linux-x86_64-2.7/psycopg/utils.o build/temp.linux-x86_64-2.7/psycopg/bytes_format.o build/temp.linux-x86_64-2.7/psycopg/connection_int.o build/temp.linux-x86_64-2.7/psycopg/connection_type.o build/temp.linux-x86_64-2.7/psycopg/cursor_int.o build/temp.linux-x86_64-2.7/psycopg/cursor_type.o build/temp.linux-x86_64-2.7/psycopg/diagnostics_type.o build/temp.linux-x86_64-2.7/psycopg/error_type.o build/temp.linux-x86_64-2.7/psycopg/lobject_int.o build/temp.linux-x86_64-2.7/psycopg/lobject_type.o build/temp.linux-x86_64-2.7/psycopg/notify_type.o build/temp.linux-x86_64-2.7/psycopg/xid_type.o build/temp.linux-x86_64-2.7/psycopg/adapter_asis.o build/temp.linux-x86_64-2.7/psycopg/adapter_binary.o build/temp.linux-x86_64-2.7/psycopg/adapter_datetime.o build/temp.linux-x86_64-2.7/psycopg/adapter_list.o build/temp.linux-x86_64-2.7/psycopg/adapter_pboolean.o build/temp.linux-x86_64-2.7/psycopg/adapter_pdecimal.o build/temp.linux-x86_64-2.7/psycopg/adapter_pint.o build/temp.linux-x86_64-2.7/psycopg/adapter_pfloat.o build/temp.linux-x86_64-2.7/psycopg/adapter_qstring.o build/temp.linux-x86_64-2.7/psycopg/microprotocols.o build/temp.linux-x86_64-2.7/psycopg/microprotocols_proto.o build/temp.linux-x86_64-2.7/psycopg/typecast.o -L/opt/python/2.7.9/lib -L/usr/lib/x86_64-linux-gnu -lpython2.7 -lpq -o build/lib.linux-x86_64-2.7/psycopg2/_psycopg.so
+  Running setup.py install for lxml
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'bugtrack_url'
+      warnings.warn(msg)
+    Building lxml version 3.4.4.
+    Building without Cython.
+    Using build configuration of libxslt 1.1.26
+    Building against libxml2/libxslt in the following directory: /usr/lib/x86_64-linux-gnu
+    building 'lxml.etree' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/include/libxml2 -I/tmp/pip-build-xvik79/lxml/src/lxml/includes -I/opt/python/2.7.9/include/python2.7 -c src/lxml/lxml.etree.c -o build/temp.linux-x86_64-2.7/src/lxml/lxml.etree.o -w
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/lxml/lxml.etree.o -L/usr/lib/x86_64-linux-gnu -L/opt/python/2.7.9/lib -lxslt -lexslt -lxml2 -lz -lm -lpython2.7 -o build/lib.linux-x86_64-2.7/lxml/etree.so
+    building 'lxml.objectify' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/include/libxml2 -I/tmp/pip-build-xvik79/lxml/src/lxml/includes -I/opt/python/2.7.9/include/python2.7 -c src/lxml/lxml.objectify.c -o build/temp.linux-x86_64-2.7/src/lxml/lxml.objectify.o -w
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/lxml/lxml.objectify.o -L/usr/lib/x86_64-linux-gnu -L/opt/python/2.7.9/lib -lxslt -lexslt -lxml2 -lz -lm -lpython2.7 -o build/lib.linux-x86_64-2.7/lxml/objectify.so
+Successfully installed Django-1.8.4 YubiOTP-1.0.0.post1 admin-multiupload-1.10 contexttimer-0.3.0 defusedxml-0.4.1 django-cors-headers-0.11 django-debug-toolbar-1.3.2 django-filter-0.11.0 django-formtools-1.0 django-grappelli-2.7.2 django-haystack-2.4.0 django-nested-inline-0.3.5 django-otp-0.3.1 django-otp-yubikey-0.3.1 django-rq-0.7.0 django-suit-0.2.14 django-supervisor-0.3.2 django-two-factor-auth-1.2.0 djangorestframework-3.2.3 elasticsearch-1.7.0 guppy-0.1.10 lxml-3.4.4 markdown-2.6.2 mechanize-0.2.5 meld3-2.0.1 objgraph-1.8.1 pathtools-0.1.2 psycopg2-2.6.1 pycryptodome-3.9.9 python-dateutil-2.2 qrcode-4.0.4 redis-2.10.3 rq-0.4.6 rq-scheduler-0.5.0 six-1.15.0 sqlparse supervisor-3.1.3 ujson-1.33 urllib3-1.26.2 watchdog-0.10.3
+
+travis_time:end:31c75cbe:start=1605319975390066804,finish=1605320081144256656,duration=105754189852[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:13d27d9c[0K$ pip install -r OIPA/test_requirements.txt
+Requirement already satisfied (use --upgrade to upgrade): pytest in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from -r OIPA/test_requirements.txt (line 1))
+Collecting pytest-django (from -r OIPA/test_requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/fd/27/f6806230334d4459e12ecdb62366edda88ef9280e8991096f4aa62f0273f/pytest-django-4.1.0.tar.gz (72kB)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'use_scm_version'
+      warnings.warn(msg)
+Collecting factory-boy (from -r OIPA/test_requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/9b/14/2db577e1ebd198d4ecfcc7fe745ea92f99dbba778304d44a27bf877647cd/factory_boy-3.1.0-py2.py3-none-any.whl
+Collecting python-coveralls (from -r OIPA/test_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/3b/2d/8c4cefb1de18817d9e05552e29b3780a713122d6fff6c535461836c90186/python_coveralls-2.9.3-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): mock in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from -r OIPA/test_requirements.txt (line 5))
+Collecting django-test-without-migrations==0.2 (from -r OIPA/test_requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/e4/92/7c7d06154115b4e89b37368705929e224106d69f26d0e0a1caf88459da29/django_test_without_migrations-0.2-py2.py3-none-any.whl
+Collecting django-extensions==1.5.6 (from -r OIPA/test_requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/32/a5/72438296840b63020e08b4ca6f24504fa7f491144f5a2169bea9eb103355/django_extensions-1.5.6-py2.py3-none-any.whl (249kB)
+Collecting pysqlite==2.8.1 (from -r OIPA/test_requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/65/07/604a3982a673cab4fe78debab8b83d3cb96d00d73472199ee0ee8315c3da/pysqlite-2.8.1.tar.gz (79kB)
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.25 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from pytest->-r OIPA/test_requirements.txt (line 1))
+Collecting Faker>=0.7.0 (from factory-boy->-r OIPA/test_requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/aa/1d/499ed14da58506a72ffdc7b6e1d45d11c5e1284035e75fd94f7321c271c4/Faker-4.14.2.tar.gz (1.0MB)
+    Traceback (most recent call last):
+      File "<string>", line 20, in <module>
+      File "/tmp/pip-build-SWhSEE/Faker/setup.py", line 8, in <module>
+        with open(os.path.join(here, 'README.rst'), encoding='utf-8') as fp:
+    TypeError: 'encoding' is an invalid keyword argument for this function
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+    
+      File "<string>", line 20, in <module>
+    
+      File "/tmp/pip-build-SWhSEE/Faker/setup.py", line 8, in <module>
+    
+        with open(os.path.join(here, 'README.rst'), encoding='utf-8') as fp:
+    
+    TypeError: 'encoding' is an invalid keyword argument for this function
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-SWhSEE/Faker
+
+travis_time:end:13d27d9c:start=1605320081157104269,finish=1605320084027078801,duration=2869974532[0K
+[31;1mThe command "pip install -r OIPA/test_requirements.txt" failed and exited with 1 during .[0m
+
+Your build has been stopped.

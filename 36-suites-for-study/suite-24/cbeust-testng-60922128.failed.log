@@ -1,0 +1,330 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ cd failed/cbeust/testng
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:0b327d81[0K$ mvn install -Dhttps.protocols=TLSv1.2 -Dgpg.skip=true -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-109-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building TestNG 6.8.22-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9.1:add-source (default) @ testng ---
+[INFO] Source directory: /home/travis/build/failed/cbeust/testng/target/generated-sources/version added.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.1:resources (default-resources) @ testng ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource to /home/travis/build/failed/cbeust/testng/target/generated-sources/version
+[INFO] Copying 14 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ testng ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 373 source files to /home/travis/build/failed/cbeust/testng/target/classes
+[WARNING] /home/travis/build/failed/cbeust/testng/src/main/java/org/testng/internal/annotations/JDK15TagFactory.java: Some input files use or override a deprecated API.
+[WARNING] /home/travis/build/failed/cbeust/testng/src/main/java/org/testng/internal/annotations/JDK15TagFactory.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /home/travis/build/failed/cbeust/testng/src/main/java/org/testng/xml/XmlTest.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/failed/cbeust/testng/src/main/java/org/testng/xml/XmlTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.1.0:manifest (bundle-manifest) @ testng ---
+[WARNING] Warning in manifest for org.testng:testng:jar:6.8.22-SNAPSHOT : Superfluous export-package instructions: [com, com.beust, org]
+[WARNING] Warning in manifest for org.testng:testng:jar:6.8.22-SNAPSHOT : Did not find matching referal for !com.sun.*
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.1:testResources (default-testResources) @ testng ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 77 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ testng ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.14.1:test (default-test) @ testng ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ testng ---
+[INFO] Building jar: /home/travis/build/failed/cbeust/testng/target/testng-6.8.22-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.1.1:jar (attach-sources) > generate-sources @ testng >>>
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9.1:add-source (default) @ testng ---
+[INFO] Source directory: /home/travis/build/failed/cbeust/testng/target/generated-sources/version added.
+[INFO] 
+[INFO] <<< maven-source-plugin:2.1.1:jar (attach-sources) < generate-sources @ testng <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.1.1:jar (attach-sources) @ testng ---
+[INFO] 
+[INFO] --- maven-gpg-plugin:1.4:sign (sign-artifacts) @ testng ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ testng ---
+[INFO] Installing /home/travis/build/failed/cbeust/testng/target/testng-6.8.22-SNAPSHOT.jar to /home/travis/.m2/repository/org/testng/testng/6.8.22-SNAPSHOT/testng-6.8.22-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/cbeust/testng/pom.xml to /home/travis/.m2/repository/org/testng/testng/6.8.22-SNAPSHOT/testng-6.8.22-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/failed/cbeust/testng/target/testng-6.8.22-SNAPSHOT-sources.jar to /home/travis/.m2/repository/org/testng/testng/6.8.22-SNAPSHOT/testng-6.8.22-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.065 s
+[INFO] Finished at: 2020-11-27T02:25:46+00:00
+[INFO] Final Memory: 19M/491M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:0b327d81:start=1606443919179232200,finish=1606443946661560469,duration=27482328269[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script[0Ktravis_time:start:021294e9[0K$ export TESTNG_VERSION=$(mvn -Dhttps.protocols=TLSv1.2 -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.4.0:exec)
+
+travis_time:end:021294e9:start=1606443946671333618,finish=1606443948693126914,duration=2021793296[0Ktravis_fold:end:before_script[0Ktravis_time:start:0d7d07c8[0K$ mvn -Dhttps.protocols=TLSv1.2 -f pom-test.xml test -B
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building TestNG 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Downloading: https://repository.apache.org/snapshots/org/testng/testng/6.8.22-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ testng-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 14 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ testng-test ---
+[INFO] Not compiling main sources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ testng-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 77 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ testng-test ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.14.1:test (default-test) @ testng-test ---
+[INFO] Surefire report directory: /home/travis/build/failed/cbeust/testng/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+[SimpleBaseTest] Warning: System property test.resources.dir was not defined.
+[TestRunner] Running the tests in 'Command line test' with parallel mode:false
+[RunInfo] Adding method selector: org.testng.internal.XmlMethodSelector@46acd739 priority: 10
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.A]
+[XmlMethodSelector] Including method test.invokedmethodlistener.someMethod1()
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.B]
+[TestClass] Adding method B.someTest()[pri:0, instance:null] on TestClass class test.invokedmethodlistener.B
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.C]
+[TestClass] Adding method C.someTest()[pri:0, instance:null] on TestClass class test.invokedmethodlistener.C
+[XmlMethodSelector] Including method test.invokedmethodlistener.someMethod3()
+[MethodInheritance] C.someMethod3()[pri:0, instance:null] DEPENDS ON A.someMethod1()[pri:0, instance:null]
+[MethodInheritance] C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@7842c747] DEPENDS ON A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@7d66036e]
+[XmlMethodSelector] Including method test.invokedmethodlistener.someTest()
+[TestNG] Running:
+  Command line suite
+
+[Invoker 1478766580] Keeping method A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@7d66036e] for class null
+[Invoker 1478766580] Keeping method C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@7842c747] for class null
+[Invoker 1478766580] Invoking @BeforeSuite A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@7d66036e]
+[Invoker 1478766580] Invoking @BeforeSuite C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@7842c747]
+[SuiteRunner] Created 1 TestRunners
+[TestRunner] Running test Command line test on 3  classes,  included groups:[] excluded groups:[]
+===== Test class
+test.invokedmethodlistener.A
+======
+===== Test class
+test.invokedmethodlistener.B
+    @Test B.someTest()[pri:0, instance:test.invokedmethodlistener.B@346b6b13]
+======
+===== Test class
+test.invokedmethodlistener.C
+    @Test C.someTest()[pri:0, instance:test.invokedmethodlistener.C@7842c747]
+======
+[Invoker 1478766580] Invoking test.invokedmethodlistener.C.someTest
+===== Invoked methods
+  A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@7d66036e] 2103837550
+  C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@7842c747] 2017642311
+    C.someTest()[pri:0, instance:test.invokedmethodlistener.C@7842c747] 2017642311
+=====
+
+===============================================
+Command line suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestRunner] Running the tests in 'Command line test' with parallel mode:false
+[RunInfo] Adding method selector: org.testng.internal.XmlMethodSelector@102689a7 priority: 10
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.A]
+[XmlMethodSelector] Including method test.invokedmethodlistener.someMethod1()
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.C]
+[TestClass] Adding method C.someTest()[pri:0, instance:null] on TestClass class test.invokedmethodlistener.C
+[XmlMethodSelector] Including method test.invokedmethodlistener.someMethod3()
+[MethodInheritance] C.someMethod3()[pri:0, instance:null] DEPENDS ON A.someMethod1()[pri:0, instance:null]
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.B]
+[TestClass] Adding method B.someTest()[pri:0, instance:null] on TestClass class test.invokedmethodlistener.B
+[MethodInheritance] C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@73314549] DEPENDS ON A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@52173b39]
+[XmlMethodSelector] Including method test.invokedmethodlistener.someTest()
+[TestNG] Running:
+  Command line suite
+
+[Invoker 1478766580] Keeping method A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@52173b39] for class null
+[Invoker 1478766580] Keeping method C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@73314549] for class null
+[Invoker 1478766580] Invoking @BeforeSuite A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@52173b39]
+[Invoker 1478766580] Invoking @BeforeSuite C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@73314549]
+[SuiteRunner] Created 1 TestRunners
+[TestRunner] Running test Command line test on 3  classes,  included groups:[] excluded groups:[]
+===== Test class
+test.invokedmethodlistener.A
+======
+===== Test class
+test.invokedmethodlistener.C
+    @Test C.someTest()[pri:0, instance:test.invokedmethodlistener.C@73314549]
+======
+===== Test class
+test.invokedmethodlistener.B
+    @Test B.someTest()[pri:0, instance:test.invokedmethodlistener.B@2541b7cd]
+======
+[Invoker 1478766580] Invoking test.invokedmethodlistener.C.someTest
+===== Invoked methods
+  A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@52173b39] 1377254201
+  C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@73314549] 1932608841
+    C.someTest()[pri:0, instance:test.invokedmethodlistener.C@73314549] 1932608841
+=====
+
+===============================================
+Command line suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestRunner] Running the tests in 'Command line test' with parallel mode:false
+[RunInfo] Adding method selector: org.testng.internal.XmlMethodSelector@2856645f priority: 10
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.B]
+[TestClass] Adding method B.someTest()[pri:0, instance:null] on TestClass class test.invokedmethodlistener.B
+[XmlMethodSelector] Including method test.invokedmethodlistener.someMethod1()
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.A]
+[TestClass] Creating TestClass for [ClassImpl class=test.invokedmethodlistener.C]
+[TestClass] Adding method C.someTest()[pri:0, instance:null] on TestClass class test.invokedmethodlistener.C
+[XmlMethodSelector] Including method test.invokedmethodlistener.someMethod3()
+[MethodInheritance] C.someMethod3()[pri:0, instance:null] DEPENDS ON A.someMethod1()[pri:0, instance:null]
+[MethodInheritance] C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@3b0e95ca] DEPENDS ON A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@68ca52fd]
+[XmlMethodSelector] Including method test.invokedmethodlistener.someTest()
+[TestNG] Running:
+  Command line suite
+
+[Invoker 1478766580] Keeping method A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@68ca52fd] for class null
+[Invoker 1478766580] Keeping method C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@3b0e95ca] for class null
+[Invoker 1478766580] Invoking @BeforeSuite A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@68ca52fd]
+[Invoker 1478766580] Invoking @BeforeSuite C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@3b0e95ca]
+[SuiteRunner] Created 1 TestRunners
+[TestRunner] Running test Command line test on 3  classes,  included groups:[] excluded groups:[]
+===== Test class
+test.invokedmethodlistener.B
+    @Test B.someTest()[pri:0, instance:test.invokedmethodlistener.B@3fd7ada9]
+======
+===== Test class
+test.invokedmethodlistener.A
+======
+===== Test class
+test.invokedmethodlistener.C
+    @Test C.someTest()[pri:0, instance:test.invokedmethodlistener.C@3b0e95ca]
+======
+[Invoker 1478766580] Invoking test.invokedmethodlistener.C.someTest
+===== Invoked methods
+  A.someMethod1()[pri:0, instance:test.invokedmethodlistener.A@68ca52fd] 1758089981
+  C.someMethod3()[pri:0, instance:test.invokedmethodlistener.C@3b0e95ca] 990811594
+    C.someTest()[pri:0, instance:test.invokedmethodlistener.C@3b0e95ca] 990811594
+=====
+
+===============================================
+Command line suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[Invoker 1478766580] Invoking test.invokedmethodlistener.InvokedMethodListenerTest.issue629_InvokedMethodDoesNotRecognizeConfigurationMethod
+[TestNG] [WARN] MethodInterceptor already set
+Tests run: 614, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.55 sec
+
+Results :
+
+Tests run: 614, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 33.633 s
+[INFO] Finished at: 2020-11-27T02:26:23+00:00
+[INFO] Final Memory: 13M/491M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:0d7d07c8:start=1606443948703265983,finish=1606443983663637075,duration=34960371092[0K
+[32;1mThe command "mvn -Dhttps.protocols=TLSv1.2 -f pom-test.xml test -B" exited with 0.[0m
+
+Done. Your build exited with 0.

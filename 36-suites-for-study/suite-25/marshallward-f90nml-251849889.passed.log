@@ -1,0 +1,153 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd passed/marshallward/f90nml
+travis_time:start:07aba710[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:07aba710:start=1608161098398227787,finish=1608161098408608836,duration=10381049[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install.1[0Ktravis_time:start:02beaa3a[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install ordereddict==1.1; fi
+
+travis_time:end:02beaa3a:start=1608161098818448451,finish=1608161098827534691,duration=9086240[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0d738740[0K$ pip install .
+Processing /home/travis/build/passed/marshallward/f90nml
+Building wheels for collected packages: f90nml
+  Running setup.py bdist_wheel for f90nml: started
+  Running setup.py bdist_wheel for f90nml: finished with status 'done'
+  Stored in directory: /tmp/pip-ephem-wheel-cache-iwmqmcfa/wheels/8c/87/44/65d24c0c815b664802dcc07af68d39c0096fa6f57eb39ae3b6
+Successfully built f90nml
+Installing collected packages: f90nml
+Successfully installed f90nml-0.21
+
+travis_time:end:0d738740:start=1608161098838699659,finish=1608161100408842410,duration=1570142751[0Ktravis_fold:end:install.2[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:0696be1a[0K$ cd test
+
+travis_time:end:0696be1a:start=1608161100419519237,finish=1608161100428823116,duration=9303879[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:039071ca[0K$ pip install -r requirements_test.txt
+Ignoring coverage: markers 'python_version == "3.2"' don't match your environment
+Collecting coverage (from -r requirements_test.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/35/58/e38636e8233b49982efca6a69c9974f2575439f637dc3b0e8ac0e77c550c/coverage-5.3-cp35-cp35m-manylinux1_x86_64.whl (229kB)
+Collecting coveralls (from -r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/e9/7b/eba1854eac00cdfd3dd4e8213552978c3ad7a1f810b149aca65725a483d8/coveralls-2.2.0-py2.py3-none-any.whl
+Collecting docopt>=0.6.1 (from coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting requests>=1.0.0 (from coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl (61kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting chardet<5,>=3.0.2 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl (178kB)
+Collecting urllib3<1.27,>=1.21.1 (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/f5/71/45d36a8df68f3ebb098d6861b2c017f3d094538c0fb98fa61d4dc43e69b9/urllib3-1.26.2-py2.py3-none-any.whl (136kB)
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests>=1.0.0->coveralls->-r requirements_test.txt (line 3)) (2018.4.16)
+Building wheels for collected packages: docopt
+  Running setup.py bdist_wheel for docopt: started
+  Running setup.py bdist_wheel for docopt: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/9b/04/dd/7daf4150b6d9b12949298737de9431a324d4b797ffd63f526e
+Successfully built docopt
+Installing collected packages: coverage, docopt, idna, chardet, urllib3, requests, coveralls
+Successfully installed chardet-4.0.0 coverage-5.3 coveralls-2.2.0 docopt-0.6.2 idna-2.10 requests-2.25.1 urllib3-1.26.2
+
+travis_time:end:039071ca:start=1608161100439962104,finish=1608161104046012922,duration=3606050818[0Ktravis_fold:end:before_script.2[0Ktravis_time:start:06402f85[0K$ coverage run --source f90nml test_f90nml.py
+.................................................
+----------------------------------------------------------------------
+Ran 49 tests in 0.137s
+
+OK
+
+travis_time:end:06402f85:start=1608161104053780410,finish=1608161104529584524,duration=475804114[0K
+[32;1mThe command "coverage run --source f90nml test_f90nml.py" exited with 0.[0m
+travis_fold:start:after_success.1[0Ktravis_time:start:0775c0e4[0K$ coverage report -m
+Name                                                                Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------------------------------------
+/home/travis/build/passed/marshallward/f90nml/f90nml/__init__.py       18      0   100%
+/home/travis/build/passed/marshallward/f90nml/f90nml/findex.py         23      1    96%   31
+/home/travis/build/passed/marshallward/f90nml/f90nml/fpy.py            35      0   100%
+/home/travis/build/passed/marshallward/f90nml/f90nml/namelist.py      219      3    99%   15-16, 374
+/home/travis/build/passed/marshallward/f90nml/f90nml/parser.py        379      1    99%   458
+/home/travis/build/passed/marshallward/f90nml/f90nml/tokenizer.py     122     20    84%   44-45, 65-66, 94, 99-100, 110-111, 120-125, 171-178
+-------------------------------------------------------------------------------------------------
+TOTAL                                                                 796     25    97%
+
+travis_time:end:0775c0e4:start=1608161104539778779,finish=1608161104747350352,duration=207571573[0Ktravis_fold:end:after_success.1[0Ktravis_fold:start:after_success.2[0Ktravis_time:start:21a96d7a[0K$ coveralls
+Submitting coverage to coveralls.io...
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.5.6/bin/coveralls", line 11, in <module>
+    sys.exit(main())
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/coveralls/cli.py", line 85, in main
+    result = coverallz.wear()
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/coveralls/api.py", line 225, in wear
+    self.config['service_job_id'], random.randint(0, sys.maxsize))
+KeyError: 'service_job_id'
+
+travis_time:end:21a96d7a:start=1608161104758786359,finish=1608161105686848239,duration=928061880[0Ktravis_fold:end:after_success.2[0K
+Done. Your build exited with 0.

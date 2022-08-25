@@ -1,0 +1,387 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/wbond/package_control_channel
+travis_time:start:01e9c5c0[0K$ source ~/virtualenv/python3.3/bin/activate
+
+travis_time:end:01e9c5c0:start=1605314131621056451,finish=1605314131631524797,duration=10468346[0K$ python --version
+Python 3.3.5
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (python 3.3)
+Could not locate requirements.txt. Override the install: key in your .travis.yml to install dependencies.
+travis_time:start:15c1adac[0K$ python -m unittest
+.............................................................F...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................F.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................FF...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................F......
+======================================================================
+FAIL: test_indentation('./repository/t.json', ...) (tests.test.DefaultRepositoryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 100, in wrapper
+    return method(self, *params)
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 276, in _test_indentation
+    "Indent must be tabs in line %d" % (i + 1))
+AssertionError: Indent must be tabs in line 1929: '^\\t*\\S' not found in '            "name": "ToolRunner",'
+
+======================================================================
+FAIL: test_package('./repository/t.json', {'details': 'https://github.com/KuttKatrea/sublime-toolrunner', 'name': 'ToolRunner', 'author': 'Kutt Katrea', 'releases': {'sublime_text': '*', 'tags': True}}) (tests.test.DefaultRepositoryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 100, in wrapper
+    return method(self, *params)
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 297, in _test_package
+    self.enforce_key_types_map(k, v, self.package_key_types_map)
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 521, in enforce_key_types_map
+    self.assertIsInstance(v, key_types_map[k], k)
+AssertionError: {'sublime_text': '*', 'tags': True} is not an instance of <class 'list'> : releases
+
+======================================================================
+FAIL: test_release('ToolRunner (./repository/t.json)', 'sublime_text', False) (tests.test.DefaultRepositoryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 100, in wrapper
+    return method(self, *params)
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 418, in _test_release
+    'A release must have a "tags" key or "branch" key '
+AssertionError: False is not true : A release must have a "tags" key or "branch" key if it is in the main repository. For custom releases, a custom repository.json file must be hosted elsewhere.
+
+======================================================================
+FAIL: test_release('ToolRunner (./repository/t.json)', 'tags', False) (tests.test.DefaultRepositoryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 100, in wrapper
+    return method(self, *params)
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 448, in _test_release
+    'A sublime text version selector is required')
+AssertionError: 'sublime_text' not found in 'tags' : A sublime text version selector is required
+
+======================================================================
+FAIL: test_repository_package_names('./repository/t.json', ...) (tests.test.DefaultRepositoryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 100, in wrapper
+    return method(self, *params)
+  File "/home/travis/build/failed/wbond/package_control_channel/tests/test.py", line 271, in _test_repository_package_names
+    "Packages must be sorted alphabetically (by name)")
+AssertionError: Lists differ: ['Tab Filter', 'Tabify', 'Tabl... != ['Tab Filter', 'Tabify', 'Tabl...
+
+First differing element 177:
+ToolRunner
+TomcatMavenHotReload
+
+  ['Tab Filter',
+   'Tabify',
+   'Table Cleaner',
+   'Table of comments',
+   'tabr',
+   'Tabright',
+   'TabsExtra',
+   'TabsLimiter',
+   'TabsShortcuts',
+   'TabsToTable',
+   'TabTeleport',
+   'TADS3',
+   'Tagger Script Syntax',
+   'Tagify',
+   'TagWrapper',
+   'Takana',
+   'Task',
+   'Task Mill',
+   'Task Timer',
+   'Taskwarrior',
+   'TASM Syntax',
+   'Tau Time Tracker',
+   'Tcsh and Csh Mode',
+   'Tea Color Scheme',
+   'Teaspoon',
+   'Telerik AppBuilder',
+   'TemplateNinja',
+   'TemplateToolkit',
+   'Tera Term Language',
+   'Term Presenter',
+   'Terminal In Packages',
+   'Terminal Notifier',
+   'Terminality',
+   'TerminalProjectFolder',
+   'tern_for_sublime',
+   'TernJS',
+   'Terraform',
+   'Test Double',
+   'Test Plier',
+   'TestChooser',
+   'testify',
+   'testNameGenerator',
+   'Text Pastry',
+   'Text Reader',
+   'TextCommands',
+   'textract',
+   'Theme - Afterglow',
+   'Theme - amCoder',
+   'Theme - Aprosopo',
+   'Theme - Aqua',
+   'Theme - Argonaut',
+   'Theme - Aristocat',
+   'Theme - Arzy',
+   'Theme - Asphalt',
+   'Theme - Augmented Reaction',
+   'Theme - Autumn',
+   'Theme - Bamboo',
+   'Theme - Brackets',
+   'Theme - Broceanic',
+   'Theme - Brogrammer',
+   'Theme - Carmesim',
+   'Theme - Centurion',
+   'Theme - Cobalt2',
+   'Theme - Coffee',
+   'Theme - Cola',
+   'Theme - Curiosity',
+   'Theme - Cyanide',
+   'Theme - Dark Eight',
+   'Theme - Dark Material',
+   'Theme - Darkmatter',
+   'Theme - DC',
+   'Theme - DefaultPlus',
+   'Theme - Eightlime',
+   'Theme - El Capitan',
+   'Theme - Elementary',
+   'Theme - Faarikaal',
+   'Theme - Farzher',
+   'Theme - Fengshui',
+   'Theme - Flatgrammer',
+   'Theme - Flatland',
+   'Theme - Fox',
+   'Theme - Freesia',
+   'Theme - GaganSoda',
+   'Theme - Glacier',
+   'Theme - Gravity',
+   'Theme - Haft Lang',
+   'Theme - Hero',
+   'Theme - HueAccent',
+   'Theme - Interstellar',
+   'Theme - itg.flat',
+   'Theme - Kronuz',
+   'Theme - Ksix',
+   'Theme - Lanzhou',
+   'Theme - LevelUpTuts',
+   'Theme - LP',
+   'Theme - Lyte',
+   'Theme - Midnight',
+   'Theme - Minimal',
+   'Theme - Moka',
+   'Theme - Monokai',
+   'Theme - Nexus',
+   'Theme - Night',
+   'Theme - Nil',
+   'Theme - Numix',
+   'Theme - Numix Light',
+   'Theme - Orchis',
+   'Theme - Otto',
+   'Theme - Pacific',
+   'Theme - Petroleum',
+   'Theme - Phoenix',
+   'Theme - Piatto',
+   'Theme - Praxis',
+   'Theme - Primer',
+   'Theme - Pseudo OSX',
+   'Theme - Reeder',
+   'Theme - Refined',
+   'Theme - Refresh',
+   'Theme - Soda',
+   'Theme - Soda SolarizedDark',
+   'Theme - SoDaReloaded',
+   'Theme - Sodarized',
+   'Theme - SodaSeti',
+   'Theme - Solarized Flat',
+   'Theme - Solarized Space',
+   'Theme - Spaceblack',
+   'Theme - Spacefunk',
+   'Theme - Spacegray',
+   'Theme - Spacezero',
+   'Theme - Spark',
+   'Theme - Superman',
+   'Theme - Tech49',
+   'Theme - Toxin',
+   'Theme - Vim Blackboard',
+   'Theme - Watson',
+   'ThemeAutomator',
+   'Themes Menu Switcher',
+   'ThemeScheduler',
+   'ThemeTweaker',
+   'Themr',
+   'Thesaurus',
+   'Thinkphp',
+   'Three.js Autocomplete',
+   'ThriftSyntax',
+   'TicketMaster',
+   'TideSDK Autocomplete',
+   'TidyHTML5',
+   'TidyTabs',
+   'Tint',
+   'TinTin++ Syntax Highlighter',
+   'tipJS Snippets',
+   'Titanium API Document',
+   'Titanium API Search',
+   'Titanium Build',
+   'TJ3-syntax-sublimetext2',
+   'Tmux',
+   'To Hastebin',
+   'today',
+   'Today Color Scheme',
+   'Todo',
+   'Todo Manager',
+   'Todo.txt Syntax',
+   'ToDone',
+   'TodoReview',
+   'Toggle Css Format',
+   'Toggle Delphi File',
+   'Toggle File',
+   'Toggle Read-Only',
+   'Toggle RSpec Focus',
+   'Toggle Symbol to String',
+   'Toggle the View Read-Only',
+   'Toggle Words',
+   'ToggleExclude',
+   'ToggleMinimapOnScroll',
+   'ToggleQuotes',
+   'ToggleSettings',
+   'ToggleWrap',
+   'Toks',
+-  'ToolRunner',
+   'TomcatMavenHotReload',
+   'TomDoc',
+   'TomDoc+',
+   'TOML',
+   'Tomorrow Color Schemes',
++  'ToolRunner',
+   'TopCoder Helper',
+   'Tornado',
+   'TortoiseGIT',
+   'TortoiseGit Context Integration',
+   'TortoiseSVN',
+   'Toss File',
+   'Touch WSGI',
+   'Tpl',
+   'tQuery',
+   'TracRPC',
+   'Tradsim',
+   'Trailing Punctuation',
+   'TrailingSpaces',
+   'Trainz Config',
+   'Transcrypt',
+   'Transience',
+   'Translate',
+   'Translit',
+   'Transparency',
+   'Transpose Word',
+   'Traverse',
+   'Travis YML Lint',
+   'Travis-CI',
+   'TreeTop',
+   'Trello',
+   'Trimmer',
+   'Tritium',
+   'Tron Color Scheme',
+   'Tryton Snippets',
+   'TSQLEasy',
+   'Tubaina (afc)',
+   'Tubsted Color Schemes',
+   'Tully Color Schemes',
+   'Tumblr Themes Syntax and Completions',
+   'Tup',
+   'Twee',
+   'TweetLine',
+   'TwelfTools',
+   'Twig',
+   'TWiki',
+   'Twilightcyanide Colorscheme',
+   'Twitter Bootstrap ClassNames Completions',
+   'Twitter Bootstrap Snippets',
+   'Twitter Recess',
+   'TXL syntax highlighting',
+   'TXT2PYNB',
+   'TypeScript',
+   'TypeScript Compiler',
+   'TypescriptCompletion',
+   'TypeShort',
+   'TypeSnippets',
+   'TypeTodo',
+   'Typewriter',
+   'typo3-fluid-snippets',
+   'TypoFixr',
+   'Typora Markdown App (OSX)',
+   'TypoScript'] : Packages must be sorted alphabetically (by name)
+
+----------------------------------------------------------------------
+Ran 6567 tests in 0.345s
+
+FAILED (failures=5)
+
+travis_time:end:15c1adac:start=1605314131970099497,finish=1605314132974516121,duration=1004416624[0K
+[31;1mThe command "python -m unittest" exited with 1.[0m
+
+Done. Your build exited with 1.

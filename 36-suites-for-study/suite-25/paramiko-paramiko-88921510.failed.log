@@ -1,0 +1,228 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd failed/paramiko/paramiko
+travis_time:start:171a4d69[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:171a4d69:start=1608191095448859464,finish=1608191095459853134,duration=10993670[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install.1[0Ktravis_time:start:10a8e1da[0K$ pip install -e .
+Obtaining file:///home/travis/build/failed/paramiko/paramiko
+Collecting pycrypto!=2.4,>=2.1 (from paramiko==1.13.3)
+  Downloading https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz (446kB)
+Collecting ecdsa (from paramiko==1.13.3)
+  Downloading https://files.pythonhosted.org/packages/98/16/70be2716e24eaf5d81074bb3c05429d60292c2a96613a78ac3d69526ad2a/ecdsa-0.16.1-py2.py3-none-any.whl (104kB)
+Requirement already satisfied: six>=1.9.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from ecdsa->paramiko==1.13.3) (1.11.0)
+Building wheels for collected packages: pycrypto
+  Running setup.py bdist_wheel for pycrypto: started
+  Running setup.py bdist_wheel for pycrypto: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/27/02/5e/77a69d0c16bb63c6ed32f5386f33a2809c94bd5414a2f6c196
+Successfully built pycrypto
+Installing collected packages: pycrypto, ecdsa, paramiko
+  Running setup.py develop for paramiko
+Successfully installed ecdsa-0.16.1 paramiko pycrypto-2.6.1
+
+travis_time:end:10a8e1da:start=1608191095910487304,finish=1608191118104107335,duration=22193620031[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:144e8e32[0K$ pip install coveralls==1.1
+Collecting coveralls==1.1
+  Downloading https://files.pythonhosted.org/packages/81/f9/da2ad9334f60e418cb229c58724330be2635b369676d3eec8f61e1f85faa/coveralls-1.1-py2.py3-none-any.whl
+Collecting docopt>=0.6.1 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting coverage>=3.6 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/35/58/e38636e8233b49982efca6a69c9974f2575439f637dc3b0e8ac0e77c550c/coverage-5.3-cp35-cp35m-manylinux1_x86_64.whl (229kB)
+Collecting requests>=1.0.0 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl (61kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting chardet<5,>=3.0.2 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl (178kB)
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests>=1.0.0->coveralls==1.1) (2018.4.16)
+Collecting urllib3<1.27,>=1.21.1 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/f5/71/45d36a8df68f3ebb098d6861b2c017f3d094538c0fb98fa61d4dc43e69b9/urllib3-1.26.2-py2.py3-none-any.whl (136kB)
+Building wheels for collected packages: docopt
+  Running setup.py bdist_wheel for docopt: started
+  Running setup.py bdist_wheel for docopt: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/9b/04/dd/7daf4150b6d9b12949298737de9431a324d4b797ffd63f526e
+Successfully built docopt
+Installing collected packages: docopt, coverage, idna, chardet, urllib3, requests, coveralls
+Successfully installed chardet-4.0.0 coverage-5.3 coveralls-1.1 docopt-0.6.2 idna-2.10 requests-2.25.1 urllib3-1.26.2
+
+travis_time:end:144e8e32:start=1608191118115523229,finish=1608191122040103752,duration=3924580523[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:02d73035[0K$ pip install -r dev-requirements.txt
+Collecting tox==2.1.1 (from -r dev-requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/af/cd/e4e47282c016184656e6a1ca3f8d4baa7c59277aa98fd36767fa48aea476/tox-2.1.1-py2.py3-none-any.whl
+Collecting invoke==0.11.1 (from -r dev-requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/a6/fa/b0784fdcc97121dd6efe728075c4166e602e36c852cc02e92d66edb90521/invoke-0.11.1-py2.py3-none-any.whl (148kB)
+Collecting invocations==0.11.0 (from -r dev-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/bc/d5/55589d43d6aa087d9e3a6f27a41ecf9854022f8a44a48ca07589dbd4359e/invocations-0.11.0-py2.py3-none-any.whl
+Collecting sphinx==1.3.1 (from -r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/63/2c/0a30c391708f827039be5569164ed039b1e46906a4bff5a348b0abe2945e/Sphinx-1.3.1-py2.py3-none-any.whl (1.3MB)
+Collecting alabaster==0.7.6 (from -r dev-requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/04/cb/39ba17c43293aaddd073810691b0393143d26734a8e52ed9d65059b1108c/alabaster-0.7.6.tar.gz
+Collecting releases==0.7.0 (from -r dev-requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/4e/5f/8b4298d97523010630c3168225cb6ec34e531fd02492c13338ee78ac98d9/releases-0.7.0.tar.gz
+Collecting semantic_version==2.4.2 (from -r dev-requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/b4/45/7fe26b91ba7e201768a9ad9fcf6c25957ea8a74ab30faa4a8f264f83eece/semantic_version-2.4.2-py3-none-any.whl
+Collecting wheel==0.24 (from -r dev-requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/e8/14/eaaac12b0432c984a27ad0050a5a0bedc6135df35a0f5f1f35228faf12d4/wheel-0.24.0-py2.py3-none-any.whl (63kB)
+Collecting twine==1.5 (from -r dev-requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/b6/57/a4148d05bd0098c1d6d8cc4e14e766dbe93c3a5ab6723b969da27a87bac0/twine-1.5.0-py2.py3-none-any.whl
+Requirement already satisfied: virtualenv>=1.11.2 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from tox==2.1.1->-r dev-requirements.txt (line 2)) (16.0.0)
+Requirement already satisfied: py>=1.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from tox==2.1.1->-r dev-requirements.txt (line 2)) (1.5.4)
+Collecting pluggy<0.4.0,>=0.3.0 (from tox==2.1.1->-r dev-requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/d3/ff/d63342af76d20f9b94c2138aef8739df23311e3ce8a8ae7e4b0733ab0827/pluggy-0.3.1-py2.py3-none-any.whl
+Collecting snowballstemmer>=1.1 (from sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/7d/4b/cdf1113a0e88b641893b814e9c36f69a6fda28cd88b62c7f0d858cde3166/snowballstemmer-2.0.0-py2.py3-none-any.whl (97kB)
+Collecting sphinx-rtd-theme<0.2,>=0.1 (from sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/97/d9/e27ef5a2b6b92d2cf29724c25daf0683adacc43ab5ad15dc0e9b69b464f8/sphinx_rtd_theme-0.1.9-py3-none-any.whl (693kB)
+Collecting Pygments>=2.0 (from sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/85/c5/c437c383d5917fae9782eb6588bec8aff931afe13c76b9e8c03dacee9beb/Pygments-2.7.3-py3-none-any.whl (950kB)
+Collecting docutils>=0.11 (from sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/81/44/8a15e45ffa96e6cf82956dd8d7af9e666357e16b0d93b253903475ee947f/docutils-0.16-py2.py3-none-any.whl (548kB)
+Requirement already satisfied: six>=1.4 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from sphinx==1.3.1->-r dev-requirements.txt (line 6)) (1.11.0)
+Collecting Jinja2>=2.3 (from sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/30/9e/f663a2aa66a09d838042ae1a2c5659828bb9b41ea3a6efa20a20fd92b121/Jinja2-2.11.2-py2.py3-none-any.whl (125kB)
+Collecting babel>=1.3 (from sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/dd/a5/81076e10b5ef74493cf08a8e419e61b64324c9c55db4aa7f89c0240c4873/Babel-2.9.0-py2.py3-none-any.whl (8.8MB)
+Collecting pkginfo (from twine==1.5->-r dev-requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/4f/3c/535287349af1b117e082f8e77feca52fbe2fdf61ef1e6da6bcc2a72a3a79/pkginfo-1.6.1-py2.py3-none-any.whl
+Requirement already satisfied: requests in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from twine==1.5->-r dev-requirements.txt (line 11)) (2.25.1)
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.3->sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/6e/57/d40124076756c19ff2269678de7ae25a14ebbb3f6314eb5ce9477f191350/MarkupSafe-1.1.1-cp35-cp35m-manylinux1_x86_64.whl
+Collecting pytz>=2015.7 (from babel>=1.3->sphinx==1.3.1->-r dev-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/12/f8/ff09af6ff61a3efaad5f61ba5facdf17e7722c4393f7d8a66674d2dbd29f/pytz-2020.4-py2.py3-none-any.whl (509kB)
+Requirement already satisfied: chardet<5,>=3.0.2 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests->twine==1.5->-r dev-requirements.txt (line 11)) (4.0.0)
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests->twine==1.5->-r dev-requirements.txt (line 11)) (2018.4.16)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests->twine==1.5->-r dev-requirements.txt (line 11)) (1.26.2)
+Requirement already satisfied: idna<3,>=2.5 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests->twine==1.5->-r dev-requirements.txt (line 11)) (2.10)
+Building wheels for collected packages: alabaster, releases
+  Running setup.py bdist_wheel for alabaster: started
+  Running setup.py bdist_wheel for alabaster: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/2d/44/21/44ac5d2ce88cfeb685ed8dd6b746357ffec7570837c71f0cb7
+  Running setup.py bdist_wheel for releases: started
+  Running setup.py bdist_wheel for releases: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/75/d9/5b/ab56904c58b31c7e8997a9703654dc029b668157b6b9b60952
+Successfully built alabaster releases
+pytest 3.7.1 has requirement pluggy>=0.7, but you'll have pluggy 0.3.1 which is incompatible.
+Installing collected packages: pluggy, tox, invoke, invocations, snowballstemmer, sphinx-rtd-theme, alabaster, Pygments, docutils, MarkupSafe, Jinja2, pytz, babel, sphinx, releases, semantic-version, wheel, pkginfo, twine
+  Found existing installation: pluggy 0.7.1
+    Uninstalling pluggy-0.7.1:
+      Successfully uninstalled pluggy-0.7.1
+  Found existing installation: wheel 0.31.1
+    Uninstalling wheel-0.31.1:
+      Successfully uninstalled wheel-0.31.1
+Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Pygments-2.7.3 alabaster-0.7.6 babel-2.9.0 docutils-0.16 invocations-0.11.0 invoke-0.11.1 pkginfo-1.6.1 pluggy-0.3.1 pytz-2020.4 releases-0.7.0 semantic-version-2.4.2 snowballstemmer-2.0.0 sphinx-1.3.1 sphinx-rtd-theme-0.1.9 tox-2.1.1 twine-1.5.0 wheel-0.24.0
+
+travis_time:end:02d73035:start=1608191122050460226,finish=1608191131479294709,duration=9428834483[0Ktravis_fold:end:install.3[0Ktravis_time:start:2f6e25ce[0K$ invoke coverage
+Traceback (most recent call last):
+  File "test.py", line 30, in <module>
+    import paramiko
+  File "/home/travis/build/failed/paramiko/paramiko/paramiko/__init__.py", line 30, in <module>
+    from paramiko.transport import SecurityOptions, Transport
+  File "/home/travis/build/failed/paramiko/paramiko/paramiko/transport.py", line 53, in <module>
+    from paramiko.ecdsakey import ECDSAKey
+  File "/home/travis/build/failed/paramiko/paramiko/paramiko/ecdsakey.py", line 26, in <module>
+    from ecdsa.test_pyecdsa import ECDSA
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/ecdsa/test_pyecdsa.py", line 11, in <module>
+    import pytest
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pytest.py", line 9, in <module>
+    from _pytest.config import main, UsageError, cmdline, hookspec, hookimpl
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/_pytest/config/__init__.py", line 18, in <module>
+    import _pytest.hookspec  # the extension point definitions
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/_pytest/hookspec.py", line 27, in <module>
+    @hookspec(historic=True, warn_on_impl=PYTEST_NAMESPACE)
+TypeError: __call__() got an unexpected keyword argument 'warn_on_impl'
+
+travis_time:end:2f6e25ce:start=1608191131489529656,finish=1608191132131936321,duration=642406665[0K
+[31;1mThe command "invoke coverage" exited with 1.[0m
+travis_time:start:05f7d9b0[0K$ invoke docs -o -W www -o -W
+Running Sphinx v1.3.1
+making output directory...
+loading pickled environment... not yet created
+loading intersphinx inventory from http://docs.python.org/2.6/objects.inv...
+building [mo]: targets for 0 po files that are out of date
+building [html]: targets for 17 source files that are out of date
+updating environment: 17 added, 0 changed, 0 removed
+reading sources... [  5%] api/agent
+WARNING: stdin is not a pty; falling back to non-pty execution!
+
+Exception occurred:
+  File "/home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/sphinx/environment.py", line 147, in __init__
+    FileInput.__init__(self, *args, **kwds)
+TypeError: __init__() got an unexpected keyword argument 'handle_io_errors'
+The full traceback has been saved in /tmp/sphinx-err-38arvxsl.log, if you want to report the issue to the developers.
+Please also report this if it was a user error, so that a better error message can be provided next time.
+A bug report can be filed in the tracker at <https://github.com/sphinx-doc/sphinx/issues>. Thanks!
+
+travis_time:end:05f7d9b0:start=1608191132143121014,finish=1608191133330035593,duration=1186914579[0K
+[31;1mThe command "invoke docs -o -W www -o -W" exited with 1.[0m
+
+Done. Your build exited with 1.

@@ -1,0 +1,194 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/hivesolutions/appier
+travis_time:start:18d52a4e[0K$ source ~/virtualenv/python3.3/bin/activate
+
+travis_time:end:18d52a4e:start=1604598793977721795,finish=1604598793987806593,duration=10084798[0K$ python --version
+Python 3.3.5
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (python 3.3)
+travis_fold:start:install.1[0Ktravis_time:start:0c8a19b0[0K$ pip install -r requirements.txt
+You must give at least one requirement to install (see "pip help install")
+
+travis_time:end:0c8a19b0:start=1604598794364273037,finish=1604598794745993570,duration=381720533[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0d03de50[0K$ pip install coveralls==1.0b1
+Collecting coveralls==1.0b1
+  Downloading https://files.pythonhosted.org/packages/e5/92/11409fb634e966c7262587b5ee7d8ba727c1b1136e087fef649624177cf6/coveralls-1.0b1-py2.py3-none-any.whl
+Collecting requests>=1.0.0 (from coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl (61kB)
+Collecting coverage>=3.6 (from coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/da/50/4c0c93ea67c8b42aa700cfbdedd64ea5ac5e7108ba14e3e744f57309304b/coverage-5.3.tar.gz (693kB)
+    /opt/python/3.3.5/lib/python3.3/distutils/dist.py:258: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/3.3.5/lib/python3.3/distutils/dist.py:258: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/3.3.5/lib/python3.3/distutils/dist.py:258: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+Collecting docopt>=0.6.1 (from coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting chardet<4,>=3.0.2 (from requests>=1.0.0->coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting certifi>=2017.4.17 (from requests>=1.0.0->coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl (156kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=1.0.0->coveralls==1.0b1)
+  Downloading https://files.pythonhosted.org/packages/56/aa/4ef5aa67a9a62505db124a5cb5262332d1d4153462eb8fd89c9fa41e5d92/urllib3-1.25.11-py2.py3-none-any.whl (127kB)
+Installing collected packages: urllib3, idna, certifi, chardet, docopt, coverage, requests, coveralls
+
+
+
+
+  Running setup.py install for docopt
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.3.5/include/python3.3m -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-3.3/coverage/ctracer/datastack.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.3.5/include/python3.3m -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-3.3/coverage/ctracer/filedisp.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.3.5/include/python3.3m -c coverage/ctracer/module.c -o build/temp.linux-x86_64-3.3/coverage/ctracer/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.3.5/include/python3.3m -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-3.3/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/3.3.5/lib -Wl,-rpath=/opt/python/3.3.5/lib build/temp.linux-x86_64-3.3/coverage/ctracer/datastack.o build/temp.linux-x86_64-3.3/coverage/ctracer/filedisp.o build/temp.linux-x86_64-3.3/coverage/ctracer/module.o build/temp.linux-x86_64-3.3/coverage/ctracer/tracer.o -L/opt/python/3.3.5/lib -lpython3.3m -o build/lib.linux-x86_64-3.3/coverage/tracer.cpython-33m.so
+    /opt/python/3.3.5/lib/python3.3/distutils/dist.py:258: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/3.3.5/lib/python3.3/distutils/dist.py:258: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/3.3.5/lib/python3.3/distutils/dist.py:258: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    Installing coverage-3.3 script to /home/travis/virtualenv/python3.3.5/bin
+    Installing coverage script to /home/travis/virtualenv/python3.3.5/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.3.5/bin
+
+
+Successfully installed certifi-2020.6.20 chardet-3.0.4 coverage-5.3 coveralls-1.0b1 docopt-0.6.2 idna-2.10 requests-2.24.0 urllib3-1.25.11
+
+travis_time:end:0d03de50:start=1604598794752414727,finish=1604598800238313755,duration=5485899028[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:0e051da8[0K$ pip install twine==1.5.0
+Collecting twine==1.5.0
+  Downloading https://files.pythonhosted.org/packages/b6/57/a4148d05bd0098c1d6d8cc4e14e766dbe93c3a5ab6723b969da27a87bac0/twine-1.5.0-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): requests in /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (from twine==1.5.0)
+Collecting pkginfo (from twine==1.5.0)
+  Downloading https://files.pythonhosted.org/packages/4f/3c/535287349af1b117e082f8e77feca52fbe2fdf61ef1e6da6bcc2a72a3a79/pkginfo-1.6.1-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): chardet<4,>=3.0.2 in /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (from requests->twine==1.5.0)
+Requirement already satisfied (use --upgrade to upgrade): idna<3,>=2.5 in /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (from requests->twine==1.5.0)
+Requirement already satisfied (use --upgrade to upgrade): urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (from requests->twine==1.5.0)
+Requirement already satisfied (use --upgrade to upgrade): certifi>=2017.4.17 in /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (from requests->twine==1.5.0)
+Installing collected packages: pkginfo, twine
+
+
+Successfully installed pkginfo-1.6.1 twine-1.5.0
+
+travis_time:end:0e051da8:start=1604598800248707428,finish=1604598801149179481,duration=900472053[0Ktravis_fold:end:install.3[0Ktravis_time:start:04ea6e48[0K$ coverage run --source=appier setup.py test
+running test
+running egg_info
+creating src/appier.egg-info
+writing dependency_links to src/appier.egg-info/dependency_links.txt
+writing top-level names to src/appier.egg-info/top_level.txt
+writing src/appier.egg-info/PKG-INFO
+writing manifest file 'src/appier.egg-info/SOURCES.txt'
+reading manifest file 'src/appier.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src/appier.egg-info/SOURCES.txt'
+running build_ext
+Traceback (most recent call last):
+  File "setup.py", line 80, in <module>
+    "Programming Language :: Python :: 3.4"
+  File "/opt/python/3.3.5/lib/python3.3/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/opt/python/3.3.5/lib/python3.3/distutils/dist.py", line 930, in run_commands
+    self.run_command(cmd)
+  File "/opt/python/3.3.5/lib/python3.3/distutils/dist.py", line 949, in run_command
+    cmd_obj.run()
+  File "/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/setuptools/command/test.py", line 142, in run
+    self.with_project_on_sys_path(self.run_tests)
+  File "/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/setuptools/command/test.py", line 122, in with_project_on_sys_path
+    func()
+  File "/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/setuptools/command/test.py", line 163, in run_tests
+    testRunner=self._resolve_as_ep(self.test_runner),
+  File "/opt/python/3.3.5/lib/python3.3/unittest/main.py", line 124, in __init__
+    self.parseArgs(argv)
+  File "/opt/python/3.3.5/lib/python3.3/unittest/main.py", line 168, in parseArgs
+    self.createTests()
+  File "/opt/python/3.3.5/lib/python3.3/unittest/main.py", line 175, in createTests
+    self.module)
+  File "/opt/python/3.3.5/lib/python3.3/unittest/loader.py", line 137, in loadTestsFromNames
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/python/3.3.5/lib/python3.3/unittest/loader.py", line 137, in <listcomp>
+    suites = [self.loadTestsFromName(name, module) for name in names]
+  File "/opt/python/3.3.5/lib/python3.3/unittest/loader.py", line 96, in loadTestsFromName
+    module = __import__('.'.join(parts_copy))
+  File "/home/travis/build/failed/hivesolutions/appier/src/appier/__init__.py", line 37, in <module>
+    from . import api
+  File "/home/travis/build/failed/hivesolutions/appier/src/appier/api.py", line 47, in <module>
+    from . import base
+  File "/home/travis/build/failed/hivesolutions/appier/src/appier/base.py", line 626
+    print self._user_routes
+             ^
+SyntaxError: invalid syntax
+
+travis_time:end:04ea6e48:start=1604598801159754640,finish=1604598801951131556,duration=791376916[0K
+[31;1mThe command "coverage run --source=appier setup.py test" exited with 1.[0m
+
+Done. Your build exited with 1.

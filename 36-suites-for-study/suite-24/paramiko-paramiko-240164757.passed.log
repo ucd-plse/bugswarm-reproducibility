@@ -1,0 +1,777 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+[33;1mpypy-5.4.1 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/pypy-5.4.1.tar.bz2[0m
+$ sudo tar xjf pypy-5.4.1.tar.bz2 --directory /
+$ cd passed/paramiko/paramiko
+travis_time:start:2a56c788[0K$ source ~/virtualenv/pypy-5.4.1/bin/activate
+
+travis_time:end:2a56c788:start=1606546956659390261,finish=1606546956670518996,duration=11128735[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:2a124907[0K$ Installing caching utilities
+
+travis_time:end:2a124907:start=1606546957098625187,finish=1606546957162997789,duration=64372602[0Ktravis_time:start:0ebb0360[0K
+travis_time:end:0ebb0360:start=1606546957177073943,finish=1606546957187260002,duration=10186059[0Ktravis_time:start:06cecd2b[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:06cecd2b:start=1606546957198268276,finish=1606546958044845175,duration=846576899[0Ktravis_time:start:122d022e[0K
+travis_time:end:122d022e:start=1606546958057016750,finish=1606546958068115502,duration=11098752[0Ktravis_time:start:105611af[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:105611af:start=1606546958081571230,finish=1606546958971259082,duration=889687852[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 2.7.10 (c95650101a99, Sep 06 2016, 11:10:29)
+[PyPy 5.4.1 with GCC 4.8.2]
+$ pip --version
+pip 9.0.1 from /home/travis/virtualenv/pypy-5.4.1/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:276067bc[0K$ pip install -e .
+Obtaining file:///home/travis/build/passed/paramiko/paramiko
+Collecting bcrypt>=3.0.0 (from paramiko==2.1.2)
+  Downloading https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz (42kB)
+Collecting cryptography>=1.1 (from paramiko==2.1.2)
+  Downloading https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz (540kB)
+Collecting pynacl>=1.0.1 (from paramiko==2.1.2)
+  Downloading https://files.pythonhosted.org/packages/cf/5a/25aeb636baeceab15c8e57e66b8aa930c011ec1c035f284170cacb05025e/PyNaCl-1.4.0.tar.gz (3.4MB)
+Collecting pyasn1>=0.1.7 (from paramiko==2.1.2)
+  Downloading https://files.pythonhosted.org/packages/62/1e/a94a8d635fa3ce4cfc7f506003548d0a2447ae76fd5ca53932970fe3053f/pyasn1-0.4.8-py2.py3-none-any.whl (77kB)
+Requirement already satisfied: cffi>=1.1 in /opt/python/pypy-5.4.1/lib_pypy (from bcrypt>=3.0.0->paramiko==2.1.2)
+Requirement already satisfied: six>=1.4.1 in /home/travis/virtualenv/pypy-5.4.1/site-packages (from bcrypt>=3.0.0->paramiko==2.1.2)
+Collecting enum34 (from cryptography>=1.1->paramiko==2.1.2)
+  Downloading https://files.pythonhosted.org/packages/6f/2c/a9386903ece2ea85e9807e0e062174dc26fdce8b05f216d00491be29fad5/enum34-1.1.10-py2-none-any.whl
+Collecting ipaddress (from cryptography>=1.1->paramiko==2.1.2)
+  Downloading https://files.pythonhosted.org/packages/c2/f8/49697181b1651d8347d24c095ce46c7346c37335ddc7d255833e7cde674d/ipaddress-1.0.23-py2.py3-none-any.whl
+Building wheels for collected packages: bcrypt, cryptography, pynacl
+  Running setup.py bdist_wheel for bcrypt: started
+  Running setup.py bdist_wheel for bcrypt: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/ae/b1/2c/dc178774d435228aff4679c4837de4d5ee1dd5568a370fc79c
+  Running setup.py bdist_wheel for cryptography: started
+  Running setup.py bdist_wheel for cryptography: finished with status 'error'
+  Complete output from command /home/travis/virtualenv/pypy-5.4.1/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-8qkrfT/cryptography/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/tmpCe9KIgpip-wheel- --python-tag pp254:
+  /opt/python/pypy-5.4.1/lib-python/2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+    warnings.warn(msg)
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-2.7
+  creating build/lib.linux-x86_64-2.7/cryptography
+  copying src/cryptography/__about__.py -> build/lib.linux-x86_64-2.7/cryptography
+  copying src/cryptography/__init__.py -> build/lib.linux-x86_64-2.7/cryptography
+  copying src/cryptography/exceptions.py -> build/lib.linux-x86_64-2.7/cryptography
+  copying src/cryptography/fernet.py -> build/lib.linux-x86_64-2.7/cryptography
+  copying src/cryptography/utils.py -> build/lib.linux-x86_64-2.7/cryptography
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat
+  copying src/cryptography/hazmat/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat
+  copying src/cryptography/hazmat/_der.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat
+  copying src/cryptography/hazmat/_oid.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat
+  creating build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/base.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/certificate_transparency.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/extensions.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/general_name.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/name.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/ocsp.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  copying src/cryptography/x509/oid.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/backends
+  copying src/cryptography/hazmat/backends/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends
+  copying src/cryptography/hazmat/backends/interfaces.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings
+  copying src/cryptography/hazmat/bindings/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/cmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/constant_time.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/hashes.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/hmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/keywrap.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/padding.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  copying src/cryptography/hazmat/primitives/poly1305.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/aead.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/backend.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/ciphers.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/cmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/decode_asn1.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/dh.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/dsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/ec.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/ed25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/ed448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/encode_asn1.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/hashes.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/hmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/ocsp.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/poly1305.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/rsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/utils.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/x25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/x448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  copying src/cryptography/hazmat/backends/openssl/x509.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+  copying src/cryptography/hazmat/bindings/openssl/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+  copying src/cryptography/hazmat/bindings/openssl/_conditional.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+  copying src/cryptography/hazmat/bindings/openssl/binding.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/dh.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/dsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/ec.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/ed25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/ed448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/padding.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/rsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/utils.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/x25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  copying src/cryptography/hazmat/primitives/asymmetric/x448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+  copying src/cryptography/hazmat/primitives/ciphers/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+  copying src/cryptography/hazmat/primitives/ciphers/aead.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+  copying src/cryptography/hazmat/primitives/ciphers/algorithms.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+  copying src/cryptography/hazmat/primitives/ciphers/base.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+  copying src/cryptography/hazmat/primitives/ciphers/modes.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/concatkdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/hkdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/kbkdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/pbkdf2.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/scrypt.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  copying src/cryptography/hazmat/primitives/kdf/x963kdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+  copying src/cryptography/hazmat/primitives/serialization/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+  copying src/cryptography/hazmat/primitives/serialization/base.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+  copying src/cryptography/hazmat/primitives/serialization/pkcs12.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+  copying src/cryptography/hazmat/primitives/serialization/pkcs7.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+  copying src/cryptography/hazmat/primitives/serialization/ssh.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+  creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+  copying src/cryptography/hazmat/primitives/twofactor/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+  copying src/cryptography/hazmat/primitives/twofactor/hotp.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+  copying src/cryptography/hazmat/primitives/twofactor/totp.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+  copying src/cryptography/hazmat/primitives/twofactor/utils.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+  running egg_info
+  writing src/cryptography.egg-info/PKG-INFO
+  writing dependency_links to src/cryptography.egg-info/dependency_links.txt
+  writing requirements to src/cryptography.egg-info/requires.txt
+  writing top-level names to src/cryptography.egg-info/top_level.txt
+  warning: manifest_maker: standard file '-c' not found
+  
+  reading manifest file 'src/cryptography.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  no previously-included directories found matching 'docs/_build'
+  warning: no previously-included files found matching 'vectors'
+  warning: no previously-included files matching '*' found under directory 'vectors'
+  warning: no previously-included files found matching '.travis.yml'
+  warning: no previously-included files found matching '.travis'
+  warning: no previously-included files matching '*' found under directory '.travis'
+  warning: no previously-included files matching '*' found under directory '.github'
+  warning: no previously-included files found matching 'release.py'
+  warning: no previously-included files found matching '.coveragerc'
+  warning: no previously-included files found matching 'codecov.yml'
+  warning: no previously-included files found matching 'dev-requirements.txt'
+  warning: no previously-included files found matching 'rtd-requirements.txt'
+  warning: no previously-included files found matching 'tox.ini'
+  warning: no previously-included files matching '*' found under directory '.zuul.d'
+  warning: no previously-included files matching '*' found under directory '.zuul.playbooks'
+  writing manifest file 'src/cryptography.egg-info/SOURCES.txt'
+  running build_ext
+  generating cffi module 'build/temp.linux-x86_64-2.7/_padding.c'
+  creating build/temp.linux-x86_64-2.7
+  generating cffi module 'build/temp.linux-x86_64-2.7/_openssl.c'
+  building '_openssl' extension
+  creating build/temp.linux-x86_64-2.7/build
+  creating build/temp.linux-x86_64-2.7/build/temp.linux-x86_64-2.7
+  cc -O2 -fPIC -Wimplicit -O2 -fPIC -Wimplicit -I/home/travis/virtualenv/pypy-5.4.1/include -c build/temp.linux-x86_64-2.7/_openssl.c -o build/temp.linux-x86_64-2.7/build/temp.linux-x86_64-2.7/_openssl.o -Wconversion -Wno-error=sign-conversion
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘SSL_SESSION_get_master_key’:
+  build/temp.linux-x86_64-2.7/_openssl.c:2340:23: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:2342:25: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘SSL_SESSION_get_ticket_lifetime_hint’:
+  build/temp.linux-x86_64-2.7/_openssl.c:2354:13: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘Cryptography_X509_REVOKED_dup’:
+  build/temp.linux-x86_64-2.7/_openssl.c:2556:5: warning: implicit declaration of function ‘X509_REVOKED_dup’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:2556:5: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘Cryptography_setup_ssl_threads’:
+  build/temp.linux-x86_64-2.7/_openssl.c:2775:9: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘Cryptography_pem_password_cb’:
+  build/temp.linux-x86_64-2.7/_openssl.c:2810:37: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_SSL_OP_NO_DTLSv1’:
+  build/temp.linux-x86_64-2.7/_openssl.c:7639:12: error: ‘SSL_OP_NO_DTLSv1’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c:7639:12: note: each undeclared identifier is reported only once for each function it appears in
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_SSL_OP_NO_DTLSv1_2’:
+  build/temp.linux-x86_64-2.7/_openssl.c:7646:12: error: ‘SSL_OP_NO_DTLSv1_2’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT’:
+  build/temp.linux-x86_64-2.7/_openssl.c:7982:12: error: ‘X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_MULTI_LABEL_WILDCARDS’:
+  build/temp.linux-x86_64-2.7/_openssl.c:7989:12: error: ‘X509_CHECK_FLAG_MULTI_LABEL_WILDCARDS’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8003:12: error: ‘X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_NO_WILDCARDS’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8010:12: error: ‘X509_CHECK_FLAG_NO_WILDCARDS’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_SINGLE_LABEL_SUBDOMAINS’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8017:12: error: ‘X509_CHECK_FLAG_SINGLE_LABEL_SUBDOMAINS’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_EMAIL_MISMATCH’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8157:12: error: ‘X509_V_ERR_EMAIL_MISMATCH’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_HOSTNAME_MISMATCH’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8199:12: error: ‘X509_V_ERR_HOSTNAME_MISMATCH’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_IP_ADDRESS_MISMATCH’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8241:12: error: ‘X509_V_ERR_IP_ADDRESS_MISMATCH’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_CANNOT_SIGN_P_384_WITH_P_256’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8332:12: error: ‘X509_V_ERR_SUITE_B_CANNOT_SIGN_P_384_WITH_P_256’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_ALGORITHM’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8339:12: error: ‘X509_V_ERR_SUITE_B_INVALID_ALGORITHM’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_CURVE’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8346:12: error: ‘X509_V_ERR_SUITE_B_INVALID_CURVE’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_SIGNATURE_ALGORITHM’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8353:12: error: ‘X509_V_ERR_SUITE_B_INVALID_SIGNATURE_ALGORITHM’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_VERSION’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8360:12: error: ‘X509_V_ERR_SUITE_B_INVALID_VERSION’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_LOS_NOT_ALLOWED’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8367:12: error: ‘X509_V_ERR_SUITE_B_LOS_NOT_ALLOWED’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_PARTIAL_CHAIN’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8556:12: error: ‘X509_V_FLAG_PARTIAL_CHAIN’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_SUITEB_128_LOS’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8570:12: error: ‘X509_V_FLAG_SUITEB_128_LOS’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_SUITEB_128_LOS_ONLY’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8577:12: error: ‘X509_V_FLAG_SUITEB_128_LOS_ONLY’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_SUITEB_192_LOS’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8584:12: error: ‘X509_V_FLAG_SUITEB_192_LOS’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_TRUSTED_FIRST’:
+  build/temp.linux-x86_64-2.7/_openssl.c:8591:12: error: ‘X509_V_FLAG_TRUSTED_FIRST’ undeclared (first use in this function)
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_BIO_new_mem_buf’:
+  build/temp.linux-x86_64-2.7/_openssl.c:10561:3: warning: passing argument 1 of ‘BIO_new_mem_buf’ discards ‘const’ qualifier from pointer target type [enabled by default]
+  /usr/include/openssl/bio.h:668:6: note: expected ‘void *’ but argument is of type ‘const void *’
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_client_method’:
+  build/temp.linux-x86_64-2.7/_openssl.c:15870:3: warning: implicit declaration of function ‘DTLS_client_method’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:15870:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_get_link_min_mtu’:
+  build/temp.linux-x86_64-2.7/_openssl.c:15894:3: warning: implicit declaration of function ‘DTLS_get_link_min_mtu’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_method’:
+  build/temp.linux-x86_64-2.7/_openssl.c:15930:3: warning: implicit declaration of function ‘DTLS_method’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:15930:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_server_method’:
+  build/temp.linux-x86_64-2.7/_openssl.c:15954:3: warning: implicit declaration of function ‘DTLS_server_method’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:15954:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_set_link_mtu’:
+  build/temp.linux-x86_64-2.7/_openssl.c:15978:3: warning: implicit declaration of function ‘DTLS_set_link_mtu’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_EC_curve_nid2nist’:
+  build/temp.linux-x86_64-2.7/_openssl.c:18684:3: warning: implicit declaration of function ‘EC_curve_nid2nist’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:18684:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_OCSP_cert_to_id’:
+  build/temp.linux-x86_64-2.7/_openssl.c:26064:3: warning: passing argument 2 of ‘OCSP_cert_to_id’ discards ‘const’ qualifier from pointer target type [enabled by default]
+  /usr/include/openssl/ocsp.h:413:14: note: expected ‘struct X509 *’ but argument is of type ‘const struct X509 *’
+  build/temp.linux-x86_64-2.7/_openssl.c:26064:3: warning: passing argument 3 of ‘OCSP_cert_to_id’ discards ‘const’ qualifier from pointer target type [enabled by default]
+  /usr/include/openssl/ocsp.h:413:14: note: expected ‘struct X509 *’ but argument is of type ‘const struct X509 *’
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_OCSP_resp_get0_certs’:
+  build/temp.linux-x86_64-2.7/_openssl.c:26475:3: warning: return discards ‘const’ qualifier from pointer target type [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_add_client_custom_ext’:
+  build/temp.linux-x86_64-2.7/_openssl.c:31802:3: warning: implicit declaration of function ‘SSL_CTX_add_client_custom_ext’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_add_extra_chain_cert’:
+  build/temp.linux-x86_64-2.7/_openssl.c:31892:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_add_server_custom_ext’:
+  build/temp.linux-x86_64-2.7/_openssl.c:31945:3: warning: implicit declaration of function ‘SSL_CTX_add_server_custom_ext’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_clear_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:32071:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:32071:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_clear_options’:
+  build/temp.linux-x86_64-2.7/_openssl.c:32117:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:32117:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get0_param’:
+  build/temp.linux-x86_64-2.7/_openssl.c:32199:3: warning: implicit declaration of function ‘SSL_CTX_get0_param’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:32199:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:32474:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get_options’:
+  build/temp.linux-x86_64-2.7/_openssl.c:32510:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get_session_cache_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:32582:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set1_sigalgs_list’:
+  build/temp.linux-x86_64-2.7/_openssl.c:33260:3: warning: implicit declaration of function ‘SSL_CTX_set1_sigalgs_list’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_alpn_protos’:
+  build/temp.linux-x86_64-2.7/_openssl.c:33313:3: warning: implicit declaration of function ‘SSL_CTX_set_alpn_protos’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_alpn_select_cb’:
+  build/temp.linux-x86_64-2.7/_openssl.c:33372:3: warning: implicit declaration of function ‘SSL_CTX_set_alpn_select_cb’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_cert_cb’:
+  build/temp.linux-x86_64-2.7/_openssl.c:33431:3: warning: implicit declaration of function ‘SSL_CTX_set_cert_cb’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_ecdh_auto’:
+  build/temp.linux-x86_64-2.7/_openssl.c:33942:3: warning: implicit declaration of function ‘SSL_CTX_set_ecdh_auto’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:34185:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:34185:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_options’:
+  build/temp.linux-x86_64-2.7/_openssl.c:34231:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:34231:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_session_cache_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:34461:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:34461:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_tmp_dh’:
+  build/temp.linux-x86_64-2.7/_openssl.c:34863:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_tmp_ecdh’:
+  build/temp.linux-x86_64-2.7/_openssl.c:34916:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_SESSION_get_ticket_lifetime_hint’:
+  build/temp.linux-x86_64-2.7/_openssl.c:35581:46: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_clear_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:35784:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:35784:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_extension_supported’:
+  build/temp.linux-x86_64-2.7/_openssl.c:35969:3: warning: implicit declaration of function ‘SSL_extension_supported’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get0_alpn_selected’:
+  build/temp.linux-x86_64-2.7/_openssl.c:36033:3: warning: implicit declaration of function ‘SSL_get0_alpn_selected’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get0_param’:
+  build/temp.linux-x86_64-2.7/_openssl.c:36099:3: warning: implicit declaration of function ‘SSL_get0_param’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c:36099:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:36680:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_options’:
+  build/temp.linux-x86_64-2.7/_openssl.c:36716:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_server_tmp_key’:
+  build/temp.linux-x86_64-2.7/_openssl.c:37014:3: warning: implicit declaration of function ‘SSL_get_server_tmp_key’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_sigalgs’:
+  build/temp.linux-x86_64-2.7/_openssl.c:37185:3: warning: implicit declaration of function ‘SSL_get_sigalgs’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_alpn_protos’:
+  build/temp.linux-x86_64-2.7/_openssl.c:38055:3: warning: implicit declaration of function ‘SSL_set_alpn_protos’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_cert_cb’:
+  build/temp.linux-x86_64-2.7/_openssl.c:38180:3: warning: implicit declaration of function ‘SSL_set_cert_cb’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_mode’:
+  build/temp.linux-x86_64-2.7/_openssl.c:38380:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:38380:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_options’:
+  build/temp.linux-x86_64-2.7/_openssl.c:38426:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c:38426:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_ATTRIBUTE_count’:
+  build/temp.linux-x86_64-2.7/_openssl.c:40159:3: warning: passing argument 1 of ‘X509_ATTRIBUTE_count’ discards ‘const’ qualifier from pointer target type [enabled by default]
+  /usr/include/openssl/x509.h:1129:5: note: expected ‘struct X509_ATTRIBUTE *’ but argument is of type ‘const struct X509_ATTRIBUTE *’
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_REQ_get_attr_by_OBJ’:
+  build/temp.linux-x86_64-2.7/_openssl.c:42980:3: warning: passing argument 2 of ‘X509_REQ_get_attr_by_OBJ’ discards ‘const’ qualifier from pointer target type [enabled by default]
+  /usr/include/openssl/x509.h:938:5: note: expected ‘struct ASN1_OBJECT *’ but argument is of type ‘const struct ASN1_OBJECT *’
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_REVOKED_dup’:
+  build/temp.linux-x86_64-2.7/_openssl.c:43719:3: warning: return makes pointer from integer without a cast [enabled by default]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_email’:
+  build/temp.linux-x86_64-2.7/_openssl.c:45920:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_email’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_host’:
+  build/temp.linux-x86_64-2.7/_openssl.c:45979:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_host’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_ip’:
+  build/temp.linux-x86_64-2.7/_openssl.c:46038:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_ip’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_ip_asc’:
+  build/temp.linux-x86_64-2.7/_openssl.c:46097:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_ip_asc’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set_hostflags’:
+  build/temp.linux-x86_64-2.7/_openssl.c:46295:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set_hostflags’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_get0_signature’:
+  build/temp.linux-x86_64-2.7/_openssl.c:46831:3: warning: implicit declaration of function ‘X509_get0_signature’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_get_signature_nid’:
+  build/temp.linux-x86_64-2.7/_openssl.c:47363:3: warning: implicit declaration of function ‘X509_get_signature_nid’ [-Wimplicit-function-declaration]
+  build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_i2d_re_X509_tbs’:
+  build/temp.linux-x86_64-2.7/_openssl.c:50499:3: warning: implicit declaration of function ‘i2d_re_X509_tbs’ [-Wimplicit-function-declaration]
+  error: command 'cc' failed with exit status 1
+  
+  ----------------------------------------
+  Failed building wheel for cryptography
+  Running setup.py clean for cryptography
+  Running setup.py bdist_wheel for pynacl: started
+  Running setup.py bdist_wheel for pynacl: still running...
+  Running setup.py bdist_wheel for pynacl: still running...
+  Running setup.py bdist_wheel for pynacl: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/c2/d9/ca/81e002fb0cee770c198715dace9edab919daba3ae49bd287a0
+Successfully built bcrypt pynacl
+Failed to build cryptography
+Installing collected packages: bcrypt, enum34, ipaddress, cryptography, pynacl, pyasn1, paramiko
+  Running setup.py install for cryptography: started
+    Running setup.py install for cryptography: finished with status 'error'
+    Complete output from command /home/travis/virtualenv/pypy-5.4.1/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-8qkrfT/cryptography/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-tTdrEp-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/travis/virtualenv/pypy-5.4.1/include/site/python2.7/cryptography:
+    /opt/python/pypy-5.4.1/lib-python/2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-2.7
+    creating build/lib.linux-x86_64-2.7/cryptography
+    copying src/cryptography/__about__.py -> build/lib.linux-x86_64-2.7/cryptography
+    copying src/cryptography/__init__.py -> build/lib.linux-x86_64-2.7/cryptography
+    copying src/cryptography/exceptions.py -> build/lib.linux-x86_64-2.7/cryptography
+    copying src/cryptography/fernet.py -> build/lib.linux-x86_64-2.7/cryptography
+    copying src/cryptography/utils.py -> build/lib.linux-x86_64-2.7/cryptography
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat
+    copying src/cryptography/hazmat/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat
+    copying src/cryptography/hazmat/_der.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat
+    copying src/cryptography/hazmat/_oid.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat
+    creating build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/base.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/certificate_transparency.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/extensions.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/general_name.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/name.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/ocsp.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    copying src/cryptography/x509/oid.py -> build/lib.linux-x86_64-2.7/cryptography/x509
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/backends
+    copying src/cryptography/hazmat/backends/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends
+    copying src/cryptography/hazmat/backends/interfaces.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings
+    copying src/cryptography/hazmat/bindings/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/cmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/constant_time.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/hashes.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/hmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/keywrap.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/padding.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    copying src/cryptography/hazmat/primitives/poly1305.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/aead.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/backend.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/ciphers.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/cmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/decode_asn1.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/dh.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/dsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/ec.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/ed25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/ed448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/encode_asn1.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/hashes.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/hmac.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/ocsp.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/poly1305.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/rsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/utils.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/x25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/x448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    copying src/cryptography/hazmat/backends/openssl/x509.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/backends/openssl
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+    copying src/cryptography/hazmat/bindings/openssl/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+    copying src/cryptography/hazmat/bindings/openssl/_conditional.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+    copying src/cryptography/hazmat/bindings/openssl/binding.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/bindings/openssl
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/dh.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/dsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/ec.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/ed25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/ed448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/padding.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/rsa.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/utils.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/x25519.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    copying src/cryptography/hazmat/primitives/asymmetric/x448.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/asymmetric
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+    copying src/cryptography/hazmat/primitives/ciphers/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+    copying src/cryptography/hazmat/primitives/ciphers/aead.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+    copying src/cryptography/hazmat/primitives/ciphers/algorithms.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+    copying src/cryptography/hazmat/primitives/ciphers/base.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+    copying src/cryptography/hazmat/primitives/ciphers/modes.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/ciphers
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/concatkdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/hkdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/kbkdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/pbkdf2.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/scrypt.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    copying src/cryptography/hazmat/primitives/kdf/x963kdf.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/kdf
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+    copying src/cryptography/hazmat/primitives/serialization/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+    copying src/cryptography/hazmat/primitives/serialization/base.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+    copying src/cryptography/hazmat/primitives/serialization/pkcs12.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+    copying src/cryptography/hazmat/primitives/serialization/pkcs7.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+    copying src/cryptography/hazmat/primitives/serialization/ssh.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/serialization
+    creating build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+    copying src/cryptography/hazmat/primitives/twofactor/__init__.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+    copying src/cryptography/hazmat/primitives/twofactor/hotp.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+    copying src/cryptography/hazmat/primitives/twofactor/totp.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+    copying src/cryptography/hazmat/primitives/twofactor/utils.py -> build/lib.linux-x86_64-2.7/cryptography/hazmat/primitives/twofactor
+    running egg_info
+    writing src/cryptography.egg-info/PKG-INFO
+    writing dependency_links to src/cryptography.egg-info/dependency_links.txt
+    writing requirements to src/cryptography.egg-info/requires.txt
+    writing top-level names to src/cryptography.egg-info/top_level.txt
+    warning: manifest_maker: standard file '-c' not found
+    
+    reading manifest file 'src/cryptography.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    no previously-included directories found matching 'docs/_build'
+    warning: no previously-included files found matching 'vectors'
+    warning: no previously-included files matching '*' found under directory 'vectors'
+    warning: no previously-included files found matching '.travis.yml'
+    warning: no previously-included files found matching '.travis'
+    warning: no previously-included files matching '*' found under directory '.travis'
+    warning: no previously-included files matching '*' found under directory '.github'
+    warning: no previously-included files found matching 'release.py'
+    warning: no previously-included files found matching '.coveragerc'
+    warning: no previously-included files found matching 'codecov.yml'
+    warning: no previously-included files found matching 'dev-requirements.txt'
+    warning: no previously-included files found matching 'rtd-requirements.txt'
+    warning: no previously-included files found matching 'tox.ini'
+    warning: no previously-included files matching '*' found under directory '.zuul.d'
+    warning: no previously-included files matching '*' found under directory '.zuul.playbooks'
+    writing manifest file 'src/cryptography.egg-info/SOURCES.txt'
+    running build_ext
+    generating cffi module 'build/temp.linux-x86_64-2.7/_padding.c'
+    creating build/temp.linux-x86_64-2.7
+    generating cffi module 'build/temp.linux-x86_64-2.7/_openssl.c'
+    building '_openssl' extension
+    creating build/temp.linux-x86_64-2.7/build
+    creating build/temp.linux-x86_64-2.7/build/temp.linux-x86_64-2.7
+    cc -O2 -fPIC -Wimplicit -O2 -fPIC -Wimplicit -I/home/travis/virtualenv/pypy-5.4.1/include -c build/temp.linux-x86_64-2.7/_openssl.c -o build/temp.linux-x86_64-2.7/build/temp.linux-x86_64-2.7/_openssl.o -Wconversion -Wno-error=sign-conversion
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘SSL_SESSION_get_master_key’:
+    build/temp.linux-x86_64-2.7/_openssl.c:2340:23: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:2342:25: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘SSL_SESSION_get_ticket_lifetime_hint’:
+    build/temp.linux-x86_64-2.7/_openssl.c:2354:13: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘Cryptography_X509_REVOKED_dup’:
+    build/temp.linux-x86_64-2.7/_openssl.c:2556:5: warning: implicit declaration of function ‘X509_REVOKED_dup’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:2556:5: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘Cryptography_setup_ssl_threads’:
+    build/temp.linux-x86_64-2.7/_openssl.c:2775:9: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘Cryptography_pem_password_cb’:
+    build/temp.linux-x86_64-2.7/_openssl.c:2810:37: warning: conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_SSL_OP_NO_DTLSv1’:
+    build/temp.linux-x86_64-2.7/_openssl.c:7639:12: error: ‘SSL_OP_NO_DTLSv1’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c:7639:12: note: each undeclared identifier is reported only once for each function it appears in
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_SSL_OP_NO_DTLSv1_2’:
+    build/temp.linux-x86_64-2.7/_openssl.c:7646:12: error: ‘SSL_OP_NO_DTLSv1_2’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT’:
+    build/temp.linux-x86_64-2.7/_openssl.c:7982:12: error: ‘X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_MULTI_LABEL_WILDCARDS’:
+    build/temp.linux-x86_64-2.7/_openssl.c:7989:12: error: ‘X509_CHECK_FLAG_MULTI_LABEL_WILDCARDS’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8003:12: error: ‘X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_NO_WILDCARDS’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8010:12: error: ‘X509_CHECK_FLAG_NO_WILDCARDS’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_CHECK_FLAG_SINGLE_LABEL_SUBDOMAINS’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8017:12: error: ‘X509_CHECK_FLAG_SINGLE_LABEL_SUBDOMAINS’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_EMAIL_MISMATCH’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8157:12: error: ‘X509_V_ERR_EMAIL_MISMATCH’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_HOSTNAME_MISMATCH’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8199:12: error: ‘X509_V_ERR_HOSTNAME_MISMATCH’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_IP_ADDRESS_MISMATCH’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8241:12: error: ‘X509_V_ERR_IP_ADDRESS_MISMATCH’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_CANNOT_SIGN_P_384_WITH_P_256’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8332:12: error: ‘X509_V_ERR_SUITE_B_CANNOT_SIGN_P_384_WITH_P_256’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_ALGORITHM’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8339:12: error: ‘X509_V_ERR_SUITE_B_INVALID_ALGORITHM’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_CURVE’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8346:12: error: ‘X509_V_ERR_SUITE_B_INVALID_CURVE’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_SIGNATURE_ALGORITHM’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8353:12: error: ‘X509_V_ERR_SUITE_B_INVALID_SIGNATURE_ALGORITHM’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_INVALID_VERSION’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8360:12: error: ‘X509_V_ERR_SUITE_B_INVALID_VERSION’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_ERR_SUITE_B_LOS_NOT_ALLOWED’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8367:12: error: ‘X509_V_ERR_SUITE_B_LOS_NOT_ALLOWED’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_PARTIAL_CHAIN’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8556:12: error: ‘X509_V_FLAG_PARTIAL_CHAIN’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_SUITEB_128_LOS’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8570:12: error: ‘X509_V_FLAG_SUITEB_128_LOS’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_SUITEB_128_LOS_ONLY’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8577:12: error: ‘X509_V_FLAG_SUITEB_128_LOS_ONLY’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_SUITEB_192_LOS’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8584:12: error: ‘X509_V_FLAG_SUITEB_192_LOS’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_const_X509_V_FLAG_TRUSTED_FIRST’:
+    build/temp.linux-x86_64-2.7/_openssl.c:8591:12: error: ‘X509_V_FLAG_TRUSTED_FIRST’ undeclared (first use in this function)
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_BIO_new_mem_buf’:
+    build/temp.linux-x86_64-2.7/_openssl.c:10561:3: warning: passing argument 1 of ‘BIO_new_mem_buf’ discards ‘const’ qualifier from pointer target type [enabled by default]
+    /usr/include/openssl/bio.h:668:6: note: expected ‘void *’ but argument is of type ‘const void *’
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_client_method’:
+    build/temp.linux-x86_64-2.7/_openssl.c:15870:3: warning: implicit declaration of function ‘DTLS_client_method’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:15870:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_get_link_min_mtu’:
+    build/temp.linux-x86_64-2.7/_openssl.c:15894:3: warning: implicit declaration of function ‘DTLS_get_link_min_mtu’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_method’:
+    build/temp.linux-x86_64-2.7/_openssl.c:15930:3: warning: implicit declaration of function ‘DTLS_method’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:15930:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_server_method’:
+    build/temp.linux-x86_64-2.7/_openssl.c:15954:3: warning: implicit declaration of function ‘DTLS_server_method’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:15954:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_DTLS_set_link_mtu’:
+    build/temp.linux-x86_64-2.7/_openssl.c:15978:3: warning: implicit declaration of function ‘DTLS_set_link_mtu’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_EC_curve_nid2nist’:
+    build/temp.linux-x86_64-2.7/_openssl.c:18684:3: warning: implicit declaration of function ‘EC_curve_nid2nist’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:18684:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_OCSP_cert_to_id’:
+    build/temp.linux-x86_64-2.7/_openssl.c:26064:3: warning: passing argument 2 of ‘OCSP_cert_to_id’ discards ‘const’ qualifier from pointer target type [enabled by default]
+    /usr/include/openssl/ocsp.h:413:14: note: expected ‘struct X509 *’ but argument is of type ‘const struct X509 *’
+    build/temp.linux-x86_64-2.7/_openssl.c:26064:3: warning: passing argument 3 of ‘OCSP_cert_to_id’ discards ‘const’ qualifier from pointer target type [enabled by default]
+    /usr/include/openssl/ocsp.h:413:14: note: expected ‘struct X509 *’ but argument is of type ‘const struct X509 *’
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_OCSP_resp_get0_certs’:
+    build/temp.linux-x86_64-2.7/_openssl.c:26475:3: warning: return discards ‘const’ qualifier from pointer target type [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_add_client_custom_ext’:
+    build/temp.linux-x86_64-2.7/_openssl.c:31802:3: warning: implicit declaration of function ‘SSL_CTX_add_client_custom_ext’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_add_extra_chain_cert’:
+    build/temp.linux-x86_64-2.7/_openssl.c:31892:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_add_server_custom_ext’:
+    build/temp.linux-x86_64-2.7/_openssl.c:31945:3: warning: implicit declaration of function ‘SSL_CTX_add_server_custom_ext’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_clear_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:32071:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:32071:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_clear_options’:
+    build/temp.linux-x86_64-2.7/_openssl.c:32117:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:32117:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get0_param’:
+    build/temp.linux-x86_64-2.7/_openssl.c:32199:3: warning: implicit declaration of function ‘SSL_CTX_get0_param’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:32199:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:32474:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get_options’:
+    build/temp.linux-x86_64-2.7/_openssl.c:32510:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_get_session_cache_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:32582:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set1_sigalgs_list’:
+    build/temp.linux-x86_64-2.7/_openssl.c:33260:3: warning: implicit declaration of function ‘SSL_CTX_set1_sigalgs_list’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_alpn_protos’:
+    build/temp.linux-x86_64-2.7/_openssl.c:33313:3: warning: implicit declaration of function ‘SSL_CTX_set_alpn_protos’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_alpn_select_cb’:
+    build/temp.linux-x86_64-2.7/_openssl.c:33372:3: warning: implicit declaration of function ‘SSL_CTX_set_alpn_select_cb’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_cert_cb’:
+    build/temp.linux-x86_64-2.7/_openssl.c:33431:3: warning: implicit declaration of function ‘SSL_CTX_set_cert_cb’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_ecdh_auto’:
+    build/temp.linux-x86_64-2.7/_openssl.c:33942:3: warning: implicit declaration of function ‘SSL_CTX_set_ecdh_auto’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:34185:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:34185:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_options’:
+    build/temp.linux-x86_64-2.7/_openssl.c:34231:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:34231:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_session_cache_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:34461:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:34461:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_tmp_dh’:
+    build/temp.linux-x86_64-2.7/_openssl.c:34863:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_CTX_set_tmp_ecdh’:
+    build/temp.linux-x86_64-2.7/_openssl.c:34916:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_SESSION_get_ticket_lifetime_hint’:
+    build/temp.linux-x86_64-2.7/_openssl.c:35581:46: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_clear_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:35784:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:35784:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_extension_supported’:
+    build/temp.linux-x86_64-2.7/_openssl.c:35969:3: warning: implicit declaration of function ‘SSL_extension_supported’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get0_alpn_selected’:
+    build/temp.linux-x86_64-2.7/_openssl.c:36033:3: warning: implicit declaration of function ‘SSL_get0_alpn_selected’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get0_param’:
+    build/temp.linux-x86_64-2.7/_openssl.c:36099:3: warning: implicit declaration of function ‘SSL_get0_param’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c:36099:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:36680:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_options’:
+    build/temp.linux-x86_64-2.7/_openssl.c:36716:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_server_tmp_key’:
+    build/temp.linux-x86_64-2.7/_openssl.c:37014:3: warning: implicit declaration of function ‘SSL_get_server_tmp_key’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_get_sigalgs’:
+    build/temp.linux-x86_64-2.7/_openssl.c:37185:3: warning: implicit declaration of function ‘SSL_get_sigalgs’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_alpn_protos’:
+    build/temp.linux-x86_64-2.7/_openssl.c:38055:3: warning: implicit declaration of function ‘SSL_set_alpn_protos’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_cert_cb’:
+    build/temp.linux-x86_64-2.7/_openssl.c:38180:3: warning: implicit declaration of function ‘SSL_set_cert_cb’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_mode’:
+    build/temp.linux-x86_64-2.7/_openssl.c:38380:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:38380:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_SSL_set_options’:
+    build/temp.linux-x86_64-2.7/_openssl.c:38426:3: warning: conversion to ‘long int’ from ‘long unsigned int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c:38426:10: warning: conversion to ‘long unsigned int’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_ATTRIBUTE_count’:
+    build/temp.linux-x86_64-2.7/_openssl.c:40159:3: warning: passing argument 1 of ‘X509_ATTRIBUTE_count’ discards ‘const’ qualifier from pointer target type [enabled by default]
+    /usr/include/openssl/x509.h:1129:5: note: expected ‘struct X509_ATTRIBUTE *’ but argument is of type ‘const struct X509_ATTRIBUTE *’
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_REQ_get_attr_by_OBJ’:
+    build/temp.linux-x86_64-2.7/_openssl.c:42980:3: warning: passing argument 2 of ‘X509_REQ_get_attr_by_OBJ’ discards ‘const’ qualifier from pointer target type [enabled by default]
+    /usr/include/openssl/x509.h:938:5: note: expected ‘struct ASN1_OBJECT *’ but argument is of type ‘const struct ASN1_OBJECT *’
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_REVOKED_dup’:
+    build/temp.linux-x86_64-2.7/_openssl.c:43719:3: warning: return makes pointer from integer without a cast [enabled by default]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_email’:
+    build/temp.linux-x86_64-2.7/_openssl.c:45920:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_email’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_host’:
+    build/temp.linux-x86_64-2.7/_openssl.c:45979:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_host’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_ip’:
+    build/temp.linux-x86_64-2.7/_openssl.c:46038:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_ip’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set1_ip_asc’:
+    build/temp.linux-x86_64-2.7/_openssl.c:46097:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set1_ip_asc’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_VERIFY_PARAM_set_hostflags’:
+    build/temp.linux-x86_64-2.7/_openssl.c:46295:3: warning: implicit declaration of function ‘X509_VERIFY_PARAM_set_hostflags’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_get0_signature’:
+    build/temp.linux-x86_64-2.7/_openssl.c:46831:3: warning: implicit declaration of function ‘X509_get0_signature’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_X509_get_signature_nid’:
+    build/temp.linux-x86_64-2.7/_openssl.c:47363:3: warning: implicit declaration of function ‘X509_get_signature_nid’ [-Wimplicit-function-declaration]
+    build/temp.linux-x86_64-2.7/_openssl.c: In function ‘_cffi_d_i2d_re_X509_tbs’:
+    build/temp.linux-x86_64-2.7/_openssl.c:50499:3: warning: implicit declaration of function ‘i2d_re_X509_tbs’ [-Wimplicit-function-declaration]
+    error: command 'cc' failed with exit status 1
+    
+    ----------------------------------------
+Command "/home/travis/virtualenv/pypy-5.4.1/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-8qkrfT/cryptography/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-tTdrEp-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/travis/virtualenv/pypy-5.4.1/include/site/python2.7/cryptography" failed with error code 1 in /tmp/pip-build-8qkrfT/cryptography/
+
+travis_time:end:276067bc:start=1606546959619134662,finish=1606547134371967542,duration=174752832880[0K
+[31;1mThe command "pip install -e ." failed and exited with 1 during .[0m
+
+Your build has been stopped.

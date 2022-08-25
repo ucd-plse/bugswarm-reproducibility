@@ -1,0 +1,269 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd passed/Unidata/netcdf4-python
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:34d53c99[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:34d53c99:start=1608062117629353604,finish=1608062122615303628,duration=4985950024[0Ktravis_time:start:002e7d6c[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libhdf5-serial-dev netcdf-bin libnetcdf-dev
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  libhdf5-doc netcdf-doc
+The following NEW packages will be installed:
+  libhdf5-serial-dev libnetcdf-dev netcdf-bin
+0 upgraded, 3 newly installed, 0 to remove and 238 not upgraded.
+Need to get 3,107 kB of archives.
+After this operation, 20.4 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/universe libhdf5-serial-dev amd64 1.8.4-patch1-3ubuntu2 [2,278 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/universe libnetcdf-dev amd64 1:4.1.1-6 [644 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/universe netcdf-bin amd64 1:4.1.1-6 [185 kB]
+Fetched 3,107 kB in 0s (4,041 kB/s)
+Selecting previously unselected package libhdf5-serial-dev.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking libhdf5-serial-dev (from .../libhdf5-serial-dev_1.8.4-patch1-3ubuntu2_amd64.deb) ...
+Selecting previously unselected package libnetcdf-dev.
+Unpacking libnetcdf-dev (from .../libnetcdf-dev_1%3a4.1.1-6_amd64.deb) ...
+Selecting previously unselected package netcdf-bin.
+Unpacking netcdf-bin (from .../netcdf-bin_1%3a4.1.1-6_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up libhdf5-serial-dev (1.8.4-patch1-3ubuntu2) ...
+Setting up libnetcdf-dev (1:4.1.1-6) ...
+Setting up netcdf-bin (1:4.1.1-6) ...
+
+travis_time:end:002e7d6c:start=1608062122625309082,finish=1608062133465486925,duration=10840177843[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DEPENDS="numpy cython"
+$ export NO_NET=1
+$ export DEPENDS="numpy ordereddict"
+
+travis_time:start:22a584ae[0K$ source ~/virtualenv/python2.6/bin/activate
+
+travis_time:end:22a584ae:start=1608062133483383837,finish=1608062133492848916,duration=9465079[0K$ python --version
+Python 2.6.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages (python 2.6)
+travis_fold:start:before_install[0Ktravis_time:start:02070fea[0K$ pip install $DEPENDS
+Requirement already satisfied (use --upgrade to upgrade): numpy in /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Collecting ordereddict
+  Downloading https://files.pythonhosted.org/packages/53/25/ef88e8e45db141faa9598fbf7ad0062df8f50f881a36ed6a0073e1572126/ordereddict-1.1.tar.gz
+    /tmp/pip-build-asBE05/ordereddict/setup.py:12: DeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+Installing collected packages: ordereddict
+  Running setup.py install for ordereddict
+    /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/setuptools/command/egg_info.py:171: DeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+      writer = ep.load(installer=installer)
+Successfully installed ordereddict-1.1
+
+travis_time:end:02070fea:start=1608062133853557205,finish=1608062134884441298,duration=1030884093[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install.1[0Ktravis_time:start:186e8a50[0K$ python setup.py build
+Package hdf5 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `hdf5.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'hdf5' found
+reading from setup.cfg...
+using nc-config ...
+using netcdf library version 4.1.1
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.6
+creating build/lib.linux-x86_64-2.6/netcdftime
+copying netcdftime/__init__.py -> build/lib.linux-x86_64-2.6/netcdftime
+copying netcdftime/netcdftime.py -> build/lib.linux-x86_64-2.6/netcdftime
+creating build/lib.linux-x86_64-2.6/netCDF4
+copying netCDF4/__init__.py -> build/lib.linux-x86_64-2.6/netCDF4
+copying netCDF4/utils.py -> build/lib.linux-x86_64-2.6/netCDF4
+running build_ext
+building 'netCDF4._netCDF4' extension
+creating build/temp.linux-x86_64-2.6
+creating build/temp.linux-x86_64-2.6/netCDF4
+gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/include -I/home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/numpy/core/include -I/opt/python/2.6.9/include/python2.6 -c netCDF4/_netCDF4.c -o build/temp.linux-x86_64-2.6/netCDF4/_netCDF4.o
+In file included from /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from netCDF4/_netCDF4.c:267:
+/home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__set_att’:
+netCDF4/_netCDF4.c:6458:11: warning: passing argument 5 of ‘nc_put_att_string’ from incompatible pointer type [enabled by default]
+/usr/include/netcdf.h:956:1: note: expected ‘const char **’ but argument is of type ‘char **’
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__find_cmptype’:
+netCDF4/_netCDF4.c:83278:34: warning: ‘__pyx_v_xtype’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c:51738:11: note: ‘__pyx_v_xtype’ was declared here
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__get_types’:
+netCDF4/_netCDF4.c:7186:21: warning: ‘__pyx_v_typeids’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c: In function ‘__pyx_pw_7netCDF4_8_netCDF4_8Variable_1__init__’:
+netCDF4/_netCDF4.c:27509:20: warning: ‘__pyx_v_dimids’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c:26112:8: note: ‘__pyx_v_dimids’ was declared here
+gcc -pthread -shared build/temp.linux-x86_64-2.6/netCDF4/_netCDF4.o -L/usr/lib -L/opt/python/2.6.9/lib -Wl,-R/usr/lib -lnetcdf -lpython2.6 -o build/lib.linux-x86_64-2.6/netCDF4/_netCDF4.so
+building 'netcdftime._datetime' extension
+creating build/temp.linux-x86_64-2.6/netcdftime
+gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.6.9/include/python2.6 -c netcdftime/_datetime.c -o build/temp.linux-x86_64-2.6/netcdftime/_datetime.o
+gcc -pthread -shared build/temp.linux-x86_64-2.6/netcdftime/_datetime.o -L/opt/python/2.6.9/lib -lpython2.6 -o build/lib.linux-x86_64-2.6/netcdftime/_datetime.so
+
+travis_time:end:186e8a50:start=1608062134896501820,finish=1608062167734392599,duration=32837890779[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:15725d7b[0K$ python setup.py install
+Package hdf5 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `hdf5.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'hdf5' found
+reading from setup.cfg...
+using nc-config ...
+using netcdf library version 4.1.1
+running install
+running bdist_egg
+running egg_info
+creating netCDF4.egg-info
+/home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/setuptools/command/egg_info.py:171: DeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+  writer = ep.load(installer=installer)
+writing requirements to netCDF4.egg-info/requires.txt
+writing netCDF4.egg-info/PKG-INFO
+writing top-level names to netCDF4.egg-info/top_level.txt
+writing dependency_links to netCDF4.egg-info/dependency_links.txt
+writing entry points to netCDF4.egg-info/entry_points.txt
+writing manifest file 'netCDF4.egg-info/SOURCES.txt'
+reading manifest file 'netCDF4.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: manifest_maker: MANIFEST.in, line 4: 'recursive-include' expects <dir> <pattern1> <pattern2> ...
+writing manifest file 'netCDF4.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+running build_ext
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/netcdftime
+copying build/lib.linux-x86_64-2.6/netcdftime/__init__.py -> build/bdist.linux-x86_64/egg/netcdftime
+copying build/lib.linux-x86_64-2.6/netcdftime/netcdftime.py -> build/bdist.linux-x86_64/egg/netcdftime
+copying build/lib.linux-x86_64-2.6/netcdftime/_datetime.so -> build/bdist.linux-x86_64/egg/netcdftime
+creating build/bdist.linux-x86_64/egg/netCDF4
+copying build/lib.linux-x86_64-2.6/netCDF4/__init__.py -> build/bdist.linux-x86_64/egg/netCDF4
+copying build/lib.linux-x86_64-2.6/netCDF4/utils.py -> build/bdist.linux-x86_64/egg/netCDF4
+copying build/lib.linux-x86_64-2.6/netCDF4/_netCDF4.so -> build/bdist.linux-x86_64/egg/netCDF4
+byte-compiling build/bdist.linux-x86_64/egg/netcdftime/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netcdftime/netcdftime.py to netcdftime.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netCDF4/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netCDF4/utils.py to utils.pyc
+creating stub loader for netCDF4/_netCDF4.so
+creating stub loader for netcdftime/_datetime.so
+byte-compiling build/bdist.linux-x86_64/egg/netCDF4/_netCDF4.py to _netCDF4.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netcdftime/_datetime.py to _datetime.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/entry_points.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+zip_safe flag not set; analyzing archive contents...
+creating dist
+creating 'dist/netCDF4-1.2.5-py2.6-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing netCDF4-1.2.5-py2.6-linux-x86_64.egg
+Copying netCDF4-1.2.5-py2.6-linux-x86_64.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding netCDF4 1.2.5 to easy-install.pth file
+Installing ncinfo script to /home/travis/virtualenv/python2.6.9/bin
+Installing nc4tonc3 script to /home/travis/virtualenv/python2.6.9/bin
+Installing nc3tonc4 script to /home/travis/virtualenv/python2.6.9/bin
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/netCDF4-1.2.5-py2.6-linux-x86_64.egg
+Processing dependencies for netCDF4==1.2.5
+Searching for numpy==1.9.1
+Best match: numpy 1.9.1
+Adding numpy 1.9.1 to easy-install.pth file
+
+Using /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Finished processing dependencies for netCDF4==1.2.5
+
+travis_time:end:15725d7b:start=1608062167745139478,finish=1608062168400634464,duration=655494986[0Ktravis_fold:end:install.2[0Ktravis_time:start:1a53c562[0K$ cd test
+
+travis_time:end:1a53c562:start=1608062168410076162,finish=1608062168418442255,duration=8366093[0K
+[32;1mThe command "cd test" exited with 0.[0m
+travis_time:start:26751ca8[0K$ python run_all.py
+.............................................................................
+----------------------------------------------------------------------
+Ran 77 tests in 18.078s
+
+OK
+not running tst_unicode3.py ...
+not running tst_diskless.py ...
+not running tst_filepath.py ...
+not running tst_cdf5.py ...
+not running tst_dap.py ...
+
+netcdf4-python version: 1.2.5
+HDF5 lib version:       1.8.4-patch1
+netcdf lib version:     4.1.1
+numpy version           1.9.1
+
+travis_time:end:26751ca8:start=1608062168428568372,finish=1608062187019405167,duration=18590836795[0K
+[32;1mThe command "python run_all.py" exited with 0.[0m
+
+Done. Your build exited with 0.

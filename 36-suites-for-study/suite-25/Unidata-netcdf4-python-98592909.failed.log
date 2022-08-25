@@ -1,0 +1,923 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/Unidata/netcdf4-python
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:016312bc[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:016312bc:start=1608068547366971458,finish=1608068552099959101,duration=4732987643[0Ktravis_time:start:14020000[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libhdf5-serial-dev netcdf-bin libnetcdf-dev
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  libhdf5-doc netcdf-doc
+The following NEW packages will be installed:
+  libhdf5-serial-dev libnetcdf-dev netcdf-bin
+0 upgraded, 3 newly installed, 0 to remove and 238 not upgraded.
+Need to get 3,107 kB of archives.
+After this operation, 20.4 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/universe libhdf5-serial-dev amd64 1.8.4-patch1-3ubuntu2 [2,278 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/universe libnetcdf-dev amd64 1:4.1.1-6 [644 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/universe netcdf-bin amd64 1:4.1.1-6 [185 kB]
+Fetched 3,107 kB in 0s (3,980 kB/s)
+Selecting previously unselected package libhdf5-serial-dev.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking libhdf5-serial-dev (from .../libhdf5-serial-dev_1.8.4-patch1-3ubuntu2_amd64.deb) ...
+Selecting previously unselected package libnetcdf-dev.
+Unpacking libnetcdf-dev (from .../libnetcdf-dev_1%3a4.1.1-6_amd64.deb) ...
+Selecting previously unselected package netcdf-bin.
+Unpacking netcdf-bin (from .../netcdf-bin_1%3a4.1.1-6_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up libhdf5-serial-dev (1.8.4-patch1-3ubuntu2) ...
+Setting up libnetcdf-dev (1:4.1.1-6) ...
+Setting up netcdf-bin (1:4.1.1-6) ...
+
+travis_time:end:14020000:start=1608068552109243368,finish=1608068563261252246,duration=11152008878[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DEPENDS="numpy cython"
+$ export NO_NET=1
+
+travis_time:start:27953a53[0K$ source ~/virtualenv/python3.3/bin/activate
+
+travis_time:end:27953a53:start=1608068563277496142,finish=1608068563308258702,duration=30762560[0K$ python --version
+Python 3.3.5
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (python 3.3)
+travis_fold:start:before_install[0Ktravis_time:start:14223380[0K$ pip install $DEPENDS
+Requirement already satisfied (use --upgrade to upgrade): numpy in /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages
+Collecting cython
+  Downloading https://files.pythonhosted.org/packages/ad/4b/9e53bcce3c959fd0db143626e573210bba07be810fe8d7296373948c4183/Cython-0.29.21-py2.py3-none-any.whl (974kB)
+Installing collected packages: cython
+
+Successfully installed cython-0.29.21
+
+travis_time:end:14223380:start=1608068570372754012,finish=1608068573199382260,duration=2826628248[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install.1[0Ktravis_time:start:00ad1240[0K$ python setup.py build
+cython version 0.29.21 found ...
+reading from setup.cfg...
+using nc-config ...
+using netcdf library version b'4.1.1'
+using Cython to compile netCDF4.pyx...
+netcdf lib does not have group rename capability
+netcdf lib does not have nc_inq_path function
+netcdf lib does not have nc_inq_format_extended function
+netcdf lib does not have cdf-5 format capability
+Compiling netCDF4/_netCDF4.pyx because it changed.
+Compiling netcdftime/_datetime.pyx because it depends on /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/Cython/Includes/libc/string.pxd.
+[1/2] Cythonizing netCDF4/_netCDF4.pyx
+[2/2] Cythonizing netcdftime/_datetime.pyx
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-3.3
+creating build/lib.linux-x86_64-3.3/netcdftime
+copying netcdftime/__init__.py -> build/lib.linux-x86_64-3.3/netcdftime
+copying netcdftime/netcdftime.py -> build/lib.linux-x86_64-3.3/netcdftime
+creating build/lib.linux-x86_64-3.3/netCDF4
+copying netCDF4/__init__.py -> build/lib.linux-x86_64-3.3/netCDF4
+copying netCDF4/utils.py -> build/lib.linux-x86_64-3.3/netCDF4
+running build_ext
+building 'netCDF4._netCDF4' extension
+creating build/temp.linux-x86_64-3.3
+creating build/temp.linux-x86_64-3.3/netCDF4
+gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/usr/include -I/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include -I/opt/python/3.3.5/include/python3.3m -c netCDF4/_netCDF4.c -o build/temp.linux-x86_64-3.3/netCDF4/_netCDF4.o
+In file included from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from netCDF4/_netCDF4.c:643:
+/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__set_att’:
+netCDF4/_netCDF4.c:7060:7: warning: passing argument 5 of ‘nc_put_att_string’ from incompatible pointer type [enabled by default]
+/usr/include/netcdf.h:956:1: note: expected ‘const char **’ but argument is of type ‘char **’
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__get_types’:
+netCDF4/_netCDF4.c:7730:21: warning: ‘__pyx_v_typeids’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c: In function ‘__pyx_pw_7netCDF4_8_netCDF4_8Variable_1__init__’:
+netCDF4/_netCDF4.c:28880:20: warning: ‘__pyx_v_dimids’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c:27505:8: note: ‘__pyx_v_dimids’ was declared here
+gcc -pthread -shared -L/opt/python/3.3.5/lib -Wl,-rpath=/opt/python/3.3.5/lib build/temp.linux-x86_64-3.3/netCDF4/_netCDF4.o -L/usr/lib -L/opt/python/3.3.5/lib -Wl,--enable-new-dtags,-R/usr/lib -lnetcdf -lpython3.3m -o build/lib.linux-x86_64-3.3/netCDF4/_netCDF4.cpython-33m.so
+building 'netcdftime._datetime' extension
+creating build/temp.linux-x86_64-3.3/netcdftime
+gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.3.5/include/python3.3m -c netcdftime/_datetime.c -o build/temp.linux-x86_64-3.3/netcdftime/_datetime.o
+gcc -pthread -shared -L/opt/python/3.3.5/lib -Wl,-rpath=/opt/python/3.3.5/lib build/temp.linux-x86_64-3.3/netcdftime/_datetime.o -L/opt/python/3.3.5/lib -lpython3.3m -o build/lib.linux-x86_64-3.3/netcdftime/_datetime.cpython-33m.so
+/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/Cython/Compiler/Main.py:369: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /home/travis/build/failed/Unidata/netcdf4-python/netCDF4/_netCDF4.pyx
+  tree = Parsing.p_module(s, pxd, full_module_name)
+/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/Cython/Compiler/Main.py:369: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /home/travis/build/failed/Unidata/netcdf4-python/netcdftime/_datetime.pyx
+  tree = Parsing.p_module(s, pxd, full_module_name)
+
+travis_time:end:00ad1240:start=1608068573210215448,finish=1608068617965996584,duration=44755781136[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:32f0f5f0[0K$ python setup.py install
+cython version 0.29.21 found ...
+reading from setup.cfg...
+using nc-config ...
+using netcdf library version b'4.1.1'
+using Cython to compile netCDF4.pyx...
+netcdf lib does not have group rename capability
+netcdf lib does not have nc_inq_path function
+netcdf lib does not have nc_inq_format_extended function
+netcdf lib does not have cdf-5 format capability
+Compiling netCDF4/_netCDF4.pyx because it changed.
+[1/1] Cythonizing netCDF4/_netCDF4.pyx
+running install
+running bdist_egg
+running egg_info
+creating netCDF4.egg-info
+writing entry points to netCDF4.egg-info/entry_points.txt
+writing top-level names to netCDF4.egg-info/top_level.txt
+writing requirements to netCDF4.egg-info/requires.txt
+writing netCDF4.egg-info/PKG-INFO
+writing dependency_links to netCDF4.egg-info/dependency_links.txt
+writing manifest file 'netCDF4.egg-info/SOURCES.txt'
+reading manifest file 'netCDF4.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'netCDF4.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+running build_ext
+building 'netCDF4._netCDF4' extension
+gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/usr/include -I/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include -I/opt/python/3.3.5/include/python3.3m -c netCDF4/_netCDF4.c -o build/temp.linux-x86_64-3.3/netCDF4/_netCDF4.o
+In file included from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/ndarraytypes.h:1804:0,
+                 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from netCDF4/_netCDF4.c:643:
+/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__set_att’:
+netCDF4/_netCDF4.c:7060:7: warning: passing argument 5 of ‘nc_put_att_string’ from incompatible pointer type [enabled by default]
+/usr/include/netcdf.h:956:1: note: expected ‘const char **’ but argument is of type ‘char **’
+netCDF4/_netCDF4.c: In function ‘__pyx_f_7netCDF4_8_netCDF4__get_types’:
+netCDF4/_netCDF4.c:7730:21: warning: ‘__pyx_v_typeids’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c: In function ‘__pyx_pw_7netCDF4_8_netCDF4_8Variable_1__init__’:
+netCDF4/_netCDF4.c:28880:20: warning: ‘__pyx_v_dimids’ may be used uninitialized in this function [-Wuninitialized]
+netCDF4/_netCDF4.c:27505:8: note: ‘__pyx_v_dimids’ was declared here
+gcc -pthread -shared -L/opt/python/3.3.5/lib -Wl,-rpath=/opt/python/3.3.5/lib build/temp.linux-x86_64-3.3/netCDF4/_netCDF4.o -L/usr/lib -L/opt/python/3.3.5/lib -Wl,--enable-new-dtags,-R/usr/lib -lnetcdf -lpython3.3m -o build/lib.linux-x86_64-3.3/netCDF4/_netCDF4.cpython-33m.so
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/netcdftime
+copying build/lib.linux-x86_64-3.3/netcdftime/__init__.py -> build/bdist.linux-x86_64/egg/netcdftime
+copying build/lib.linux-x86_64-3.3/netcdftime/netcdftime.py -> build/bdist.linux-x86_64/egg/netcdftime
+copying build/lib.linux-x86_64-3.3/netcdftime/_datetime.cpython-33m.so -> build/bdist.linux-x86_64/egg/netcdftime
+creating build/bdist.linux-x86_64/egg/netCDF4
+copying build/lib.linux-x86_64-3.3/netCDF4/__init__.py -> build/bdist.linux-x86_64/egg/netCDF4
+copying build/lib.linux-x86_64-3.3/netCDF4/utils.py -> build/bdist.linux-x86_64/egg/netCDF4
+copying build/lib.linux-x86_64-3.3/netCDF4/_netCDF4.cpython-33m.so -> build/bdist.linux-x86_64/egg/netCDF4
+byte-compiling build/bdist.linux-x86_64/egg/netcdftime/__init__.py to __init__.cpython-33.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netcdftime/netcdftime.py to netcdftime.cpython-33.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netCDF4/__init__.py to __init__.cpython-33.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netCDF4/utils.py to utils.cpython-33.pyc
+creating stub loader for netCDF4/_netCDF4.cpython-33m.so
+creating stub loader for netcdftime/_datetime.cpython-33m.so
+byte-compiling build/bdist.linux-x86_64/egg/netCDF4/_netCDF4.py to _netCDF4.cpython-33.pyc
+byte-compiling build/bdist.linux-x86_64/egg/netcdftime/_datetime.py to _datetime.cpython-33.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/entry_points.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying netCDF4.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+/home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/Cython/Compiler/Main.py:369: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /home/travis/build/failed/Unidata/netcdf4-python/netCDF4/_netCDF4.pyx
+  tree = Parsing.p_module(s, pxd, full_module_name)
+zip_safe flag not set; analyzing archive contents...
+netcdftime.__pycache__._datetime.cpython-33: module references __file__
+netCDF4.__pycache__._netCDF4.cpython-33: module references __file__
+creating dist
+creating 'dist/netCDF4-1.2.2-py3.3-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing netCDF4-1.2.2-py3.3-linux-x86_64.egg
+creating /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/netCDF4-1.2.2-py3.3-linux-x86_64.egg
+Extracting netCDF4-1.2.2-py3.3-linux-x86_64.egg to /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages
+Adding netCDF4 1.2.2 to easy-install.pth file
+Installing nc4tonc3 script to /home/travis/virtualenv/python3.3.5/bin
+Installing nc3tonc4 script to /home/travis/virtualenv/python3.3.5/bin
+Installing ncinfo script to /home/travis/virtualenv/python3.3.5/bin
+
+Installed /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages/netCDF4-1.2.2-py3.3-linux-x86_64.egg
+Processing dependencies for netCDF4==1.2.2
+Searching for numpy==1.9.1
+Best match: numpy 1.9.1
+Adding numpy 1.9.1 to easy-install.pth file
+
+Using /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages
+Finished processing dependencies for netCDF4==1.2.2
+
+travis_time:end:32f0f5f0:start=1608068617977716006,finish=1608068656102274784,duration=38124558778[0Ktravis_fold:end:install.2[0Ktravis_time:start:1a1819b9[0K$ cd test
+
+travis_time:end:1a1819b9:start=1608068656112347806,finish=1608068656119640087,duration=7292281[0K
+[32;1mThe command "cd test" exited with 0.[0m
+travis_time:start:0224bdc4[0K$ python run_all.py
+EEEEEEEEEEE.....EEEEEEEEEEEEEEEEEEEEE.EEEEEEEEEEEEEEEEEEEEEE...........EEEEE
+======================================================================
+ERROR: runTest (tst_atts.VariablesTestCase)
+testing attributes
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_atts.py", line 39, in setUp
+    f = netCDF4.Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_compound_alignment.CompoundAlignTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_compound_alignment.py", line 84, in setUp
+    dataset = netCDF4.Dataset(self.file, "w")
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_compoundatt.VariablesTestCase)
+testing compound attributes
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_compoundatt.py", line 34, in setUp
+    f  = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_compoundvar.VariablesTestCase)
+testing compound variables
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_compoundvar.py", line 44, in setUp
+    f  = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_compression.CompressionTestCase)
+testing zlib and shuffle compression filters
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_compression.py", line 48, in setUp
+    write_netcdf(self.files[0],False,None,array)
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_compression.py", line 18, in write_netcdf
+    file = Dataset(filename,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_dims.DimensionsTestCase)
+testing dimensions
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_dims.py", line 31, in setUp
+    f  = netCDF4.Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_endian.EndianTestCase)
+testing endian conversion capability
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_endian.py", line 91, in setUp
+    create_file(FILE_NAME,'NETCDF4_CLASSIC',data); self.file=FILE_NAME
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_endian.py", line 12, in create_file
+    dataset = netCDF4.Dataset(file,'w',format=format)
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_enum.EnumTestCase)
+testing enum data type
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_enum.py", line 25, in setUp
+    f = Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test2unlim (tst_fancyslicing.VariablesTestCase)
+Test with a variable that has two unlimited dimensions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_fancyslicing.py", line 42, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_get (tst_fancyslicing.VariablesTestCase)
+testing 'fancy indexing'
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_fancyslicing.py", line 42, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_set (tst_fancyslicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_fancyslicing.py", line 42, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_grps.GroupsTestCase)
+testing groups
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_grps.py", line 44, in setUp
+    f  = netCDF4.Dataset(self.file1, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_grps2.Groups2TestCase)
+testing implicit group and creation and Dataset.__getitem__
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_grps2.py", line 18, in setUp
+    f = netCDF4.Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_masked.PrimitiveTypesTestCase)
+testing auto-conversion of masked arrays and packed integers
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked.py", line 40, in setUp
+    file = netCDF4.Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_masked2.PrimitiveTypesTestCase)
+testing auto-conversion of masked arrays and packed integers
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked2.py", line 34, in setUp
+    f = Dataset(FILE_NAME1,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_masked3.GlobalSetAutoMaskTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked3.py", line 142, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_scaled (tst_masked3.SetAutoMaskFalse)
+Testing auto-conversion of masked arrays for set_auto_mask(False) with scaling
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked3.py", line 30, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_unscaled (tst_masked3.SetAutoMaskFalse)
+Testing auto-conversion of masked arrays for set_auto_mask(False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked3.py", line 30, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_scaled (tst_masked3.SetAutoMaskTrue)
+Testing auto-conversion of masked arrays for set_auto_mask(True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked3.py", line 30, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_unscaled (tst_masked3.SetAutoMaskTrue)
+Testing auto-conversion of masked arrays for set_auto_mask(True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_masked3.py", line 30, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_multifile.NonuniformTimeTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_multifile.py", line 71, in setUp
+    f = Dataset(file,'w',format='NETCDF4_CLASSIC')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_multifile.VariablesTestCase)
+testing multi-file dataset access
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_multifile.py", line 22, in setUp
+    f = Dataset(file,'w',format='NETCDF4_CLASSIC')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_multifile2.NonuniformTimeTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_multifile2.py", line 73, in setUp
+    f = Dataset(file,'w',format='NETCDF4_CLASSIC')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_multifile2.VariablesTestCase)
+testing multi-file dataset access
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_multifile2.py", line 22, in setUp
+    f = Dataset(file,'w',format='NETCDF4_CLASSIC')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_failure (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_issue444 (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_list (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_nonuniform (tst_netcdftime.TestDate2index)
+Check that the fallback mechanism works.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_select_dummy (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_select_nc (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_simple (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_singletime (tst_netcdftime.TestDate2index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_netcdftime.py", line 510, in setUp
+    f = Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_refcount.RefCountTestCase)
+testing garbage collection (issue 218)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_refcount.py", line 8, in setUp
+    nc = netCDF4.Dataset(file_name, mode='w', keepweakref=True, format='NETCDF4')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_rename.VariablesTestCase)
+testing renaming of dimensions, variables and attribute deletion
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_rename.py", line 27, in setUp
+    f  = netCDF4.Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_scalarvar.ScalarVariableTestCase)
+testing scalar variables
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scalarvar.py", line 22, in setUp
+    rootgrp = netCDF4.Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_scaled.GlobalSetAutoScaleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scaled.py", line 189, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_masked (tst_scaled.SetAutoScaleFalse)
+Testing auto-conversion of masked arrays for set_auto_mask(False) with masking
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scaled.py", line 34, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_unmasked (tst_scaled.SetAutoScaleFalse)
+Testing (not) auto-scaling of variables for set_auto_scale(False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scaled.py", line 34, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_masked (tst_scaled.SetAutoScaleTrue)
+Testing auto-scaling of variables for set_auto_scale(True) with masking
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scaled.py", line 34, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_unmasked (tst_scaled.SetAutoScaleTrue)
+Testing auto-scaling of variables for set_auto_scale(True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scaled.py", line 34, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_auto_scale_write (tst_scaled.WriteAutoScaleTest)
+Testing automatic packing to all kinds of integer types
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_scaled.py", line 34, in setUp
+    f = Dataset(self.testfile, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_shape.ShapeTestCase)
+test for issue 90 (array shape should not be modified by
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_shape.py", line 14, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_0d (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_1d (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_3d (tst_slicing.VariablesTestCase)
+testing variable slicing
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_issue259 (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_issue300 (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_issue306 (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_issue371 (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: test_retain_single_dims (tst_slicing.VariablesTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_slicing.py", line 18, in setUp
+    f = Dataset(file_name,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_stringarr.StringArrayTestCase)
+testing functions for converting arrays of chars to fixed-len strings
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_stringarr.py", line 23, in setUp
+    nc = Dataset(FILE_NAME,'w',format=FILE_FORMAT)
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_types.PrimitiveTypesTestCase)
+testing primitive data type
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_types.py", line 27, in setUp
+    file = netCDF4.Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_unicode3.UnicodeTestCase)
+testing unicode
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_unicode3.py", line 18, in setUp
+    f = netCDF4.Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_unlimdim.UnlimdimTestCase)
+testing unlimited dimensions
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_unlimdim.py", line 24, in setUp
+    f  = netCDF4.Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_vars.VariablesTestCase)
+testing primitive variables
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_vars.py", line 30, in setUp
+    f  = netCDF4.Dataset(self.file, 'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_vlen.TestInvalidDataType)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_vlen.py", line 82, in runTest
+    f = Dataset(FILE_NAME, 'w', format='NETCDF3_CLASSIC')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_vlen.TestObjectArrayIndexing)
+testing vlen variables
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_vlen.py", line 112, in setUp
+    f = Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_vlen.TestScalarVlenString)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_vlen.py", line 98, in runTest
+    f = Dataset(FILE_NAME, 'w', format='NETCDF4')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+======================================================================
+ERROR: runTest (tst_vlen.VariablesTestCase)
+testing vlen variables
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/failed/Unidata/netcdf4-python/test/tst_vlen.py", line 35, in setUp
+    f = Dataset(self.file,'w')
+  File "netCDF4/_netCDF4.pyx", line 1757, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1159, in netCDF4._netCDF4._set_default_format
+ValueError: unrecognized format requested
+
+----------------------------------------------------------------------
+Ran 76 tests in 13.565s
+
+FAILED (errors=59)
+not running tst_unicode.py ...
+not running tst_diskless.py ...
+not running tst_dap.py ...
+
+netcdf4-python version: 1.2.2
+HDF5 lib version:       1.8.4-patch1
+netcdf lib version:     4.1.1
+numpy version           1.9.1
+
+travis_time:end:0224bdc4:start=1608068656130218682,finish=1608068670144694879,duration=14014476197[0K
+[31;1mThe command "python run_all.py" exited with 1.[0m
+
+Done. Your build exited with 1.

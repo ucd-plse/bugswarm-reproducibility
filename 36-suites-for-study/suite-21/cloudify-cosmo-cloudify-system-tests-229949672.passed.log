@@ -1,0 +1,673 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd passed/cloudify-cosmo/cloudify-system-tests
+travis_time:start:034c5e50[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:034c5e50:start=1604117375036811248,finish=1604117375046495082,duration=9683834[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:00e8a030[0K$ pip install flake8==3.3.0
+Collecting flake8==3.3.0
+  Downloading https://files.pythonhosted.org/packages/cd/a6/1fe37679be3b224c96d8b64782d724d6a2c4212c8ddd914572fb8317a298/flake8-3.3.0-py2.py3-none-any.whl (66kB)
+Collecting enum34 (from flake8==3.3.0)
+  Downloading https://files.pythonhosted.org/packages/6f/2c/a9386903ece2ea85e9807e0e062174dc26fdce8b05f216d00491be29fad5/enum34-1.1.10-py2-none-any.whl
+Collecting mccabe<0.7.0,>=0.6.0 (from flake8==3.3.0)
+  Downloading https://files.pythonhosted.org/packages/87/89/479dc97e18549e21354893e4ee4ef36db1d237534982482c3681ee6e7b57/mccabe-0.6.1-py2.py3-none-any.whl
+Collecting pyflakes<1.6.0,>=1.5.0 (from flake8==3.3.0)
+  Downloading https://files.pythonhosted.org/packages/27/49/924098b3b85c286696f37e014475d79471ffc44509613af420645a3c12cb/pyflakes-1.5.0-py2.py3-none-any.whl (225kB)
+Collecting configparser (from flake8==3.3.0)
+  Downloading https://files.pythonhosted.org/packages/3f/e7/9518720c56396179f8c63d7b5924c8463ed423828e54329be7f8cde5c364/configparser-5.0.1.tar.gz (75kB)
+Collecting pycodestyle<2.4.0,>=2.0.0 (from flake8==3.3.0)
+  Downloading https://files.pythonhosted.org/packages/e4/81/78fe51eb4038d1388b7217dd63770b0f428370207125047312886c923b26/pycodestyle-2.3.1-py2.py3-none-any.whl (45kB)
+Installing collected packages: pycodestyle, configparser, pyflakes, mccabe, enum34, flake8
+
+  Running setup.py install for configparser
+
+
+
+
+Successfully installed configparser enum34-1.1.10 flake8-3.3.0 mccabe-0.6.1 pycodestyle-2.3.1 pyflakes-1.5.0
+
+travis_time:end:00e8a030:start=1604117375334835912,finish=1604117377440572698,duration=2105736786[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:38098680[0K$ pip install -r test-requirements.txt
+Collecting cloudify-dsl-parser==4.0.1 from git+https://github.com/cloudify-cosmo/cloudify-dsl-parser@4.0.1#egg=cloudify-dsl-parser==4.0.1 (from -r test-requirements.txt (line 1))
+  Cloning https://github.com/cloudify-cosmo/cloudify-dsl-parser (to 4.0.1) to /tmp/pip-build-cCLjOm/cloudify-dsl-parser
+Collecting cloudify-rest-client==4.0.1 from git+https://github.com/cloudify-cosmo/cloudify-rest-client@4.0.1#egg=cloudify-rest-client==4.0.1 (from -r test-requirements.txt (line 2))
+  Cloning https://github.com/cloudify-cosmo/cloudify-rest-client (to 4.0.1) to /tmp/pip-build-cCLjOm/cloudify-rest-client
+Collecting cloudify-plugins-common==4.0.1 from git+https://github.com/cloudify-cosmo/cloudify-plugins-common@4.0.1#egg=cloudify-plugins-common==4.0.1 (from -r test-requirements.txt (line 3))
+  Cloning https://github.com/cloudify-cosmo/cloudify-plugins-common (to 4.0.1) to /tmp/pip-build-cCLjOm/cloudify-plugins-common
+Collecting cloudify-script-plugin==1.4 from git+https://github.com/cloudify-cosmo/cloudify-script-plugin@master#egg=cloudify-script-plugin==1.4 (from -r test-requirements.txt (line 4))
+  Cloning https://github.com/cloudify-cosmo/cloudify-script-plugin (to master) to /tmp/pip-build-cCLjOm/cloudify-script-plugin
+  Requested cloudify-script-plugin==1.4 from git+https://github.com/cloudify-cosmo/cloudify-script-plugin@master#egg=cloudify-script-plugin==1.4 (from -r test-requirements.txt (line 4)), but installing version None
+Collecting cloudify==4.0.1 from git+https://github.com/cloudify-cosmo/cloudify-cli@4.0.1#egg=cloudify==4.0.1 (from -r test-requirements.txt (line 5))
+  Cloning https://github.com/cloudify-cosmo/cloudify-cli (to 4.0.1) to /tmp/pip-build-cCLjOm/cloudify
+Collecting mock==2.0.0 (from -r test-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/e6/35/f187bdf23be87092bd0f1200d43d23076cee4d0dec109f195173fd3ebc79/mock-2.0.0-py2.py3-none-any.whl (56kB)
+Collecting PyYAML==3.10 (from cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/00/17/3b822893a1789a025d3f676a381338516a8f65e686d915b0834ecc9b4979/PyYAML-3.10.tar.gz (241kB)
+Collecting networkx==1.8.1 (from cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1e/ce/c5f0d432ab38b114a18020c1f716e08347b580b6865111ef1314995627a2/networkx-1.8.1.tar.gz (806kB)
+Collecting requests<3.0.0,>=2.7.0 (from cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl (61kB)
+Collecting retrying==1.3.3 (from cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/44/ef/beae4b4ef80902f22e3af073397f079c96969c69b2c7d52a57ea9ae61c9d/retrying-1.3.3.tar.gz
+Collecting requests-toolbelt (from cloudify-rest-client==4.0.1->-r test-requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/60/ef/7681134338fc097acef8d9b2f8abe0458e4d87559c689a8c306d0957ece5/requests_toolbelt-0.9.1-py2.py3-none-any.whl (54kB)
+Collecting pika==0.9.14 (from cloudify-plugins-common==4.0.1->-r test-requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/2b/5b/4c5b6eafc63e0985b926267579a1e2534af70df0a45932f0c23fcc5f1b88/pika-0.9.14.tar.gz (72kB)
+Collecting proxy-tools==0.1.0 (from cloudify-plugins-common==4.0.1->-r test-requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/f2/cf/77d3e19b7fabd03895caca7857ef51e4c409e0ca6b37ee6e9f7daa50b642/proxy_tools-0.1.0.tar.gz
+Collecting bottle==0.12.7 (from cloudify-plugins-common==4.0.1->-r test-requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/25/fb/27701aea4ccfcd1395863631dadb22954a3869a7e8fc9dde39f4f29082ac/bottle-0.12.7.tar.gz (69kB)
+Collecting jinja2==2.7.2 (from cloudify-plugins-common==4.0.1->-r test-requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/23/94/ca42176bf7a252ce1f5d165953013573dffdbe4b5dac07f57146146ea432/Jinja2-2.7.2.tar.gz (378kB)
+Collecting click==4.0 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/0c/d5/9b5cc74d3ac814140c1a0b89534b7d148c5b399b12f69883335d9c5cc622/click-4.0-py2.py3-none-any.whl (62kB)
+Collecting wagon==0.3.2 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/ce/bf/3a68135f13d3d171c5c31f263f8ee3df323edbfacd39af56990446eba4f4/wagon-0.3.2.tar.gz
+Collecting fabric==1.8.3 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/e1/dd/1d63708fbdc6750544772643040a1095b547c94e77b89f638fdb0ac96525/Fabric-1.8.3-py2-none-any.whl (91kB)
+Collecting colorama==0.3.3 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/24/84/29ce4167d1f5c4a320aaad91e1178e5a1baf9cfe1c63f9077c5dade0e3cc/colorama-0.3.3.tar.gz
+Collecting PrettyTable<0.8,>=0.7 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2
+Collecting click-didyoumean==0.0.3 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/9f/79/d265d783dd022541b744d002745d9e55d84c04a41930e35d8795934f6526/click-didyoumean-0.0.3.tar.gz
+Collecting backports.shutil-get-terminal-size==1.0.0 (from cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/7d/cd/1750d6c35fe86d35f8562091737907f234b78fdffab42b29c72b1dd861f4/backports.shutil_get_terminal_size-1.0.0-py2.py3-none-any.whl
+Collecting funcsigs>=1 (from mock==2.0.0->-r test-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/69/cb/f5be453359271714c01b9bd06126eaf2e368f1fddfff30818754b5ac2328/funcsigs-1.0.2-py2.py3-none-any.whl
+Collecting six>=1.9 (from mock==2.0.0->-r test-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting pbr>=0.11 (from mock==2.0.0->-r test-requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/fb/48/69046506f6ac61c1eaa9a0d42d22d54673b69e176d30ca98e3f61513e980/pbr-5.5.1-py2.py3-none-any.whl (106kB)
+Collecting idna<3,>=2.5 (from requests<3.0.0,>=2.7.0->cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting certifi>=2017.4.17 (from requests<3.0.0,>=2.7.0->cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl (156kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests<3.0.0,>=2.7.0->cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/56/aa/4ef5aa67a9a62505db124a5cb5262332d1d4153462eb8fd89c9fa41e5d92/urllib3-1.25.11-py2.py3-none-any.whl (127kB)
+Collecting chardet<4,>=3.0.2 (from requests<3.0.0,>=2.7.0->cloudify-dsl-parser==4.0.1->-r test-requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting markupsafe (from jinja2==2.7.2->cloudify-plugins-common==4.0.1->-r test-requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+Requirement already satisfied (use --upgrade to upgrade): wheel>=0.24.0 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+Collecting virtualenv>=12.1 (from wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/97/f3/c064343ac58d1a54c393a3f66483a29500f644a5918deeb935d28673edd9/virtualenv-20.1.0-py2.py3-none-any.whl (4.9MB)
+Collecting paramiko<1.13,>=1.10 (from fabric==1.8.3->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/88/12/4b0ec2f70b83773482c581a94f18e9bef5b4e2b42fc191644582818618ab/paramiko-1.12.4.tar.gz (1.1MB)
+Collecting distlib<1,>=0.3.1 (from virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/f5/0a/490fa011d699bb5a5f3a0cf57de82237f52a6db9d40f33c53b2736c9a1f9/distlib-0.3.1-py2.py3-none-any.whl (335kB)
+Collecting filelock<4,>=3.0.0 (from virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/14/ec/6ee2168387ce0154632f856d5cc5592328e9cf93127c5c9aeca92c8c16cb/filelock-3.0.12.tar.gz
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+Collecting appdirs<2,>=1.4.3 (from virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+Collecting importlib-resources>=1.0 (from virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/c5/1f/ec86d2a5c48ac6490d4471b297885603cf0e8da89d5ffbf0bce6e57f4d64/importlib_resources-3.3.0-py2.py3-none-any.whl
+Collecting importlib-metadata<3,>=0.12 (from virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/6d/6d/f4bb28424bc677bce1210bc19f69a43efe823e294325606ead595211f93e/importlib_metadata-2.0.0-py2.py3-none-any.whl
+Collecting pathlib2<3,>=2.3.3 (from virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/e9/45/9c82d3666af4ef9f221cbb954e1d77ddbb513faf552aea6df5f37f1a4859/pathlib2-2.3.5-py2.py3-none-any.whl
+Collecting pycrypto!=2.4,>=2.1 (from paramiko<1.13,>=1.10->fabric==1.8.3->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz (446kB)
+Collecting ecdsa (from paramiko<1.13,>=1.10->fabric==1.8.3->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/5d/8b/c6ea939f70b3356e10e771a8d5ef27fd8ecc74d9e49ec8116d94f83b9673/ecdsa-0.16.0-py2.py3-none-any.whl (103kB)
+Collecting contextlib2 (from importlib-resources>=1.0->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/85/60/370352f7ef6aa96c52fb001831622f50f923c1d575427d021b8ab3311236/contextlib2-0.6.0.post1-py2.py3-none-any.whl
+Collecting singledispatch (from importlib-resources>=1.0->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/c5/10/369f50bcd4621b263927b0a1519987a04383d4a98fb10438042ad410cf88/singledispatch-3.4.0.3-py2.py3-none-any.whl
+Collecting zipp>=0.4 (from importlib-resources>=1.0->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/ce/b0/757db659e8b91cb3ea47d90350d7735817fe1df36086afc77c1c4610d559/zipp-3.4.0.tar.gz
+  Requested zipp>=0.4 (from importlib-resources>=1.0->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5)), but installing version None
+Collecting typing (from importlib-resources>=1.0->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/3b/c0/e44213fcb799eac02881e2485724ba5b0914600bc9df6ed922e364fdc059/typing-3.7.4.3-py2-none-any.whl
+Collecting configparser>=3.5 (from importlib-metadata<3,>=0.12->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Using cached https://files.pythonhosted.org/packages/3f/e7/9518720c56396179f8c63d7b5924c8463ed423828e54329be7f8cde5c364/configparser-5.0.1.tar.gz
+  Requested configparser>=3.5 (from importlib-metadata<3,>=0.12->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5)), but installing version None
+Collecting scandir (from pathlib2<3,>=2.3.3->virtualenv>=12.1->wagon==0.3.2->cloudify==4.0.1->-r test-requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/df/f5/9c052db7bd54d0cbf1bc0bb6554362bba1012d03e5888950a4f5c5dadc4e/scandir-1.10.0.tar.gz
+    /opt/python/2.7.9/lib/python2.7/distutils/extension.py:133: UserWarning: Unknown Extension options: 'optional'
+      warnings.warn(msg)
+Installing collected packages: scandir, configparser, typing, zipp, singledispatch, contextlib2, ecdsa, pycrypto, pathlib2, importlib-metadata, importlib-resources, appdirs, filelock, distlib, paramiko, virtualenv, markupsafe, chardet, urllib3, certifi, idna, pbr, six, funcsigs, backports.shutil-get-terminal-size, click-didyoumean, PrettyTable, colorama, fabric, wagon, click, jinja2, bottle, proxy-tools, pika, requests-toolbelt, retrying, requests, networkx, PyYAML, mock, cloudify, cloudify-script-plugin, cloudify-plugins-common, cloudify-rest-client, cloudify-dsl-parser
+  Running setup.py install for scandir
+    /opt/python/2.7.9/lib/python2.7/distutils/extension.py:133: UserWarning: Unknown Extension options: 'optional'
+      warnings.warn(msg)
+    building '_scandir' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c _scandir.c -o build/temp.linux-x86_64-2.7/_scandir.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/_scandir.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/_scandir.so
+  Running setup.py install for configparser
+
+  Running setup.py install for zipp
+
+
+
+  Running setup.py install for pycrypto
+    checking for gcc... gcc
+    checking whether the C compiler works... yes
+    checking for C compiler default output file name... a.out
+    checking for suffix of executables...
+    checking whether we are cross compiling... no
+    checking for suffix of object files... o
+    checking whether we are using the GNU C compiler... yes
+    checking whether gcc accepts -g... yes
+    checking for gcc option to accept ISO C89... none needed
+    checking for __gmpz_init in -lgmp... no
+    checking for __gmpz_init in -lmpir... no
+    checking whether mpz_powm is declared... no
+    checking whether mpz_powm_sec is declared... no
+    checking how to run the C preprocessor... gcc -E
+    checking for grep that handles long lines and -e... /bin/grep
+    checking for egrep... /bin/grep -E
+    checking for ANSI C header files... yes
+    checking for sys/types.h... yes
+    checking for sys/stat.h... yes
+    checking for stdlib.h... yes
+    checking for string.h... yes
+    checking for memory.h... yes
+    checking for strings.h... yes
+    checking for inttypes.h... yes
+    checking for stdint.h... yes
+    checking for unistd.h... yes
+    checking for inttypes.h... (cached) yes
+    checking limits.h usability... yes
+    checking limits.h presence... yes
+    checking for limits.h... yes
+    checking stddef.h usability... yes
+    checking stddef.h presence... yes
+    checking for stddef.h... yes
+    checking for stdint.h... (cached) yes
+    checking for stdlib.h... (cached) yes
+    checking for string.h... (cached) yes
+    checking wchar.h usability... yes
+    checking wchar.h presence... yes
+    checking for wchar.h... yes
+    checking for inline... inline
+    checking for int16_t... yes
+    checking for int32_t... yes
+    checking for int64_t... yes
+    checking for int8_t... yes
+    checking for size_t... yes
+    checking for uint16_t... yes
+    checking for uint32_t... yes
+    checking for uint64_t... yes
+    checking for uint8_t... yes
+    checking for stdlib.h... (cached) yes
+    checking for GNU libc compatible malloc... yes
+    checking for memmove... yes
+    checking for memset... yes
+    configure: creating ./config.status
+    config.status: creating src/config.h
+    warning: GMP or MPIR library not found; Not building Crypto.PublicKey._fastmath.
+    building 'Crypto.Hash._MD2' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD2.c -o build/temp.linux-x86_64-2.7/src/MD2.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD2.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD2.so
+    building 'Crypto.Hash._MD4' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD4.c -o build/temp.linux-x86_64-2.7/src/MD4.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD4.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD4.so
+    building 'Crypto.Hash._SHA256' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA256.c -o build/temp.linux-x86_64-2.7/src/SHA256.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA256.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA256.so
+    building 'Crypto.Hash._SHA224' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA224.c -o build/temp.linux-x86_64-2.7/src/SHA224.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA224.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA224.so
+    building 'Crypto.Hash._SHA384' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA384.c -o build/temp.linux-x86_64-2.7/src/SHA384.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA384.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA384.so
+    building 'Crypto.Hash._SHA512' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA512.c -o build/temp.linux-x86_64-2.7/src/SHA512.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA512.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA512.so
+    building 'Crypto.Hash._RIPEMD160' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -DPCT_LITTLE_ENDIAN=1 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/RIPEMD160.c -o build/temp.linux-x86_64-2.7/src/RIPEMD160.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/RIPEMD160.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_RIPEMD160.so
+    building 'Crypto.Cipher._AES' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/AES.c -o build/temp.linux-x86_64-2.7/src/AES.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/AES.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_AES.so
+    building 'Crypto.Cipher._ARC2' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ARC2.c -o build/temp.linux-x86_64-2.7/src/ARC2.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ARC2.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_ARC2.so
+    building 'Crypto.Cipher._Blowfish' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/Blowfish.c -o build/temp.linux-x86_64-2.7/src/Blowfish.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/Blowfish.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_Blowfish.so
+    building 'Crypto.Cipher._CAST' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/CAST.c -o build/temp.linux-x86_64-2.7/src/CAST.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/CAST.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_CAST.so
+    building 'Crypto.Cipher._DES' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/DES.c -o build/temp.linux-x86_64-2.7/src/DES.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/DES.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_DES.so
+    building 'Crypto.Cipher._DES3' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/DES3.c -o build/temp.linux-x86_64-2.7/src/DES3.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/DES3.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_DES3.so
+    building 'Crypto.Cipher._ARC4' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ARC4.c -o build/temp.linux-x86_64-2.7/src/ARC4.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ARC4.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_ARC4.so
+    building 'Crypto.Cipher._XOR' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/XOR.c -o build/temp.linux-x86_64-2.7/src/XOR.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/XOR.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_XOR.so
+    building 'Crypto.Util.strxor' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/strxor.c -o build/temp.linux-x86_64-2.7/src/strxor.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/strxor.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Util/strxor.so
+    building 'Crypto.Util._counter' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/_counter.c -o build/temp.linux-x86_64-2.7/src/_counter.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/_counter.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Util/_counter.so
+
+
+  Compiling /tmp/pip-build-cCLjOm/importlib-resources/importlib_resources/_py3.py
+  
+
+
+  Running setup.py install for filelock
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+
+  Running setup.py install for paramiko
+
+  Running setup.py install for markupsafe
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    building 'markupsafe._speedups' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/markupsafe/_speedups.c -o build/temp.linux-x86_64-2.7/src/markupsafe/_speedups.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/markupsafe/_speedups.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/markupsafe/_speedups.so
+
+
+
+
+
+
+
+
+  Running setup.py install for click-didyoumean
+  Running setup.py install for PrettyTable
+  Running setup.py install for colorama
+
+  Running setup.py install for wagon
+    Installing wagon script to /home/travis/virtualenv/python2.7.9/bin
+
+  Running setup.py install for jinja2
+  Running setup.py install for bottle
+    changing mode of build/scripts-2.7/bottle.py from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/bottle.py to 755
+  Running setup.py install for proxy-tools
+  Running setup.py install for pika
+
+  Running setup.py install for retrying
+
+  Running setup.py install for networkx
+  Running setup.py install for PyYAML
+    checking if libyaml is compilable
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c build/temp.linux-x86_64-2.7/check_libyaml.c -o build/temp.linux-x86_64-2.7/check_libyaml.o
+    checking if libyaml is linkable
+    gcc -pthread build/temp.linux-x86_64-2.7/check_libyaml.o -L/opt/python/2.7.9/lib -lyaml -o build/temp.linux-x86_64-2.7/check_libyaml
+    building '_yaml' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c ext/_yaml.c -o build/temp.linux-x86_64-2.7/ext/_yaml.o
+    In file included from ext/_yaml.c:223:0:
+    ext/_yaml.h:6:0: warning: "PyUnicode_FromString" redefined [enabled by default]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:281:0: note: this is the location of the previous definition
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+    ext/_yaml.c:1145:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+    ext/_yaml.c:2074:38: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, int,  int *)’
+    ext/_yaml.c:2272:45: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+    ext/_yaml.c:3705:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:3705:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:3718:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:3718:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4285:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4285:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4339:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4339:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4393:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4393:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4406:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4406:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4493:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+    ext/_yaml.c:5909:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5909:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5922:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5922:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6088:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6088:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6163:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6163:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6200:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6200:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6216:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6520:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6520:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6557:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6557:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6747:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6747:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6784:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6784:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+    ext/_yaml.c:8064:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8064:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8284:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8284:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8315:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8315:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8346:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8346:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+    ext/_yaml.c:8861:3: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9019:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9019:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+    ext/_yaml.c:9461:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9461:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+    ext/_yaml.c:9998:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9998:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+    ext/_yaml.c:11065:38: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, int)’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+    ext/_yaml.c:12199:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:12300:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:12563:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13168:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13168:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13168:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13521:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13521:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13874:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13874:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_6serialize’:
+    ext/_yaml.c:15082:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15183:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+    ext/_yaml.c:15863:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16500:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16500:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16500:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16790:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16790:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17193:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17193:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/ext/_yaml.o -L/opt/python/2.7.9/lib -lyaml -lpython2.7 -o build/lib.linux-x86_64-2.7/_yaml.so
+  Found existing installation: mock 1.0.1
+    Uninstalling mock-1.0.1:
+      Successfully uninstalled mock-1.0.1
+
+  Running setup.py install for cloudify
+    Installing cfy script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for cloudify-script-plugin
+  Running setup.py install for cloudify-plugins-common
+    changing mode of build/scripts-2.7/ctx-sh from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/ctx-sh to 755
+    Installing ctx script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for cloudify-rest-client
+  Running setup.py install for cloudify-dsl-parser
+Successfully installed PrettyTable-0.7.2 PyYAML-3.10 appdirs-1.4.4 backports.shutil-get-terminal-size-1.0.0 bottle-0.12.7 certifi-2020.6.20 chardet-3.0.4 click-4.0 click-didyoumean-0.0.3 cloudify-4.0.1 cloudify-dsl-parser-4.0.1 cloudify-plugins-common-4.0.1 cloudify-rest-client-4.0.1 cloudify-script-plugin-1.5.4 colorama-0.3.3 configparser contextlib2-0.6.0.post1 distlib-0.3.1 ecdsa-0.16.0 fabric-1.8.3 filelock-3.0.12 funcsigs-1.0.2 idna-2.10 importlib-metadata-2.0.0 importlib-resources-3.3.0 jinja2-2.7.2 markupsafe-1.1.1 mock-2.0.0 networkx-1.8.1 paramiko-1.12.4 pathlib2-2.3.5 pbr-5.5.1 pika-0.9.14 proxy-tools-0.1.0 pycrypto-2.6.1 requests-2.24.0 requests-toolbelt-0.9.1 retrying-1.3.3 scandir-1.10.0 singledispatch-3.4.0.3 six-1.15.0 typing-3.7.4.3 urllib3-1.25.11 virtualenv-20.1.0 wagon-0.3.2 zipp
+
+travis_time:end:38098680:start=1604117377448545875,finish=1604117419657622805,duration=42209076930[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:04c59df6[0K$ pip install .
+Processing /home/travis/build/passed/cloudify-cosmo/cloudify-system-tests
+Requirement already satisfied (use --upgrade to upgrade): fabric==1.8.3 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): PyYAML==3.10 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): requests<3.0.0,>=2.7.0 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Collecting sh==1.11 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/39/ca/1db6ebefdde0a7b5fb639ebc0527d8aab1cdc6119a8e4ac7c1c0cc222ec5/sh-1.11.tar.gz
+Collecting path.py==8.1.2 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/cc/2c/969f346ac0fdf1a5cecb746362f750c08f5c03258b1ed3ae5f31d776946a/path.py-8.1.2-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): nose in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): retrying==1.3.3 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Collecting elasticsearch (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/e4/b7/f8f03019089671486e2910282c1b6fce26ccc8a513322df72ac8994ab2de/elasticsearch-7.9.1-py2.py3-none-any.whl (219kB)
+Requirement already satisfied (use --upgrade to upgrade): Jinja2==2.7.2 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Collecting influxdb==0.1.13 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/11/ca/d90ec187c7c4d474ab661ed37cc1eb7e6f9d4cae211082d16c4afdcfa988/influxdb-0.1.13.tar.gz
+Collecting pywinrm==0.0.3 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/cb/1e/73ab7c7b0659839f9308b02a5194c0b6046fa59e21249d04da264fae6ebe/pywinrm-0.0.3.tar.gz
+Collecting fasteners==0.13.0 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/3a/18/b0282a99912a38757d07f7d26a084afeeb3d0aa4cd81c9ee81216bcd5c7f/fasteners-0.13.0-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): wagon==0.3.2 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from cloudify-system-tests==4.0.1)
+Collecting pytest==3.0.4 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/10/5b/91cadc7c1b82ae287a50e0d5a2ebc17d8ba60cf6b9e0b5df6f9ad4608d85/pytest-3.0.4-py2.py3-none-any.whl (170kB)
+Collecting testtools==2.2.0 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/95/7f/24c35c97c50e91595e3d47861be016544dafdf65a2cad9379c786ac2709e/testtools-2.2.0-py2.py3-none-any.whl (195kB)
+Collecting openstacksdk==0.9.13 (from cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/d2/c0/4ed0e87c58191a56b54d8d1f35c3df930e17e574083c93d7a3bcea4a266b/openstacksdk-0.9.13-py2.py3-none-any.whl (569kB)
+Requirement already satisfied (use --upgrade to upgrade): paramiko<1.13,>=1.10 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from fabric==1.8.3->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): idna<3,>=2.5 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from requests<3.0.0,>=2.7.0->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): certifi>=2017.4.17 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from requests<3.0.0,>=2.7.0->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from requests<3.0.0,>=2.7.0->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): chardet<4,>=3.0.2 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from requests<3.0.0,>=2.7.0->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): six>=1.7.0 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from retrying==1.3.3->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): markupsafe in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from Jinja2==2.7.2->cloudify-system-tests==4.0.1)
+Collecting xmltodict (from pywinrm==0.0.3->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/28/fd/30d5c1d3ac29ce229f6bdc40bbc20b28f716e8b363140c26eff19122d8a5/xmltodict-0.12.0-py2.py3-none-any.whl
+Collecting isodate (from pywinrm==0.0.3->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/9b/9f/b36f7774ff5ea8e428fdcfc4bb332c39ee5b9362ddd3d40d9516a55221b2/isodate-0.6.0-py2.py3-none-any.whl (45kB)
+Collecting monotonic>=0.1 (from fasteners==0.13.0->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/ac/aa/063eca6a416f397bd99552c534c6d11d57f58f2e94c14780f3bbf818c4cf/monotonic-1.5-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): wheel>=0.24.0 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from wagon==0.3.2->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): virtualenv>=12.1 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from wagon==0.3.2->cloudify-system-tests==4.0.1)
+Requirement already satisfied (use --upgrade to upgrade): click==4.0 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from wagon==0.3.2->cloudify-system-tests==4.0.1)
+Collecting py>=1.4.29 (from pytest==3.0.4->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/68/0f/41a43535b52a81e4f29e420a151032d26f08b62206840c48d14b70e53376/py-1.9.0-py2.py3-none-any.whl (99kB)
+Requirement already satisfied (use --upgrade to upgrade): pbr>=0.11 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from testtools==2.2.0->cloudify-system-tests==4.0.1)
+Collecting python-mimeparse (from testtools==2.2.0->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/26/2e/03bce213a9bf02a2750dcb04e761785e9c763fc11071edc4b447eacbb842/python_mimeparse-1.6.0-py2.py3-none-any.whl
+Collecting fixtures>=1.3.0 (from testtools==2.2.0->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/a8/28/7eed6bf76792f418029a18d5b2ace87ce7562927cdd00f1cefe481cd148f/fixtures-3.0.0-py2.py3-none-any.whl (67kB)
+Collecting extras>=1.0.0 (from testtools==2.2.0->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/03/e9/e915af1f97914cd0bc021e125fd1bfd4106de614a275e4b6866dd9a209ac/extras-1.0.0-py2.py3-none-any.whl
+Collecting unittest2>=1.0.0 (from testtools==2.2.0->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/72/20/7f0f433060a962200b7272b8c12ba90ef5b903e218174301d0abfd523813/unittest2-1.1.0-py2.py3-none-any.whl (96kB)
+Collecting traceback2 (from testtools==2.2.0->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/17/0a/6ac05a3723017a967193456a2efa0aa9ac4b51456891af1e2353bb9de21e/traceback2-1.4.0-py2.py3-none-any.whl
+Collecting stevedore>=1.17.1 (from openstacksdk==0.9.13->cloudify-system-tests==4.0.1)
+  Downloading https://files.pythonhosted.org/packages/d6/6c/0fb1c6d621683dabf99947d6f7d1a4048dd5f93ba1c6e455ac3d5d1d518e/stevedore-3.2.2.tar.gz (512kB)
+    Marker evaluation failed, see the following error.  For more information see: http://docs.openstack.org/pbr/latest/user/using.html#environment-markers
+    ERROR:root:Error parsing
+    Traceback (most recent call last):
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pbr/core.py", line 96, in pbr
+        attrs = util.cfg_to_args(path, dist.script_args)
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pbr/util.py", line 273, in cfg_to_args
+        kwargs = setup_cfg_to_setup_kwargs(config, script_args)
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pbr/util.py", line 472, in setup_cfg_to_setup_kwargs
+        if pkg_resources.evaluate_marker('(%s)' % env_marker):
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1481, in evaluate_marker
+        return cls.interpret(parser.expr(text).totuple(1)[1])
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1515, in interpret
+        return op(nodelist)
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1429, in atom
+        return cls.interpret(nodelist[2])
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1515, in interpret
+        return op(nodelist)
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1450, in comparison
+        raise SyntaxError(msg)
+    error in setup command: Error parsing /tmp/pip-build-xOEDKX/stevedore/setup.cfg:
+    Complete output from command python setup.py egg_info:
+    Marker evaluation failed, see the following error.  For more information see: http://docs.openstack.org/pbr/latest/user/using.html#environment-markers
+    
+    ERROR:root:Error parsing
+    
+    Traceback (most recent call last):
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pbr/core.py", line 96, in pbr
+    
+        attrs = util.cfg_to_args(path, dist.script_args)
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pbr/util.py", line 273, in cfg_to_args
+    
+        kwargs = setup_cfg_to_setup_kwargs(config, script_args)
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pbr/util.py", line 472, in setup_cfg_to_setup_kwargs
+    
+        if pkg_resources.evaluate_marker('(%s)' % env_marker):
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1481, in evaluate_marker
+    
+        return cls.interpret(parser.expr(text).totuple(1)[1])
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1515, in interpret
+    
+        return op(nodelist)
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1429, in atom
+    
+        return cls.interpret(nodelist[2])
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1515, in interpret
+    
+        return op(nodelist)
+    
+      File "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1450, in comparison
+    
+        raise SyntaxError(msg)
+    
+    
+    
+    error in setup command: Error parsing /tmp/pip-build-xOEDKX/stevedore/setup.cfg:
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-xOEDKX/stevedore
+
+travis_time:end:04c59df6:start=1604117419669135799,finish=1604117428899551625,duration=9230415826[0K
+[31;1mThe command "pip install ." failed and exited with 1 during .[0m
+
+Your build has been stopped.
