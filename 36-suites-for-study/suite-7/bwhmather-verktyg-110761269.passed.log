@@ -1,0 +1,147 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd passed/bwhmather/verktyg
+travis_time:start:02f061fb[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:02f061fb:start=1592060590475077502,finish=1592060590485405566,duration=10328064[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install.1[0Ktravis_time:start:208b5572[0K$ pip install -e .
+Obtaining file:///home/travis/build/passed/bwhmather/verktyg
+Collecting werkzeug<0.11,>=0.10 (from verktyg==0.8.6)
+  Downloading https://files.pythonhosted.org/packages/49/0c/e33c2caec86a7926186f7d454f6a901f45f05ad90337c6972d170b9ee806/Werkzeug-0.10.4-py2.py3-none-any.whl (293kB)
+Installing collected packages: werkzeug, verktyg
+  Running setup.py develop for verktyg
+Successfully installed verktyg werkzeug-0.10.4
+
+travis_time:end:208b5572:start=1592060590923252990,finish=1592060593108372401,duration=2185119411[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:1464c5e0[0K$ pip install coveralls==1.1
+Collecting coveralls==1.1
+  Downloading https://files.pythonhosted.org/packages/81/f9/da2ad9334f60e418cb229c58724330be2635b369676d3eec8f61e1f85faa/coveralls-1.1-py2.py3-none-any.whl
+Collecting coverage>=3.6 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/f6/33/10fd30e91f5daf9b0712dff47031e7ba29537e104585aef2a3f4b59665ea/coverage-5.1-cp35-cp35m-manylinux1_x86_64.whl (227kB)
+Collecting docopt>=0.6.1 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting requests>=1.0.0 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/1a/70/1935c770cb3be6e3a8b78ced23d7e0f3b187f5cbfab4749523ed65d7c9b1/requests-2.23.0-py2.py3-none-any.whl (58kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/e1/e5/df302e8017440f111c11cc41a6b432838672f5a70aa29227bf58149dc72f/urllib3-1.25.9-py2.py3-none-any.whl (126kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/89/e3/afebe61c546d18fb1709a61bee788254b40e736cff7271c7de5de2dc4128/idna-2.9-py2.py3-none-any.whl (58kB)
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests>=1.0.0->coveralls==1.1) (2018.4.16)
+Collecting chardet<4,>=3.0.2 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Building wheels for collected packages: docopt
+  Running setup.py bdist_wheel for docopt: started
+  Running setup.py bdist_wheel for docopt: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/9b/04/dd/7daf4150b6d9b12949298737de9431a324d4b797ffd63f526e
+Successfully built docopt
+Installing collected packages: coverage, docopt, urllib3, idna, chardet, requests, coveralls
+Successfully installed chardet-3.0.4 coverage-5.1 coveralls-1.1 docopt-0.6.2 idna-2.9 requests-2.23.0 urllib3-1.25.9
+
+travis_time:end:1464c5e0:start=1592060593119671839,finish=1592060597004944848,duration=3885273009[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:017f47c4[0K$ pip install pyflakes==1.0.0
+Collecting pyflakes==1.0.0
+  Downloading https://files.pythonhosted.org/packages/6d/65/3272c6bb4dba7974175981d8b8e64b6a1d7022a7f9412417684563650e3a/pyflakes-1.0.0-py2.py3-none-any.whl (152kB)
+Installing collected packages: pyflakes
+Successfully installed pyflakes-1.0.0
+
+travis_time:end:017f47c4:start=1592060597014906359,finish=1592060598263664199,duration=1248757840[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:331f6890[0K$ pip install pep8==1.7.0
+Collecting pep8==1.7.0
+  Downloading https://files.pythonhosted.org/packages/8a/cb/7d0fdca7e03f997945fb1bd60a8ddfea5c51229b865c470b4f7a64619d20/pep8-1.7.0-py2.py3-none-any.whl (41kB)
+Installing collected packages: pep8
+Successfully installed pep8-1.7.0
+
+travis_time:end:331f6890:start=1592060598275215256,finish=1592060599301397435,duration=1026182179[0Ktravis_fold:end:install.4[0Ktravis_time:start:02304141[0K$ coverage run --source=verktyg setup.py test
+running test
+running egg_info
+writing verktyg.egg-info/PKG-INFO
+writing top-level names to verktyg.egg-info/top_level.txt
+writing dependency_links to verktyg.egg-info/dependency_links.txt
+writing requirements to verktyg.egg-info/requires.txt
+reading manifest file 'verktyg.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'verktyg.egg-info/SOURCES.txt'
+running build_ext
+
+travis_time:end:02304141:start=1592060599311483702,finish=1592060600785166749,duration=1473683047[0K
+[32;1mThe command "coverage run --source=verktyg setup.py test" exited with 0.[0m
+travis_time:start:01870de8[0K$ pep8 verktyg setup.py
+
+travis_time:end:01870de8:start=1592060600794540263,finish=1592060603223506894,duration=2428966631[0K
+[32;1mThe command "pep8 verktyg setup.py" exited with 0.[0m
+travis_time:start:31123be8[0K$ pyflakes verktyg setup.py
+
+travis_time:end:31123be8:start=1592060603231896073,finish=1592060603784644162,duration=552748089[0K
+[32;1mThe command "pyflakes verktyg setup.py" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:2e45eafe[0K$ coveralls
+
+travis_time:end:2e45eafe:start=1592060603795433872,finish=1592060604099770905,duration=304337033[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

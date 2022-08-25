@@ -1,0 +1,144 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ cd failed/getnikola/nikola
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:02c6a7d0[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:02c6a7d0:start=1591475897404704417,finish=1591475981206032435,duration=83801328018[0Ktravis_time:start:12d18df4[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install language-pack-en-base language-pack-pl-base
+Reading package lists...
+Building dependency tree...
+Reading state information...
+language-pack-en-base is already the newest version.
+language-pack-en-base set to manually installed.
+Recommended packages:
+  firefox-locale-pl
+The following NEW packages will be installed:
+  language-pack-pl language-pack-pl-base
+0 upgraded, 2 newly installed, 0 to remove and 263 not upgraded.
+Need to get 2,310 kB of archives.
+After this operation, 7,759 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main language-pack-pl-base all 1:12.04+20140106 [2,308 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main language-pack-pl all 1:12.04+20140106 [1,970 B]
+Fetched 2,310 kB in 0s (3,164 kB/s)
+Selecting previously unselected package language-pack-pl-base.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking language-pack-pl-base (from .../language-pack-pl-base_1%3a12.04+20140106_all.deb) ...
+Selecting previously unselected package language-pack-pl.
+Unpacking language-pack-pl (from .../language-pack-pl_1%3a12.04+20140106_all.deb) ...
+Setting up language-pack-pl (1:12.04+20140106) ...
+Setting up language-pack-pl-base (1:12.04+20140106) ...
+Generating locales...
+  pl_PL.UTF-8... done
+Generation complete.
+
+travis_time:end:12d18df4:start=1591475981215736578,finish=1591475997018687640,duration=15802951062[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CODACY_PROJECT_TOKEN=[secure]
+$ export NMODE=nikola
+
+travis_time:start:0cf2896e[0K$ source ~/virtualenv/python3.4/bin/activate
+
+travis_time:end:0cf2896e:start=1591475997779462689,finish=1591475997789037669,duration=9574980[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:before_install[0Ktravis_time:start:0044918e[0K$ pip install --upgrade pip wheel
+Collecting pip from https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl#sha256=b27c4dedae8c41aa59108f2fa38bf78e0890e590545bc8ece7cdceb4ba60f6e4
+  Downloading https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl (1.5MB)
+Collecting wheel from https://files.pythonhosted.org/packages/8c/23/848298cccf8e40f5bbb59009b32848a4c38f4e7f3364297ab3c3e2e2cd14/wheel-0.34.2-py2.py3-none-any.whl#sha256=df277cb51e61359aba502208d680f90c0493adec6f0e848af94948778aed386e
+  Downloading https://files.pythonhosted.org/packages/8c/23/848298cccf8e40f5bbb59009b32848a4c38f4e7f3364297ab3c3e2e2cd14/wheel-0.34.2-py2.py3-none-any.whl
+Installing collected packages: wheel, pip
+  Found existing installation: wheel 0.24.0
+    Uninstalling wheel-0.24.0:
+      Successfully uninstalled wheel-0.24.0
+
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-20.1.1 wheel-0.34.2
+
+travis_time:end:0044918e:start=1591475998770139587,finish=1591476015322603143,duration=16552463556[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install.1[0Ktravis_time:start:363b7072[0K$ if [[ $NMODE == 'nikola' ]]; then scripts/getwheelhouse.sh $(scripts/getpyver.py short); fi
+
+travis_time:end:363b7072:start=1591476015331755913,finish=1591476015830249136,duration=498493223[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0a50a320[0K$ if [[ $NMODE == 'nikola' ]]; then pip install -r requirements-tests.txt; if [[ "$?" == '1' ]]; then cat /home/travis/.pip/pip.log; false; fi; fi
+
+travis_time:end:0a50a320:start=1591476015838732184,finish=1591476016067404193,duration=228672009[0K
+[31;1mThe command "if [[ $NMODE == 'nikola' ]]; then pip install -r requirements-tests.txt; if [[ "$?" == '1' ]]; then cat /home/travis/.pip/pip.log; false; fi; fi" failed and exited with 1 during .[0m
+
+Your build has been stopped.

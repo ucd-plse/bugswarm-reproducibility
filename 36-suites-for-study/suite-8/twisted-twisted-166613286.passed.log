@@ -1,0 +1,191 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd passed/twisted/twisted
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:0bd1c231[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:0bd1c231:start=1593888207040249584,finish=1593888212110210351,duration=5069960767[0Ktravis_time:start:136692dc[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libssl-dev libssl1.0.0
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libssl-dev is already the newest version.
+libssl1.0.0 is already the newest version.
+0 upgraded, 0 newly installed, 0 to remove and 238 not upgraded.
+
+travis_time:end:136692dc:start=1593888212121139006,finish=1593888214327959481,duration=2206820475[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TRIAL_REPORTER=text
+$ export TOXENV=pyflakes3
+
+travis_time:start:02255208[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:02255208:start=1593888214588911477,finish=1593888214599002406,duration=10090929[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0f96c80c[0K$ Installing caching utilities
+
+travis_time:end:0f96c80c:start=1593888215015712434,finish=1593888215071465512,duration=55753078[0Ktravis_time:start:08f59365[0K
+travis_time:end:08f59365:start=1593888215085196875,finish=1593888215094028106,duration=8831231[0Ktravis_time:start:079cdee6[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:079cdee6:start=1593888215104104764,finish=1593888215894240339,duration=790135575[0Ktravis_time:start:02c49b85[0K
+travis_time:end:02c49b85:start=1593888215906384260,finish=1593888215915250856,duration=8866596[0Ktravis_time:start:09d28c9e[0K[32;1madding /home/travis/.cache/pip to cache[0m
+[32;1madding /home/travis/.pyenv to cache[0m
+[32;1mcreating directory /home/travis/.pyenv[0m
+
+travis_time:end:09d28c9e:start=1593888215926713213,finish=1593888216732977055,duration=806263842[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install[0Ktravis_time:start:0eeb9bf0[0K$ ./.travis/install.sh tox
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl (1.5MB)
+Collecting setuptools<26
+  Downloading https://files.pythonhosted.org/packages/cd/48/45dee63e94368e331cfd8d90d1e804e8ad0c0d055e677ef2c1317de863e1/setuptools-25.4.0-py2.py3-none-any.whl (459kB)
+Installing collected packages: pip, setuptools
+  Found existing installation: pip 18.0
+    Uninstalling pip-18.0:
+      Successfully uninstalled pip-18.0
+  Found existing installation: setuptools 40.0.0
+    Uninstalling setuptools-40.0.0:
+      Successfully uninstalled setuptools-40.0.0
+Successfully installed pip-20.1.1 setuptools-25.4.0
+Collecting cryptography
+  Downloading cryptography-2.9.2-cp35-abi3-manylinux2010_x86_64.whl (2.7 MB)
+Collecting cffi!=1.11.3,>=1.8
+  Downloading cffi-1.14.0-cp35-cp35m-manylinux1_x86_64.whl (399 kB)
+Requirement already satisfied: six>=1.4.1 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from cryptography) (1.11.0)
+Collecting pycparser
+  Downloading pycparser-2.20-py2.py3-none-any.whl (112 kB)
+Installing collected packages: pycparser, cffi, cryptography
+Successfully installed cffi-1.14.0 cryptography-2.9.2 pycparser-2.20
+Collecting tox
+  Downloading tox-3.16.1-py2.py3-none-any.whl (137 kB)
+Collecting packaging>=14
+  Downloading packaging-20.4-py2.py3-none-any.whl (37 kB)
+Requirement already satisfied: virtualenv!=20.0.0,!=20.0.1,!=20.0.2,!=20.0.3,!=20.0.4,!=20.0.5,!=20.0.6,!=20.0.7,>=16.0.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from tox) (16.0.0)
+Requirement already satisfied: py>=1.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from tox) (1.5.4)
+Collecting importlib-metadata<2,>=0.12; python_version < "3.8"
+  Downloading importlib_metadata-1.7.0-py2.py3-none-any.whl (31 kB)
+Collecting six>=1.14.0
+  Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting toml>=0.9.4
+  Downloading toml-0.10.1-py2.py3-none-any.whl (19 kB)
+Collecting pluggy>=0.12.0
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting filelock>=3.0.0
+  Downloading filelock-3.0.12-py3-none-any.whl (7.6 kB)
+Collecting pyparsing>=2.0.2
+  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Collecting zipp>=0.5
+  Downloading zipp-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Installing collected packages: six, pyparsing, packaging, zipp, importlib-metadata, toml, pluggy, filelock, tox
+  Attempting uninstall: six
+    Found existing installation: six 1.11.0
+    Uninstalling six-1.11.0:
+      Successfully uninstalled six-1.11.0
+  Attempting uninstall: pluggy
+    Found existing installation: pluggy 0.7.1
+    Uninstalling pluggy-0.7.1:
+      Successfully uninstalled pluggy-0.7.1
+Successfully installed filelock-3.0.12 importlib-metadata-1.7.0 packaging-20.4 pluggy-0.13.1 pyparsing-2.4.7 six-1.15.0 toml-0.10.1 tox-3.16.1 zipp-1.2.0
+
+travis_time:end:0eeb9bf0:start=1593888217115140143,finish=1593888229495149260,duration=12380009117[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:2698e498[0K$ git remote set-branches --add origin trunk
+
+travis_time:end:2698e498:start=1593888229505648213,finish=1593888229517223744,duration=11575531[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:14c6c69c[0K$ git fetch origin trunk
+
+travis_time:end:14c6c69c:start=1593888229527641656,finish=1593888234485706520,duration=4958064864[0Ktravis_fold:end:before_script.2[0Ktravis_time:start:00ac0ad0[0K$ ./.travis/run.sh
+GLOB sdist-make: /home/travis/build/passed/twisted/twisted/setup.py
+pyflakes3 create: /home/travis/build/passed/twisted/twisted/build/pyflakes3
+pyflakes3 installdeps: pyflakes
+pyflakes3 inst: /home/travis/build/passed/twisted/twisted/build/.tmp/package/1/Twisted-16.4.1.zip
+pyflakes3 installed: constantly==15.1.0,incremental==17.5.0,pyflakes==2.2.0,Twisted==16.4.1,zope.interface==5.1.0
+pyflakes3 run-test-pre: PYTHONHASHSEED='2534712548'
+pyflakes3 run-test: commands[0] | python -c 'import sys; print(sys.prefix)'
+/home/travis/build/passed/twisted/twisted/build/pyflakes3
+pyflakes3 run-test: commands[1] | python -c 'import sys; print(sys.exec_prefix)'
+/home/travis/build/passed/twisted/twisted/build/pyflakes3
+pyflakes3 run-test: commands[2] | python -c 'import sys; print(sys.executable)'
+/home/travis/build/passed/twisted/twisted/build/pyflakes3/bin/python
+pyflakes3 run-test: commands[3] | python --version
+Python 3.5.6
+pyflakes3 run-test: commands[4] | pyflakes src/twisted/internet/test/_awaittests.py.3only
+___________________________________ summary ____________________________________
+  pyflakes3: commands succeeded
+  congratulations :)
+
+travis_time:end:00ac0ad0:start=1593888234497291509,finish=1593888263252152980,duration=28754861471[0K
+[32;1mThe command "./.travis/run.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:042c18a2[0K
+travis_time:end:042c18a2:start=1593888263263545847,finish=1593888263272583936,duration=9038089[0Ktravis_time:start:0bc64ee2[0K[32;1mchanges detected, packing new archive[0m
+
+travis_time:end:0bc64ee2:start=1593888263282679740,finish=1593888265101913731,duration=1819233991[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.

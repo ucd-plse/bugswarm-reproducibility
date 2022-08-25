@@ -1,0 +1,1010 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ cd passed/ccnmtl/plexus
+travis_time:start:212d8137[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:212d8137:start=1591456913782261548,finish=1591456913791986491,duration=9724943[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:0447ceb2[0K$ pip install -U pip wheel
+Collecting pip from https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl#sha256=b27c4dedae8c41aa59108f2fa38bf78e0890e590545bc8ece7cdceb4ba60f6e4
+  Downloading https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl (1.5MB)
+Collecting wheel from https://files.pythonhosted.org/packages/8c/23/848298cccf8e40f5bbb59009b32848a4c38f4e7f3364297ab3c3e2e2cd14/wheel-0.34.2-py2.py3-none-any.whl#sha256=df277cb51e61359aba502208d680f90c0493adec6f0e848af94948778aed386e
+  Downloading https://files.pythonhosted.org/packages/8c/23/848298cccf8e40f5bbb59009b32848a4c38f4e7f3364297ab3c3e2e2cd14/wheel-0.34.2-py2.py3-none-any.whl
+Installing collected packages: wheel, pip
+  Found existing installation: wheel 0.24.0
+    Uninstalling wheel-0.24.0:
+      Successfully uninstalled wheel-0.24.0
+
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-20.1.1 wheel-0.34.2
+
+travis_time:end:0447ceb2:start=1591456914080871959,finish=1591456927017389921,duration=12936517962[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:05e0b7b8[0K$ pip install -U setuptools
+Collecting setuptools
+  Downloading setuptools-44.1.1-py2.py3-none-any.whl (583 kB)
+Installing collected packages: setuptools
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 12.0.5
+    Uninstalling setuptools-12.0.5:
+      Successfully uninstalled setuptools-12.0.5
+Successfully installed setuptools-44.1.1
+
+travis_time:end:05e0b7b8:start=1591456927028318731,finish=1591456932049195255,duration=5020876524[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:1b94cf12[0K$ pip install -r requirements.txt
+Collecting Django==1.11.2
+  Downloading Django-1.11.2-py2.py3-none-any.whl (6.9 MB)
+Collecting pytz==2017.2
+  Downloading pytz-2017.2-py2.py3-none-any.whl (484 kB)
+Collecting httplib2==0.10.3
+  Downloading httplib2-0.10.3.tar.gz (204 kB)
+Collecting feedparser==5.2.1
+  Downloading feedparser-5.2.1.tar.bz2 (192 kB)
+Collecting chardet==3.0.4
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting idna==2.5
+  Downloading idna-2.5-py2.py3-none-any.whl (55 kB)
+Collecting urllib3==1.21.1
+  Downloading urllib3-1.21.1-py2.py3-none-any.whl (131 kB)
+Collecting certifi==2017.4.17
+  Downloading certifi-2017.4.17-py2.py3-none-any.whl (375 kB)
+Collecting requests==2.17.3
+  Downloading requests-2.17.3-py2.py3-none-any.whl (87 kB)
+Collecting django-feedparser==0.2.1
+  Downloading django-feedparser-0.2.1.tar.gz (9.8 kB)
+Collecting Markdown==2.6.8
+  Downloading Markdown-2.6.8.tar.gz (307 kB)
+Collecting uuid==1.30
+  Downloading uuid-1.30.tar.gz (5.8 kB)
+Collecting psycopg2==2.7.1
+  Downloading psycopg2-2.7.1-cp27-cp27mu-manylinux1_x86_64.whl (2.7 MB)
+Collecting versiontools==1.9.1
+  Downloading versiontools-1.9.1.tar.gz (19 kB)
+Collecting statsd==3.2.1
+  Downloading statsd-3.2.1-py2.py3-none-any.whl (11 kB)
+Collecting BeautifulSoup==3.2.1
+  Downloading BeautifulSoup-3.2.1.tar.gz (31 kB)
+Collecting cssselect==1.0.1
+  Downloading cssselect-1.0.1-py2.py3-none-any.whl (15 kB)
+Collecting lxml==3.8.0
+  Downloading lxml-3.8.0-cp27-cp27mu-manylinux1_x86_64.whl (6.8 MB)
+Collecting funcsigs==1.0.2
+  Downloading funcsigs-1.0.2-py2.py3-none-any.whl (17 kB)
+Collecting sure==1.4.6
+  Downloading sure-1.4.6-py2-none-any.whl (22 kB)
+Collecting ipdb==0.10.3
+  Downloading ipdb-0.10.3.tar.gz (9.4 kB)
+Collecting traitlets==4.3.2
+  Downloading traitlets-4.3.2-py2.py3-none-any.whl (74 kB)
+Collecting ipython_genutils==0.2.0
+  Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+Collecting decorator==4.0.11
+  Downloading decorator-4.0.11-py2.py3-none-any.whl (8.9 kB)
+Collecting ptyprocess==0.5.1
+  Downloading ptyprocess-0.5.1-py2.py3-none-any.whl (12 kB)
+Collecting pexpect==4.2.1
+  Downloading pexpect-4.2.1-py2.py3-none-any.whl (55 kB)
+Collecting pickleshare==0.7.4
+  Downloading pickleshare-0.7.4-py2.py3-none-any.whl (6.9 kB)
+Collecting simplegeneric==0.8.1
+  Downloading simplegeneric-0.8.1.zip (12 kB)
+Collecting path.py==10.3.1
+  Downloading path.py-10.3.1-py2.py3-none-any.whl (29 kB)
+Collecting backports.shutil_get_terminal_size==1.0.0
+  Downloading backports.shutil_get_terminal_size-1.0.0-py2.py3-none-any.whl (6.5 kB)
+Collecting ipython==5.4.1
+  Downloading ipython-5.4.1-py2-none-any.whl (757 kB)
+Collecting extras==1.0.0
+  Downloading extras-1.0.0-py2.py3-none-any.whl (7.3 kB)
+Collecting python-mimeparse==1.6.0
+  Downloading python_mimeparse-1.6.0-py2.py3-none-any.whl (6.1 kB)
+Collecting fixtures==3.0.0
+  Downloading fixtures-3.0.0-py2.py3-none-any.whl (67 kB)
+Collecting testtools==2.3.0
+  Downloading testtools-2.3.0-py2.py3-none-any.whl (184 kB)
+Collecting testscenarios==0.5.0
+  Downloading testscenarios-0.5.0-py2.py3-none-any.whl (21 kB)
+Collecting python-subunit==1.2.0
+  Downloading python_subunit-1.2.0-py2.py3-none-any.whl (112 kB)
+Collecting webencodings==0.5.1
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Collecting rdflib==4.2.2
+  Downloading rdflib-4.2.2.tar.gz (905 kB)
+Collecting coverage==4.4.1
+  Downloading coverage-4.4.1-cp27-cp27mu-manylinux1_x86_64.whl (193 kB)
+Collecting pep8==1.7.0
+  Downloading pep8-1.7.0-py2.py3-none-any.whl (41 kB)
+Collecting pyflakes==1.5.0
+  Downloading pyflakes-1.5.0-py2.py3-none-any.whl (225 kB)
+Collecting mccabe==0.6.1
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting pycodestyle==2.3.1
+  Downloading pycodestyle-2.3.1-py2.py3-none-any.whl (45 kB)
+Collecting enum34==1.1.6
+  Downloading enum34-1.1.6-py2-none-any.whl (12 kB)
+Collecting configparser==3.5.0
+  Downloading configparser-3.5.0.tar.gz (39 kB)
+Collecting flake8==3.3.0
+  Downloading flake8-3.3.0-py2.py3-none-any.whl (66 kB)
+Collecting logilab-common==1.4.0
+  Downloading logilab-common-1.4.0.tar.gz (185 kB)
+Collecting logilab-astng==0.24.3
+  Downloading logilab-astng-0.24.3.tar.gz (106 kB)
+Collecting editdistance==0.3.1
+  Downloading editdistance-0.3.1.tar.gz (19 kB)
+Collecting pylint==1.7.1
+  Downloading pylint-1.7.1-py2.py3-none-any.whl (641 kB)
+Collecting ipaddress==1.0.18
+  Downloading ipaddress-1.0.18-py2-none-any.whl (17 kB)
+Collecting Faker==0.7.17
+  Downloading Faker-0.7.17-py2.py3-none-any.whl (606 kB)
+Collecting factory_boy==2.8.1
+  Downloading factory_boy-2.8.1-py2.py3-none-any.whl (46 kB)
+Collecting ldap3==2.2.4
+  Downloading ldap3-2.2.4-py2.py3-none-any.whl (366 kB)
+Collecting sqlparse==0.2.3
+  Downloading sqlparse-0.2.3-py2.py3-none-any.whl (38 kB)
+Collecting gunicorn==19.7.1
+  Downloading gunicorn-19.7.1-py2.py3-none-any.whl (111 kB)
+Collecting boto==2.47.0
+  Downloading boto-2.47.0-py2.py3-none-any.whl (1.4 MB)
+Collecting six==1.10.0
+  Downloading six-1.10.0-py2.py3-none-any.whl (10 kB)
+Collecting python-dateutil==2.6.0
+  Downloading python_dateutil-2.6.0-py2.py3-none-any.whl (194 kB)
+Collecting pyasn1==0.2.3
+  Downloading pyasn1-0.2.3-py2.py3-none-any.whl (53 kB)
+Collecting pyOpenSSL==17.0.0
+  Downloading pyOpenSSL-17.0.0-py2.py3-none-any.whl (51 kB)
+Collecting ndg-httpsclient==0.4.2
+  Downloading ndg_httpsclient-0.4.2.tar.gz (25 kB)
+Collecting djangowind==1.0.0
+  Downloading djangowind-1.0.0-py2.py3-none-any.whl (21 kB)
+Collecting django-appconf==1.0.2
+  Downloading django_appconf-1.0.2-py2.py3-none-any.whl (7.4 kB)
+Collecting rcssmin==1.0.6
+  Downloading rcssmin-1.0.6.tar.gz (582 kB)
+Collecting rjsmin==1.0.12
+  Downloading rjsmin-1.0.12.tar.gz (446 kB)
+Collecting django-compressor==2.1.1
+  Downloading django_compressor-2.1.1-py2.py3-none-any.whl (130 kB)
+Collecting django-statsd-mozilla==0.3.16
+  Downloading django-statsd-mozilla-0.3.16.tar.gz (14 kB)
+Collecting contextlib2==0.5.5
+  Downloading contextlib2-0.5.5-py2.py3-none-any.whl (8.1 kB)
+Collecting raven==6.1.0
+  Downloading raven-6.1.0-py2.py3-none-any.whl (279 kB)
+Collecting django-bootstrap3==8.2.3
+  Downloading django-bootstrap3-8.2.3.tar.gz (35 kB)
+Collecting django-bootstrap-form==3.2.1
+  Downloading django-bootstrap-form-3.2.1.tar.gz (4.3 kB)
+Collecting django-debug-toolbar==1.8
+  Downloading django_debug_toolbar-1.8-py2.py3-none-any.whl (205 kB)
+Collecting django-smoketest==1.0.0
+  Downloading django_smoketest-1.0.0-py2-none-any.whl (12 kB)
+Collecting django-jenkins==0.110.0
+  Downloading django_jenkins-0.110.0-py2.py3-none-any.whl (20 kB)
+Collecting django-waffle==0.11.1
+  Downloading django_waffle-0.11.1-py2.py3-none-any.whl (36 kB)
+Collecting django-stagingcontext==0.1.0
+  Downloading django_stagingcontext-0.1.0-py2-none-any.whl (2.4 kB)
+Collecting django-markwhat==1.5.1
+  Downloading django-markwhat-1.5.1.tar.gz (7.9 kB)
+Collecting django-impersonate==1.1
+  Downloading django-impersonate-1.1.tar.gz (19 kB)
+Collecting django-storages==1.5.2
+  Downloading django_storages-1.5.2-py2.py3-none-any.whl (51 kB)
+Collecting django-ga-context==0.1.0
+  Downloading django_ga_context-0.1.0-py2-none-any.whl (2.2 kB)
+Collecting django-cacheds3storage==0.1.2
+  Downloading django_cacheds3storage-0.1.2-py2-none-any.whl (2.8 kB)
+Collecting django-smtp-ssl==1.0
+  Downloading django-smtp-ssl-1.0.zip (1.4 kB)
+Collecting djangorestframework==3.6.3
+  Downloading djangorestframework-3.6.3-py2.py3-none-any.whl (1.3 MB)
+Collecting wagtail==1.10.1
+  Downloading wagtail-1.10.1-py2.py3-none-any.whl (6.9 MB)
+Collecting Willow==0.4
+  Downloading Willow-0.4-py2.py3-none-any.whl (104 kB)
+Collecting django-modelcluster==3.1
+  Downloading django-modelcluster-3.1.tar.gz (20 kB)
+Collecting django-taggit==0.22.1
+  Downloading django_taggit-0.22.1-py2.py3-none-any.whl (45 kB)
+Collecting Unidecode==0.04.20
+  Downloading Unidecode-0.04.20-py2.py3-none-any.whl (228 kB)
+Collecting django-treebeard==4.1.1
+  Downloading django-treebeard-4.1.1.tar.gz (85 kB)
+Collecting Pillow==4.1.1
+  Downloading Pillow-4.1.1-cp27-cp27mu-manylinux1_x86_64.whl (5.7 MB)
+Collecting beautifulsoup4==4.6.0
+  Downloading beautifulsoup4-4.6.0-py2-none-any.whl (86 kB)
+Collecting html5lib==0.999999999
+  Downloading html5lib-0.999999999-py2.py3-none-any.whl (112 kB)
+Collecting elasticsearch==2.4.0
+  Downloading elasticsearch-2.4.0-py2.py3-none-any.whl (54 kB)
+Collecting anyjson==0.3.3
+  Downloading anyjson-0.3.3.tar.gz (8.3 kB)
+Collecting vine==1.1.3
+  Downloading vine-1.1.3-py2.py3-none-any.whl (12 kB)
+Collecting billiard==3.5.0.2
+  Downloading billiard-3.5.0.2.tar.gz (157 kB)
+Collecting librabbitmq==1.6.1
+  Downloading librabbitmq-1.6.1.tar.gz (529 kB)
+Collecting kombu==3.0.37
+  Downloading kombu-3.0.37-py2.py3-none-any.whl (240 kB)
+Collecting amqp==2.1.4
+  Downloading amqp-2.1.4-py2.py3-none-any.whl (49 kB)
+Collecting amqplib==1.0.2
+  Downloading amqplib-1.0.2.tgz (58 kB)
+Collecting celery==3.1.24
+  Downloading celery-3.1.24-py2.py3-none-any.whl (526 kB)
+Collecting django-celery==3.2.1
+  Downloading django_celery-3.2.1-py2-none-any.whl (63 kB)
+Collecting ccnmtlsettings==1.3.0
+  Downloading ccnmtlsettings-1.3.0-py2.py3-none-any.whl (8.2 kB)
+Requirement already satisfied: mock in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from sure==1.4.6->-r requirements.txt (line 23)) (1.0.1)
+Requirement already satisfied: setuptools in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from ipdb==0.10.3->-r requirements.txt (line 24)) (44.1.1)
+Collecting pathlib2; python_version in "2.6 2.7 3.2 3.3"
+  Downloading pathlib2-2.3.5-py2.py3-none-any.whl (18 kB)
+Collecting prompt-toolkit<2.0.0,>=1.0.4
+  Downloading prompt_toolkit-1.0.18-py2-none-any.whl (245 kB)
+Collecting pygments
+  Downloading Pygments-2.5.2-py2.py3-none-any.whl (896 kB)
+Collecting pbr>=0.11
+  Downloading pbr-5.4.5-py2.py3-none-any.whl (110 kB)
+Collecting traceback2
+  Downloading traceback2-1.4.0-py2.py3-none-any.whl (16 kB)
+Collecting unittest2>=1.0.0
+  Downloading unittest2-1.1.0-py2.py3-none-any.whl (96 kB)
+Collecting isodate
+  Downloading isodate-0.6.0-py2.py3-none-any.whl (45 kB)
+Collecting pyparsing
+  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Collecting isort>=4.2.5
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+Collecting backports.functools-lru-cache; python_version == "2.7"
+  Downloading backports.functools_lru_cache-1.6.1-py2.py3-none-any.whl (5.7 kB)
+Collecting singledispatch; python_version < "3.4"
+  Downloading singledispatch-3.4.0.3-py2.py3-none-any.whl (12 kB)
+Collecting astroid>=1.5.1
+  Downloading astroid-1.6.6-py2.py3-none-any.whl (305 kB)
+Collecting cryptography>=1.7
+  Downloading cryptography-2.9.2-cp27-cp27mu-manylinux2010_x86_64.whl (2.7 MB)
+Requirement already satisfied: nose in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from django-smoketest==1.0.0->-r requirements.txt (line 82)) (1.3.4)
+Collecting olefile
+  Downloading olefile-0.46.zip (112 kB)
+Collecting django-extensions
+  Downloading django_extensions-2.2.9-py2.py3-none-any.whl (217 kB)
+Collecting django-storages-redux
+  Downloading django_storages_redux-1.3.3-py2.py3-none-any.whl (51 kB)
+Collecting scandir; python_version < "3.5"
+  Downloading scandir-1.10.0.tar.gz (33 kB)
+Collecting wcwidth
+  Downloading wcwidth-0.2.3-py2.py3-none-any.whl (30 kB)
+Collecting linecache2
+  Downloading linecache2-1.0.0-py2.py3-none-any.whl (12 kB)
+Collecting argparse
+  Downloading argparse-1.4.0-py2.py3-none-any.whl (23 kB)
+Collecting futures; python_version < "3.2"
+  Downloading futures-3.3.0-py2-none-any.whl (16 kB)
+Collecting lazy-object-proxy
+  Downloading lazy_object_proxy-1.5.0-cp27-cp27mu-manylinux1_x86_64.whl (55 kB)
+Collecting wrapt
+  Downloading wrapt-1.12.1.tar.gz (27 kB)
+Collecting cffi!=1.11.3,>=1.8
+  Downloading cffi-1.14.0-cp27-cp27mu-manylinux1_x86_64.whl (387 kB)
+Collecting typing; python_version < "3.5"
+  Downloading typing-3.7.4.1-py2-none-any.whl (26 kB)
+Collecting pycparser
+  Downloading pycparser-2.20-py2.py3-none-any.whl (112 kB)
+Building wheels for collected packages: httplib2, feedparser, django-feedparser, Markdown, uuid, versiontools, BeautifulSoup, ipdb, simplegeneric, rdflib, configparser, logilab-common, logilab-astng, editdistance, ndg-httpsclient, rcssmin, rjsmin, django-statsd-mozilla, django-bootstrap3, django-bootstrap-form, django-markwhat, django-impersonate, django-smtp-ssl, django-modelcluster, django-treebeard, anyjson, billiard, librabbitmq, amqplib, olefile, scandir, wrapt
+  Building wheel for httplib2 (setup.py): started
+  Building wheel for httplib2 (setup.py): finished with status 'done'
+  Created wheel for httplib2: filename=httplib2-0.10.3-py2-none-any.whl size=92659 sha256=10b5988f6071409f26a811c9b8b003dfb393eb02a45cab34ef42ac4bfb5d7f23
+  Stored in directory: /home/travis/.cache/pip/wheels/7a/4e/a8/cceb0ffd9c2c11f22f46c5247931969301291bf6efecbf2cb3
+  Building wheel for feedparser (setup.py): started
+  Building wheel for feedparser (setup.py): finished with status 'done'
+  Created wheel for feedparser: filename=feedparser-5.2.1-py2-none-any.whl size=44995 sha256=01a0a97793967d058d3a6cc357461776fb4381bee9c62857d819cb6bac063493
+  Stored in directory: /home/travis/.cache/pip/wheels/d4/3c/a1/fd7bcf389a776ce0be95e1e3176421b92dd24d0b78a58908a1
+  Building wheel for django-feedparser (setup.py): started
+  Building wheel for django-feedparser (setup.py): finished with status 'done'
+  Created wheel for django-feedparser: filename=django_feedparser-0.2.1-py2-none-any.whl size=10878 sha256=450c9654eb7f9c73823c2c503394f73cb9d3154e868fb28148bd3d90cec18504
+  Stored in directory: /home/travis/.cache/pip/wheels/26/4f/95/9ef2b8afdf145d95fd0c0fd2d69543936bf6030cb997f290c8
+  Building wheel for Markdown (setup.py): started
+  Building wheel for Markdown (setup.py): finished with status 'done'
+  Created wheel for Markdown: filename=Markdown-2.6.8-py2-none-any.whl size=161844 sha256=66e13b406a6c6c4545b8b569b09ca6645a50fcd4e73e9a87e14d52d1a8d84ca0
+  Stored in directory: /home/travis/.cache/pip/wheels/1c/36/38/08cf40cdbe4392b8a1b2819d4ae2027fe885d4e5d3fe4637fe
+  Building wheel for uuid (setup.py): started
+  Building wheel for uuid (setup.py): finished with status 'done'
+  Created wheel for uuid: filename=uuid-1.30-py2-none-any.whl size=6501 sha256=e89364628649ce62f59660a0c88ce80eb88debb6f61f78a55272b1afdfad2b70
+  Stored in directory: /home/travis/.cache/pip/wheels/b8/58/df/2346fb824fe80141dd7fc8a868f058f7dfd4526a1750e37057
+  Building wheel for versiontools (setup.py): started
+  Building wheel for versiontools (setup.py): finished with status 'done'
+  Created wheel for versiontools: filename=versiontools-1.9.1-py2-none-any.whl size=16529 sha256=b2e5e2abb0fbfe43512cdad4910d44307dd5c83379d108f623481716327d5ad9
+  Stored in directory: /home/travis/.cache/pip/wheels/27/0b/47/ff43579509e7c6c3df9e593fd28258d8c56f2d365bc59d2f7c
+  Building wheel for BeautifulSoup (setup.py): started
+  Building wheel for BeautifulSoup (setup.py): finished with status 'done'
+  Created wheel for BeautifulSoup: filename=BeautifulSoup-3.2.1-py2-none-any.whl size=31961 sha256=4b4e6c13c55c8a356fa96ff2a15459402d2bf95a7271ff427782ae3052664fbc
+  Stored in directory: /home/travis/.cache/pip/wheels/4d/ca/f6/2638be1fa1df72e30c9f0264c6e4fd77b97eb0044aa8083e12
+  Building wheel for ipdb (setup.py): started
+  Building wheel for ipdb (setup.py): finished with status 'done'
+  Created wheel for ipdb: filename=ipdb-0.10.3-py2-none-any.whl size=9312 sha256=781326ad2a8fdb855765b9d678d95eb2e17ef0a3b33494db3dbea415e81c886c
+  Stored in directory: /home/travis/.cache/pip/wheels/80/67/a1/39d534adbbd18477ededfb5d47de59de4d9ffca1cebdead6be
+  Building wheel for simplegeneric (setup.py): started
+  Building wheel for simplegeneric (setup.py): finished with status 'done'
+  Created wheel for simplegeneric: filename=simplegeneric-0.8.1-py2-none-any.whl size=5075 sha256=7a5f684d46ad77f04f84c1faa8c0634f49eea9b230bbe7092abef40b68737e30
+  Stored in directory: /home/travis/.cache/pip/wheels/1b/83/23/9d866729c0090bfc62d03a5bd43080fb07a5f4fad10a09399a
+  Building wheel for rdflib (setup.py): started
+  Building wheel for rdflib (setup.py): finished with status 'done'
+  Created wheel for rdflib: filename=rdflib-4.2.2-py2-none-any.whl size=343509 sha256=d192cd42e3525527dfbe89d40f3cec6a675039137bd245f88dda0856ee2eb3db
+  Stored in directory: /home/travis/.cache/pip/wheels/50/78/43/70eb7d814a7614e465fd905751e6a6c1e1864cdd166946c5a2
+  Building wheel for configparser (setup.py): started
+  Building wheel for configparser (setup.py): finished with status 'done'
+  Created wheel for configparser: filename=configparser-3.5.0-py2-none-any.whl size=21661 sha256=b89f9f049fbb7abbffacb5e6b07ea4db0209f64845a825a54bd41e8aa30fbb92
+  Stored in directory: /home/travis/.cache/pip/wheels/fe/e1/b2/ffea2d060a50955b9228e7a1dc7b1fc7a5013dc506da8c5272
+  Building wheel for logilab-common (setup.py): started
+  Building wheel for logilab-common (setup.py): finished with status 'done'
+  Created wheel for logilab-common: filename=logilab_common-1.4.0-py2-none-any.whl size=159936 sha256=536393909a33a86d463999099f1832bfe73c7f46040dd12254001d538c6e076e
+  Stored in directory: /home/travis/.cache/pip/wheels/6e/58/b5/aeadd239a295757bf94c3f24d19776f6eac85abaa62c85b5d2
+  Building wheel for logilab-astng (setup.py): started
+  Building wheel for logilab-astng (setup.py): finished with status 'done'
+  Created wheel for logilab-astng: filename=logilab_astng-0.24.3-py2-none-any.whl size=127724 sha256=641eb9e8c76aa15428664e4f1d1e6f131b0b783878f25a4cfbf45df7527a34f8
+  Stored in directory: /home/travis/.cache/pip/wheels/93/5d/7f/a11ea60ce8a5df0c746a19a4ef9d8c52817d62f1239e0ab426
+  Building wheel for editdistance (setup.py): started
+  Building wheel for editdistance (setup.py): finished with status 'done'
+  Created wheel for editdistance: filename=editdistance-0.3.1-cp27-cp27mu-linux_x86_64.whl size=155180 sha256=96d1e1a00665f65e138dea0e322403505b5d8068e4425e7553a3174bdf6e4d76
+  Stored in directory: /home/travis/.cache/pip/wheels/f3/c8/f2/42eda006d734e45f66b09af70c7ae60b44b1de87248b254532
+  Building wheel for ndg-httpsclient (setup.py): started
+  Building wheel for ndg-httpsclient (setup.py): finished with status 'done'
+  Created wheel for ndg-httpsclient: filename=ndg_httpsclient-0.4.2-py2-none-any.whl size=32825 sha256=3eadef8ad7cd881327151d99887017aac7b8eb67f43ebee726a699bcbc2d6be8
+  Stored in directory: /home/travis/.cache/pip/wheels/a2/bf/d3/9f2fd19b59bc6b7263c1b855ef54ed75a833fcf708975b4fe4
+  Building wheel for rcssmin (setup.py): started
+  Building wheel for rcssmin (setup.py): finished with status 'done'
+  Created wheel for rcssmin: filename=rcssmin-1.0.6-cp27-cp27mu-linux_x86_64.whl size=77094 sha256=0fe600678248ed8ea8794e37ce9d8cb4a7fda4946d21205d480f9dfc472804a1
+  Stored in directory: /home/travis/.cache/pip/wheels/6c/7d/a7/437abf804464e0c4b912b8a90eacdc7e68180a7c72c7fb64a4
+  Building wheel for rjsmin (setup.py): started
+  Building wheel for rjsmin (setup.py): finished with status 'done'
+  Created wheel for rjsmin: filename=rjsmin-1.0.12-cp27-cp27mu-linux_x86_64.whl size=67696 sha256=3f73f9a3eb40208922d0850ce3862175a59b67610562ea9efd39bc657ac4896c
+  Stored in directory: /home/travis/.cache/pip/wheels/c2/fd/07/f2846afb1b4bd0372cda2544ac7e7907c873373574370254c1
+  Building wheel for django-statsd-mozilla (setup.py): started
+  Building wheel for django-statsd-mozilla (setup.py): finished with status 'done'
+  Created wheel for django-statsd-mozilla: filename=django_statsd_mozilla-0.3.16-py2-none-any.whl size=22593 sha256=aabbb1196ac9c6fc800a0763ffe6fc8c116f3160c2bee4e7c77941900d3c9aa4
+  Stored in directory: /home/travis/.cache/pip/wheels/fa/11/8f/e03709a120fb82d7a2af99caa2af0304302a251734f908e874
+  Building wheel for django-bootstrap3 (setup.py): started
+  Building wheel for django-bootstrap3 (setup.py): finished with status 'done'
+  Created wheel for django-bootstrap3: filename=django_bootstrap3-8.2.3-py2-none-any.whl size=32113 sha256=aefa879260d54ad99818857c71ea749e1b1261e3d691b43d3144567a4cf0fd55
+  Stored in directory: /home/travis/.cache/pip/wheels/82/1f/41/2b309deae658a153a58d2bd04515e5481014d4adf421d1cb22
+  Building wheel for django-bootstrap-form (setup.py): started
+  Building wheel for django-bootstrap-form (setup.py): finished with status 'done'
+  Created wheel for django-bootstrap-form: filename=django_bootstrap_form-3.2.1-py2-none-any.whl size=5799 sha256=47138f9ede5dcc6a690057f13631821e3069b16a6d38b2ce284f6e273069e77e
+  Stored in directory: /home/travis/.cache/pip/wheels/f0/9e/60/a3ea2d4d87cb7ee4ba54a4a5b3c546c645adf76b65b22dce3e
+  Building wheel for django-markwhat (setup.py): started
+  Building wheel for django-markwhat (setup.py): finished with status 'done'
+  Created wheel for django-markwhat: filename=django_markwhat-1.5.1-py2.py3-none-any.whl size=9071 sha256=b2e6471741f7bd217818b62592c91288004cf1179db464cb40999adf5eceed53
+  Stored in directory: /home/travis/.cache/pip/wheels/0d/87/cc/20395ab6ed5fe381f954a49a3018ed9d8ea2124c21b093fa6b
+  Building wheel for django-impersonate (setup.py): started
+  Building wheel for django-impersonate (setup.py): finished with status 'done'
+  Created wheel for django-impersonate: filename=django_impersonate-1.1-py2-none-any.whl size=21966 sha256=be1f699e6f15aeea35ab487f265fa0fe518114b523074e0f87fde6d050f46c08
+  Stored in directory: /home/travis/.cache/pip/wheels/2d/46/f1/7b20c0dd6062350531fde11467b2f62a9b640fe00944dd739c
+  Building wheel for django-smtp-ssl (setup.py): started
+  Building wheel for django-smtp-ssl (setup.py): finished with status 'done'
+  Created wheel for django-smtp-ssl: filename=django_smtp_ssl-1.0-py2-none-any.whl size=1899 sha256=0ab7c6d9bfae1beb87f7a238d8735820055a0ffc9d80b5e577cb89704fc1028b
+  Stored in directory: /home/travis/.cache/pip/wheels/0b/24/be/c2c40c338d6ccec84e272963618047bbbcec4e9a885fa6c361
+  Building wheel for django-modelcluster (setup.py): started
+  Building wheel for django-modelcluster (setup.py): finished with status 'done'
+  Created wheel for django-modelcluster: filename=django_modelcluster-3.1-py2-none-any.whl size=20502 sha256=48e7277db81fdd386bddd81b16f8e979521e140eb771a54cb6225ef6bce945be
+  Stored in directory: /home/travis/.cache/pip/wheels/7c/3d/c6/c5009db8c0aaf133fe3082b89add23f063bd34a21c4db0876b
+  Building wheel for django-treebeard (setup.py): started
+  Building wheel for django-treebeard (setup.py): finished with status 'done'
+  Created wheel for django-treebeard: filename=django_treebeard-4.1.1-py2-none-any.whl size=100181 sha256=b1e08554a3badf0d46bae882bd52eaa4bc86bba05c3ee18e5707e4f98c03fa97
+  Stored in directory: /home/travis/.cache/pip/wheels/c6/7a/e4/4b2bb8ad9e302e18f873ff0c58ddb6dd11530bbc06ba331c1f
+  Building wheel for anyjson (setup.py): started
+  Building wheel for anyjson (setup.py): finished with status 'done'
+  Created wheel for anyjson: filename=anyjson-0.3.3-py2-none-any.whl size=4952 sha256=07706c134e7dd186d165e007fc3bbd44263d189ca3123bd0ec794295b5b846a6
+  Stored in directory: /home/travis/.cache/pip/wheels/51/e4/7b/e4ca0dd6d60916a0a20d94ad352a671675ed88f83a57830924
+  Building wheel for billiard (setup.py): started
+  Building wheel for billiard (setup.py): finished with status 'done'
+  Created wheel for billiard: filename=billiard-3.5.0.2-cp27-cp27mu-linux_x86_64.whl size=116764 sha256=9399699d5423aeaee0387fb8051fd574ee18d2fae70f025c7fcd81491f1f57d1
+  Stored in directory: /home/travis/.cache/pip/wheels/1b/ce/86/4fe4f86766d4e38aa9be35b70b0b33c5b0cf5ff9a3ee2a6667
+  Building wheel for librabbitmq (setup.py): started
+  Building wheel for librabbitmq (setup.py): finished with status 'done'
+  Created wheel for librabbitmq: filename=librabbitmq-1.6.1-cp27-cp27mu-linux_x86_64.whl size=210553 sha256=cb156abb0487afdd0897c759e50da2b396c5cf9e5db6cea61e396bf7f1d36dbe
+  Stored in directory: /home/travis/.cache/pip/wheels/02/7e/5b/9cfdc8637cbaa07d3b86894a2ef6e0f3fdda1df7825040628a
+  Building wheel for amqplib (setup.py): started
+  Building wheel for amqplib (setup.py): finished with status 'done'
+  Created wheel for amqplib: filename=amqplib-1.0.2-py2-none-any.whl size=48167 sha256=81af988f8ee50be00f2e246e6f1b109c29e4cb4e1c158963bc805d34b1f972d6
+  Stored in directory: /home/travis/.cache/pip/wheels/ba/be/93/7a1f1a33cd03543ab969646c60ca7fd349568e8f3f1a4811e5
+  Building wheel for olefile (setup.py): started
+  Building wheel for olefile (setup.py): finished with status 'done'
+  Created wheel for olefile: filename=olefile-0.46-py2.py3-none-any.whl size=35417 sha256=eeb62f4956163fdc5e3d3bd7ac77979068bcb18cd84f347b96c2cfb862c1c740
+  Stored in directory: /home/travis/.cache/pip/wheels/5d/f3/f0/672ba6b81b23e2ab817d6b34cbfa461795c1d4bc8d20ad36d8
+  Building wheel for scandir (setup.py): started
+  Building wheel for scandir (setup.py): finished with status 'done'
+  Created wheel for scandir: filename=scandir-1.10.0-cp27-cp27mu-linux_x86_64.whl size=34046 sha256=f37db93ca2f69321633c841b6b8e3295f2814e62073f6aae5ff866a432092aa0
+  Stored in directory: /home/travis/.cache/pip/wheels/58/2c/26/52406f7d1f19bcc47a6fbd1037a5f293492f5cf1d58c539edb
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp27-cp27mu-linux_x86_64.whl size=59957 sha256=9c6b60d4dae3bb65a1a224c6adfa51c4c1cc4597777dde1b47da758b902b2da3
+  Stored in directory: /home/travis/.cache/pip/wheels/5b/d8/8e/81a83cb5321b940a954996f5b57fddc8976e712b3ac3a1a54b
+Successfully built httplib2 feedparser django-feedparser Markdown uuid versiontools BeautifulSoup ipdb simplegeneric rdflib configparser logilab-common logilab-astng editdistance ndg-httpsclient rcssmin rjsmin django-statsd-mozilla django-bootstrap3 django-bootstrap-form django-markwhat django-impersonate django-smtp-ssl django-modelcluster django-treebeard anyjson billiard librabbitmq amqplib olefile scandir wrapt
+Installing collected packages: pytz, Django, httplib2, feedparser, chardet, idna, urllib3, certifi, requests, six, django-feedparser, Markdown, uuid, psycopg2, versiontools, statsd, BeautifulSoup, cssselect, lxml, funcsigs, sure, decorator, backports.shutil-get-terminal-size, backports.functools-lru-cache, wcwidth, prompt-toolkit, scandir, pathlib2, enum34, ipython-genutils, traitlets, simplegeneric, pickleshare, pygments, ptyprocess, pexpect, ipython, ipdb, path.py, extras, python-mimeparse, pbr, linecache2, traceback2, argparse, unittest2, testtools, fixtures, testscenarios, python-subunit, webencodings, isodate, pyparsing, rdflib, coverage, pep8, pyflakes, mccabe, pycodestyle, configparser, flake8, logilab-common, logilab-astng, editdistance, futures, isort, singledispatch, lazy-object-proxy, wrapt, astroid, pylint, ipaddress, python-dateutil, Faker, factory-boy, pyasn1, ldap3, sqlparse, gunicorn, boto, pycparser, cffi, cryptography, pyOpenSSL, ndg-httpsclient, djangowind, django-appconf, rcssmin, rjsmin, django-compressor, django-statsd-mozilla, contextlib2, raven, django-bootstrap3, django-bootstrap-form, django-debug-toolbar, django-smoketest, django-jenkins, django-waffle, django-stagingcontext, django-markwhat, django-impersonate, django-storages, django-ga-context, django-cacheds3storage, django-smtp-ssl, djangorestframework, beautifulsoup4, html5lib, django-modelcluster, Unidecode, django-taggit, Willow, olefile, Pillow, django-treebeard, wagtail, elasticsearch, anyjson, vine, billiard, amqp, librabbitmq, kombu, amqplib, celery, django-celery, typing, django-extensions, django-storages-redux, ccnmtlsettings
+Successfully installed BeautifulSoup-3.2.1 Django-1.11.2 Faker-0.7.17 Markdown-2.6.8 Pillow-4.1.1 Unidecode-0.4.20 Willow-0.4 amqp-2.1.4 amqplib-1.0.2 anyjson-0.3.3 argparse-1.4.0 astroid-1.6.6 backports.functools-lru-cache-1.6.1 backports.shutil-get-terminal-size-1.0.0 beautifulsoup4-4.6.0 billiard-3.5.0.2 boto-2.47.0 ccnmtlsettings-1.3.0 celery-3.1.24 certifi-2017.4.17 cffi-1.14.0 chardet-3.0.4 configparser-3.5.0 contextlib2-0.5.5 coverage-4.4.1 cryptography-2.9.2 cssselect-1.0.1 decorator-4.0.11 django-appconf-1.0.2 django-bootstrap-form-3.2.1 django-bootstrap3-8.2.3 django-cacheds3storage-0.1.2 django-celery-3.2.1 django-compressor-2.1.1 django-debug-toolbar-1.8 django-extensions-2.2.9 django-feedparser-0.2.1 django-ga-context-0.1.0 django-impersonate-1.1 django-jenkins-0.110.0 django-markwhat-1.5.1 django-modelcluster-3.1 django-smoketest-1.0.0 django-smtp-ssl-1.0 django-stagingcontext-0.1.0 django-statsd-mozilla-0.3.16 django-storages-1.5.2 django-storages-redux-1.3.3 django-taggit-0.22.1 django-treebeard-4.1.1 django-waffle-0.11.1 djangorestframework-3.6.3 djangowind-1.0.0 editdistance-0.3.1 elasticsearch-2.4.0 enum34-1.1.6 extras-1.0.0 factory-boy-2.8.1 feedparser-5.2.1 fixtures-3.0.0 flake8-3.3.0 funcsigs-1.0.2 futures-3.3.0 gunicorn-19.7.1 html5lib-0.999999999 httplib2-0.10.3 idna-2.5 ipaddress-1.0.18 ipdb-0.10.3 ipython-5.4.1 ipython-genutils-0.2.0 isodate-0.6.0 isort-4.3.21 kombu-3.0.37 lazy-object-proxy-1.5.0 ldap3-2.2.4 librabbitmq-1.6.1 linecache2-1.0.0 logilab-astng-0.24.3 logilab-common-1.4.0 lxml-3.8.0 mccabe-0.6.1 ndg-httpsclient-0.4.2 olefile-0.46 path.py-10.3.1 pathlib2-2.3.5 pbr-5.4.5 pep8-1.7.0 pexpect-4.2.1 pickleshare-0.7.4 prompt-toolkit-1.0.18 psycopg2-2.7.1 ptyprocess-0.5.1 pyOpenSSL-17.0.0 pyasn1-0.2.3 pycodestyle-2.3.1 pycparser-2.20 pyflakes-1.5.0 pygments-2.5.2 pylint-1.7.1 pyparsing-2.4.7 python-dateutil-2.6.0 python-mimeparse-1.6.0 python-subunit-1.2.0 pytz-2017.2 raven-6.1.0 rcssmin-1.0.6 rdflib-4.2.2 requests-2.17.3 rjsmin-1.0.12 scandir-1.10.0 simplegeneric-0.8.1 singledispatch-3.4.0.3 six-1.10.0 sqlparse-0.2.3 statsd-3.2.1 sure-1.4.6 testscenarios-0.5.0 testtools-2.3.0 traceback2-1.4.0 traitlets-4.3.2 typing-3.7.4.1 unittest2-1.1.0 urllib3-1.21.1 uuid-1.30 versiontools-1.9.1 vine-1.1.3 wagtail-1.10.1 wcwidth-0.2.3 webencodings-0.5.1 wrapt-1.12.1
+
+travis_time:end:1b94cf12:start=1591456932057806516,finish=1591457103580965364,duration=171523158848[0Ktravis_fold:end:install.3[0Ktravis_time:start:00c02c6d[0K$ make
+rm -rf ./ve
+python virtualenv.py --extra-search-dir=requirements/virtualenv_support/ --never-download ./ve
+Using real prefix '/opt/python/2.7.9'
+New python executable in ./ve/bin/python
+Installing setuptools, pip...done.
+./ve/bin/pip install wheel==0.29.0
+Collecting wheel==0.29.0
+  Downloading https://files.pythonhosted.org/packages/8a/e9/8468cd68b582b06ef554be0b96b59f59779627131aad48f8a5bce4b13450/wheel-0.29.0-py2.py3-none-any.whl (66kB)
+Installing collected packages: wheel
+Successfully installed wheel-0.29.0
+./ve/bin/pip install --use-wheel --no-deps --requirement requirements.txt
+Collecting Django==1.11.2 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/d1/e6/4ac2f5c9bdc9c82eb48e86a6190e2579be3d10c1afe457993c54cb7d5bc5/Django-1.11.2-py2.py3-none-any.whl (6.9MB)
+Collecting pytz==2017.2 (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/55/62/e7cd0e15b76062d298413f14bb4ec3cd8568a22d274427f9c3c7286969f4/pytz-2017.2-py2.py3-none-any.whl (484kB)
+Collecting httplib2==0.10.3 (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/e4/2e/a7e27d2c36076efeb8c0e519758968b20389adf57a9ce3af139891af2696/httplib2-0.10.3.tar.gz (204kB)
+Collecting feedparser==5.2.1 (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/91/d8/7d37fec71ff7c9dbcdd80d2b48bcdd86d6af502156fc93846fb0102cb2c4/feedparser-5.2.1.tar.bz2 (192kB)
+Collecting chardet==3.0.4 (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting idna==2.5 (from -r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/11/7d/9bbbd7bb35f34b0169542487d2a8859e44306bb2e6a4455d491800a5621f/idna-2.5-py2.py3-none-any.whl (55kB)
+Collecting urllib3==1.21.1 (from -r requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/24/53/f397db567de0aa0e81b211d81c13c41a779f14893e42189cf5bdb97611b2/urllib3-1.21.1-py2.py3-none-any.whl (131kB)
+Collecting certifi==2017.4.17 (from -r requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/eb/01/c1f58987b777d6c4ec535b4e004a4a07bfc9db06f0c7533367ca6da8f2a6/certifi-2017.4.17-py2.py3-none-any.whl (375kB)
+Collecting requests==2.17.3 (from -r requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/29/b9/d26a6ab2ee178415ab8c0c591d2a1eb782a50c42a417ae390055f86a63c1/requests-2.17.3-py2.py3-none-any.whl (87kB)
+Collecting django-feedparser==0.2.1 (from -r requirements.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/fa/30/b58deb46a9614ec46e6ac264e818c803cf08c42123afed2191b4e2912770/django-feedparser-0.2.1.tar.gz
+Collecting Markdown==2.6.8 (from -r requirements.txt (line 14))
+  Downloading https://files.pythonhosted.org/packages/1d/25/3f6d2cb31ec42ca5bd3bfbea99b63892b735d76e26f20dd2dcc34ffe4f0d/Markdown-2.6.8.tar.gz (307kB)
+Collecting uuid==1.30 (from -r requirements.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/ce/63/f42f5aa951ebf2c8dac81f77a8edcc1c218640a2a35a03b9ff2d4aa64c3d/uuid-1.30.tar.gz
+Collecting psycopg2==2.7.1 (from -r requirements.txt (line 16))
+  Downloading https://files.pythonhosted.org/packages/6a/84/7289d6c2b26943b5d1e2e67dde3961babd62df8c742b243bc7c6bfc35230/psycopg2-2.7.1-cp27-cp27mu-manylinux1_x86_64.whl (2.7MB)
+Collecting versiontools==1.9.1 (from -r requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/37/a0/2de15402f69bc054fd57d1ef7278a52a9be474682e374d6bc60abde27f8f/versiontools-1.9.1.tar.gz
+Collecting statsd==3.2.1 (from -r requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/0b/86/fa9a7687703da319f6178ac88642aa59a8e86938b43f340d9ecad2d5cd46/statsd-3.2.1-py2.py3-none-any.whl
+Collecting BeautifulSoup==3.2.1 (from -r requirements.txt (line 19))
+  Downloading https://files.pythonhosted.org/packages/1e/ee/295988deca1a5a7accd783d0dfe14524867e31abb05b6c0eeceee49c759d/BeautifulSoup-3.2.1.tar.gz
+Collecting cssselect==1.0.1 (from -r requirements.txt (line 20))
+  Downloading https://files.pythonhosted.org/packages/1d/e5/f1d410192e34b1034dba7804de5dbcdece20a883c445ad661e5ea8226b42/cssselect-1.0.1-py2.py3-none-any.whl
+Collecting lxml==3.8.0 (from -r requirements.txt (line 21))
+  Downloading https://files.pythonhosted.org/packages/1b/e8/ce25c547daf9b84cafea605eb8a5709524fb53e1b3bb5ef6884e561b9d34/lxml-3.8.0-cp27-cp27mu-manylinux1_x86_64.whl (6.8MB)
+Collecting funcsigs==1.0.2 (from -r requirements.txt (line 22))
+  Downloading https://files.pythonhosted.org/packages/69/cb/f5be453359271714c01b9bd06126eaf2e368f1fddfff30818754b5ac2328/funcsigs-1.0.2-py2.py3-none-any.whl
+Collecting sure==1.4.6 (from -r requirements.txt (line 23))
+  Downloading https://files.pythonhosted.org/packages/53/d7/6db2e7437f6d5ccc12c0c8cdceb50eedbd14fd49149be4ee149681ef030c/sure-1.4.6-py2-none-any.whl
+Collecting ipdb==0.10.3 (from -r requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/ad/cc/0e7298e1fbf2efd52667c9354a12aa69fb6f796ce230cca03525051718ef/ipdb-0.10.3.tar.gz
+Collecting traitlets==4.3.2 (from -r requirements.txt (line 25))
+  Downloading https://files.pythonhosted.org/packages/93/d6/abcb22de61d78e2fc3959c964628a5771e47e7cc60d53e9342e21ed6cc9a/traitlets-4.3.2-py2.py3-none-any.whl (74kB)
+Collecting ipython_genutils==0.2.0 (from -r requirements.txt (line 26))
+  Downloading https://files.pythonhosted.org/packages/fa/bc/9bd3b5c2b4774d5f33b2d544f1460be9df7df2fe42f352135381c347c69a/ipython_genutils-0.2.0-py2.py3-none-any.whl
+Collecting decorator==4.0.11 (from -r requirements.txt (line 27))
+  Downloading https://files.pythonhosted.org/packages/00/cc/dd79ea98a0ff5a01d714c37eddd99cd0a71557113f1511921d1ef9a083b8/decorator-4.0.11-py2.py3-none-any.whl
+Collecting ptyprocess==0.5.1 (from -r requirements.txt (line 28))
+  Downloading https://files.pythonhosted.org/packages/40/a5/184b46a3c986000196abd077166b2536acb2500009bec95feb9b8fc19828/ptyprocess-0.5.1-py2.py3-none-any.whl
+Collecting pexpect==4.2.1 (from -r requirements.txt (line 29))
+  Downloading https://files.pythonhosted.org/packages/5b/16/4859a0376be8b87bf3920b1f6e63b8a3c0ee42488babee07c87ca9316e03/pexpect-4.2.1-py2.py3-none-any.whl (55kB)
+Collecting pickleshare==0.7.4 (from -r requirements.txt (line 30))
+  Downloading https://files.pythonhosted.org/packages/9f/17/daa142fc9be6b76f26f24eeeb9a138940671490b91cb5587393f297c8317/pickleshare-0.7.4-py2.py3-none-any.whl
+Collecting simplegeneric==0.8.1 (from -r requirements.txt (line 31))
+  Downloading https://files.pythonhosted.org/packages/3d/57/4d9c9e3ae9a255cd4e1106bb57e24056d3d0709fc01b2e3e345898e49d5b/simplegeneric-0.8.1.zip
+Collecting path.py==10.3.1 (from -r requirements.txt (line 32))
+  Downloading https://files.pythonhosted.org/packages/2d/02/29267dd45d369be1f1c5635857dfdf452824cf2afef54b6ea37b7a240120/path.py-10.3.1-py2.py3-none-any.whl
+Collecting backports.shutil_get_terminal_size==1.0.0 (from -r requirements.txt (line 33))
+  Downloading https://files.pythonhosted.org/packages/7d/cd/1750d6c35fe86d35f8562091737907f234b78fdffab42b29c72b1dd861f4/backports.shutil_get_terminal_size-1.0.0-py2.py3-none-any.whl
+Collecting ipython==5.4.1 (from -r requirements.txt (line 34))
+  Downloading https://files.pythonhosted.org/packages/f7/48/5702699caf20208d61a92157c01d1eb281093e3e02e9bcd4b5031ccea6a1/ipython-5.4.1-py2-none-any.whl (757kB)
+Collecting extras==1.0.0 (from -r requirements.txt (line 35))
+  Downloading https://files.pythonhosted.org/packages/03/e9/e915af1f97914cd0bc021e125fd1bfd4106de614a275e4b6866dd9a209ac/extras-1.0.0-py2.py3-none-any.whl
+Collecting python-mimeparse==1.6.0 (from -r requirements.txt (line 36))
+  Downloading https://files.pythonhosted.org/packages/26/2e/03bce213a9bf02a2750dcb04e761785e9c763fc11071edc4b447eacbb842/python_mimeparse-1.6.0-py2.py3-none-any.whl
+Collecting fixtures==3.0.0 (from -r requirements.txt (line 37))
+  Downloading https://files.pythonhosted.org/packages/a8/28/7eed6bf76792f418029a18d5b2ace87ce7562927cdd00f1cefe481cd148f/fixtures-3.0.0-py2.py3-none-any.whl (67kB)
+Collecting testtools==2.3.0 (from -r requirements.txt (line 38))
+  Downloading https://files.pythonhosted.org/packages/87/74/a4d55da28d7bba6d6f49430f22a62afd8472cb24a63fa61daef80d3e821b/testtools-2.3.0-py2.py3-none-any.whl (184kB)
+Collecting testscenarios==0.5.0 (from -r requirements.txt (line 39))
+  Downloading https://files.pythonhosted.org/packages/da/25/2f10da0d5427989fefa5ab51e697bc02625bbb7de2be3bc8452462efac78/testscenarios-0.5.0-py2.py3-none-any.whl
+Collecting python-subunit==1.2.0 (from -r requirements.txt (line 40))
+  Downloading https://files.pythonhosted.org/packages/75/00/f5829197ddfb9b8ff68b2995b5bb33519ec889282d45c27a7b98d2f40752/python_subunit-1.2.0-py2.py3-none-any.whl (112kB)
+Collecting webencodings==0.5.1 (from -r requirements.txt (line 41))
+  Downloading https://files.pythonhosted.org/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl
+Collecting rdflib==4.2.2 (from -r requirements.txt (line 42))
+  Downloading https://files.pythonhosted.org/packages/c5/77/1fa0f4cffd5faad496b1344ab665902bb2609f56e0fb19bcf80cff485da0/rdflib-4.2.2.tar.gz (905kB)
+Collecting coverage==4.4.1 (from -r requirements.txt (line 43))
+  Downloading https://files.pythonhosted.org/packages/0c/1e/e6184bd25266554d1443393b36163680689e988266550f4560d16e814ba2/coverage-4.4.1-cp27-cp27mu-manylinux1_x86_64.whl (193kB)
+Collecting pep8==1.7.0 (from -r requirements.txt (line 44))
+  Downloading https://files.pythonhosted.org/packages/8a/cb/7d0fdca7e03f997945fb1bd60a8ddfea5c51229b865c470b4f7a64619d20/pep8-1.7.0-py2.py3-none-any.whl (41kB)
+Collecting pyflakes==1.5.0 (from -r requirements.txt (line 45))
+  Downloading https://files.pythonhosted.org/packages/27/49/924098b3b85c286696f37e014475d79471ffc44509613af420645a3c12cb/pyflakes-1.5.0-py2.py3-none-any.whl (225kB)
+Collecting mccabe==0.6.1 (from -r requirements.txt (line 46))
+  Downloading https://files.pythonhosted.org/packages/87/89/479dc97e18549e21354893e4ee4ef36db1d237534982482c3681ee6e7b57/mccabe-0.6.1-py2.py3-none-any.whl
+Collecting pycodestyle==2.3.1 (from -r requirements.txt (line 47))
+  Downloading https://files.pythonhosted.org/packages/e4/81/78fe51eb4038d1388b7217dd63770b0f428370207125047312886c923b26/pycodestyle-2.3.1-py2.py3-none-any.whl (45kB)
+Collecting enum34==1.1.6 (from -r requirements.txt (line 48))
+  Downloading https://files.pythonhosted.org/packages/c5/db/e56e6b4bbac7c4a06de1c50de6fe1ef3810018ae11732a50f15f62c7d050/enum34-1.1.6-py2-none-any.whl
+Collecting configparser==3.5.0 (from -r requirements.txt (line 49))
+  Downloading https://files.pythonhosted.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz
+Collecting flake8==3.3.0 (from -r requirements.txt (line 50))
+  Downloading https://files.pythonhosted.org/packages/cd/a6/1fe37679be3b224c96d8b64782d724d6a2c4212c8ddd914572fb8317a298/flake8-3.3.0-py2.py3-none-any.whl (66kB)
+Collecting logilab-common==1.4.0 (from -r requirements.txt (line 51))
+  Downloading https://files.pythonhosted.org/packages/cc/e0/8b27e100a74d51be02456c349904606200a5c964cf48fb980e5a6334940e/logilab-common-1.4.0.tar.gz (185kB)
+Collecting logilab-astng==0.24.3 (from -r requirements.txt (line 52))
+  Downloading https://files.pythonhosted.org/packages/39/ab/3ecd06a186cfc503d9554fdf858e9a320c747cb76432d02e0e802f9450f0/logilab-astng-0.24.3.tar.gz (106kB)
+Collecting editdistance==0.3.1 (from -r requirements.txt (line 53))
+  Downloading https://files.pythonhosted.org/packages/a8/08/97ed5b60023ab4b67a46ee24bf1d3db93a9abc5b3be7e8f90de18160aaed/editdistance-0.3.1.tar.gz
+Collecting pylint==1.7.1 (from -r requirements.txt (line 54))
+  Downloading https://files.pythonhosted.org/packages/d7/e5/ae78437c7aa42ff35ddad9b04c39250bd83410bee182509cff491f6e3502/pylint-1.7.1-py2.py3-none-any.whl (641kB)
+Collecting ipaddress==1.0.18 (from -r requirements.txt (line 55))
+  Downloading https://files.pythonhosted.org/packages/17/93/28f4dd560780dd70fe75ce7e2662869770dfac181f6bbb472179ea8da516/ipaddress-1.0.18-py2-none-any.whl
+Collecting Faker==0.7.17 (from -r requirements.txt (line 56))
+  Downloading https://files.pythonhosted.org/packages/75/dd/d4ca34551be2afc43dbbc26c6646aba97417d614a290f45fde256178dc2e/Faker-0.7.17-py2.py3-none-any.whl (606kB)
+Collecting factory_boy==2.8.1 (from -r requirements.txt (line 57))
+  Downloading https://files.pythonhosted.org/packages/8d/0a/1466fd13883dbc4a47e16d4a316389f0e0aa23bdef27759603467f9e6ecb/factory_boy-2.8.1-py2.py3-none-any.whl (46kB)
+Collecting ldap3==2.2.4 (from -r requirements.txt (line 58))
+  Downloading https://files.pythonhosted.org/packages/42/24/191c7ee4775a5fcc35fd28deac8380cb82eab20afc5b5cb70cba215e6100/ldap3-2.2.4-py2.py3-none-any.whl (366kB)
+Collecting sqlparse==0.2.3 (from -r requirements.txt (line 60))
+  Downloading https://files.pythonhosted.org/packages/9b/57/d9d2848e5435c8a53461bb7b95421dc9a82cb31235cb101d28667d1a2104/sqlparse-0.2.3-py2.py3-none-any.whl
+Collecting gunicorn==19.7.1 (from -r requirements.txt (line 61))
+  Downloading https://files.pythonhosted.org/packages/64/32/becbd4089a4c06f0f9f538a76e9fe0b19a08f010bcb47dcdbfbc640cdf7d/gunicorn-19.7.1-py2.py3-none-any.whl (111kB)
+Collecting boto==2.47.0 (from -r requirements.txt (line 63))
+  Downloading https://files.pythonhosted.org/packages/d7/ce/ced61cdf36d09038fc4c88bac1182845489e51a950148f5c1d1a4804cc28/boto-2.47.0-py2.py3-none-any.whl (1.4MB)
+Requirement already satisfied: six==1.10.0 in ./ve/lib/python2.7/site-packages (from -r requirements.txt (line 64))
+Collecting python-dateutil==2.6.0 (from -r requirements.txt (line 65))
+  Downloading https://files.pythonhosted.org/packages/40/8b/275015d7a9ec293cf1bbf55433258fbc9d0711890a7f6dc538bac7b86bce/python_dateutil-2.6.0-py2.py3-none-any.whl (194kB)
+Collecting pyasn1==0.2.3 (from -r requirements.txt (line 66))
+  Downloading https://files.pythonhosted.org/packages/a5/ae/6b4c4cb9420edddd7401782f55504130d1269f2e5ae3ba3c986da167dd6c/pyasn1-0.2.3-py2.py3-none-any.whl (53kB)
+Collecting pyOpenSSL==17.0.0 (from -r requirements.txt (line 67))
+  Downloading https://files.pythonhosted.org/packages/8c/b7/0048adbf09ad93f571e70fb3100e696d4711cdcbfe38161690d716a5ed35/pyOpenSSL-17.0.0-py2.py3-none-any.whl (51kB)
+Collecting ndg-httpsclient==0.4.2 (from -r requirements.txt (line 68))
+  Downloading https://files.pythonhosted.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz
+Collecting djangowind==1.0.0 (from -r requirements.txt (line 71))
+  Downloading https://files.pythonhosted.org/packages/59/4d/b6d60aec3a91b08e5ae5c1b653f4cbbb1ff8a8239a3bc0e0db46881cdee0/djangowind-1.0.0-py2.py3-none-any.whl
+Collecting django-appconf==1.0.2 (from -r requirements.txt (line 72))
+  Downloading https://files.pythonhosted.org/packages/5b/78/726cdf3e04660560cf25f9def95b8f2736310c581dabed9adfe60154a9f8/django_appconf-1.0.2-py2.py3-none-any.whl
+Collecting rcssmin==1.0.6 (from -r requirements.txt (line 73))
+  Downloading https://files.pythonhosted.org/packages/e2/5f/852be8aa80d1c24de9b030cdb6532bc7e7a1c8461554f6edbe14335ba890/rcssmin-1.0.6.tar.gz (582kB)
+Collecting rjsmin==1.0.12 (from -r requirements.txt (line 74))
+  Downloading https://files.pythonhosted.org/packages/10/9c/2c45f57d43258b05bf33cf8f6c8161ea5abf8b4776a5c59d12646727cd98/rjsmin-1.0.12.tar.gz (446kB)
+Collecting django-compressor==2.1.1 (from -r requirements.txt (line 75))
+  Downloading https://files.pythonhosted.org/packages/c4/94/53737018f7d318d429e77dcd48ca42b9cfc55804c151cc4f3d5c77a9574c/django_compressor-2.1.1-py2.py3-none-any.whl (130kB)
+Collecting django-statsd-mozilla==0.3.16 (from -r requirements.txt (line 76))
+  Downloading https://files.pythonhosted.org/packages/62/27/1255179f763b5553f5b01f92942cfb275bf80575b6ca65211de1ac12d48e/django-statsd-mozilla-0.3.16.tar.gz
+Collecting contextlib2==0.5.5 (from -r requirements.txt (line 77))
+  Downloading https://files.pythonhosted.org/packages/a2/71/8273a7eeed0aff6a854237ab5453bc9aa67deb49df4832801c21f0ff3782/contextlib2-0.5.5-py2.py3-none-any.whl
+Collecting raven==6.1.0 (from -r requirements.txt (line 78))
+  Downloading https://files.pythonhosted.org/packages/17/c0/c78198b9f2459f28de1bcba7a3586602a5b85858e9657db59e881fbea89f/raven-6.1.0-py2.py3-none-any.whl (279kB)
+Collecting django-bootstrap3==8.2.3 (from -r requirements.txt (line 79))
+  Downloading https://files.pythonhosted.org/packages/32/6d/f40442846e38cf2cb6b51c055f087d3fe3eb54b7f27bf0983b2e73ae8f1f/django-bootstrap3-8.2.3.tar.gz
+Collecting django-bootstrap-form==3.2.1 (from -r requirements.txt (line 80))
+  Downloading https://files.pythonhosted.org/packages/5e/67/1b052262cf4cd94b2ee8d9be4754cafaf365db07d5c9dbaff5444e4aed3a/django-bootstrap-form-3.2.1.tar.gz
+Collecting django-debug-toolbar==1.8 (from -r requirements.txt (line 81))
+  Downloading https://files.pythonhosted.org/packages/b1/a2/973ab30ad33b5676a552cbc5d906074f4f360f362e9b5a71b4e4dceea70c/django_debug_toolbar-1.8-py2.py3-none-any.whl (205kB)
+Collecting django-smoketest==1.0.0 (from -r requirements.txt (line 82))
+  Downloading https://files.pythonhosted.org/packages/f4/a3/addc5c3a1c421cdbabeebf31c17205cce2129dd9fc2201d7371b929c5f90/django_smoketest-1.0.0-py2-none-any.whl
+Collecting django-jenkins==0.110.0 (from -r requirements.txt (line 83))
+  Downloading https://files.pythonhosted.org/packages/1e/76/af94e532d6563cc577aefe41a8d54fb56a737518e4ca012acffd705c7d64/django_jenkins-0.110.0-py2.py3-none-any.whl
+Collecting django-waffle==0.11.1 (from -r requirements.txt (line 84))
+  Downloading https://files.pythonhosted.org/packages/c5/97/d0f8a26c910207115f7bea20e2dac344bb04bba594dbe1f22c9cbf19c37c/django_waffle-0.11.1-py2.py3-none-any.whl
+Collecting django-stagingcontext==0.1.0 (from -r requirements.txt (line 85))
+  Downloading https://files.pythonhosted.org/packages/49/6c/a347a8dc92ce676c02d701547c1ff8b4d3821253e0965a78c983d9268378/django_stagingcontext-0.1.0-py2-none-any.whl
+Collecting django-markwhat==1.5.1 (from -r requirements.txt (line 86))
+  Downloading https://files.pythonhosted.org/packages/91/0e/eb18a15dfa51a67b8f2beb4355f9d57710cf67259d0731e188a5d2cb5c8e/django-markwhat-1.5.1.tar.gz
+Collecting django-impersonate==1.1 (from -r requirements.txt (line 87))
+  Downloading https://files.pythonhosted.org/packages/26/15/3edbdb2195d3c4d0e973d9b72565f068ff1faa9820edc9307cab00596179/django-impersonate-1.1.tar.gz
+Collecting django-storages==1.5.2 (from -r requirements.txt (line 88))
+  Downloading https://files.pythonhosted.org/packages/f7/57/385bac5fdb4ee24d0c833f01e98516834d352f44786b5d4f4b16932206f9/django_storages-1.5.2-py2.py3-none-any.whl (51kB)
+Collecting django-ga-context==0.1.0 (from -r requirements.txt (line 89))
+  Downloading https://files.pythonhosted.org/packages/3e/6d/d6d88d9ae50889da43ac52a7d29febe6f11fc2ec1e754647067a554ba9b2/django_ga_context-0.1.0-py2-none-any.whl
+Collecting django-cacheds3storage==0.1.2 (from -r requirements.txt (line 90))
+  Downloading https://files.pythonhosted.org/packages/7a/9c/5647a6e92e64592aa452e555f2956fa5b8118fe766296233a8eaabc961f0/django_cacheds3storage-0.1.2-py2-none-any.whl
+Collecting django-smtp-ssl==1.0 (from -r requirements.txt (line 91))
+  Downloading https://files.pythonhosted.org/packages/b9/30/ac1225fe468a66a4899804ab84c3f327f8c03e98939ae1105a6cd0dd4374/django-smtp-ssl-1.0.zip
+Collecting djangorestframework==3.6.3 (from -r requirements.txt (line 93))
+  Downloading https://files.pythonhosted.org/packages/28/1a/6228d127f426b23360f1d62fde153da500c35cad1ba115ffc03fbb40ebe9/djangorestframework-3.6.3-py2.py3-none-any.whl (1.3MB)
+Collecting wagtail==1.10.1 (from -r requirements.txt (line 94))
+  Downloading https://files.pythonhosted.org/packages/37/40/5b3b7af50eabbebc8996a5911fe9e24d1389b2f4b7130ab175409d5c8d93/wagtail-1.10.1-py2.py3-none-any.whl (6.9MB)
+Collecting Willow==0.4 (from -r requirements.txt (line 95))
+  Downloading https://files.pythonhosted.org/packages/ae/27/2f089e866665d520c31e75578460f0d2ac1d9432796ab47f82f53a4b7fae/Willow-0.4-py2.py3-none-any.whl (104kB)
+Collecting django-modelcluster==3.1 (from -r requirements.txt (line 96))
+  Downloading https://files.pythonhosted.org/packages/e0/39/1eb29c470ce377474aa833fe1d5c260a40bf4fe2836bf88b294087f56aed/django-modelcluster-3.1.tar.gz
+Collecting django-taggit==0.22.1 (from -r requirements.txt (line 97))
+  Downloading https://files.pythonhosted.org/packages/68/5b/f2e3ec053ba30606f9d7d3655422baf69e992acbb52e02c1bea254e71a43/django_taggit-0.22.1-py2.py3-none-any.whl (45kB)
+Collecting Unidecode==0.04.20 (from -r requirements.txt (line 98))
+  Downloading https://files.pythonhosted.org/packages/c3/6f/05f5deb753d0594583aa1cc0d2fe9d631d9a00e9b28d0da49f8d3763755b/Unidecode-0.04.20-py2.py3-none-any.whl (228kB)
+Collecting django-treebeard==4.1.1 (from -r requirements.txt (line 99))
+  Downloading https://files.pythonhosted.org/packages/6b/46/e6907b5467f2fd8a637adc6e75aa6f4471dae57a7e9ab4538a7e7f4dd97a/django-treebeard-4.1.1.tar.gz (85kB)
+Collecting Pillow==4.1.1 (from -r requirements.txt (line 101))
+  Downloading https://files.pythonhosted.org/packages/59/94/cd6281b06db97f96b49f609005ca6e73e846d74c4a11c17c1304a7bc00a7/Pillow-4.1.1-cp27-cp27mu-manylinux1_x86_64.whl (5.7MB)
+Collecting beautifulsoup4==4.6.0 (from -r requirements.txt (line 102))
+  Downloading https://files.pythonhosted.org/packages/a6/29/bcbd41a916ad3faf517780a0af7d0254e8d6722ff6414723eedba4334531/beautifulsoup4-4.6.0-py2-none-any.whl (86kB)
+Collecting html5lib==0.999999999 (from -r requirements.txt (line 104))
+  Downloading https://files.pythonhosted.org/packages/f7/71/a96f36d34394bcfff9fb54bfe0aa72cc5b4ff2f803e5728645aef38f7aee/html5lib-0.999999999-py2.py3-none-any.whl (112kB)
+Collecting elasticsearch==2.4.0 (from -r requirements.txt (line 105))
+  Downloading https://files.pythonhosted.org/packages/3f/be/980d79da0fbb14acc29e3c9b724287cbc24be2cb1ede47f2c0eecba60809/elasticsearch-2.4.0-py2.py3-none-any.whl (54kB)
+Collecting anyjson==0.3.3 (from -r requirements.txt (line 107))
+  Downloading https://files.pythonhosted.org/packages/c3/4d/d4089e1a3dd25b46bebdb55a992b0797cff657b4477bc32ce28038fdecbc/anyjson-0.3.3.tar.gz
+Collecting vine==1.1.3 (from -r requirements.txt (line 108))
+  Downloading https://files.pythonhosted.org/packages/bf/3a/5cb78097e92681850e18c6e48bceb6b6579c01d0032a2eeed80d1200c91b/vine-1.1.3-py2.py3-none-any.whl
+Collecting billiard==3.5.0.2 (from -r requirements.txt (line 109))
+  Downloading https://files.pythonhosted.org/packages/e6/b8/6e6750f21309c21ea267834d5e76b89ce64a9ddf38fa4161fd6fb32ffc3b/billiard-3.5.0.2.tar.gz (157kB)
+Collecting librabbitmq==1.6.1 (from -r requirements.txt (line 110))
+  Downloading https://files.pythonhosted.org/packages/82/6c/1b3f7ca755787e934513039131091134038239f167e1bc50565cb46112a0/librabbitmq-1.6.1.tar.gz (529kB)
+Collecting kombu==3.0.37 (from -r requirements.txt (line 111))
+  Downloading https://files.pythonhosted.org/packages/4d/0e/73ac0df8949bdb6ad81812110962b38e6bb4243c3bfdad2d9e90b5509e2e/kombu-3.0.37-py2.py3-none-any.whl (240kB)
+Collecting amqp==2.1.4 (from -r requirements.txt (line 112))
+  Downloading https://files.pythonhosted.org/packages/7e/4b/ac7afb11b57f237e3c1c64b5408c5d229bf5d4b42af6cb6e683c7690ca4f/amqp-2.1.4-py2.py3-none-any.whl (49kB)
+Collecting amqplib==1.0.2 (from -r requirements.txt (line 113))
+  Downloading https://files.pythonhosted.org/packages/75/b7/8c2429bf8d92354a0118614f9a4d15e53bc69ebedce534284111de5a0102/amqplib-1.0.2.tgz (58kB)
+Collecting celery==3.1.24 (from -r requirements.txt (line 114))
+  Downloading https://files.pythonhosted.org/packages/c8/82/f46379046f2150d92085c0814affb4bedbd1c7f9703e569c8575fd7f1a4f/celery-3.1.24-py2.py3-none-any.whl (526kB)
+Collecting django-celery==3.2.1 (from -r requirements.txt (line 115))
+  Downloading https://files.pythonhosted.org/packages/77/03/95c6bb3dca9ea9f0a3b70af89fe46ed06ae1602d437df71b57f0a4ed9362/django_celery-3.2.1-py2-none-any.whl (63kB)
+Collecting ccnmtlsettings==1.3.0 (from -r requirements.txt (line 118))
+  Downloading https://files.pythonhosted.org/packages/e4/7f/7aaa226671ad193505a30797baf7793cc4e6b3407999fc1048003f936a3b/ccnmtlsettings-1.3.0-py2.py3-none-any.whl
+Building wheels for collected packages: httplib2, feedparser, django-feedparser, Markdown, uuid, versiontools, BeautifulSoup, ipdb, simplegeneric, rdflib, configparser, logilab-common, logilab-astng, editdistance, ndg-httpsclient, rcssmin, rjsmin, django-statsd-mozilla, django-bootstrap3, django-bootstrap-form, django-markwhat, django-impersonate, django-smtp-ssl, django-modelcluster, django-treebeard, anyjson, billiard, librabbitmq, amqplib
+  Running setup.py bdist_wheel for httplib2: started
+  Running setup.py bdist_wheel for httplib2: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/d6/f4/9c/f4eab4c19c0bde393b00a1f83afe12cc469852ff3810cd6f6d
+  Running setup.py bdist_wheel for feedparser: started
+  Running setup.py bdist_wheel for feedparser: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/8c/69/b7/f52763c41c5471df57703a0ef718a32a5e81ee35dcf6d4f97f
+  Running setup.py bdist_wheel for django-feedparser: started
+  Running setup.py bdist_wheel for django-feedparser: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/e2/f3/f0/46bc5badf735b58e4b7fcf08caafcb853f2666cc6e9bd50b92
+  Running setup.py bdist_wheel for Markdown: started
+  Running setup.py bdist_wheel for Markdown: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/8d/f6/5a/5306219d3eecbae42705af03bd4f4db7ce7bb8e39e24174e4f
+  Running setup.py bdist_wheel for uuid: started
+  Running setup.py bdist_wheel for uuid: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/2a/80/9b/015026567c29fdffe31d91edbe7ba1b17728db79194fca1f21
+  Running setup.py bdist_wheel for versiontools: started
+  Running setup.py bdist_wheel for versiontools: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/ed/66/46/8e834a6eb507b2969d20ff4d836a89dc114aafd5388ee980da
+  Running setup.py bdist_wheel for BeautifulSoup: started
+  Running setup.py bdist_wheel for BeautifulSoup: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/74/d2/0b/8ef02aab9e15c6e5158d7aee909adab931a9c54920e99f468e
+  Running setup.py bdist_wheel for ipdb: started
+  Running setup.py bdist_wheel for ipdb: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/46/45/a2/b17f9e6023b9413894c21af594cf672071e955a8dd89f63456
+  Running setup.py bdist_wheel for simplegeneric: started
+  Running setup.py bdist_wheel for simplegeneric: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/a9/28/53/f24776b4c5bcbe91aaf1f1e247bd6fadd17191aa12fac63902
+  Running setup.py bdist_wheel for rdflib: started
+  Running setup.py bdist_wheel for rdflib: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/8d/f6/b7/f5e9501d0f006fc9fd497c930206952856b2191ab5c836cb97
+  Running setup.py bdist_wheel for configparser: started
+  Running setup.py bdist_wheel for configparser: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/a3/61/79/424ef897a2f3b14684a7de5d89e8600b460b89663e6ce9d17c
+  Running setup.py bdist_wheel for logilab-common: started
+  Running setup.py bdist_wheel for logilab-common: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/9b/27/19/5bb68a4057d5b5c763dfc65a0522937a00da99486ae46172b1
+  Running setup.py bdist_wheel for logilab-astng: started
+  Running setup.py bdist_wheel for logilab-astng: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/aa/d4/85/9fcfd711c9a8610fb11a35deeec8ffff35f457f6243e256341
+  Running setup.py bdist_wheel for editdistance: started
+  Running setup.py bdist_wheel for editdistance: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/c8/02/5e/65498155acc7b20ecaaf50daec563c78b58a32272f7cbd82ba
+  Running setup.py bdist_wheel for ndg-httpsclient: started
+  Running setup.py bdist_wheel for ndg-httpsclient: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/0c/2a/de/55f5148b0783d715a1703e380b84765123d72f02be69dff36e
+  Running setup.py bdist_wheel for rcssmin: started
+  Running setup.py bdist_wheel for rcssmin: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/f5/82/85/01af385ab989b89e49bbe1d23047a8766ad43e1ebdad5084ed
+  Running setup.py bdist_wheel for rjsmin: started
+  Running setup.py bdist_wheel for rjsmin: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/1f/c9/1f/e8622dd72620386db2ac3553529ec62b5aedb16bf0651b8cad
+  Running setup.py bdist_wheel for django-statsd-mozilla: started
+  Running setup.py bdist_wheel for django-statsd-mozilla: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/4d/7d/b8/017cb06d814d2414726a4488191c0df792cbae0036a70b53cc
+  Running setup.py bdist_wheel for django-bootstrap3: started
+  Running setup.py bdist_wheel for django-bootstrap3: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/a3/af/a0/38c52d87c3a473bbcbeb5a6069433ad1857821f5b9db946245
+  Running setup.py bdist_wheel for django-bootstrap-form: started
+  Running setup.py bdist_wheel for django-bootstrap-form: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/28/98/3b/25275ae47e7c779faeb0e6326d7873b0f72cb5e5b743b4b573
+  Running setup.py bdist_wheel for django-markwhat: started
+  Running setup.py bdist_wheel for django-markwhat: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/e1/58/ef/4354e4b1aa23fa062ef31530dac1d38ac36b544d3291f9fa25
+  Running setup.py bdist_wheel for django-impersonate: started
+  Running setup.py bdist_wheel for django-impersonate: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/8a/c1/17/9435e89d2c460bee3ffb14fa9a59a72052857e77642b01fa20
+  Running setup.py bdist_wheel for django-smtp-ssl: started
+  Running setup.py bdist_wheel for django-smtp-ssl: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/fa/03/bc/66929b5452fc70f3fb1c9f33d6dbd20d00489b788b0b413e35
+  Running setup.py bdist_wheel for django-modelcluster: started
+  Running setup.py bdist_wheel for django-modelcluster: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/1d/9f/b3/684dc1e8fee4532cb76f4a3e1d659e2b171eeaefa29bd39ddf
+  Running setup.py bdist_wheel for django-treebeard: started
+  Running setup.py bdist_wheel for django-treebeard: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/3a/d4/0f/02b89ab616d0a2266fe0ec6a3560b71e2c6834dfa3d538d3de
+  Running setup.py bdist_wheel for anyjson: started
+  Running setup.py bdist_wheel for anyjson: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/0a/07/b1/a704fb6e43ef7b61969239c9fce608d52c3cc85d5eb6cd3891
+  Running setup.py bdist_wheel for billiard: started
+  Running setup.py bdist_wheel for billiard: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/e8/1e/3a/5304c22c826b4854314792f19697a9b58257f4a620e8de48c0
+  Running setup.py bdist_wheel for librabbitmq: started
+  Running setup.py bdist_wheel for librabbitmq: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/74/87/9d/73beb5c67f0d6d1eb75d79fa25b19927544ec19239e7566ac6
+  Running setup.py bdist_wheel for amqplib: started
+  Running setup.py bdist_wheel for amqplib: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/d3/d4/b5/9f6b7a647b0139047aac097a116303b6a4df848eecb98ffc80
+Successfully built httplib2 feedparser django-feedparser Markdown uuid versiontools BeautifulSoup ipdb simplegeneric rdflib configparser logilab-common logilab-astng editdistance ndg-httpsclient rcssmin rjsmin django-statsd-mozilla django-bootstrap3 django-bootstrap-form django-markwhat django-impersonate django-smtp-ssl django-modelcluster django-treebeard anyjson billiard librabbitmq amqplib
+Installing collected packages: Django, pytz, httplib2, feedparser, chardet, idna, urllib3, certifi, requests, django-feedparser, Markdown, uuid, psycopg2, versiontools, statsd, BeautifulSoup, cssselect, lxml, funcsigs, sure, ipdb, traitlets, ipython-genutils, decorator, ptyprocess, pexpect, pickleshare, simplegeneric, path.py, backports.shutil-get-terminal-size, ipython, extras, python-mimeparse, fixtures, testtools, testscenarios, python-subunit, webencodings, rdflib, coverage, pep8, pyflakes, mccabe, pycodestyle, enum34, configparser, flake8, logilab-common, logilab-astng, editdistance, pylint, ipaddress, Faker, factory-boy, ldap3, sqlparse, gunicorn, boto, python-dateutil, pyasn1, pyOpenSSL, ndg-httpsclient, djangowind, django-appconf, rcssmin, rjsmin, django-compressor, django-statsd-mozilla, contextlib2, raven, django-bootstrap3, django-bootstrap-form, django-debug-toolbar, django-smoketest, django-jenkins, django-waffle, django-stagingcontext, django-markwhat, django-impersonate, django-storages, django-ga-context, django-cacheds3storage, django-smtp-ssl, djangorestframework, wagtail, Willow, django-modelcluster, django-taggit, Unidecode, django-treebeard, Pillow, beautifulsoup4, html5lib, elasticsearch, anyjson, vine, billiard, librabbitmq, kombu, amqp, amqplib, celery, django-celery, ccnmtlsettings
+Successfully installed BeautifulSoup-3.2.1 Django-1.11.2 Faker-0.7.17 Markdown-2.6.8 Pillow-4.1.1 Unidecode-0.4.20 Willow-0.4 amqp-2.1.4 amqplib-1.0.2 anyjson-0.3.3 backports.shutil-get-terminal-size-1.0.0 beautifulsoup4-4.6.0 billiard-3.5.0.2 boto-2.47.0 ccnmtlsettings-1.3.0 celery-3.1.24 certifi-2017.4.17 chardet-3.0.4 configparser-3.5.0 contextlib2-0.5.5 coverage-4.4.1 cssselect-1.0.1 decorator-4.0.11 django-appconf-1.0.2 django-bootstrap-form-3.2.1 django-bootstrap3-8.2.3 django-cacheds3storage-0.1.2 django-celery-3.2.1 django-compressor-2.1.1 django-debug-toolbar-1.8 django-feedparser-0.2.1 django-ga-context-0.1.0 django-impersonate-1.1 django-jenkins-0.110.0 django-markwhat-1.5.1 django-modelcluster-3.1 django-smoketest-1.0.0 django-smtp-ssl-1.0 django-stagingcontext-0.1.0 django-statsd-mozilla-0.3.16 django-storages-1.5.2 django-taggit-0.22.1 django-treebeard-4.1.1 django-waffle-0.11.1 djangorestframework-3.6.3 djangowind-1.0.0 editdistance-0.3.1 elasticsearch-2.4.0 enum34-1.1.6 extras-1.0.0 factory-boy-2.8.1 feedparser-5.2.1 fixtures-3.0.0 flake8-3.3.0 funcsigs-1.0.2 gunicorn-19.7.1 html5lib-0.999999999 httplib2-0.10.3 idna-2.5 ipaddress-1.0.18 ipdb-0.10.3 ipython-5.4.1 ipython-genutils-0.2.0 kombu-3.0.37 ldap3-2.2.4 librabbitmq-1.6.1 logilab-astng-0.24.3 logilab-common-1.4.0 lxml-3.8.0 mccabe-0.6.1 ndg-httpsclient-0.4.2 path.py-10.3.1 pep8-1.7.0 pexpect-4.2.1 pickleshare-0.7.4 psycopg2-2.7.1 ptyprocess-0.5.1 pyOpenSSL-17.0.0 pyasn1-0.2.3 pycodestyle-2.3.1 pyflakes-1.5.0 pylint-1.7.1 python-dateutil-2.6.0 python-mimeparse-1.6.0 python-subunit-1.2.0 pytz-2017.2 raven-6.1.0 rcssmin-1.0.6 rdflib-4.2.2 requests-2.17.3 rjsmin-1.0.12 simplegeneric-0.8.1 sqlparse-0.2.3 statsd-3.2.1 sure-1.4.6 testscenarios-0.5.0 testtools-2.3.0 traitlets-4.3.2 urllib3-1.21.1 uuid-1.30 versiontools-1.9.1 vine-1.1.3 wagtail-1.10.1 webencodings-0.5.1
+python virtualenv.py --relocatable ./ve
+Making script ./ve/bin/easy_install relative
+Making script ./ve/bin/easy_install-2.7 relative
+Making script ./ve/bin/pip relative
+Making script ./ve/bin/pip2 relative
+Making script ./ve/bin/pip2.7 relative
+Making script ./ve/bin/wheel relative
+Making script ./ve/bin/django-admin.py relative
+Making script ./ve/bin/django-admin relative
+Making script ./ve/bin/chardetect relative
+Making script ./ve/bin/markdown_py relative
+Making script ./ve/bin/ipdb relative
+Making script ./ve/bin/ipython relative
+Making script ./ve/bin/iptest2 relative
+Making script ./ve/bin/iptest relative
+Making script ./ve/bin/ipython2 relative
+Making script ./ve/bin/subunit-output relative
+Making script ./ve/bin/subunit-ls relative
+Making script ./ve/bin/subunit-1to2 relative
+Making script ./ve/bin/subunit2csv relative
+Making script ./ve/bin/subunit2pyunit relative
+Making script ./ve/bin/subunit-tags relative
+Making script ./ve/bin/subunit2junitxml relative
+Making script ./ve/bin/subunit-notify relative
+Making script ./ve/bin/subunit2gtk relative
+Making script ./ve/bin/tap2subunit relative
+Making script ./ve/bin/subunit-2to1 relative
+Making script ./ve/bin/subunit-filter relative
+Making script ./ve/bin/subunit-stats relative
+Making script ./ve/bin/rdf2dot relative
+Making script ./ve/bin/csv2rdf relative
+Making script ./ve/bin/rdfpipe relative
+Making script ./ve/bin/rdfs2dot relative
+Making script ./ve/bin/rdfgraphisomorphism relative
+Making script ./ve/bin/coverage2 relative
+Making script ./ve/bin/coverage-2.7 relative
+Making script ./ve/bin/coverage relative
+Making script ./ve/bin/pep8 relative
+Making script ./ve/bin/pyflakes relative
+Making script ./ve/bin/pycodestyle relative
+Making script ./ve/bin/flake8 relative
+Making script ./ve/bin/logilab-pytest relative
+Making script ./ve/bin/pyreverse relative
+Making script ./ve/bin/pylint relative
+Making script ./ve/bin/epylint relative
+Making script ./ve/bin/symilar relative
+Making script ./ve/bin/faker relative
+Making script ./ve/bin/sqlformat relative
+Making script ./ve/bin/gunicorn relative
+Making script ./ve/bin/gunicorn_paster relative
+Making script ./ve/bin/asadmin relative
+Making script ./ve/bin/bundle_image relative
+Making script ./ve/bin/cfadmin relative
+Making script ./ve/bin/cq relative
+Making script ./ve/bin/cwutil relative
+Making script ./ve/bin/dynamodb_dump relative
+Making script ./ve/bin/dynamodb_load relative
+Making script ./ve/bin/elbadmin relative
+Making script ./ve/bin/fetch_file relative
+Making script ./ve/bin/glacier relative
+Making script ./ve/bin/instance_events relative
+Making script ./ve/bin/kill_instance relative
+Making script ./ve/bin/launch_instance relative
+Making script ./ve/bin/list_instances relative
+Making script ./ve/bin/lss3 relative
+Making script ./ve/bin/mturk relative
+Making script ./ve/bin/pyami_sendmail relative
+Making script ./ve/bin/route53 relative
+Making script ./ve/bin/s3put relative
+Making script ./ve/bin/sdbadmin relative
+Making script ./ve/bin/taskadmin relative
+Making script ./ve/bin/ndg_httpclient relative
+Making script ./ve/bin/raven relative
+Making script ./ve/bin/wagtail relative
+Making script ./ve/bin/unidecode relative
+Making script ./ve/bin/gifmaker.py relative
+Making script ./ve/bin/enhancer.py relative
+Making script ./ve/bin/painter.py relative
+Making script ./ve/bin/pildriver.py relative
+Making script ./ve/bin/explode.py relative
+Making script ./ve/bin/pilprint.py relative
+Making script ./ve/bin/viewer.py relative
+Making script ./ve/bin/pilfile.py relative
+Making script ./ve/bin/thresholder.py relative
+Making script ./ve/bin/player.py relative
+Making script ./ve/bin/pilfont.py relative
+Making script ./ve/bin/pilconvert.py relative
+Making script ./ve/bin/createfontdatachunk.py relative
+Making script ./ve/bin/celery relative
+Making script ./ve/bin/celeryd relative
+Making script ./ve/bin/celeryd-multi relative
+Making script ./ve/bin/celerybeat relative
+touch ve/sentinal
+./manage.py check
+System check identified no issues (0 silenced).
+./ve/bin/flake8 plexus --max-complexity=5
+./manage.py jenkins --pep8-exclude=migrations --enable-coverage --coverage-rcfile=.coveragerc
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+Destroying test database for alias 'default'...
+Storing coverage info...
+Executing django_jenkins.tasks.run_pep8...
+Executing django_jenkins.tasks.run_pyflakes...
+Done
+rm -rf ./node_modules
+npm install
+jshint@2.9.7 node_modules/jshint
+├── strip-json-comments@1.0.4
+├── exit@0.1.2
+├── console-browserify@1.1.0 (date-now@0.1.4)
+├── shelljs@0.3.0
+├── minimatch@3.0.4 (brace-expansion@1.1.11)
+├── cli@1.0.1 (glob@7.1.6)
+├── htmlparser2@3.8.3 (domelementtype@1.3.1, entities@1.0.0, domhandler@2.3.0, readable-stream@1.1.14, domutils@1.5.1)
+└── lodash@4.17.15
+
+eslint@3.17.1 node_modules/eslint
+├── path-is-inside@1.0.2
+├── natural-compare@1.4.0
+├── strip-bom@3.0.0
+├── is-resolvable@1.1.0
+├── strip-json-comments@2.0.1
+├── imurmurhash@0.1.4
+├── pluralize@1.2.1
+├── ignore@3.3.10
+├── progress@1.1.8
+├── globals@9.18.0
+├── estraverse@4.3.0
+├── text-table@0.2.0
+├── esutils@2.0.3
+├── user-home@2.0.0 (os-homedir@1.0.2)
+├── babel-code-frame@6.26.0 (js-tokens@3.0.2)
+├── json-stable-stringify@1.0.1 (jsonify@0.0.0)
+├── require-uncached@1.0.3 (resolve-from@1.0.1, caller-path@0.1.0)
+├── levn@0.3.0 (type-check@0.3.2, prelude-ls@1.1.2)
+├── debug@2.6.9 (ms@2.0.0)
+├── mkdirp@0.5.5 (minimist@1.2.5)
+├── doctrine@1.5.0 (isarray@1.0.0)
+├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, has-ansi@2.0.0, strip-ansi@3.0.1)
+├── file-entry-cache@2.0.0 (object-assign@4.1.1, flat-cache@1.3.4)
+├── optionator@0.8.3 (fast-levenshtein@2.0.6, word-wrap@1.2.3, deep-is@0.1.3, type-check@0.3.2, prelude-ls@1.1.2)
+├── glob@7.1.6 (path-is-absolute@1.0.1, inherits@2.0.4, fs.realpath@1.0.0, inflight@1.0.6, once@1.4.0, minimatch@3.0.4)
+├── is-my-json-valid@2.20.0 (jsonpointer@4.0.1, xtend@4.0.2, is-my-ip-valid@1.0.0, generate-object-property@1.2.0, generate-function@2.3.1)
+├── concat-stream@1.6.2 (buffer-from@1.1.1, inherits@2.0.4, typedarray@0.0.6, readable-stream@2.3.7)
+├── inquirer@0.12.0 (strip-ansi@3.0.1, ansi-escapes@1.4.0, cli-width@2.2.1, through@2.3.8, ansi-regex@2.1.1, figures@1.7.0, run-async@0.1.0, readline2@1.0.1, cli-cursor@1.0.2, string-width@1.0.2, rx-lite@3.1.2)
+├── js-yaml@3.14.0 (esprima@4.0.1, argparse@1.0.10)
+├── shelljs@0.7.8 (interpret@1.4.0, rechoir@0.6.2)
+├── espree@3.5.4 (acorn-jsx@3.0.1, acorn@5.7.4)
+├── table@3.8.3 (slice-ansi@0.0.4, ajv-keywords@1.5.1, string-width@2.1.1, ajv@4.11.8)
+├── lodash@4.17.15
+└── escope@3.6.0 (esrecurse@4.2.1, es6-weak-map@2.0.3, es6-map@0.1.5)
+
+jscs@2.5.1 node_modules/jscs
+├── to-double-quotes@2.0.0
+├── to-single-quotes@2.0.1
+├── strip-json-comments@1.0.4
+├── reserved-words@0.1.2
+├── natural-compare@1.2.2
+├── pathval@0.1.1
+├── jscs-preset-wikimedia@1.0.1
+├── estraverse@4.3.0
+├── vow@0.4.20
+├── strip-bom@2.0.0 (is-utf8@0.2.1)
+├── xmlbuilder@3.1.0
+├── exit@0.1.2
+├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, has-ansi@2.0.0, strip-ansi@3.0.1)
+├── minimatch@3.0.4 (brace-expansion@1.1.11)
+├── commander@2.9.0 (graceful-readlink@1.0.1)
+├── glob@5.0.15 (path-is-absolute@1.0.1, inherits@2.0.4, inflight@1.0.6, once@1.4.0)
+├── esprima@2.7.3
+├── cli-table@0.3.1 (colors@1.0.3)
+├── vow-fs@0.3.6 (vow-queue@0.4.3, uuid@2.0.3, glob@7.1.6)
+├── resolve@1.17.0 (path-parse@1.0.6)
+├── htmlparser2@3.8.3 (domelementtype@1.3.1, entities@1.0.0, domhandler@2.3.0, readable-stream@1.1.14, domutils@1.5.1)
+├── jscs-jsdoc@1.2.0 (comment-parser@0.3.0, jsdoctypeparser@1.2.0)
+├── babel-jscs@2.0.5 (lodash.assign@3.2.0)
+├── js-yaml@3.4.6 (inherit@2.2.7, argparse@1.0.10)
+├── lodash@3.10.1
+├── jsonlint@1.6.3 (nomnom@1.8.1, JSV@4.0.2)
+├── prompt@0.2.14 (pkginfo@0.4.1, revalidator@0.1.8, read@1.0.7, winston@0.8.3, utile@0.2.1)
+├── escope@3.6.0 (esrecurse@4.2.1, es6-weak-map@2.0.3, es6-map@0.1.5)
+└── babel-core@5.8.38 (slash@1.0.0, try-resolve@1.0.1, babel-plugin-remove-console@1.0.1, path-is-absolute@1.0.1, babel-plugin-remove-debugger@1.0.1, babel-plugin-jscript@1.0.4, babel-plugin-inline-environment-variables@1.0.1, babel-plugin-eval@1.0.1, babel-plugin-property-literals@1.0.1, babel-plugin-member-expression-literals@1.0.1, babel-plugin-react-constant-elements@1.0.3, babel-plugin-undefined-to-void@1.1.6, shebang-regex@1.0.0, to-fast-properties@1.0.3, trim-right@1.0.1, babel-plugin-react-display-name@1.0.3, path-exists@1.0.0, babel-plugin-constant-folding@1.0.1, fs-readdir-recursive@0.1.2, babel-plugin-proto-to-assign@1.0.4, babel-plugin-dead-code-elimination@1.0.2, private@0.1.8, babel-plugin-runtime@1.0.7, globals@6.4.1, esutils@2.0.3, convert-source-map@1.7.0, js-tokens@1.0.1, repeating@1.1.3, home-or-tmp@1.0.0, is-integer@1.0.7, babel-plugin-undeclared-variables-check@1.0.2, debug@2.6.9, detect-indent@3.0.1, minimatch@2.0.10, babylon@5.8.38, output-file-sync@1.1.2, bluebird@2.11.0, json5@0.4.0, source-map@0.5.7, source-map-support@0.2.10, regexpu@1.3.0, core-js@1.2.7, regenerator@0.8.40)
+touch ./node_modules/sentinal
+./node_modules/jshint/bin/jshint media/js/makegraphs.js
+./node_modules/jscs/bin/jscs media/js/makegraphs.js
+
+travis_time:end:00c02c6d:start=1591457103591712358,finish=1591457276431537618,duration=172839825260[0K
+[31;1mThe command "make" exited with 2.[0m
+
+Done. Your build exited with 1.

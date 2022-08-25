@@ -1,0 +1,189 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ cd passed/checkstyle/checkstyle
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:082a8732[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:082a8732:start=1594468470120756714,finish=1594468553876858048,duration=83756101334[0Ktravis_time:start:0136a75a[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install xsltproc xmlstarlet oracle-java8-installer
+Reading package lists...
+Building dependency tree...
+Reading state information...
+oracle-java8-installer is already the newest version.
+The following NEW packages will be installed:
+  xmlstarlet xsltproc
+0 upgraded, 2 newly installed, 0 to remove and 276 not upgraded.
+Need to get 199 kB of archives.
+After this operation, 597 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main xmlstarlet amd64 1.3.0-1 [184 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main xsltproc amd64 1.1.26-8ubuntu1.4 [15.1 kB]
+Fetched 199 kB in 0s (431 kB/s)
+Selecting previously unselected package xmlstarlet.
+(Reading database ... 72019 files and directories currently installed.)
+Unpacking xmlstarlet (from .../xmlstarlet_1.3.0-1_amd64.deb) ...
+Selecting previously unselected package xsltproc.
+Unpacking xsltproc (from .../xsltproc_1.1.26-8ubuntu1.4_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up xmlstarlet (1.3.0-1) ...
+Setting up xsltproc (1.1.26-8ubuntu1.4) ...
+
+travis_time:end:0136a75a:start=1594468553887379931,finish=1594468559613179972,duration=5725800041[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DESC="Releasenotes generation"
+$ export CMD="./.ci/travis/travis.sh releasenotes-gen"
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:00bcf166[0K$ Installing caching utilities
+
+travis_time:end:00bcf166:start=1594468560230834565,finish=1594468560431651333,duration=200816768[0Ktravis_time:start:06d9bbc3[0K
+travis_time:end:06d9bbc3:start=1594468560443353856,finish=1594468560451502310,duration=8148454[0Ktravis_time:start:05242390[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:05242390:start=1594468560459266541,finish=1594468561233414475,duration=774147934[0Ktravis_time:start:1220d9ca[0K
+travis_time:end:1220d9ca:start=1594468561244053564,finish=1594468561253086325,duration=9032761[0Ktravis_time:start:17c3c8f2[0K[32;1madding /home/travis/.m2 to cache[0m
+
+travis_time:end:17c3c8f2:start=1594468561263493252,finish=1594468562044941813,duration=781448561[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+$ javac -J-Xmx32m -version
+travis_fold:start:install[0Ktravis_time:start:38522438[0K$ if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
+  # https://github.com/travis-ci/travis-ci/issues/6307#issuecomment-233315824
+  rvm get head
+fi
+
+
+travis_time:end:38522438:start=1594468562335705976,finish=1594468562344015325,duration=8309349[0Ktravis_fold:end:install[0Ktravis_time:start:0e883cf4[0K$ SKIP_FILES=".github|appveyor.yml|circle.yml|distelli-manifest.yml|fast-forward-merge.sh|LICENSE|LICENSE.apache20|README.md|release.sh|RIGHTS.antlr|shippable.yml|wercker.yml|intellij-idea-inspections.xml"
+
+travis_time:end:0e883cf4:start=1594468562355419721,finish=1594468562365076491,duration=9656770[0K
+[32;1mThe command "SKIP_FILES=".github|appveyor.yml|circle.yml|distelli-manifest.yml|fast-forward-merge.sh|LICENSE|LICENSE.apache20|README.md|release.sh|RIGHTS.antlr|shippable.yml|wercker.yml|intellij-idea-inspections.xml"" exited with 0.[0m
+travis_time:start:05808e24[0K$ SKIP_CI=$(if [[ $(git diff --name-only HEAD HEAD~1 | grep -vE "$SKIP_FILES" | cat | wc -c | sed 's/^ *//' ) > 0 ]]; then echo false; else echo true; fi;)
+
+travis_time:end:05808e24:start=1594468562377068679,finish=1594468562516640922,duration=139572243[0K
+[32;1mThe command "SKIP_CI=$(if [[ $(git diff --name-only HEAD HEAD~1 | grep -vE "$SKIP_FILES" | cat | wc -c | sed 's/^ *//' ) > 0 ]]; then echo false; else echo true; fi;)" exited with 0.[0m
+travis_time:start:3598b478[0K$ echo "SKIP_CI="$SKIP_CI
+SKIP_CI=true
+
+travis_time:end:3598b478:start=1594468562529194424,finish=1594468562537534470,duration=8340046[0K
+[32;1mThe command "echo "SKIP_CI="$SKIP_CI" exited with 0.[0m
+travis_time:start:0bf9a0a8[0K$ set -e
+if [[ $SKIP_CI == 'false' ]];
+then
+     eval $CMD;
+     echo "eval of CMD is completed"
+fi
+
+
+travis_time:end:0bf9a0a8:start=1594468562547017980,finish=1594468562554956097,duration=7938117[0K
+[32;1mThe command "set -e
+if [[ $SKIP_CI == 'false' ]];
+then
+     eval $CMD;
+     echo "eval of CMD is completed"
+fi
+" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0b6f3e16[0K
+travis_time:end:0b6f3e16:start=1594468562565134038,finish=1594468562573787413,duration=8653375[0Ktravis_time:start:0250f33e[0K[32;1mchanges detected, packing new archive[0m
+
+travis_time:end:0250f33e:start=1594468562583468427,finish=1594468564394512647,duration=1811044220[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success.1[0Ktravis_time:start:147c063a[0K$ set -e
+if [[ -n $CMD_AFTER_SUCCESS
+      && $SKIP_CI == 'false'
+   ]];
+then
+    eval $CMD_AFTER_SUCCESS;
+    echo "CMD_AFTER_SUCCESS is finished";
+fi
+
+
+travis_time:end:147c063a:start=1594468564406895801,finish=1594468564416195150,duration=9299349[0Ktravis_fold:end:after_success.1[0Ktravis_fold:start:after_success.2[0Ktravis_time:start:00a0823c[0K$ set -e
+SKIP_DEPLOY=$(if [ $(git log -1 | grep -E "\[maven-release-plugin\] prepare release" | cat | wc -l) -lt 1 ]; then echo false; else echo true; fi;)
+if [[ $TRAVIS_REPO_SLUG == 'checkstyle/checkstyle'
+        && $TRAVIS_BRANCH == 'master'
+        && $TRAVIS_PULL_REQUEST == 'false'
+        && $DEPLOY == 'true'
+        && $SKIP_CI == 'false'
+        && $SKIP_DEPLOY == 'false'
+   ]];
+then
+    mvn -Dhttps.protocols=TLSv1.2 -s config/deploy-settings.xml -Pno-validations deploy;
+    echo "deploy to maven snapshot repository is finished";
+fi
+
+
+travis_time:end:00a0823c:start=1594468564426968109,finish=1594468564482048977,duration=55080868[0Ktravis_fold:end:after_success.2[0K
+Done. Your build exited with 0.

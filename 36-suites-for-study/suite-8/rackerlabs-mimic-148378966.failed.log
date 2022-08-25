@@ -1,0 +1,238 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd failed/rackerlabs/mimic
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export PIP_WHEEL_DIR=$HOME/.cache/pip/wheels
+$ export PIP_FIND_LINKS=file://$HOME/.cache/pip/wheels
+$ export TOXENV=py35
+
+travis_time:start:17a8aecd[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:17a8aecd:start=1593817043151328013,finish=1593817043160989561,duration=9661548[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0315b448[0K$ Installing caching utilities
+
+travis_time:end:0315b448:start=1593817043540794331,finish=1593817043593471338,duration=52677007[0Ktravis_time:start:03e6c914[0K
+travis_time:end:03e6c914:start=1593817043606354638,finish=1593817043614440603,duration=8085965[0Ktravis_time:start:04b98e41[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:04b98e41:start=1593817043623755205,finish=1593817044387585305,duration=763830100[0Ktravis_time:start:0cc14dee[0K
+travis_time:end:0cc14dee:start=1593817044396806502,finish=1593817044404506567,duration=7700065[0Ktravis_time:start:09a7dcee[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:09a7dcee:start=1593817044414215289,finish=1593817045160780275,duration=746564986[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install[0Ktravis_time:start:1f99f8f8[0K$ travis_retry ./.travis/install.sh
+Already using interpreter /home/travis/virtualenv/python3.5.6/bin/python
+Using real prefix '/opt/python/3.5.6'
+New python executable in /home/travis/.venv/bin/python
+Installing setuptools, pip, wheel...done.
+Looking in links: file:///home/travis/.cache/pip/wheels
+Requirement already up-to-date: pip in /home/travis/.venv/lib/python3.5/site-packages (20.1.1)
+pip 20.1.1 from /home/travis/.venv/lib/python3.5/site-packages/pip (python 3.5)
+Looking in links: file:///home/travis/.cache/pip/wheels
+Collecting codecov
+  Downloading codecov-2.1.7-py2.py3-none-any.whl (16 kB)
+Collecting detox==0.10.0
+  Downloading detox-0.10.0-py2.py3-none-any.whl (5.8 kB)
+Collecting eventlet==0.19.0
+  Downloading eventlet-0.19.0-py2.py3-none-any.whl (138 kB)
+Collecting greenlet==0.4.9
+  Downloading greenlet-0.4.9.tar.gz (54 kB)
+Collecting pluggy==0.3.1
+  Downloading pluggy-0.3.1-py2.py3-none-any.whl (10 kB)
+Collecting py==1.4.31
+  Downloading py-1.4.31-py2.py3-none-any.whl (81 kB)
+Collecting tox==2.3.1
+  Downloading tox-2.3.1-py2.py3-none-any.whl (40 kB)
+Collecting virtualenv==15.0.2
+  Downloading virtualenv-15.0.2-py2.py3-none-any.whl (1.8 MB)
+Requirement already up-to-date: pip>=7.1.2 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 12)) (20.1.1)
+Collecting requests>=2.7.9
+  Downloading requests-2.24.0-py2.py3-none-any.whl (61 kB)
+Collecting coverage
+  Downloading coverage-5.1-cp35-cp35m-manylinux1_x86_64.whl (227 kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Downloading urllib3-1.25.9-py2.py3-none-any.whl (126 kB)
+Collecting certifi>=2017.4.17
+  Downloading certifi-2020.6.20-py2.py3-none-any.whl (156 kB)
+Collecting chardet<4,>=3.0.2
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting idna<3,>=2.5
+  Downloading idna-2.10-py2.py3-none-any.whl (58 kB)
+Building wheels for collected packages: greenlet
+  Building wheel for greenlet (setup.py): started
+  Building wheel for greenlet (setup.py): finished with status 'done'
+  Created wheel for greenlet: filename=greenlet-0.4.9-cp35-cp35m-linux_x86_64.whl size=39805 sha256=3762d0f1b5d376b061a563d12f7054e4940d56d55b2be2a568b2118ba9cec9cb
+  Stored in directory: /home/travis/.cache/pip/wheels/ac/1d/9e/a93e78eb931b16617c7d5a72a346b58380cf31e0bdb9cfb225
+Successfully built greenlet
+Installing collected packages: urllib3, certifi, chardet, idna, requests, coverage, codecov, py, pluggy, virtualenv, tox, greenlet, eventlet, detox
+Successfully installed certifi-2020.6.20 chardet-3.0.4 codecov-2.1.7 coverage-5.1 detox-0.10.0 eventlet-0.19.0 greenlet-0.4.9 idna-2.10 pluggy-0.3.1 py-1.4.31 requests-2.24.0 tox-2.3.1 urllib3-1.25.9 virtualenv-15.0.2
+2.3.1 imported from /home/travis/.venv/lib/python3.5/site-packages/tox/__init__.py
+GLOB sdist-make: /home/travis/build/failed/rackerlabs/mimic/setup.py
+py35 create: /home/travis/build/failed/rackerlabs/mimic/.tox/py35
+py35 installdeps: --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt
+ERROR: invocation failed (exit code 1), logfile: /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log
+ERROR: actionid: py35
+msg: getenv
+cmdargs: [local('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip'), 'install', '--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt']
+env: {'CI': 'true', 'rvm_version': '1.26.8 (1.26.8)', 'HAS_JOSH_K_SEAL_OF_APPROVAL': 'true', 'PS4': '+', 'TRAVIS_BUILD_NUMBER': '', 'TRAVIS_COMMIT': '', 'TRAVIS_BRANCH': '', 'rvm_bin_path': '/home/travis/.rvm/bin', 'JAVA_HOME': '/usr/lib/jvm/java-7-oracle', 'NVM_IOJS_ORG_VERSION_LISTING': 'https://iojs.org/dist/index.tab', 'GIT_ASKPASS': 'echo', 'DEBIAN_FRONTEND': 'noninteractive', 'rvm_autoupdate_flag': '0', 'RAILS_ENV': 'test', 'TRAVIS_SECURE_ENV_VARS': 'false', 'RACK_ENV': 'test', 'TRAVIS_OS_NAME': 'linux', 'PIP_FIND_LINKS': 'file:///home/travis/.cache/pip/wheels', 'TRAVIS_COMMIT_MESSAGE': 'Bug fix: documentation\n\n- Updated related documention per Mimic styles\n- Added documentation for a previously semi-documented test case\n  (quotes were there but no content)\n- Added some documentation around purpose of loops in test case.', 'TRAVIS_PULL_REQUEST': 'false', 'TRAVIS_ALLOW_FAILURE': '', 'GEM_HOME': '/home/travis/.rvm/gems/ruby-1.9.3-p551', 'MERB_ENV': 'test', 'HOME': '/home/travis', 'NVM_BIN': '/home/travis/.nvm/v0.10.36/bin', 'USER': 'travis', 'VIRTUAL_ENV': '/home/travis/build/failed/rackerlabs/mimic/.tox/py35', 'NVM_DIR': '/home/travis/.nvm', 'HAS_ANTARES_THREE_LITTLE_FRONZIES_BADGE': 'true', 'TRAVIS_PULL_REQUEST_SHA': '', 'TOXENV': 'py35', 'MANPATH': '/home/travis/.nvm/v0.10.36/share/man:/usr/local/clang-3.4/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man', 'NVM_NODEJS_ORG_MIRROR': 'https://nodejs.org/dist', 'NVM_PATH': '/home/travis/.nvm/v0.10.36/lib/node', 'TRAVIS_PULL_REQUEST_BRANCH': '', 'TRAVIS': 'true', 'PYTHON_CONFIGURE_OPTS': '--enable-unicode=ucs4 --with-wide-unicode --enable-shared --enable-ipv6 --enable-loadable-sqlite-extensions --with-computed-gotos', 'TRAVIS_JOB_NUMBER': '', 'TRAVIS_PULL_REQUEST_SLUG': '', 'PYTHONHASHSEED': '1982705007', 'TERM': 'xterm', 'VIRTUAL_ENV_DISABLE_PROMPT': 'true', 'GEM_PATH': '/home/travis/.rvm/gems/ruby-1.9.3-p551:/home/travis/.rvm/gems/ruby-1.9.3-p551@global', 'PYTHON_CFLAGS': '-g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security', 'COMPOSER_NO_INTERACTION': '1', 'SHLVL': '3', 'container': 'docker', 'TRAVIS_LANGUAGE': 'python', 'rvm_silence_path_mismatch_check_flag': '1', 'rvm_prefix': '/home/travis', 'HOSTNAME': '0068dcbde18f', 'TRAVIS_EVENT_TYPE': '', 'TRAVIS_PYTHON_VERSION': '3.5', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', 'PWD': '/home/travis/build/failed/rackerlabs/mimic', 'PAGER': 'cat', 'TRAVIS_REPO_SLUG': 'rackerlabs/mimic', 'TRAVIS_TAG': '', 'TRAVIS_COMMIT_RANGE': '', 'TRAVIS_BUILD_DIR': '/home/travis/build/failed/rackerlabs/mimic', 'TRAVIS_JOB_ID': '', 'CONTINUOUS_INTEGRATION': 'true', 'RUBY_VERSION': 'ruby-1.9.3-p551', 'TRAVIS_BUILD_ID': '', '_system_version': '12.04', 'CASHER_DIR': '/home/travis/.casher', 'MY_RUBY_HOME': '/home/travis/.rvm/rubies/ruby-1.9.3-p551', 'PIP_WHEEL_DIR': '/home/travis/.cache/pip/wheels', 'NVM_IOJS_ORG_MIRROR': 'https://iojs.org/dist', 'LANG': 'en_US.UTF-8', '_': '/home/travis/.venv/bin/tox', 'JRUBY_OPTS': '--client -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -Xcext.enabled=false -J-Xss2m -Xcompile.invokedynamic=false', '_system_arch': 'x86_64', 'SHELL': '/bin/bash', 'TRAVIS_SUDO': 'true', '_system_name': 'Ubuntu', '_system_type': 'Linux', 'GOROOT': '/home/travis/.gimme/versions/go1.4.1.linux.amd64', 'rvm_path': '/home/travis/.rvm', 'IRBRC': '/home/travis/.rvm/rubies/ruby-1.9.3-p551/.irbrc', 'PATH': '/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin:/home/travis/.venv/bin:/home/travis/.rvm/gems/ruby-1.9.3-p551/bin:/home/travis/.rvm/gems/ruby-1.9.3-p551@global/bin:/home/travis/.rvm/rubies/ruby-1.9.3-p551/bin:/home/travis/.rvm/bin:/home/travis/virtualenv/python3.5.6/bin:/home/travis/bin:/home/travis/.local/bin:/opt/python/2.7.9/bin:/opt/python/2.6.9/bin:/opt/python/3.4.2/bin:/opt/python/3.3.5/bin:/opt/python/3.2.5/bin:/opt/python/pypy-2.5.0/bin:/opt/python/pypy3-2.4.0/bin:/usr/local/phantomjs/bin:/home/travis/.nvm/v0.10.36/bin:./node_modules/.bin:/usr/local/maven-3.2.5/bin:/usr/local/clang-3.4/bin:/home/travis/.gimme/versions/go1.4.1.linux.amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'}
+
+ERROR: Invalid requirement: 'ddt=1.1.0' (from line 9 of /home/travis/build/failed/rackerlabs/mimic/requirements/production.txt)
+Hint: = is not a valid operator. Did you mean == ?
+
+ERROR: could not install deps [--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt]; v = InvocationError('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip install --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt (see /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log)', 1)
+___________________________________ summary ____________________________________
+ERROR:   py35: could not install deps [--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt]; v = InvocationError('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip install --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt (see /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log)', 1)
+Already using interpreter /home/travis/virtualenv/python3.5.6/bin/python
+Using real prefix '/opt/python/3.5.6'
+New python executable in /home/travis/.venv/bin/python
+Installing setuptools, pip, wheel...done.
+Looking in links: file:///home/travis/.cache/pip/wheels
+Requirement already up-to-date: pip in /home/travis/.venv/lib/python3.5/site-packages (20.1.1)
+pip 20.1.1 from /home/travis/.venv/lib/python3.5/site-packages/pip (python 3.5)
+Looking in links: file:///home/travis/.cache/pip/wheels
+Requirement already up-to-date: codecov in /home/travis/.venv/lib/python3.5/site-packages (2.1.7)
+Requirement already up-to-date: detox==0.10.0 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 3)) (0.10.0)
+Requirement already up-to-date: eventlet==0.19.0 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 4)) (0.19.0)
+Requirement already up-to-date: greenlet==0.4.9 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 5)) (0.4.9)
+Requirement already up-to-date: pluggy==0.3.1 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 6)) (0.3.1)
+Requirement already up-to-date: py==1.4.31 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 7)) (1.4.31)
+Requirement already up-to-date: tox==2.3.1 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 8)) (2.3.1)
+Requirement already up-to-date: virtualenv==15.0.2 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 9)) (15.0.2)
+Requirement already up-to-date: pip>=7.1.2 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 12)) (20.1.1)
+Requirement already satisfied, skipping upgrade: requests>=2.7.9 in /home/travis/.venv/lib/python3.5/site-packages (from codecov) (2.24.0)
+Requirement already satisfied, skipping upgrade: coverage in /home/travis/.venv/lib/python3.5/site-packages (from codecov) (5.1)
+Requirement already satisfied, skipping upgrade: idna<3,>=2.5 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (2.10)
+Requirement already satisfied, skipping upgrade: chardet<4,>=3.0.2 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (3.0.4)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (2020.6.20)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (1.25.9)
+2.3.1 imported from /home/travis/.venv/lib/python3.5/site-packages/tox/__init__.py
+GLOB sdist-make: /home/travis/build/failed/rackerlabs/mimic/setup.py
+py35 create: /home/travis/build/failed/rackerlabs/mimic/.tox/py35
+py35 installdeps: --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt
+ERROR: invocation failed (exit code 1), logfile: /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log
+ERROR: actionid: py35
+msg: getenv
+cmdargs: [local('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip'), 'install', '--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt']
+env: {'TRAVIS_ALLOW_FAILURE': '', 'TRAVIS': 'true', 'GIT_ASKPASS': 'echo', 'TRAVIS_BRANCH': '', 'RAILS_ENV': 'test', 'LANG': 'en_US.UTF-8', 'IRBRC': '/home/travis/.rvm/rubies/ruby-1.9.3-p551/.irbrc', 'JAVA_HOME': '/usr/lib/jvm/java-7-oracle', 'NVM_PATH': '/home/travis/.nvm/v0.10.36/lib/node', 'TERM': 'xterm', 'NVM_BIN': '/home/travis/.nvm/v0.10.36/bin', 'PYTHON_CONFIGURE_OPTS': '--enable-unicode=ucs4 --with-wide-unicode --enable-shared --enable-ipv6 --enable-loadable-sqlite-extensions --with-computed-gotos', 'RUBY_VERSION': 'ruby-1.9.3-p551', 'PYTHON_CFLAGS': '-g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security', 'MERB_ENV': 'test', 'rvm_bin_path': '/home/travis/.rvm/bin', 'PWD': '/home/travis/build/failed/rackerlabs/mimic', 'rvm_path': '/home/travis/.rvm', 'TRAVIS_LANGUAGE': 'python', 'TRAVIS_JOB_NUMBER': '', 'HOME': '/home/travis', 'TRAVIS_SECURE_ENV_VARS': 'false', 'JRUBY_OPTS': '--client -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -Xcext.enabled=false -J-Xss2m -Xcompile.invokedynamic=false', 'TRAVIS_SUDO': 'true', 'PATH': '/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin:/home/travis/.venv/bin:/home/travis/.rvm/gems/ruby-1.9.3-p551/bin:/home/travis/.rvm/gems/ruby-1.9.3-p551@global/bin:/home/travis/.rvm/rubies/ruby-1.9.3-p551/bin:/home/travis/.rvm/bin:/home/travis/virtualenv/python3.5.6/bin:/home/travis/bin:/home/travis/.local/bin:/opt/python/2.7.9/bin:/opt/python/2.6.9/bin:/opt/python/3.4.2/bin:/opt/python/3.3.5/bin:/opt/python/3.2.5/bin:/opt/python/pypy-2.5.0/bin:/opt/python/pypy3-2.4.0/bin:/usr/local/phantomjs/bin:/home/travis/.nvm/v0.10.36/bin:./node_modules/.bin:/usr/local/maven-3.2.5/bin:/usr/local/clang-3.4/bin:/home/travis/.gimme/versions/go1.4.1.linux.amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'MANPATH': '/home/travis/.nvm/v0.10.36/share/man:/usr/local/clang-3.4/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man', 'VIRTUAL_ENV': '/home/travis/build/failed/rackerlabs/mimic/.tox/py35', 'rvm_version': '1.26.8 (1.26.8)', 'NVM_DIR': '/home/travis/.nvm', 'USER': 'travis', 'rvm_silence_path_mismatch_check_flag': '1', 'DEBIAN_FRONTEND': 'noninteractive', 'RACK_ENV': 'test', 'NVM_IOJS_ORG_MIRROR': 'https://iojs.org/dist', 'SHLVL': '3', 'CI': 'true', 'GEM_HOME': '/home/travis/.rvm/gems/ruby-1.9.3-p551', 'rvm_autoupdate_flag': '0', 'TRAVIS_TAG': '', 'PIP_WHEEL_DIR': '/home/travis/.cache/pip/wheels', 'TRAVIS_PULL_REQUEST_SHA': '', 'PAGER': 'cat', 'TRAVIS_COMMIT_RANGE': '', 'NVM_IOJS_ORG_VERSION_LISTING': 'https://iojs.org/dist/index.tab', 'TRAVIS_BUILD_NUMBER': '', 'TRAVIS_REPO_SLUG': 'rackerlabs/mimic', 'HAS_ANTARES_THREE_LITTLE_FRONZIES_BADGE': 'true', 'GOROOT': '/home/travis/.gimme/versions/go1.4.1.linux.amd64', '_': '/home/travis/.venv/bin/tox', 'CONTINUOUS_INTEGRATION': 'true', 'TRAVIS_EVENT_TYPE': '', 'TRAVIS_PULL_REQUEST': 'false', 'TRAVIS_BUILD_DIR': '/home/travis/build/failed/rackerlabs/mimic', 'TRAVIS_OS_NAME': 'linux', 'NVM_NODEJS_ORG_MIRROR': 'https://nodejs.org/dist', 'TRAVIS_PULL_REQUEST_BRANCH': '', 'TRAVIS_PULL_REQUEST_SLUG': '', 'PS4': '+', 'container': 'docker', 'TRAVIS_PYTHON_VERSION': '3.5', 'VIRTUAL_ENV_DISABLE_PROMPT': 'true', 'TRAVIS_COMMIT_MESSAGE': 'Bug fix: documentation\n\n- Updated related documention per Mimic styles\n- Added documentation for a previously semi-documented test case\n  (quotes were there but no content)\n- Added some documentation around purpose of loops in test case.', 'TOXENV': 'py35', 'TRAVIS_COMMIT': '', 'HAS_JOSH_K_SEAL_OF_APPROVAL': 'true', 'PYTHONHASHSEED': '694553660', 'GEM_PATH': '/home/travis/.rvm/gems/ruby-1.9.3-p551:/home/travis/.rvm/gems/ruby-1.9.3-p551@global', '_system_type': 'Linux', 'PIP_FIND_LINKS': 'file:///home/travis/.cache/pip/wheels', 'CASHER_DIR': '/home/travis/.casher', 'TRAVIS_JOB_ID': '', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_system_version': '12.04', 'COMPOSER_NO_INTERACTION': '1', 'TRAVIS_BUILD_ID': '', 'HOSTNAME': '0068dcbde18f', '_system_name': 'Ubuntu', 'SHELL': '/bin/bash', 'MY_RUBY_HOME': '/home/travis/.rvm/rubies/ruby-1.9.3-p551', '_system_arch': 'x86_64', 'rvm_prefix': '/home/travis'}
+
+ERROR: Invalid requirement: 'ddt=1.1.0' (from line 9 of /home/travis/build/failed/rackerlabs/mimic/requirements/production.txt)
+Hint: = is not a valid operator. Did you mean == ?
+
+ERROR: could not install deps [--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt]; v = InvocationError('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip install --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt (see /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log)', 1)
+___________________________________ summary ____________________________________
+ERROR:   py35: could not install deps [--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt]; v = InvocationError('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip install --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt (see /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log)', 1)
+Already using interpreter /home/travis/virtualenv/python3.5.6/bin/python
+Using real prefix '/opt/python/3.5.6'
+New python executable in /home/travis/.venv/bin/python
+Installing setuptools, pip, wheel...done.
+Looking in links: file:///home/travis/.cache/pip/wheels
+Requirement already up-to-date: pip in /home/travis/.venv/lib/python3.5/site-packages (20.1.1)
+pip 20.1.1 from /home/travis/.venv/lib/python3.5/site-packages/pip (python 3.5)
+Looking in links: file:///home/travis/.cache/pip/wheels
+Requirement already up-to-date: codecov in /home/travis/.venv/lib/python3.5/site-packages (2.1.7)
+Requirement already up-to-date: detox==0.10.0 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 3)) (0.10.0)
+Requirement already up-to-date: eventlet==0.19.0 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 4)) (0.19.0)
+Requirement already up-to-date: greenlet==0.4.9 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 5)) (0.4.9)
+Requirement already up-to-date: pluggy==0.3.1 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 6)) (0.3.1)
+Requirement already up-to-date: py==1.4.31 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 7)) (1.4.31)
+Requirement already up-to-date: tox==2.3.1 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 8)) (2.3.1)
+Requirement already up-to-date: virtualenv==15.0.2 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 9)) (15.0.2)
+Requirement already up-to-date: pip>=7.1.2 in /home/travis/.venv/lib/python3.5/site-packages (from -r requirements/toolchain.txt (line 12)) (20.1.1)
+Requirement already satisfied, skipping upgrade: requests>=2.7.9 in /home/travis/.venv/lib/python3.5/site-packages (from codecov) (2.24.0)
+Requirement already satisfied, skipping upgrade: coverage in /home/travis/.venv/lib/python3.5/site-packages (from codecov) (5.1)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (1.25.9)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (2020.6.20)
+Requirement already satisfied, skipping upgrade: chardet<4,>=3.0.2 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (3.0.4)
+Requirement already satisfied, skipping upgrade: idna<3,>=2.5 in /home/travis/.venv/lib/python3.5/site-packages (from requests>=2.7.9->codecov) (2.10)
+2.3.1 imported from /home/travis/.venv/lib/python3.5/site-packages/tox/__init__.py
+GLOB sdist-make: /home/travis/build/failed/rackerlabs/mimic/setup.py
+py35 create: /home/travis/build/failed/rackerlabs/mimic/.tox/py35
+py35 installdeps: --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt
+ERROR: invocation failed (exit code 1), logfile: /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log
+ERROR: actionid: py35
+msg: getenv
+cmdargs: [local('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip'), 'install', '--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt']
+env: {'TRAVIS_BUILD_DIR': '/home/travis/build/failed/rackerlabs/mimic', 'TRAVIS_EVENT_TYPE': '', 'HOSTNAME': '0068dcbde18f', 'container': 'docker', 'NVM_BIN': '/home/travis/.nvm/v0.10.36/bin', 'PS4': '+', '_system_type': 'Linux', 'rvm_bin_path': '/home/travis/.rvm/bin', 'TERM': 'xterm', 'rvm_prefix': '/home/travis', 'TRAVIS_JOB_ID': '', 'TOXENV': 'py35', 'TRAVIS_COMMIT_MESSAGE': 'Bug fix: documentation\n\n- Updated related documention per Mimic styles\n- Added documentation for a previously semi-documented test case\n  (quotes were there but no content)\n- Added some documentation around purpose of loops in test case.', 'USER': 'travis', 'TRAVIS_SECURE_ENV_VARS': 'false', 'TRAVIS_COMMIT_RANGE': '', 'JAVA_HOME': '/usr/lib/jvm/java-7-oracle', 'HAS_JOSH_K_SEAL_OF_APPROVAL': 'true', 'TRAVIS': 'true', 'TRAVIS_SUDO': 'true', 'MERB_ENV': 'test', 'VIRTUAL_ENV_DISABLE_PROMPT': 'true', 'PWD': '/home/travis/build/failed/rackerlabs/mimic', 'PATH': '/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin:/home/travis/.venv/bin:/home/travis/.rvm/gems/ruby-1.9.3-p551/bin:/home/travis/.rvm/gems/ruby-1.9.3-p551@global/bin:/home/travis/.rvm/rubies/ruby-1.9.3-p551/bin:/home/travis/.rvm/bin:/home/travis/virtualenv/python3.5.6/bin:/home/travis/bin:/home/travis/.local/bin:/opt/python/2.7.9/bin:/opt/python/2.6.9/bin:/opt/python/3.4.2/bin:/opt/python/3.3.5/bin:/opt/python/3.2.5/bin:/opt/python/pypy-2.5.0/bin:/opt/python/pypy3-2.4.0/bin:/usr/local/phantomjs/bin:/home/travis/.nvm/v0.10.36/bin:./node_modules/.bin:/usr/local/maven-3.2.5/bin:/usr/local/clang-3.4/bin:/home/travis/.gimme/versions/go1.4.1.linux.amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'TRAVIS_COMMIT': '', 'COMPOSER_NO_INTERACTION': '1', 'MANPATH': '/home/travis/.nvm/v0.10.36/share/man:/usr/local/clang-3.4/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man', 'rvm_path': '/home/travis/.rvm', 'NVM_NODEJS_ORG_MIRROR': 'https://nodejs.org/dist', 'NVM_PATH': '/home/travis/.nvm/v0.10.36/lib/node', 'VIRTUAL_ENV': '/home/travis/build/failed/rackerlabs/mimic/.tox/py35', 'LANG': 'en_US.UTF-8', 'HOME': '/home/travis', 'GOROOT': '/home/travis/.gimme/versions/go1.4.1.linux.amd64', 'rvm_silence_path_mismatch_check_flag': '1', 'rvm_autoupdate_flag': '0', 'PIP_WHEEL_DIR': '/home/travis/.cache/pip/wheels', 'IRBRC': '/home/travis/.rvm/rubies/ruby-1.9.3-p551/.irbrc', 'RACK_ENV': 'test', 'TRAVIS_BRANCH': '', 'NVM_IOJS_ORG_MIRROR': 'https://iojs.org/dist', 'GEM_HOME': '/home/travis/.rvm/gems/ruby-1.9.3-p551', 'CASHER_DIR': '/home/travis/.casher', 'TRAVIS_PULL_REQUEST': 'false', 'NVM_IOJS_ORG_VERSION_LISTING': 'https://iojs.org/dist/index.tab', 'TRAVIS_PYTHON_VERSION': '3.5', 'TRAVIS_ALLOW_FAILURE': '', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', 'TRAVIS_TAG': '', 'PYTHON_CFLAGS': '-g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security', 'TRAVIS_PULL_REQUEST_SHA': '', 'RAILS_ENV': 'test', 'PYTHONHASHSEED': '2988172235', 'MY_RUBY_HOME': '/home/travis/.rvm/rubies/ruby-1.9.3-p551', '_': '/home/travis/.venv/bin/tox', 'DEBIAN_FRONTEND': 'noninteractive', 'SHLVL': '3', 'TRAVIS_BUILD_NUMBER': '', 'HAS_ANTARES_THREE_LITTLE_FRONZIES_BADGE': 'true', 'TRAVIS_PULL_REQUEST_BRANCH': '', 'CONTINUOUS_INTEGRATION': 'true', '_system_arch': 'x86_64', 'TRAVIS_LANGUAGE': 'python', 'TRAVIS_OS_NAME': 'linux', 'GEM_PATH': '/home/travis/.rvm/gems/ruby-1.9.3-p551:/home/travis/.rvm/gems/ruby-1.9.3-p551@global', 'PAGER': 'cat', 'TRAVIS_BUILD_ID': '', 'PYTHON_CONFIGURE_OPTS': '--enable-unicode=ucs4 --with-wide-unicode --enable-shared --enable-ipv6 --enable-loadable-sqlite-extensions --with-computed-gotos', 'NVM_DIR': '/home/travis/.nvm', 'PIP_FIND_LINKS': 'file:///home/travis/.cache/pip/wheels', 'TRAVIS_JOB_NUMBER': '', 'TRAVIS_REPO_SLUG': 'rackerlabs/mimic', '_system_version': '12.04', 'JRUBY_OPTS': '--client -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -Xcext.enabled=false -J-Xss2m -Xcompile.invokedynamic=false', '_system_name': 'Ubuntu', 'RUBY_VERSION': 'ruby-1.9.3-p551', 'GIT_ASKPASS': 'echo', 'rvm_version': '1.26.8 (1.26.8)', 'TRAVIS_PULL_REQUEST_SLUG': '', 'SHELL': '/bin/bash', 'CI': 'true'}
+
+ERROR: Invalid requirement: 'ddt=1.1.0' (from line 9 of /home/travis/build/failed/rackerlabs/mimic/requirements/production.txt)
+Hint: = is not a valid operator. Did you mean == ?
+
+ERROR: could not install deps [--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt]; v = InvocationError('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip install --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt (see /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log)', 1)
+___________________________________ summary ____________________________________
+ERROR:   py35: could not install deps [--requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt]; v = InvocationError('/home/travis/build/failed/rackerlabs/mimic/.tox/py35/bin/pip install --requirement=/home/travis/build/failed/rackerlabs/mimic/requirements/production.txt (see /home/travis/build/failed/rackerlabs/mimic/.tox/py35/log/py35-1.log)', 1)
+
+travis_time:end:1f99f8f8:start=1593817045651998855,finish=1593817103353771797,duration=57701772942[0K
+[31;1mThe command "travis_retry ./.travis/install.sh" failed and exited with 1 during .[0m
+
+Your build has been stopped.

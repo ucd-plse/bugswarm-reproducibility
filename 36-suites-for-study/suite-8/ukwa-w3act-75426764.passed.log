@@ -1,0 +1,855 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: scala
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+[32;1mUpdating sbt[0m
+$ cd passed/ukwa/w3act
+travis_fold:start:git.submodule[0Ktravis_time:start:296cdb52[0K$ git submodule update --init --recursive
+Submodule 'public/bootstrap' (https://github.com/ukwa/bootstrap.git) registered for path 'public/bootstrap'
+Submodule path 'public/bootstrap': checked out '61e22e05c71c47ab9a61ab0bc3d1efb6d1c1d6e2'
+
+travis_time:end:296cdb52:start=1593888913745785060,finish=1593888916556523655,duration=2810738595[0Ktravis_fold:end:git.submodule[0K$ export JVM_OPTS=@/etc/sbt/jvmopts
+$ export SBT_OPTS=@/etc/sbt/sbtopts
+$ java -Xmx32m -version
+$ javac -J-Xmx32m -version
+Using Scala 2.11.7
+travis_time:start:0ce2c227[0K$ sbt -Dconfig.file=conf/dev.conf test
+Getting org.scala-sbt sbt 0.13.5 ...
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt/0.13.5/jars/sbt.jar ...
+	[SUCCESSFUL ] org.scala-sbt#sbt;0.13.5!sbt.jar (1075ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/main/0.13.5/jars/main.jar ...
+	[SUCCESSFUL ] org.scala-sbt#main;0.13.5!main.jar (4748ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-interface/0.13.5/jars/compiler-interface-src.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-interface;0.13.5!compiler-interface-src.jar (1074ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-interface/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-interface;0.13.5!compiler-interface-bin.jar (1061ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/precompiled-2_8_2/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#precompiled-2_8_2;0.13.5!compiler-interface-bin.jar (1055ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/precompiled-2_9_2/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#precompiled-2_9_2;0.13.5!compiler-interface-bin.jar (1063ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/precompiled-2_9_3/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#precompiled-2_9_3;0.13.5!compiler-interface-bin.jar (1061ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/actions/0.13.5/jars/actions.jar ...
+	[SUCCESSFUL ] org.scala-sbt#actions;0.13.5!actions.jar (1068ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/main-settings/0.13.5/jars/main-settings.jar ...
+	[SUCCESSFUL ] org.scala-sbt#main-settings;0.13.5!main-settings.jar (1070ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/interface/0.13.5/jars/interface.jar ...
+	[SUCCESSFUL ] org.scala-sbt#interface;0.13.5!interface.jar (1165ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/io/0.13.5/jars/io.jar ...
+	[SUCCESSFUL ] org.scala-sbt#io;0.13.5!io.jar (1047ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/ivy/0.13.5/jars/ivy.jar ...
+	[SUCCESSFUL ] org.scala-sbt#ivy;0.13.5!ivy.jar (1066ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/launcher-interface/0.13.5/jars/launcher-interface.jar ...
+	[SUCCESSFUL ] org.scala-sbt#launcher-interface;0.13.5!launcher-interface.jar (1032ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/logging/0.13.5/jars/logging.jar ...
+	[SUCCESSFUL ] org.scala-sbt#logging;0.13.5!logging.jar (1228ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/logic/0.13.5/jars/logic.jar ...
+	[SUCCESSFUL ] org.scala-sbt#logic;0.13.5!logic.jar (1139ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/process/0.13.5/jars/process.jar ...
+	[SUCCESSFUL ] org.scala-sbt#process;0.13.5!process.jar (1246ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/run/0.13.5/jars/run.jar ...
+	[SUCCESSFUL ] org.scala-sbt#run;0.13.5!run.jar (1282ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/command/0.13.5/jars/command.jar ...
+	[SUCCESSFUL ] org.scala-sbt#command;0.13.5!command.jar (1483ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/classpath/0.13.5/jars/classpath.jar ...
+	[SUCCESSFUL ] org.scala-sbt#classpath;0.13.5!classpath.jar (1214ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/completion/0.13.5/jars/completion.jar ...
+	[SUCCESSFUL ] org.scala-sbt#completion;0.13.5!completion.jar (1688ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/api/0.13.5/jars/api.jar ...
+	[SUCCESSFUL ] org.scala-sbt#api;0.13.5!api.jar (1867ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-integration/0.13.5/jars/compiler-integration.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-integration;0.13.5!compiler-integration.jar (1177ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-ivy-integration/0.13.5/jars/compiler-ivy-integration.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-ivy-integration;0.13.5!compiler-ivy-integration.jar (1035ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/relation/0.13.5/jars/relation.jar ...
+	[SUCCESSFUL ] org.scala-sbt#relation;0.13.5!relation.jar (1069ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/task-system/0.13.5/jars/task-system.jar ...
+	[SUCCESSFUL ] org.scala-sbt#task-system;0.13.5!task-system.jar (1279ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/tasks/0.13.5/jars/tasks.jar ...
+	[SUCCESSFUL ] org.scala-sbt#tasks;0.13.5!tasks.jar (1285ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/tracking/0.13.5/jars/tracking.jar ...
+	[SUCCESSFUL ] org.scala-sbt#tracking;0.13.5!tracking.jar (1093ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/testing/0.13.5/jars/testing.jar ...
+	[SUCCESSFUL ] org.scala-sbt#testing;0.13.5!testing.jar (1212ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/control/0.13.5/jars/control.jar ...
+	[SUCCESSFUL ] org.scala-sbt#control;0.13.5!control.jar (1046ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/collections/0.13.5/jars/collections.jar ...
+	[SUCCESSFUL ] org.scala-sbt#collections;0.13.5!collections.jar (1985ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/incremental-compiler/0.13.5/jars/incremental-compiler.jar ...
+	[SUCCESSFUL ] org.scala-sbt#incremental-compiler;0.13.5!incremental-compiler.jar (1054ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compile/0.13.5/jars/compile.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compile;0.13.5!compile.jar (1264ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/persist/0.13.5/jars/persist.jar ...
+	[SUCCESSFUL ] org.scala-sbt#persist;0.13.5!persist.jar (1340ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/classfile/0.13.5/jars/classfile.jar ...
+	[SUCCESSFUL ] org.scala-sbt#classfile;0.13.5!classfile.jar (1163ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/cross/0.13.5/jars/cross.jar ...
+	[SUCCESSFUL ] org.scala-sbt#cross;0.13.5!cross.jar (1021ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/cache/0.13.5/jars/cache.jar ...
+	[SUCCESSFUL ] org.scala-sbt#cache;0.13.5!cache.jar (1230ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/test-agent/0.13.5/jars/test-agent.jar ...
+	[SUCCESSFUL ] org.scala-sbt#test-agent;0.13.5!test-agent.jar (1054ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/apply-macro/0.13.5/jars/apply-macro.jar ...
+	[SUCCESSFUL ] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar (1170ms)
+:: retrieving :: org.scala-sbt#boot-app
+	confs: [default]
+	44 artifacts copied, 0 already retrieved (13482kB/42ms)
+[0m[[0minfo[0m] [0mLoading project definition from /home/travis/build/passed/ukwa/w3act/project[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/passed/ukwa/w3act/project/}w3act-build...[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.play#sbt-plugin;2.3.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#routes-compiler_2.10;2.3.10 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/play/routes-compiler_2.10/2.3.10/routes-compiler_2.10-2.3.10.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.play#routes-compiler_2.10;2.3.10[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.play/routes-compiler_2.10/2.3.10/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/routes-compiler_2.10/2.3.10/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.play/routes-compiler_2.10/2.3.10/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/typesafe/play/routes-compiler_2.10/2.3.10/routes-compiler_2.10-2.3.10.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/typesafe/play/routes-compiler_2.10/2.3.10/routes-compiler_2.10-2.3.10.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.play#sbt-run-support_2.10;2.3.10 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/play/sbt-run-support_2.10/2.3.10/sbt-run-support_2.10-2.3.10.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.play#sbt-run-support_2.10;2.3.10[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.play/sbt-run-support_2.10/2.3.10/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-run-support_2.10/2.3.10/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.play/sbt-run-support_2.10/2.3.10/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/typesafe/play/sbt-run-support_2.10/2.3.10/sbt-run-support_2.10-2.3.10.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/typesafe/play/sbt-run-support_2.10/2.3.10/sbt-run-support_2.10-2.3.10.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe#config;1.2.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/config/1.2.1/config-1.2.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe#config;1.2.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe/config/1.2.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe/config/1.2.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe/config/1.2.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/typesafe/config/1.2.1/config-1.2.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/typesafe/config/1.2.1/config-1.2.1.pom[0m
+[0m[[0minfo[0m] [0mResolving org.mozilla#rhino;1.7R4 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/mozilla/rhino/1.7R4/rhino-1.7R4.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.mozilla#rhino;1.7R4[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.mozilla/rhino/1.7R4/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.mozilla/rhino/1.7R4/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.mozilla/rhino/1.7R4/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/mozilla/rhino/1.7R4/rhino-1.7R4.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/mozilla/rhino/1.7R4/rhino-1.7R4.pom[0m
+[0m[[0minfo[0m] [0mResolving com.google.javascript#closure-compiler;v20130603 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/javascript/closure-compiler/v20130603/closure-compiler-v20130603.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.google.javascript#closure-compiler;v20130603[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.google.javascript/closure-compiler/v20130603/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.javascript/closure-compiler/v20130603/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.google.javascript/closure-compiler/v20130603/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/google/javascript/closure-compiler/v20130603/closure-compiler-v20130603.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/google/javascript/closure-compiler/v20130603/closure-compiler-v20130603.pom[0m
+[0m[[0minfo[0m] [0mResolving com.google.guava#guava;16.0.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.google.guava#guava;16.0.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava/16.0.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava/16.0.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.google.guava/guava/16.0.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/google/guava/guava/16.0.1/guava-16.0.1.pom[0m
+[0m[[0minfo[0m] [0mResolving org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/avaje/ebeanorm/avaje-ebeanorm-agent/3.2.2/avaje-ebeanorm-agent-3.2.2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.avaje.ebeanorm/avaje-ebeanorm-agent/3.2.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.avaje.ebeanorm/avaje-ebeanorm-agent/3.2.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.avaje.ebeanorm/avaje-ebeanorm-agent/3.2.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/avaje/ebeanorm/avaje-ebeanorm-agent/3.2.2/avaje-ebeanorm-agent-3.2.2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/avaje/ebeanorm/avaje-ebeanorm-agent/3.2.2/avaje-ebeanorm-agent-3.2.2.pom[0m
+[0m[[0minfo[0m] [0mResolving com.h2database#h2;1.3.175 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/h2database/h2/1.3.175/h2-1.3.175.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.h2database#h2;1.3.175[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.h2database/h2/1.3.175/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.h2database/h2/1.3.175/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.h2database/h2/1.3.175/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/h2database/h2/1.3.175/h2-1.3.175.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/h2database/h2/1.3.175/h2-1.3.175.pom[0m
+[0m[[0minfo[0m] [0mResolving org.javassist#javassist;3.18.2-GA ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.javassist#javassist;3.18.2-GA[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.javassist/javassist/3.18.2-GA/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.javassist/javassist/3.18.2-GA/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.javassist/javassist/3.18.2-GA/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.pom[0m
+[0m[[0minfo[0m] [0mResolving net.contentobjects.jnotify#jnotify;0.94 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/net/contentobjects/jnotify/jnotify/0.94/jnotify-0.94.pom[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/net/contentobjects/jnotify/jnotify/0.94/jnotify-0.94.jar[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-twirl;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#twirl-compiler_2.10;1.0.2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/play/twirl-compiler_2.10/1.0.2/twirl-compiler_2.10-1.0.2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.play#twirl-compiler_2.10;1.0.2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.play/twirl-compiler_2.10/1.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/twirl-compiler_2.10/1.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.play/twirl-compiler_2.10/1.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/typesafe/play/twirl-compiler_2.10/1.0.2/twirl-compiler_2.10-1.0.2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/typesafe/play/twirl-compiler_2.10/1.0.2/twirl-compiler_2.10-1.0.2.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbteclipse#sbteclipse-plugin;3.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbteclipse#sbteclipse-core;3.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-core_2.10;7.0.2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.10/7.0.2/scalaz-core_2.10-7.0.2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.scalaz#scalaz-core_2.10;7.0.2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-core_2.10/7.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-core_2.10/7.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.scalaz/scalaz-core_2.10/7.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.10/7.0.2/scalaz-core_2.10-7.0.2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/scalaz/scalaz-core_2.10/7.0.2/scalaz-core_2.10-7.0.2.pom[0m
+[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-effect_2.10;7.0.2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.10/7.0.2/scalaz-effect_2.10-7.0.2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.scalaz#scalaz-effect_2.10;7.0.2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.scalaz/scalaz-effect_2.10/7.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scalaz/scalaz-effect_2.10/7.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.scalaz/scalaz-effect_2.10/7.0.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.10/7.0.2/scalaz-effect_2.10-7.0.2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/scalaz/scalaz-effect_2.10/7.0.2/scalaz-effect_2.10-7.0.2.pom[0m
+[0m[[0minfo[0m] [0mResolving com.github.mpeltonen#sbt-idea;1.5.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.5.1/sbt-idea-1.5.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.github.mpeltonen#sbt-idea;1.5.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.5.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.5.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.5.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.5.1/sbt-idea-1.5.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/github/mpeltonen/sbt-idea_2.10_0.13/1.5.1/sbt-idea-1.5.1.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-native-packager;0.7.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-compress;1.4.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.apache.commons#commons-compress;1.4.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.apache.commons/commons-compress/1.4.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.apache.commons/commons-compress/1.4.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.apache.commons/commons-compress/1.4.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.pom[0m
+[0m[[0minfo[0m] [0mResolving org.vafer#jdeb;1.3 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/vafer/jdeb/1.3/jdeb-1.3.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.vafer#jdeb;1.3[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.vafer/jdeb/1.3/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.vafer/jdeb/1.3/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.vafer/jdeb/1.3/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/vafer/jdeb/1.3/jdeb-1.3.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/vafer/jdeb/1.3/jdeb-1.3.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-js-engine;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#jse_2.10;1.0.0 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/jse_2.10/1.0.0/jse_2.10-1.0.0.pom[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/jse_2.10/1.0.0/jse_2.10-1.0.0.jar[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-actor_2.10;2.3.2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.3.2/akka-actor_2.10-2.3.2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.akka#akka-actor_2.10;2.3.2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.akka/akka-actor_2.10/2.3.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.akka/akka-actor_2.10/2.3.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.akka/akka-actor_2.10/2.3.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.3.2/akka-actor_2.10-2.3.2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/typesafe/akka/akka-actor_2.10/2.3.2/akka-actor_2.10-2.3.2.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-contrib_2.10;2.3.2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/akka/akka-contrib_2.10/2.3.2/akka-contrib_2.10-2.3.2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.akka#akka-contrib_2.10;2.3.2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.akka/akka-contrib_2.10/2.3.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.akka/akka-contrib_2.10/2.3.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.akka/akka-contrib_2.10/2.3.2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/typesafe/akka/akka-contrib_2.10/2.3.2/akka-contrib_2.10-2.3.2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/com/typesafe/akka/akka-contrib_2.10/2.3.2/akka-contrib_2.10-2.3.2.pom[0m
+[0m[[0minfo[0m] [0mResolving io.apigee.trireme#trireme-core;0.7.5 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/io/apigee/trireme/trireme-core/0.7.5/trireme-core-0.7.5.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: io.apigee.trireme#trireme-core;0.7.5[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/io.apigee.trireme/trireme-core/0.7.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.apigee.trireme/trireme-core/0.7.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/io.apigee.trireme/trireme-core/0.7.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/io/apigee/trireme/trireme-core/0.7.5/trireme-core-0.7.5.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/io/apigee/trireme/trireme-core/0.7.5/trireme-core-0.7.5.pom[0m
+[0m[[0minfo[0m] [0mResolving io.apigee.trireme#trireme-node10src;0.7.5 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/io/apigee/trireme/trireme-node10src/0.7.5/trireme-node10src-0.7.5.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: io.apigee.trireme#trireme-node10src;0.7.5[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/io.apigee.trireme/trireme-node10src/0.7.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.apigee.trireme/trireme-node10src/0.7.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/io.apigee.trireme/trireme-node10src/0.7.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/io/apigee/trireme/trireme-node10src/0.7.5/trireme-node10src-0.7.5.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/io/apigee/trireme/trireme-node10src/0.7.5/trireme-node10src-0.7.5.pom[0m
+[0m[[0minfo[0m] [0mResolving io.spray#spray-json_2.10;1.2.6 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/io/spray/spray-json_2.10/1.2.6/spray-json_2.10-1.2.6.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: io.spray#spray-json_2.10;1.2.6[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/io.spray/spray-json_2.10/1.2.6/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.spray/spray-json_2.10/1.2.6/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/io.spray/spray-json_2.10/1.2.6/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/io/spray/spray-json_2.10/1.2.6/spray-json_2.10-1.2.6.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/io/spray/spray-json_2.10/1.2.6/spray-json_2.10-1.2.6.pom[0m
+[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-simple;1.7.7 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.slf4j#slf4j-simple;1.7.7[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.slf4j/slf4j-simple/1.7.7/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.slf4j/slf4j-simple/1.7.7/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.slf4j/slf4j-simple/1.7.7/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe#npm_2.10;1.0.0 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/npm_2.10/1.0.0/npm_2.10-1.0.0.pom[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/npm_2.10/1.0.0/npm_2.10-1.0.0.jar[0m
+[0m[[0minfo[0m] [0mResolving org.webjars#npm;1.3.26 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/npm/1.3.26/npm-1.3.26.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#npm;1.3.26[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/npm/1.3.26/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/npm/1.3.26/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/npm/1.3.26/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/npm/1.3.26/npm-1.3.26.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/npm/1.3.26/npm-1.3.26.pom[0m
+[0m[[0minfo[0m] [0mResolving org.webjars#webjars-locator;0.14 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/webjars-locator/0.14/webjars-locator-0.14.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#webjars-locator;0.14[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/webjars-locator/0.14/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/webjars-locator/0.14/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/webjars-locator/0.14/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/webjars-locator/0.14/webjars-locator-0.14.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/webjars-locator/0.14/webjars-locator-0.14.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-web;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-webdriver;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#webdriver_2.10;1.0.0 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/webdriver_2.10/1.0.0/webdriver_2.10-1.0.0.pom[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/typesafe/webdriver_2.10/1.0.0/webdriver_2.10-1.0.0.jar[0m
+[0m[[0minfo[0m] [0mResolving io.spray#spray-client;1.3.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/io/spray/spray-client/1.3.1/spray-client-1.3.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: io.spray#spray-client;1.3.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/io.spray/spray-client/1.3.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.spray/spray-client/1.3.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/io.spray/spray-client/1.3.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/io/spray/spray-client/1.3.1/spray-client-1.3.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/io/spray/spray-client/1.3.1/spray-client-1.3.1.pom[0m
+[0m[[0minfo[0m] [0mResolving net.sourceforge.htmlunit#htmlunit;2.14 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/net/sourceforge/htmlunit/htmlunit/2.14/htmlunit-2.14.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: net.sourceforge.htmlunit#htmlunit;2.14[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/net.sourceforge.htmlunit/htmlunit/2.14/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/net.sourceforge.htmlunit/htmlunit/2.14/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/net.sourceforge.htmlunit/htmlunit/2.14/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/net/sourceforge/htmlunit/htmlunit/2.14/htmlunit-2.14.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/net/sourceforge/htmlunit/htmlunit/2.14/htmlunit-2.14.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-coffeescript;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#coffee-script-node;1.7.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/coffee-script-node/1.7.1/coffee-script-node-1.7.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#coffee-script-node;1.7.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/coffee-script-node/1.7.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/coffee-script-node/1.7.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/coffee-script-node/1.7.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/coffee-script-node/1.7.1/coffee-script-node-1.7.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/coffee-script-node/1.7.1/coffee-script-node-1.7.1.pom[0m
+[0m[[0minfo[0m] [0mResolving org.webjars#mkdirp;0.3.5 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/mkdirp/0.3.5/mkdirp-0.3.5.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#mkdirp;0.3.5[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/mkdirp/0.3.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/mkdirp/0.3.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/mkdirp/0.3.5/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/mkdirp/0.3.5/mkdirp-0.3.5.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/mkdirp/0.3.5/mkdirp-0.3.5.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-less;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#less-node;1.6.0-1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/less-node/1.6.0-1/less-node-1.6.0-1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#less-node;1.6.0-1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/less-node/1.6.0-1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/less-node/1.6.0-1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/less-node/1.6.0-1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/less-node/1.6.0-1/less-node-1.6.0-1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/less-node/1.6.0-1/less-node-1.6.0-1.pom[0m
+[0m[[0minfo[0m] [0mResolving org.webjars#source-map;0.1.31-2 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/source-map/0.1.31-2/source-map-0.1.31-2.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#source-map;0.1.31-2[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/source-map/0.1.31-2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/source-map/0.1.31-2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/source-map/0.1.31-2/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/source-map/0.1.31-2/source-map-0.1.31-2.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/source-map/0.1.31-2/source-map-0.1.31-2.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-jshint;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#jshint-node;2.4.1-1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/jshint-node/2.4.1-1/jshint-node-2.4.1-1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#jshint-node;2.4.1-1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/jshint-node/2.4.1-1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/jshint-node/2.4.1-1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/jshint-node/2.4.1-1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/jshint-node/2.4.1-1/jshint-node-2.4.1-1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/jshint-node/2.4.1-1/jshint-node-2.4.1-1.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-rjs;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#rjs;2.1.11-1-trireme ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/rjs/2.1.11-1-trireme/rjs-2.1.11-1-trireme.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#rjs;2.1.11-1-trireme[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/rjs/2.1.11-1-trireme/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/rjs/2.1.11-1-trireme/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/rjs/2.1.11-1-trireme/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/rjs/2.1.11-1-trireme/rjs-2.1.11-1-trireme.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/rjs/2.1.11-1-trireme/rjs-2.1.11-1-trireme.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-digest;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-mocha;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#mocha;1.17.1 ...[0m
+[0m[[31merror[0m] [0mSERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/webjars/mocha/1.17.1/mocha-1.17.1.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: org.webjars#mocha;1.17.1[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/ivy-releases/org.webjars/mocha/1.17.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/mocha/1.17.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/org.webjars/mocha/1.17.1/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/org/webjars/mocha/1.17.1/mocha-1.17.1.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo.typesafe.com/typesafe/releases/org/webjars/mocha/1.17.1/mocha-1.17.1.pom[0m
+[0m[[0minfo[0m] [0mResolving org.scala-sbt#sbt;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#actions;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classpath;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#launcher-interface;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#interface;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#io;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#control;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#completion;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#collections;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#api;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-integration;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#incremental-compiler;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logging;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#process;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#relation;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compile;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#persist;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-tools.sbinary#sbinary_2.10;0.4.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classfile;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-ivy-integration;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#ivy;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cross;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.ivy#ivy;2.3.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.jcraft#jsch;0.1.46 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#run;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#task-system;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tasks;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tracking;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cache;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#testing;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-agent;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main-settings;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#apply-macro;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#command;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logic;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-interface;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_8_2;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_2;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_3;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.3.10/jars/sbt-plugin.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.play#sbt-plugin;2.3.10!sbt-plugin.jar (2019ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-coffeescript/scala_2.10/sbt_0.13/1.0.0/jars/sbt-coffeescript.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-coffeescript;1.0.0!sbt-coffeescript.jar (1082ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.0/jars/sbt-less.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-less;1.0.0!sbt-less.jar (1114ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-jshint/scala_2.10/sbt_0.13/1.0.1/jars/sbt-jshint.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-jshint;1.0.1!sbt-jshint.jar (1055ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-rjs/scala_2.10/sbt_0.13/1.0.1/jars/sbt-rjs.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-rjs;1.0.1!sbt-rjs.jar (1162ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-digest/scala_2.10/sbt_0.13/1.0.0/jars/sbt-digest.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-digest;1.0.0!sbt-digest.jar (1058ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-mocha/scala_2.10/sbt_0.13/1.0.0/jars/sbt-mocha.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-mocha;1.0.0!sbt-mocha.jar (1295ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/releases/net/contentobjects/jnotify/jnotify/0.94/jnotify-0.94.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] net.contentobjects.jnotify#jnotify;0.94!jnotify.jar (1522ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-twirl/scala_2.10/sbt_0.13/1.0.2/jars/sbt-twirl.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-twirl;1.0.2!sbt-twirl.jar (1181ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-plugin/scala_2.10/sbt_0.13/3.0.0/jars/sbteclipse-plugin.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbteclipse#sbteclipse-plugin;3.0.0!sbteclipse-plugin.jar (1027ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-native-packager/scala_2.10/sbt_0.13/0.7.4/jars/sbt-native-packager.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-native-packager;0.7.4!sbt-native-packager.jar (1679ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-js-engine/scala_2.10/sbt_0.13/1.0.1/jars/sbt-js-engine.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-js-engine;1.0.1!sbt-js-engine.jar (1337ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-webdriver/scala_2.10/sbt_0.13/1.0.0/jars/sbt-webdriver.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-webdriver;1.0.0!sbt-webdriver.jar (1050ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbteclipse/sbteclipse-core/scala_2.10/sbt_0.13/3.0.0/jars/sbteclipse-core.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbteclipse#sbteclipse-core;3.0.0!sbteclipse-core.jar (1128ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/releases/com/typesafe/jse_2.10/1.0.0/jse_2.10-1.0.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#jse_2.10;1.0.0!jse_2.10.jar (1403ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/releases/com/typesafe/npm_2.10/1.0.0/npm_2.10-1.0.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#npm_2.10;1.0.0!npm_2.10.jar (821ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-web/scala_2.10/sbt_0.13/1.0.2/jars/sbt-web.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-web;1.0.2!sbt-web.jar (1063ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.typesafe.com/typesafe/releases/com/typesafe/webdriver_2.10/1.0.0/webdriver_2.10-1.0.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#webdriver_2.10;1.0.0!webdriver_2.10.jar (1084ms)[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m	::          UNRESOLVED DEPENDENCIES         ::[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.play#routes-compiler_2.10;2.3.10: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.play#sbt-run-support_2.10;2.3.10: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe#config;1.2.1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.mozilla#rhino;1.7R4: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.google.javascript#closure-compiler;v20130603: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.google.guava#guava;16.0.1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.2: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.h2database#h2;1.3.175: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.javassist#javassist;3.18.2-GA: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.play#twirl-compiler_2.10;1.0.2: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.scalaz#scalaz-core_2.10;7.0.2: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.scalaz#scalaz-effect_2.10;7.0.2: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.github.mpeltonen#sbt-idea;1.5.1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.apache.commons#commons-compress;1.4.1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.vafer#jdeb;1.3: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.akka#akka-actor_2.10;2.3.2: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.akka#akka-contrib_2.10;2.3.2: not found[0m
+[0m[[33mwarn[0m] [0m	:: io.apigee.trireme#trireme-core;0.7.5: not found[0m
+[0m[[33mwarn[0m] [0m	:: io.apigee.trireme#trireme-node10src;0.7.5: not found[0m
+[0m[[33mwarn[0m] [0m	:: io.spray#spray-json_2.10;1.2.6: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.slf4j#slf4j-simple;1.7.7: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#npm;1.3.26: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#webjars-locator;0.14: not found[0m
+[0m[[33mwarn[0m] [0m	:: io.spray#spray-client;1.3.1: not found[0m
+[0m[[33mwarn[0m] [0m	:: net.sourceforge.htmlunit#htmlunit;2.14: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#coffee-script-node;1.7.1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#mkdirp;0.3.5: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#less-node;1.6.0-1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#source-map;0.1.31-2: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#jshint-node;2.4.1-1: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#rjs;2.1.11-1-trireme: not found[0m
+[0m[[33mwarn[0m] [0m	:: org.webjars#mocha;1.17.1: not found[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m[0m
+[0m[[33mwarn[0m] [0m	Note: Some unresolved dependencies have extra attributes.  Check that these dependencies exist with the requested attributes.[0m
+[0m[[33mwarn[0m] [0m		com.github.mpeltonen:sbt-idea:1.5.1 (scalaVersion=2.10, sbtVersion=0.13)[0m
+[0m[[33mwarn[0m] [0m[0m
+sbt.ResolveException: unresolved dependency: com.typesafe.play#routes-compiler_2.10;2.3.10: not found
+unresolved dependency: com.typesafe.play#sbt-run-support_2.10;2.3.10: not found
+unresolved dependency: com.typesafe#config;1.2.1: not found
+unresolved dependency: org.mozilla#rhino;1.7R4: not found
+unresolved dependency: com.google.javascript#closure-compiler;v20130603: not found
+unresolved dependency: com.google.guava#guava;16.0.1: not found
+unresolved dependency: org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.2: not found
+unresolved dependency: com.h2database#h2;1.3.175: not found
+unresolved dependency: org.javassist#javassist;3.18.2-GA: not found
+unresolved dependency: com.typesafe.play#twirl-compiler_2.10;1.0.2: not found
+unresolved dependency: org.scalaz#scalaz-core_2.10;7.0.2: not found
+unresolved dependency: org.scalaz#scalaz-effect_2.10;7.0.2: not found
+unresolved dependency: com.github.mpeltonen#sbt-idea;1.5.1: not found
+unresolved dependency: org.apache.commons#commons-compress;1.4.1: not found
+unresolved dependency: org.vafer#jdeb;1.3: not found
+unresolved dependency: com.typesafe.akka#akka-actor_2.10;2.3.2: not found
+unresolved dependency: com.typesafe.akka#akka-contrib_2.10;2.3.2: not found
+unresolved dependency: io.apigee.trireme#trireme-core;0.7.5: not found
+unresolved dependency: io.apigee.trireme#trireme-node10src;0.7.5: not found
+unresolved dependency: io.spray#spray-json_2.10;1.2.6: not found
+unresolved dependency: org.slf4j#slf4j-simple;1.7.7: not found
+unresolved dependency: org.webjars#npm;1.3.26: not found
+unresolved dependency: org.webjars#webjars-locator;0.14: not found
+unresolved dependency: io.spray#spray-client;1.3.1: not found
+unresolved dependency: net.sourceforge.htmlunit#htmlunit;2.14: not found
+unresolved dependency: org.webjars#coffee-script-node;1.7.1: not found
+unresolved dependency: org.webjars#mkdirp;0.3.5: not found
+unresolved dependency: org.webjars#less-node;1.6.0-1: not found
+unresolved dependency: org.webjars#source-map;0.1.31-2: not found
+unresolved dependency: org.webjars#jshint-node;2.4.1-1: not found
+unresolved dependency: org.webjars#rjs;2.1.11-1-trireme: not found
+unresolved dependency: org.webjars#mocha;1.17.1: not found
+	at sbt.IvyActions$.sbt$IvyActions$$resolve(IvyActions.scala:217)
+	at sbt.IvyActions$$anonfun$update$1.apply(IvyActions.scala:126)
+	at sbt.IvyActions$$anonfun$update$1.apply(IvyActions.scala:125)
+	at sbt.IvySbt$Module$$anonfun$withModule$1.apply(Ivy.scala:115)
+	at sbt.IvySbt$Module$$anonfun$withModule$1.apply(Ivy.scala:115)
+	at sbt.IvySbt$$anonfun$withIvy$1.apply(Ivy.scala:103)
+	at sbt.IvySbt.sbt$IvySbt$$action$1(Ivy.scala:48)
+	at sbt.IvySbt$$anon$3.call(Ivy.scala:57)
+	at xsbt.boot.Locks$GlobalLock.withChannel$1(Locks.scala:98)
+	at xsbt.boot.Locks$GlobalLock.xsbt$boot$Locks$GlobalLock$$withChannelRetries$1(Locks.scala:81)
+	at xsbt.boot.Locks$GlobalLock$$anonfun$withFileLock$1.apply(Locks.scala:102)
+	at xsbt.boot.Using$.withResource(Using.scala:11)
+	at xsbt.boot.Using$.apply(Using.scala:10)
+	at xsbt.boot.Locks$GlobalLock.ignoringDeadlockAvoided(Locks.scala:62)
+	at xsbt.boot.Locks$GlobalLock.withLock(Locks.scala:52)
+	at xsbt.boot.Locks$.apply0(Locks.scala:31)
+	at xsbt.boot.Locks$.apply(Locks.scala:28)
+	at sbt.IvySbt.withDefaultLogger(Ivy.scala:57)
+	at sbt.IvySbt.withIvy(Ivy.scala:98)
+	at sbt.IvySbt.withIvy(Ivy.scala:94)
+	at sbt.IvySbt$Module.withModule(Ivy.scala:115)
+	at sbt.IvyActions$.update(IvyActions.scala:125)
+	at sbt.Classpaths$$anonfun$sbt$Classpaths$$work$1$1.apply(Defaults.scala:1223)
+	at sbt.Classpaths$$anonfun$sbt$Classpaths$$work$1$1.apply(Defaults.scala:1221)
+	at sbt.Classpaths$$anonfun$doWork$1$1$$anonfun$74.apply(Defaults.scala:1244)
+	at sbt.Classpaths$$anonfun$doWork$1$1$$anonfun$74.apply(Defaults.scala:1242)
+	at sbt.Tracked$$anonfun$lastOutput$1.apply(Tracked.scala:35)
+	at sbt.Classpaths$$anonfun$doWork$1$1.apply(Defaults.scala:1246)
+	at sbt.Classpaths$$anonfun$doWork$1$1.apply(Defaults.scala:1241)
+	at sbt.Tracked$$anonfun$inputChanged$1.apply(Tracked.scala:45)
+	at sbt.Classpaths$.cachedUpdate(Defaults.scala:1249)
+	at sbt.Classpaths$$anonfun$updateTask$1.apply(Defaults.scala:1214)
+	at sbt.Classpaths$$anonfun$updateTask$1.apply(Defaults.scala:1192)
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42)
+	at sbt.std.Transform$$anon$4.work(System.scala:64)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237)
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18)
+	at sbt.Execute.work(Execute.scala:244)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237)
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160)
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[0m[[31merror[0m] [0m(*:[31mupdate[0m) sbt.ResolveException: unresolved dependency: com.typesafe.play#routes-compiler_2.10;2.3.10: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.typesafe.play#sbt-run-support_2.10;2.3.10: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.typesafe#config;1.2.1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.mozilla#rhino;1.7R4: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.google.javascript#closure-compiler;v20130603: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.google.guava#guava;16.0.1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.h2database#h2;1.3.175: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.javassist#javassist;3.18.2-GA: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.typesafe.play#twirl-compiler_2.10;1.0.2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.scalaz#scalaz-core_2.10;7.0.2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.scalaz#scalaz-effect_2.10;7.0.2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.github.mpeltonen#sbt-idea;1.5.1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.apache.commons#commons-compress;1.4.1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.vafer#jdeb;1.3: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.typesafe.akka#akka-actor_2.10;2.3.2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.typesafe.akka#akka-contrib_2.10;2.3.2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: io.apigee.trireme#trireme-core;0.7.5: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: io.apigee.trireme#trireme-node10src;0.7.5: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: io.spray#spray-json_2.10;1.2.6: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.slf4j#slf4j-simple;1.7.7: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#npm;1.3.26: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#webjars-locator;0.14: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: io.spray#spray-client;1.3.1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: net.sourceforge.htmlunit#htmlunit;2.14: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#coffee-script-node;1.7.1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#mkdirp;0.3.5: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#less-node;1.6.0-1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#source-map;0.1.31-2: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#jshint-node;2.4.1-1: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#rjs;2.1.11-1-trireme: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: org.webjars#mocha;1.17.1: not found[0m
+Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore? 
+travis_time:end:0ce2c227:start=1593888916899763981,finish=1593889083410978544,duration=166511214563[0K
+[31;1mThe command "sbt -Dconfig.file=conf/dev.conf test" exited with 1.[0m
+
+Done. Your build exited with 1.

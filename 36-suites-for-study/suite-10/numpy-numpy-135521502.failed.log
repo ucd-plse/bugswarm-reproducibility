@@ -1,0 +1,277 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd failed/numpy/numpy
+travis_fold:start:git.submodule[0Ktravis_time:start:363f6d8c[0K$ git submodule update --init --recursive
+Submodule 'doc/scipy-sphinx-theme' (https://github.com/scipy/scipy-sphinx-theme.git) registered for path 'doc/scipy-sphinx-theme'
+Submodule 'doc/sphinxext' (https://github.com/numpy/numpydoc.git) registered for path 'doc/sphinxext'
+Submodule path 'doc/scipy-sphinx-theme': checked out 'c466764e2231ba132c09826b5b138fffa1cfcec3'
+Submodule path 'doc/sphinxext': checked out 'ef988a4a4658c991f4445f6241ab02d74710c6e3'
+
+travis_time:end:363f6d8c:start=1597543978033577037,finish=1597543981149651412,duration=3116074375[0Ktravis_fold:end:git.submodule[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:02fab42e[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:02fab42e:start=1597543981162500263,finish=1597543985942946911,duration=4780446648[0Ktravis_time:start:24ce3ac2[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install gfortran libatlas-dev libatlas-base-dev eatmydata
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  gfortran-4.6 libatlas3gf-base libblas-dev
+Suggested packages:
+  gfortran-multilib gfortran-doc gfortran-4.6-multilib gfortran-4.6-doc
+  libgfortran3-dbg libblas-doc liblapack-doc liblapack-dev
+The following NEW packages will be installed:
+  eatmydata gfortran gfortran-4.6 libatlas-base-dev libatlas-dev
+  libatlas3gf-base libblas-dev
+0 upgraded, 7 newly installed, 0 to remove and 238 not upgraded.
+Need to get 19.6 MB of archives.
+After this operation, 68.4 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/universe eatmydata amd64 26-2 [8,034 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran-4.6 amd64 4.6.3-1ubuntu5 [5,579 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran amd64 4:4.6.3-1ubuntu5 [1,206 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas3gf-base amd64 3.8.4-3build1 [6,191 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ precise/main libblas-dev amd64 1.2.20110419-2ubuntu1 [302 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-dev all 3.8.4-3build1 [13.6 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-base-dev amd64 3.8.4-3build1 [7,461 kB]
+Fetched 19.6 MB in 1s (16.4 MB/s)
+Selecting previously unselected package eatmydata.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking eatmydata (from .../eatmydata_26-2_amd64.deb) ...
+Selecting previously unselected package gfortran-4.6.
+Unpacking gfortran-4.6 (from .../gfortran-4.6_4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package gfortran.
+Unpacking gfortran (from .../gfortran_4%3a4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package libatlas3gf-base.
+Unpacking libatlas3gf-base (from .../libatlas3gf-base_3.8.4-3build1_amd64.deb) ...
+Selecting previously unselected package libblas-dev.
+Unpacking libblas-dev (from .../libblas-dev_1.2.20110419-2ubuntu1_amd64.deb) ...
+Selecting previously unselected package libatlas-dev.
+Unpacking libatlas-dev (from .../libatlas-dev_3.8.4-3build1_all.deb) ...
+Selecting previously unselected package libatlas-base-dev.
+Unpacking libatlas-base-dev (from .../libatlas-base-dev_3.8.4-3build1_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ccache ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up eatmydata (26-2) ...
+Setting up gfortran-4.6 (4.6.3-1ubuntu5) ...
+Setting up gfortran (4:4.6.3-1ubuntu5) ...
+update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f95 (f95) in auto mode.
+Setting up libatlas3gf-base (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so.3gf to provide /usr/lib/libblas.so.3gf (libblas.so.3gf) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so.3gf to provide /usr/lib/liblapack.so.3gf (liblapack.so.3gf) in auto mode.
+Setting up libblas-dev (1.2.20110419-2ubuntu1) ...
+update-alternatives: using /usr/lib/libblas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+Setting up libatlas-dev (3.8.4-3build1) ...
+Setting up libatlas-base-dev (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so to provide /usr/lib/liblapack.so (liblapack.so) in auto mode.
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:24ce3ac2:start=1597543985952409729,finish=1597544018994077513,duration=33041667784[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export WHEELHOUSE_UPLOADER_USERNAME=travis.numpy
+$ export NPY_RELAXED_STRIDES_CHECKING=0
+$ export PYTHON_OO=1
+
+travis_time:start:00217553[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:00217553:start=1597544019202767422,finish=1597544019211076733,duration=8309311[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:06ba5ad8[0K$ Installing caching utilities
+
+travis_time:end:06ba5ad8:start=1597544019603276754,finish=1597544019670929982,duration=67653228[0Ktravis_time:start:00bc9bbc[0K
+travis_time:end:00bc9bbc:start=1597544019683130203,finish=1597544019690637813,duration=7507610[0Ktravis_time:start:24596d08[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:24596d08:start=1597544019699806559,finish=1597544020467088912,duration=767282353[0Ktravis_time:start:0951bf5d[0K
+travis_time:end:0951bf5d:start=1597544020477410675,finish=1597544020485607160,duration=8196485[0Ktravis_time:start:0f0341df[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:0f0341df:start=1597544020495746579,finish=1597544021245531943,duration=749785364[0Ktravis_fold:end:cache.1[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install.1[0Ktravis_time:start:0c644d60[0K$ uname -a
+Linux 653aba7f5d5c 4.15.0-109-generic #110-Ubuntu SMP Tue Jun 23 02:39:32 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+travis_time:end:0c644d60:start=1597544021492791745,finish=1597544021503907411,duration=11115666[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:0cc6abe0[0K$ free -m
+             total       used       free     shared    buffers     cached
+Mem:        192081     138249      53831          0       1906      77467
+-/+ buffers/cache:      58874     133206
+Swap:        65982         44      65938
+
+travis_time:end:0cc6abe0:start=1597544021514850917,finish=1597544021525915053,duration=11064136[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:19086af1[0K$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          91T  4.7T   87T   6% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            94G     0   94G   0% /sys/fs/cgroup
+/dev/sda         91T  4.7T   87T   6% /etc/resolv.conf
+/dev/sda         91T  4.7T   87T   6% /etc/hostname
+/dev/sda         91T  4.7T   87T   6% /etc/hosts
+shm              64M     0   64M   0% /dev/shm
+tmpfs            94G     0   94G   0% /proc/acpi
+tmpfs            64M     0   64M   0% /proc/kcore
+tmpfs            64M     0   64M   0% /proc/keys
+tmpfs            64M     0   64M   0% /proc/timer_list
+tmpfs            64M     0   64M   0% /proc/sched_debug
+tmpfs            94G     0   94G   0% /proc/scsi
+tmpfs            94G     0   94G   0% /sys/firmware
+
+travis_time:end:19086af1:start=1597544021537425386,finish=1597544021549054252,duration=11628866[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:015f51d7[0K$ ulimit -a
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 767649
+max locked memory       (kbytes, -l) 16384
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1048576
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+travis_time:end:015f51d7:start=1597544021559452277,finish=1597544021567150962,duration=7698685[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:102e5fc8[0K$ mkdir builds
+
+travis_time:end:102e5fc8:start=1597544021576922020,finish=1597544021586542687,duration=9620667[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:022f6fa4[0K$ pushd builds
+~/build/failed/numpy/numpy/builds ~/build/failed/numpy/numpy
+
+travis_time:end:022f6fa4:start=1597544021597150971,finish=1597544021604699608,duration=7548637[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:2215f55d[0K$ pip install -U 'virtualenv==14.0.6'
+Collecting virtualenv==14.0.6
+  Downloading https://files.pythonhosted.org/packages/39/62/159f60c93e7cf4f88730ec6ee7f23fec4e8f374c133502da18ef1e1420cb/virtualenv-14.0.6-py2.py3-none-any.whl (1.8MB)
+Installing collected packages: virtualenv
+
+Successfully installed virtualenv-14.0.6
+
+travis_time:end:2215f55d:start=1597544021615343576,finish=1597544022735914509,duration=1120570933[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:20d60f71[0K$ virtualenv --python=python venv
+Already using interpreter /home/travis/virtualenv/python2.7.9/bin/python
+Using real prefix '/opt/python/2.7.9'
+New python executable in /home/travis/build/failed/numpy/numpy/builds/venv/bin/python
+Installing setuptools, pip, wheel...done.
+
+travis_time:end:20d60f71:start=1597544022747197444,finish=1597544026492014705,duration=3744817261[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:0513afd4[0K$ source venv/bin/activate
+
+travis_time:end:0513afd4:start=1597544026502170823,finish=1597544026511582819,duration=9411996[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:28c02970[0K$ python -V
+
+travis_time:end:28c02970:start=1597544026521008806,finish=1597544026530525946,duration=9517140[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:0095e48d[0K$ pip install --upgrade pip==8.1.2 setuptools==22.0.5
+Collecting pip==8.1.2
+  Downloading pip-8.1.2-py2.py3-none-any.whl (1.2 MB)
+Collecting setuptools==22.0.5
+  Downloading setuptools-22.0.5-py2.py3-none-any.whl (510 kB)
+Installing collected packages: pip, setuptools
+  Attempting uninstall: pip
+    Found existing installation: pip 20.2.2
+    Uninstalling pip-20.2.2:
+      Successfully uninstalled pip-20.2.2
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 45.0.0
+    Uninstalling setuptools-45.0.0:
+      Successfully uninstalled setuptools-45.0.0
+Successfully installed pip-8.1.2 setuptools-22.0.5
+
+travis_time:end:0095e48d:start=1597544026539584304,finish=1597544030581271894,duration=4041687590[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:3df0cf5e[0K$ pip install nose==1.3.7 pytz==2016.4 cython==0.24
+Collecting nose==1.3.7
+  Downloading https://files.pythonhosted.org/packages/99/4f/13fb671119e65c4dce97c60e67d3fd9e6f7f809f2b307e2611f4701205cb/nose-1.3.7-py2-none-any.whl (154kB)
+Collecting pytz==2016.4
+  Downloading https://files.pythonhosted.org/packages/ae/cf/a7442138ad899a7587489641a8923f1e640cafc2d6ffe4e79e5d15cc5b3e/pytz-2016.4-py2.py3-none-any.whl (480kB)
+Collecting cython==0.24
+  Downloading https://files.pythonhosted.org/packages/05/fc/2549f0ceebcb821ade31552f7393c34214ea7b2bbaafb9eedc38857b5d27/Cython-0.24-cp27-cp27mu-manylinux1_x86_64.whl (5.9MB)
+Installing collected packages: nose, pytz, cython
+Successfully installed cython-0.24 nose-1.3.7 pytz-2016.4
+
+travis_time:end:3df0cf5e:start=1597544030592132033,finish=1597544034174853550,duration=3582721517[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:0eafe77b[0K$ if [ -n "$USE_ASV" ]; then pip install asv==0.1.1; fi
+
+travis_time:end:0eafe77b:start=1597544034186638520,finish=1597544034196087323,duration=9448803[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:0bbfe36e[0K$ popd
+~/build/failed/numpy/numpy
+
+travis_time:end:0bbfe36e:start=1597544034207753439,finish=1597544034217463938,duration=9710499[0Ktravis_fold:end:before_install.14[0KCould not locate requirements.txt. Override the install: key in your .travis.yml to install dependencies.
+travis_time:start:017f9710[0K$ ./tools/travis-test.sh
+Requirement already satisfied (use --upgrade to upgrade): setuptools in ./builds/venv/lib/python2.7/site-packages
+Processing /home/travis/build/failed/numpy/numpy
+Installing collected packages: numpy
+  Running setup.py install for numpy: started
+    Running setup.py install for numpy: still running...
+    Running setup.py install for numpy: finished with status 'done'
+Successfully installed numpy-1.12.0.dev0+ce53579
+Running unit tests for numpy
+NumPy version 1.12.0.dev0+ce53579
+NumPy relaxed strides checking option: False
+NumPy is installed in /home/travis/build/failed/numpy/numpy/builds/venv/lib/python2.7/site-packages/numpy
+Python version 2.7.9 (default, Feb  5 2015, 15:48:42) [GCC 4.6.3]
+nose version 1.3.7
+
+travis_time:end:017f9710:start=1597544034228620824,finish=1597544251183583240,duration=216954962416[0K
+[31;1mThe command "./tools/travis-test.sh" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:022c0878[0K
+travis_time:end:022c0878:start=1597544251194880556,finish=1597544251204059944,duration=9179388[0Ktravis_time:start:00fbc1e0[0K[32;1mchanges detected, packing new archive[0m
+
+travis_time:end:00fbc1e0:start=1597544251213628989,finish=1597544253022400538,duration=1808771549[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

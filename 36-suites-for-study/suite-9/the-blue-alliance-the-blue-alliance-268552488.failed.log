@@ -1,0 +1,1747 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ cd failed/the-blue-alliance/the-blue-alliance
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:01a3456b[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:01a3456b:start=1594599050436014932,finish=1594599134257199723,duration=83821184791[0Ktravis_time:start:001de340[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install jq
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  jq
+0 upgraded, 1 newly installed, 0 to remove and 263 not upgraded.
+Need to get 84.3 kB of archives.
+After this operation, 232 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-backports/universe jq amd64 1.2-8~ubuntu12.04.1 [84.3 kB]
+Fetched 84.3 kB in 0s (235 kB/s)
+Selecting previously unselected package jq.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking jq (from .../jq_1.2-8~ubuntu12.04.1_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up jq (1.2-8~ubuntu12.04.1) ...
+
+travis_time:end:001de340:start=1594599134269240676,finish=1594599140611664447,duration=6342423771[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export JOB=JSUNIT
+
+travis_time:start:264ef740[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:264ef740:start=1594599140822972570,finish=1594599140832679857,duration=9707287[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:05cb6044[0K$ Installing caching utilities
+
+travis_time:end:05cb6044:start=1594599141252040081,finish=1594599141520813937,duration=268773856[0Ktravis_time:start:05042c10[0K
+travis_time:end:05042c10:start=1594599141533691579,finish=1594599141544316729,duration=10625150[0Ktravis_time:start:1247a974[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:1247a974:start=1594599141555650581,finish=1594599142337932368,duration=782281787[0Ktravis_time:start:00ca5dda[0K
+travis_time:end:00ca5dda:start=1594599142350163681,finish=1594599142360486315,duration=10322634[0Ktravis_time:start:22e1a441[0K[32;1madding /home/travis/build/failed/the-blue-alliance/the-blue-alliance/node_modules to cache[0m
+[32;1mcreating directory /home/travis/build/failed/the-blue-alliance/the-blue-alliance/node_modules[0m
+
+travis_time:end:22e1a441:start=1594599142371916873,finish=1594599143187069928,duration=815153055[0Ktravis_fold:end:cache.1[0Ktravis_fold:start:cache.pip[0K
+travis_time:start:073cbc6c[0K
+travis_time:end:073cbc6c:start=1594599143199594872,finish=1594599143209540599,duration=9945727[0Ktravis_time:start:08100030[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:08100030:start=1594599143221057630,finish=1594599144039983005,duration=818925375[0Ktravis_fold:end:cache.pip[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install[0Ktravis_time:start:2be2af88[0K$ nvm install 6.0.0
+Checksums empty
+Now using node v6.0.0
+
+travis_time:end:2be2af88:start=1594599144321546916,finish=1594599146105885821,duration=1784338905[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install.1[0Ktravis_time:start:0a7fc330[0K$ travis_retry pip install -r travis_requirements.txt
+Collecting Django==1.4.3 (from -r travis_requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/18/c0/fba52cb5af8aa21d2c438ad4067a7c088f74931577c447b49642fc4a65a2/Django-1.4.3.tar.gz (7.7MB)
+Collecting Paver==1.1.1 (from -r travis_requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/6d/62/589d6972de93ec6b65bdf1358cf1b15f8fd199f01be94b5193f42d7c54fa/Paver-1.1.1.tar.gz (304kB)
+Collecting WebTest==2.0.28 (from -r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/c8/90/b50c65d62b40c61cc1e2e0beaeaf28704ff0d28ce793a039519bf6ca7b63/WebTest-2.0.28-py2.py3-none-any.whl
+Collecting unittest2==0.5.1 (from -r travis_requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/86/e8/f31a7c9a3b471f6125abc8addd37c17760e00affb45d6db088394a360086/unittest2-0.5.1.tar.gz (62kB)
+Collecting webapp2==2.5.2 (from -r travis_requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/e6/0b/3620d41b7334a44c09effb22ace88681b5263b3fbaf33bc1de66fc2a8c05/webapp2-2.5.2.tar.gz (191kB)
+Collecting jinja2==2.6 (from -r travis_requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/25/c8/212b1c2fd6df9eaf536384b6c6619c4e70a3afd2dffdd00e5296ffbae940/Jinja2-2.6.tar.gz (389kB)
+Collecting appengine-fixture-loader==0.1.8 (from -r travis_requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/55/da/11a6c9e3889c2c1e18c6eec895b43408932f57e9a65c6fe5f38572f0c46a/Appengine-Fixture-Loader-0.1.8.tar.gz
+Collecting pytz==2016.4 (from -r travis_requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/ae/cf/a7442138ad899a7587489641a8923f1e640cafc2d6ffe4e79e5d15cc5b3e/pytz-2016.4-py2.py3-none-any.whl (480kB)
+Collecting PyYAML==3.12 (from -r travis_requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz (253kB)
+Collecting waitress>=0.8.5 (from WebTest==2.0.28->-r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/26/d1/5209fb8c764497a592363c47054436a515b47b8c3e4970ddd7184f088857/waitress-1.4.4-py2.py3-none-any.whl (58kB)
+Collecting six (from WebTest==2.0.28->-r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting WebOb>=1.2 (from WebTest==2.0.28->-r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/18/3c/de37900faff3c95c7d55dd557aa71bd77477950048983dcd4b53f96fde40/WebOb-1.8.6-py2.py3-none-any.whl (114kB)
+Collecting beautifulsoup4 (from WebTest==2.0.28->-r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/c2/39/1efce3dc73e657c43f436533d49be1491bf8fc830caa70188d73bfd03b8d/beautifulsoup4-4.9.1-py2-none-any.whl (111kB)
+Collecting soupsieve<2.0 (from beautifulsoup4->WebTest==2.0.28->-r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/39/36/f35056eb9978a622bbcedc554993d10777e3c6ff1ca24cde53f4be9c5fc4/soupsieve-1.9.6-py2.py3-none-any.whl
+Collecting backports.functools-lru-cache (from soupsieve<2.0->beautifulsoup4->WebTest==2.0.28->-r travis_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/da/d1/080d2bb13773803648281a49e3918f65b31b7beebf009887a529357fd44a/backports.functools_lru_cache-1.6.1-py2.py3-none-any.whl
+Installing collected packages: backports.functools-lru-cache, soupsieve, beautifulsoup4, WebOb, six, waitress, PyYAML, pytz, appengine-fixture-loader, jinja2, webapp2, unittest2, WebTest, Paver, Django
+
+
+
+
+
+
+  Running setup.py install for PyYAML
+    checking if libyaml is compilable
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c build/temp.linux-x86_64-2.7/check_libyaml.c -o build/temp.linux-x86_64-2.7/check_libyaml.o
+    checking if libyaml is linkable
+    gcc -pthread build/temp.linux-x86_64-2.7/check_libyaml.o -L/opt/python/2.7.9/lib -lyaml -o build/temp.linux-x86_64-2.7/check_libyaml
+    building '_yaml' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c ext/_yaml.c -o build/temp.linux-x86_64-2.7/ext/_yaml.o
+    In file included from ext/_yaml.c:271:0:
+    ext/_yaml.h:6:0: warning: "PyUnicode_FromString" redefined [enabled by default]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:281:0: note: this is the location of the previous definition
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+    ext/_yaml.c:1410:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+    ext/_yaml.c:2577:5: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, size_t,  size_t *)’
+    ext/_yaml.c:2818:5: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+    ext/_yaml.c:4572:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4572:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4584:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4584:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5444:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5444:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5518:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5518:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5592:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5592:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5604:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5604:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:5716:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+    ext/_yaml.c:7424:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7424:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7436:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7436:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7655:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7655:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7749:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7749:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7790:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7790:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7811:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8179:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8179:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8220:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8220:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8449:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8449:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8490:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8490:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+    ext/_yaml.c:10094:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10094:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10378:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10378:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10434:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10434:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10490:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10490:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+    ext/_yaml.c:11109:3: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:11310:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:11310:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+    ext/_yaml.c:11841:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:11841:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+    ext/_yaml.c:12435:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:12435:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+    ext/_yaml.c:13630:3: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, size_t)’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+    ext/_yaml.c:15002:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15117:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15454:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16169:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16169:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16169:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16603:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:16603:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17037:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17037:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_12serialize’:
+    ext/_yaml.c:18516:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:18631:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+    ext/_yaml.c:19491:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:20240:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:20240:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:20240:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:20605:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:20605:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:21113:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:21113:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/ext/_yaml.o -L/opt/python/2.7.9/lib -lyaml -lpython2.7 -o build/lib.linux-x86_64-2.7/_yaml.so
+
+  Running setup.py install for appengine-fixture-loader
+  Running setup.py install for jinja2
+  Running setup.py install for webapp2
+  Running setup.py install for unittest2
+    changing mode of build/scripts-2.7/unit2.py from 644 to 755
+    changing mode of build/scripts-2.7/unit2 from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/unit2.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/unit2 to 755
+    Installing unit2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing unit2-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+
+  Running setup.py install for Paver
+    Installing paver script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for Django
+    changing mode of build/scripts-2.7/django-admin.py from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/django-admin.py to 755
+Successfully installed Django-1.4.3 Paver-1.1.1 PyYAML-3.12 WebOb-1.8.6 WebTest-2.0.28 appengine-fixture-loader-0.1.8 backports.functools-lru-cache-1.6.1 beautifulsoup4-4.9.1 jinja2-2.6 pytz-2016.4 six-1.15.0 soupsieve-1.9.6 unittest2-0.5.1 waitress-1.4.4 webapp2-2.5.2
+
+travis_time:end:0a7fc330:start=1594599146117866693,finish=1594599165722017190,duration=19604150497[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:2ef3adfd[0K$ paver install_libs
+---> pavement.install_libs
+pip install -r deploy_requirements.txt -t lib
+Collecting iso8601==0.1.11 (from -r deploy_requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/0f/66/c8226c2d105e83c2203a2e47a7eef1b23c4bb3d7ea8d2feadce116ff8f7d/iso8601-0.1.11-py2.py3-none-any.whl
+Collecting google-api-python-client==1.6.2 (from -r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/08/85/e43f6d6cb7ea69b580cf2499ed91ea7a6c6eda5c2081305039d088957400/google_api_python_client-1.6.2-py2.py3-none-any.whl (52kB)
+Collecting six<2dev,>=1.6.1 (from google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Using cached https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting uritemplate<4dev,>=3.0.0 (from google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/bf/0c/60d82c077998feb631608dca3cc1fe19ac074e772bf0c24cf409b977b815/uritemplate-3.0.1-py2.py3-none-any.whl
+Collecting oauth2client<5.0.0dev,>=1.5.0 (from google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/95/a9/4f25a14d23f0786b64875b91784607c2277eff25d48f915e39ff0cff505a/oauth2client-4.1.3-py2.py3-none-any.whl (98kB)
+Collecting httplib2<1dev,>=0.9.2 (from google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/98/3f/0769a851fbb0ecc458260055da67d550d3015ebe6b8b861c79ad00147bb9/httplib2-0.18.1.tar.gz (262kB)
+Collecting pyasn1-modules>=0.0.5 (from oauth2client<5.0.0dev,>=1.5.0->google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/95/de/214830a981892a3e286c3794f41ae67a4495df1108c3da8a9f62159b9a9d/pyasn1_modules-0.2.8-py2.py3-none-any.whl (155kB)
+Collecting rsa>=3.1.4 (from oauth2client<5.0.0dev,>=1.5.0->google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/a2/d5/04b8a9719149583fec76efdff2e7a81c6e3cc34909ee818d3fbf115edc2e/rsa-4.6.tar.gz (46kB)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+Collecting pyasn1>=0.1.7 (from oauth2client<5.0.0dev,>=1.5.0->google-api-python-client==1.6.2->-r deploy_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/62/1e/a94a8d635fa3ce4cfc7f506003548d0a2447ae76fd5ca53932970fe3053f/pyasn1-0.4.8-py2.py3-none-any.whl (77kB)
+Installing collected packages: pyasn1, rsa, pyasn1-modules, httplib2, oauth2client, uritemplate, six, google-api-python-client, iso8601
+
+  Running setup.py install for rsa
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    Installing pyrsa-encrypt script to /tmp/tmp9yqXzm/bin
+    Installing pyrsa-verify script to /tmp/tmp9yqXzm/bin
+    Installing pyrsa-sign script to /tmp/tmp9yqXzm/bin
+    Installing pyrsa-priv2pub script to /tmp/tmp9yqXzm/bin
+    Installing pyrsa-decrypt script to /tmp/tmp9yqXzm/bin
+    Installing pyrsa-keygen script to /tmp/tmp9yqXzm/bin
+
+  Running setup.py install for httplib2
+
+
+
+
+
+Successfully installed google-api-python-client httplib2 iso8601 oauth2client pyasn1 pyasn1-modules rsa six-1.15.0 uritemplate
+
+travis_time:end:2ef3adfd:start=1594599165731342403,finish=1594599169497335865,duration=3765993462[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:04a15298[0K$ travis_retry wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.40.zip -nv
+
+travis_time:end:04a15298:start=1594599169507524028,finish=1594599171255492082,duration=1747968054[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:074058fc[0K$ unzip -q google_appengine_1.9.40.zip -d $HOME
+
+travis_time:end:074058fc:start=1594599171266414714,finish=1594599174555458314,duration=3289043600[0Ktravis_fold:end:install.4[0Ktravis_fold:start:install.5[0Ktravis_time:start:04688cee[0K$ rm google_appengine_1.9.40.zip
+
+travis_time:end:04688cee:start=1594599174566332659,finish=1594599174586287627,duration=19954968[0Ktravis_fold:end:install.5[0Ktravis_fold:start:install.6[0Ktravis_time:start:1772bdca[0K$ export PYTHONPATH=${PYTHONPATH}:${HOME}/google_appengine
+
+travis_time:end:1772bdca:start=1594599174596782900,finish=1594599174606688913,duration=9906013[0Ktravis_fold:end:install.6[0Ktravis_fold:start:install.7[0Ktravis_time:start:089abb35[0K$ travis_retry npm install
+
+> core-js@2.6.11 postinstall /home/travis/build/failed/the-blue-alliance/the-blue-alliance/node_modules/core-js
+> node -e "try{require('./postinstall')}catch(e){}"
+
+tba-gameday@0.0.0 /home/travis/build/failed/the-blue-alliance/the-blue-alliance
+├─┬ babel-eslint@7.2.3 
+│ ├─┬ babel-code-frame@6.26.0 
+│ │ └── js-tokens@3.0.2 
+│ ├─┬ babel-traverse@6.26.0 
+│ │ └── babel-messages@6.23.0 
+│ ├─┬ babel-types@6.26.0 
+│ │ └── to-fast-properties@1.0.3 
+│ └── babylon@6.18.0 
+├─┬ babel-jest@17.0.2 
+│ ├─┬ babel-core@6.26.3 
+│ │ ├─┬ babel-generator@6.26.1 
+│ │ │ ├─┬ detect-indent@4.0.0 
+│ │ │ │ └─┬ repeating@2.0.1 
+│ │ │ │   └── is-finite@1.1.0 
+│ │ │ ├── jsesc@1.3.0 
+│ │ │ └── trim-right@1.0.1 
+│ │ ├── babel-helpers@6.24.1 
+│ │ ├─┬ babel-register@6.26.0 
+│ │ │ ├─┬ home-or-tmp@2.0.0 
+│ │ │ │ └── os-tmpdir@1.0.2 
+│ │ │ └── source-map-support@0.4.18 
+│ │ ├── babel-template@6.26.0 
+│ │ ├── json5@0.5.1 
+│ │ ├── path-is-absolute@1.0.1 
+│ │ ├── private@0.1.8 
+│ │ └── slash@1.0.0 
+│ ├─┬ babel-plugin-istanbul@2.0.3 
+│ │ ├─┬ find-up@1.1.2 
+│ │ │ ├── path-exists@2.1.0 
+│ │ │ └─┬ pinkie-promise@2.0.1 
+│ │ │   └── pinkie@2.0.4 
+│ │ └─┬ test-exclude@2.1.3 
+│ │   ├── arrify@1.0.1 
+│ │   └─┬ micromatch@2.3.11 
+│ │     ├── arr-diff@2.0.0 
+│ │     ├── array-unique@0.2.1 
+│ │     ├─┬ braces@1.8.5 
+│ │     │ ├─┬ expand-range@1.8.2 
+│ │     │ │ └─┬ fill-range@2.2.4 
+│ │     │ │   ├── is-number@2.1.0 
+│ │     │ │   ├── isobject@2.1.0 
+│ │     │ │   └─┬ randomatic@3.1.1 
+│ │     │ │     ├── is-number@4.0.0 
+│ │     │ │     ├── kind-of@6.0.3 
+│ │     │ │     └── math-random@1.0.4 
+│ │     │ └── preserve@0.2.0 
+│ │     ├─┬ expand-brackets@0.1.5 
+│ │     │ └── is-posix-bracket@0.1.1 
+│ │     ├── extglob@0.3.2 
+│ │     ├── filename-regex@2.0.1 
+│ │     ├── is-extglob@1.0.0 
+│ │     ├── is-glob@2.0.1 
+│ │     ├── kind-of@3.2.2 
+│ │     ├─┬ object.omit@2.0.1 
+│ │     │ └── for-own@0.1.5 
+│ │     ├─┬ parse-glob@3.0.4 
+│ │     │ ├─┬ glob-base@0.3.0 
+│ │     │ │ └── glob-parent@2.0.0 
+│ │     │ └── is-dotfile@1.0.3 
+│ │     └─┬ regex-cache@0.4.4 
+│ │       └─┬ is-equal-shallow@0.1.3 
+│ │         └── is-primitive@2.0.0 
+│ └─┬ babel-preset-jest@17.0.2 
+│   └── babel-plugin-jest-hoist@17.0.2 
+├─┬ babel-polyfill@6.26.0 
+│ ├─┬ babel-runtime@6.26.0 
+│ │ └── regenerator-runtime@0.11.1 
+│ ├── core-js@2.6.11 
+│ └── regenerator-runtime@0.10.5 
+├─┬ babel-preset-es2015@6.24.1 
+│ ├── babel-plugin-check-es2015-constants@6.22.0 
+│ ├── babel-plugin-transform-es2015-arrow-functions@6.22.0 
+│ ├── babel-plugin-transform-es2015-block-scoped-functions@6.22.0 
+│ ├── babel-plugin-transform-es2015-block-scoping@6.26.0 
+│ ├─┬ babel-plugin-transform-es2015-classes@6.24.1 
+│ │ ├── babel-helper-define-map@6.26.0 
+│ │ ├── babel-helper-function-name@6.24.1 
+│ │ ├── babel-helper-optimise-call-expression@6.24.1 
+│ │ └── babel-helper-replace-supers@6.24.1 
+│ ├── babel-plugin-transform-es2015-computed-properties@6.24.1 
+│ ├── babel-plugin-transform-es2015-destructuring@6.23.0 
+│ ├── babel-plugin-transform-es2015-duplicate-keys@6.24.1 
+│ ├── babel-plugin-transform-es2015-for-of@6.23.0 
+│ ├── babel-plugin-transform-es2015-function-name@6.24.1 
+│ ├── babel-plugin-transform-es2015-literals@6.22.0 
+│ ├── babel-plugin-transform-es2015-modules-amd@6.24.1 
+│ ├─┬ babel-plugin-transform-es2015-modules-commonjs@6.26.2 
+│ │ └── babel-plugin-transform-strict-mode@6.24.1 
+│ ├─┬ babel-plugin-transform-es2015-modules-systemjs@6.24.1 
+│ │ └── babel-helper-hoist-variables@6.24.1 
+│ ├── babel-plugin-transform-es2015-modules-umd@6.24.1 
+│ ├── babel-plugin-transform-es2015-object-super@6.24.1 
+│ ├─┬ babel-plugin-transform-es2015-parameters@6.24.1 
+│ │ ├── babel-helper-call-delegate@6.24.1 
+│ │ └── babel-helper-get-function-arity@6.24.1 
+│ ├── babel-plugin-transform-es2015-shorthand-properties@6.24.1 
+│ ├── babel-plugin-transform-es2015-spread@6.22.0 
+│ ├─┬ babel-plugin-transform-es2015-sticky-regex@6.24.1 
+│ │ └── babel-helper-regex@6.26.0 
+│ ├── babel-plugin-transform-es2015-template-literals@6.22.0 
+│ ├── babel-plugin-transform-es2015-typeof-symbol@6.23.0 
+│ ├─┬ babel-plugin-transform-es2015-unicode-regex@6.24.1 
+│ │ └─┬ regexpu-core@2.0.0 
+│ │   ├── regenerate@1.4.1 
+│ │   ├── regjsgen@0.2.0 
+│ │   └─┬ regjsparser@0.1.5 
+│ │     └── jsesc@0.5.0 
+│ └─┬ babel-plugin-transform-regenerator@6.26.0 
+│   └── regenerator-transform@0.10.1 
+├─┬ babel-preset-react@6.24.1 
+│ ├── babel-plugin-syntax-jsx@6.18.0 
+│ ├── babel-plugin-transform-react-display-name@6.25.0 
+│ ├─┬ babel-plugin-transform-react-jsx@6.24.1 
+│ │ └── babel-helper-builder-react-jsx@6.26.0 
+│ ├── babel-plugin-transform-react-jsx-self@6.22.0 
+│ ├── babel-plugin-transform-react-jsx-source@6.22.0 
+│ └─┬ babel-preset-flow@6.23.0 
+│   └─┬ babel-plugin-transform-flow-strip-types@6.22.0 
+│     └── babel-plugin-syntax-flow@6.18.0 
+├─┬ babel-preset-stage-2@6.24.1 
+│ ├── babel-plugin-syntax-dynamic-import@6.18.0 
+│ ├─┬ babel-plugin-transform-class-properties@6.24.1 
+│ │ └── babel-plugin-syntax-class-properties@6.13.0 
+│ ├─┬ babel-plugin-transform-decorators@6.24.1 
+│ │ ├─┬ babel-helper-explode-class@6.24.1 
+│ │ │ └── babel-helper-bindify-decorators@6.24.1 
+│ │ └── babel-plugin-syntax-decorators@6.13.0 
+│ └─┬ babel-preset-stage-3@6.24.1 
+│   ├── babel-plugin-syntax-trailing-function-commas@6.22.0 
+│   ├─┬ babel-plugin-transform-async-generator-functions@6.24.1 
+│   │ ├── babel-helper-remap-async-to-generator@6.24.1 
+│   │ └── babel-plugin-syntax-async-generators@6.13.0 
+│   ├─┬ babel-plugin-transform-async-to-generator@6.24.1 
+│   │ └── babel-plugin-syntax-async-functions@6.13.0 
+│   ├─┬ babel-plugin-transform-exponentiation-operator@6.24.1 
+│   │ ├─┬ babel-helper-builder-binary-assignment-operator-visitor@6.24.1 
+│   │ │ └── babel-helper-explode-assignable-expression@6.24.1 
+│   │ └── babel-plugin-syntax-exponentiation-operator@6.13.0 
+│   └─┬ babel-plugin-transform-object-rest-spread@6.26.0 
+│     └── babel-plugin-syntax-object-rest-spread@6.13.0 
+├─┬ babelify@7.3.0 
+│ └── object-assign@4.1.1 
+├─┬ browserify@13.3.0 
+│ ├─┬ assert@1.5.0 
+│ │ └─┬ util@0.10.3 
+│ │   └── inherits@2.0.1 
+│ ├─┬ browser-pack@6.1.0 
+│ │ ├─┬ combine-source-map@0.8.0 
+│ │ │ ├── convert-source-map@1.1.3 
+│ │ │ ├── inline-source-map@0.6.2 
+│ │ │ └── lodash.memoize@3.0.4 
+│ │ ├── safe-buffer@5.2.1 
+│ │ └── umd@3.0.3 
+│ ├─┬ browser-resolve@1.11.3 
+│ │ └── resolve@1.1.7 
+│ ├─┬ browserify-zlib@0.1.4 
+│ │ └── pako@0.2.9 
+│ ├─┬ buffer@4.9.2 
+│ │ └── isarray@1.0.0 
+│ ├── cached-path-relative@1.0.2 
+│ ├─┬ concat-stream@1.5.2 
+│ │ ├─┬ readable-stream@2.0.6 
+│ │ │ └── process-nextick-args@1.0.7 
+│ │ └── typedarray@0.0.6 
+│ ├── console-browserify@1.2.0 
+│ ├── constants-browserify@1.0.0 
+│ ├─┬ crypto-browserify@3.12.0 
+│ │ ├─┬ browserify-cipher@1.0.1 
+│ │ │ ├─┬ browserify-aes@1.2.0 
+│ │ │ │ └── buffer-xor@1.0.3 
+│ │ │ ├─┬ browserify-des@1.0.2 
+│ │ │ │ └── des.js@1.0.1 
+│ │ │ └── evp_bytestokey@1.0.3 
+│ │ ├─┬ browserify-sign@4.2.0 
+│ │ │ ├── bn.js@5.1.2 
+│ │ │ ├─┬ browserify-rsa@4.0.1 
+│ │ │ │ └── bn.js@4.11.9 
+│ │ │ ├─┬ elliptic@6.5.3 
+│ │ │ │ ├── bn.js@4.11.9 
+│ │ │ │ ├── brorand@1.1.0 
+│ │ │ │ ├── hash.js@1.1.7 
+│ │ │ │ ├── hmac-drbg@1.0.1 
+│ │ │ │ ├── minimalistic-assert@1.0.1 
+│ │ │ │ └── minimalistic-crypto-utils@1.0.1 
+│ │ │ ├─┬ parse-asn1@5.1.5 
+│ │ │ │ └─┬ asn1.js@4.10.1 
+│ │ │ │   └── bn.js@4.11.9 
+│ │ │ └─┬ readable-stream@3.6.0 
+│ │ │   └── string_decoder@1.3.0 
+│ │ ├─┬ create-ecdh@4.0.3 
+│ │ │ └── bn.js@4.11.9 
+│ │ ├─┬ create-hash@1.2.0 
+│ │ │ ├── cipher-base@1.0.4 
+│ │ │ ├─┬ md5.js@1.3.5 
+│ │ │ │ └─┬ hash-base@3.1.0 
+│ │ │ │   └─┬ readable-stream@3.6.0 
+│ │ │ │     └── string_decoder@1.3.0 
+│ │ │ └── ripemd160@2.0.2 
+│ │ ├── create-hmac@1.1.7 
+│ │ ├─┬ diffie-hellman@5.0.3 
+│ │ │ ├── bn.js@4.11.9 
+│ │ │ └─┬ miller-rabin@4.0.1 
+│ │ │   └── bn.js@4.11.9 
+│ │ ├── pbkdf2@3.1.1 
+│ │ ├─┬ public-encrypt@4.0.3 
+│ │ │ └── bn.js@4.11.9 
+│ │ └── randomfill@1.0.4 
+│ ├── defined@1.0.0 
+│ ├─┬ deps-sort@2.0.1 
+│ │ └─┬ shasum-object@1.0.0 
+│ │   └── fast-safe-stringify@2.0.7 
+│ ├── domain-browser@1.1.7 
+│ ├── duplexer2@0.1.4 
+│ ├── events@1.1.1 
+│ ├─┬ glob@7.1.6 
+│ │ ├── fs.realpath@1.0.0 
+│ │ ├─┬ inflight@1.0.6 
+│ │ │ └── wrappy@1.0.2 
+│ │ └── once@1.4.0 
+│ ├─┬ has@1.0.3 
+│ │ └── function-bind@1.1.1 
+│ ├── htmlescape@1.1.1 
+│ ├── https-browserify@0.0.1 
+│ ├── inherits@2.0.4 
+│ ├─┬ insert-module-globals@7.2.0 
+│ │ ├─┬ acorn-node@1.8.2 
+│ │ │ ├── acorn@7.3.1 
+│ │ │ └── acorn-walk@7.2.0 
+│ │ ├─┬ concat-stream@1.6.2 
+│ │ │ └── buffer-from@1.1.1 
+│ │ └─┬ undeclared-identifiers@1.1.3 
+│ │   ├── dash-ast@1.0.0 
+│ │   ├── get-assigned-identifiers@1.2.0 
+│ │   └── simple-concat@1.0.0 
+│ ├─┬ JSONStream@1.3.5 
+│ │ ├── jsonparse@1.3.1 
+│ │ └── through@2.3.8 
+│ ├─┬ labeled-stream-splicer@2.0.2 
+│ │ └── stream-splicer@2.0.1 
+│ ├─┬ module-deps@4.1.1 
+│ │ ├─┬ detective@4.7.1 
+│ │ │ └── acorn@5.7.4 
+│ │ └── stream-combiner2@1.1.1 
+│ ├── os-browserify@0.1.2 
+│ ├─┬ parents@1.0.1 
+│ │ └── path-platform@0.11.15 
+│ ├── path-browserify@0.0.1 
+│ ├── process@0.11.10 
+│ ├── punycode@1.3.2 
+│ ├── querystring-es3@0.2.1 
+│ ├── read-only-stream@2.0.0 
+│ ├─┬ readable-stream@2.3.7 
+│ │ ├── core-util-is@1.0.2 
+│ │ ├── process-nextick-args@2.0.1 
+│ │ ├── safe-buffer@5.1.2 
+│ │ ├── string_decoder@1.1.1 
+│ │ └── util-deprecate@1.0.2 
+│ ├─┬ resolve@1.17.0 
+│ │ └── path-parse@1.0.6 
+│ ├─┬ shasum@1.0.2 
+│ │ └── json-stable-stringify@0.0.1 
+│ ├── shell-quote@1.7.2 
+│ ├── stream-browserify@2.0.2 
+│ ├─┬ stream-http@2.8.3 
+│ │ ├── builtin-status-codes@3.0.0 
+│ │ └── to-arraybuffer@1.0.1 
+│ ├── string_decoder@0.10.31 
+│ ├── subarg@1.0.0 
+│ ├── syntax-error@1.4.0 
+│ ├── through2@2.0.5 
+│ ├── timers-browserify@1.4.2 
+│ ├── tty-browserify@0.0.1 
+│ ├─┬ url@0.11.0 
+│ │ └── querystring@0.2.0 
+│ ├─┬ util@0.10.4 
+│ │ └── inherits@2.0.3 
+│ ├─┬ vm-browserify@0.0.4 
+│ │ └── indexof@0.0.1 
+│ └── xtend@4.0.2 
+├── classnames@2.2.6 
+├─┬ enzyme@2.9.1 
+│ ├─┬ cheerio@0.22.0 
+│ │ ├─┬ css-select@1.2.0 
+│ │ │ ├── boolbase@1.0.0 
+│ │ │ ├── css-what@2.1.3 
+│ │ │ ├── domutils@1.5.1 
+│ │ │ └── nth-check@1.0.2 
+│ │ ├─┬ dom-serializer@0.1.1 
+│ │ │ └── domelementtype@1.3.1 
+│ │ ├── entities@1.1.2 
+│ │ ├─┬ htmlparser2@3.10.1 
+│ │ │ ├── domhandler@2.4.2 
+│ │ │ └─┬ readable-stream@3.6.0 
+│ │ │   └── string_decoder@1.3.0 
+│ │ ├── lodash.assignin@4.2.0 
+│ │ ├── lodash.bind@4.2.1 
+│ │ ├── lodash.defaults@4.2.0 
+│ │ ├── lodash.filter@4.6.0 
+│ │ ├── lodash.flatten@4.4.0 
+│ │ ├── lodash.foreach@4.5.0 
+│ │ ├── lodash.map@4.6.0 
+│ │ ├── lodash.pick@4.4.0 
+│ │ ├── lodash.reduce@4.6.0 
+│ │ ├── lodash.reject@4.6.0 
+│ │ └── lodash.some@4.6.0 
+│ ├─┬ function.prototype.name@1.1.2 
+│ │ ├── define-properties@1.1.3 
+│ │ ├─┬ es-abstract@1.17.6 
+│ │ │ ├─┬ es-to-primitive@1.2.1 
+│ │ │ │ ├── is-date-object@1.0.2 
+│ │ │ │ └── is-symbol@1.0.3 
+│ │ │ ├── is-callable@1.2.0 
+│ │ │ ├── is-regex@1.1.0 
+│ │ │ ├── object-inspect@1.8.0 
+│ │ │ ├── string.prototype.trimend@1.0.1 
+│ │ │ └── string.prototype.trimstart@1.0.1 
+│ │ └── functions-have-names@1.2.1 
+│ ├── is-subset@0.1.1 
+│ ├── lodash@4.17.19 
+│ ├── object-is@1.1.2 
+│ ├─┬ object.assign@4.1.0 
+│ │ ├── has-symbols@1.0.1 
+│ │ └── object-keys@1.1.1 
+│ ├── object.entries@1.1.2 
+│ ├── object.values@1.1.1 
+│ └── uuid@3.4.0 
+├─┬ eslint@3.19.0 
+│ ├─┬ chalk@1.1.3 
+│ │ ├── ansi-styles@2.2.1 
+│ │ ├── escape-string-regexp@1.0.5 
+│ │ ├── has-ansi@2.0.0 
+│ │ └── supports-color@2.0.0 
+│ ├─┬ debug@2.6.9 
+│ │ └── ms@2.0.0 
+│ ├── doctrine@2.1.0 
+│ ├─┬ escope@3.6.0 
+│ │ ├─┬ es6-map@0.1.5 
+│ │ │ ├── es6-iterator@2.0.3 
+│ │ │ ├─┬ es6-set@0.1.5 
+│ │ │ │ └── es6-symbol@3.1.1 
+│ │ │ └─┬ es6-symbol@3.1.3 
+│ │ │   └─┬ ext@1.4.0 
+│ │ │     └── type@2.0.0 
+│ │ ├── es6-weak-map@2.0.3 
+│ │ └── esrecurse@4.2.1 
+│ ├─┬ espree@3.5.4 
+│ │ ├── acorn@5.7.4 
+│ │ └─┬ acorn-jsx@3.0.1 
+│ │   └── acorn@3.3.0 
+│ ├─┬ esquery@1.3.1 
+│ │ └── estraverse@5.1.0 
+│ ├── estraverse@4.3.0 
+│ ├── esutils@2.0.3 
+│ ├─┬ file-entry-cache@2.0.0 
+│ │ └─┬ flat-cache@1.3.4 
+│ │   ├── circular-json@0.3.3 
+│ │   ├── rimraf@2.6.3 
+│ │   └── write@0.2.1 
+│ ├── globals@9.18.0 
+│ ├── ignore@3.3.10 
+│ ├── imurmurhash@0.1.4 
+│ ├─┬ inquirer@0.12.0 
+│ │ ├── ansi-regex@2.1.1 
+│ │ ├─┬ cli-cursor@1.0.2 
+│ │ │ └─┬ restore-cursor@1.0.1 
+│ │ │   ├── exit-hook@1.1.1 
+│ │ │   └── onetime@1.1.0 
+│ │ ├── cli-width@2.2.1 
+│ │ ├── figures@1.7.0 
+│ │ ├─┬ readline2@1.0.1 
+│ │ │ └── mute-stream@0.0.5 
+│ │ ├── run-async@0.1.0 
+│ │ └── rx-lite@3.1.2 
+│ ├─┬ is-my-json-valid@2.20.4 
+│ │ ├─┬ generate-function@2.3.1 
+│ │ │ └── is-property@1.0.2 
+│ │ ├── generate-object-property@1.2.0 
+│ │ ├── is-my-ip-valid@1.0.0 
+│ │ └── jsonpointer@4.1.0 
+│ ├── is-resolvable@1.1.0 
+│ ├─┬ js-yaml@3.14.0 
+│ │ ├─┬ argparse@1.0.10 
+│ │ │ └── sprintf-js@1.0.3 
+│ │ └── esprima@4.0.1 
+│ ├─┬ json-stable-stringify@1.0.1 
+│ │ └── jsonify@0.0.0 
+│ ├─┬ levn@0.3.0 
+│ │ ├── prelude-ls@1.1.2 
+│ │ └── type-check@0.3.2 
+│ ├── mkdirp@0.5.5 
+│ ├── natural-compare@1.4.0 
+│ ├─┬ optionator@0.8.3 
+│ │ ├── deep-is@0.1.3 
+│ │ ├── fast-levenshtein@2.0.6 
+│ │ └── word-wrap@1.2.3 
+│ ├── path-is-inside@1.0.2 
+│ ├── pluralize@1.2.1 
+│ ├── progress@1.1.8 
+│ ├─┬ require-uncached@1.0.3 
+│ │ ├─┬ caller-path@0.1.0 
+│ │ │ └── callsites@0.2.0 
+│ │ └── resolve-from@1.0.1 
+│ ├─┬ shelljs@0.7.8 
+│ │ └── rechoir@0.6.2 
+│ ├── strip-bom@3.0.0 
+│ ├── strip-json-comments@2.0.1 
+│ ├─┬ table@3.8.3 
+│ │ ├─┬ ajv@4.11.8 
+│ │ │ ├── co@4.6.0 
+│ │ │ └── json-stable-stringify@1.0.1 
+│ │ ├── ajv-keywords@1.5.1 
+│ │ ├── slice-ansi@0.0.4 
+│ │ └─┬ string-width@2.1.1 
+│ │   ├── is-fullwidth-code-point@2.0.0 
+│ │   └─┬ strip-ansi@4.0.0 
+│ │     └── ansi-regex@3.0.0 
+│ ├── text-table@0.2.0 
+│ └─┬ user-home@2.0.0 
+│   └── os-homedir@1.0.2 
+├─┬ eslint-config-airbnb@13.0.0 
+│ └── eslint-config-airbnb-base@10.0.1 
+├─┬ eslint-plugin-import@2.22.0 
+│ ├─┬ array-includes@3.1.1 
+│ │ └── is-string@1.0.5 
+│ ├── array.prototype.flat@1.2.3 
+│ ├── contains-path@0.1.0 
+│ ├── doctrine@1.5.0 
+│ ├── eslint-import-resolver-node@0.3.4 
+│ ├─┬ eslint-module-utils@2.6.0 
+│ │ └─┬ pkg-dir@2.0.0 
+│ │   └── find-up@2.1.0 
+│ ├─┬ minimatch@3.0.4 
+│ │ └─┬ brace-expansion@1.1.11 
+│ │   ├── balanced-match@1.0.0 
+│ │   └── concat-map@0.0.1 
+│ ├─┬ read-pkg-up@2.0.0 
+│ │ ├─┬ find-up@2.1.0 
+│ │ │ └─┬ locate-path@2.0.0 
+│ │ │   ├─┬ p-locate@2.0.0 
+│ │ │   │ └─┬ p-limit@1.3.0 
+│ │ │   │   └── p-try@1.0.0 
+│ │ │   └── path-exists@3.0.0 
+│ │ └─┬ read-pkg@2.0.0 
+│ │   ├─┬ load-json-file@2.0.0 
+│ │   │ ├─┬ parse-json@2.2.0 
+│ │   │ │ └─┬ error-ex@1.3.2 
+│ │   │ │   └── is-arrayish@0.2.1 
+│ │   │ ├── pify@2.3.0 
+│ │   │ └── strip-bom@3.0.0 
+│ │   ├─┬ normalize-package-data@2.5.0 
+│ │   │ ├── hosted-git-info@2.8.8 
+│ │   │ └─┬ validate-npm-package-license@3.0.4 
+│ │   │   ├─┬ spdx-correct@3.1.1 
+│ │   │   │ └── spdx-license-ids@3.0.5 
+│ │   │   └─┬ spdx-expression-parse@3.0.1 
+│ │   │     └── spdx-exceptions@2.3.0 
+│ │   └── path-type@2.0.0 
+│ └─┬ tsconfig-paths@3.9.0 
+│   ├── @types/json5@0.0.29 
+│   ├── json5@1.0.1 
+│   └── strip-bom@3.0.0 
+├─┬ eslint-plugin-jsx-a11y@2.2.3 
+│ ├── damerau-levenshtein@1.0.6 
+│ └── jsx-ast-utils@1.4.1 
+├─┬ eslint-plugin-react@6.10.3 
+│ ├── array.prototype.find@2.1.1 
+│ └── doctrine@1.5.0 
+├─┬ firebase@3.9.0 
+│ ├── dom-storage@2.0.2 
+│ ├─┬ faye-websocket@0.9.3 
+│ │ └─┬ websocket-driver@0.6.5 
+│ │   └── websocket-extensions@0.1.1 
+│ ├─┬ jsonwebtoken@7.4.0 
+│ │ ├─┬ joi@6.10.1 
+│ │ │ ├── hoek@2.16.3 
+│ │ │ ├── isemail@1.2.0 
+│ │ │ ├── moment@2.18.1 
+│ │ │ └── topo@1.1.0 
+│ │ ├─┬ jws@3.1.4 
+│ │ │ ├── base64url@2.0.0 
+│ │ │ ├─┬ jwa@1.1.5 
+│ │ │ │ ├── buffer-equal-constant-time@1.0.1 
+│ │ │ │ └── ecdsa-sig-formatter@1.0.9 
+│ │ │ └── safe-buffer@5.0.1 
+│ │ ├── lodash.once@4.1.1 
+│ │ ├── ms@0.7.3 
+│ │ └── xtend@4.0.1 
+│ ├── promise-polyfill@6.0.2 
+│ └── xmlhttprequest@1.8.0 
+├─┬ firedux@1.1.1 
+│ ├── google-analytics-js@0.1.2 
+│ └── updeep@1.2.0 
+├─┬ gulp@3.9.1 
+│ ├── archy@1.0.0 
+│ ├── deprecated@0.0.1 
+│ ├── interpret@1.4.0 
+│ ├─┬ liftoff@2.5.0 
+│ │ ├── extend@3.0.2 
+│ │ ├─┬ findup-sync@2.0.0 
+│ │ │ ├── detect-file@1.0.0 
+│ │ │ ├─┬ is-glob@3.1.0 
+│ │ │ │ └── is-extglob@2.1.1 
+│ │ │ ├─┬ micromatch@3.1.10 
+│ │ │ │ ├── arr-diff@4.0.0 
+│ │ │ │ ├── array-unique@0.3.2 
+│ │ │ │ ├─┬ braces@2.3.2 
+│ │ │ │ │ ├── extend-shallow@2.0.1 
+│ │ │ │ │ ├─┬ fill-range@4.0.0 
+│ │ │ │ │ │ ├── extend-shallow@2.0.1 
+│ │ │ │ │ │ └─┬ is-number@3.0.0 
+│ │ │ │ │ │   └── kind-of@3.2.2 
+│ │ │ │ │ └── isobject@3.0.1 
+│ │ │ │ ├─┬ extglob@2.0.4 
+│ │ │ │ │ ├─┬ define-property@1.0.0 
+│ │ │ │ │ │ └─┬ is-descriptor@1.0.2 
+│ │ │ │ │ │   ├── is-accessor-descriptor@1.0.0 
+│ │ │ │ │ │   └── is-data-descriptor@1.0.0 
+│ │ │ │ │ ├─┬ expand-brackets@2.1.4 
+│ │ │ │ │ │ ├─┬ define-property@0.2.5 
+│ │ │ │ │ │ │ └─┬ is-descriptor@0.1.6 
+│ │ │ │ │ │ │   ├─┬ is-accessor-descriptor@0.1.6 
+│ │ │ │ │ │ │   │ └── kind-of@3.2.2 
+│ │ │ │ │ │ │   ├─┬ is-data-descriptor@0.1.4 
+│ │ │ │ │ │ │   │ └── kind-of@3.2.2 
+│ │ │ │ │ │ │   └── kind-of@5.1.0 
+│ │ │ │ │ │ └── extend-shallow@2.0.1 
+│ │ │ │ │ └── extend-shallow@2.0.1 
+│ │ │ │ └── kind-of@6.0.3 
+│ │ │ └─┬ resolve-dir@1.0.1 
+│ │ │   └─┬ global-modules@1.0.0 
+│ │ │     └─┬ global-prefix@1.0.2 
+│ │ │       └── ini@1.3.5 
+│ │ ├─┬ fined@1.2.0 
+│ │ │ ├─┬ expand-tilde@2.0.2 
+│ │ │ │ └─┬ homedir-polyfill@1.0.3 
+│ │ │ │   └── parse-passwd@1.0.0 
+│ │ │ ├─┬ object.defaults@1.1.0 
+│ │ │ │ ├── array-each@1.0.1 
+│ │ │ │ ├── array-slice@1.1.0 
+│ │ │ │ ├── for-own@1.0.0 
+│ │ │ │ └── isobject@3.0.1 
+│ │ │ ├─┬ object.pick@1.3.0 
+│ │ │ │ └── isobject@3.0.1 
+│ │ │ └─┬ parse-filepath@1.0.2 
+│ │ │   ├─┬ is-absolute@1.0.0 
+│ │ │   │ └─┬ is-relative@1.0.0 
+│ │ │   │   └─┬ is-unc-path@1.0.0 
+│ │ │   │     └── unc-path-regex@0.1.2 
+│ │ │   ├── map-cache@0.2.2 
+│ │ │   └─┬ path-root@0.1.1 
+│ │ │     └── path-root-regex@0.1.2 
+│ │ ├── flagged-respawn@1.0.1 
+│ │ ├─┬ is-plain-object@2.0.4 
+│ │ │ └── isobject@3.0.1 
+│ │ └─┬ object.map@1.0.1 
+│ │   ├─┬ for-own@1.0.0 
+│ │   │ └── for-in@1.0.2 
+│ │   └─┬ make-iterator@1.0.1 
+│ │     └── kind-of@6.0.3 
+│ ├── minimist@1.2.5 
+│ ├─┬ orchestrator@0.3.8 
+│ │ ├─┬ end-of-stream@0.1.5 
+│ │ │ └── once@1.3.3 
+│ │ ├── sequencify@0.0.7 
+│ │ └── stream-consume@0.1.1 
+│ ├── pretty-hrtime@1.0.3 
+│ ├── semver@4.3.6 
+│ ├── tildify@1.2.0 
+│ ├─┬ v8flags@2.1.1 
+│ │ └── user-home@1.1.1 
+│ └─┬ vinyl-fs@0.3.14 
+│   ├── defaults@1.0.3 
+│   ├─┬ glob-stream@3.1.18 
+│   │ ├── glob@4.5.3 
+│   │ ├─┬ glob2base@0.0.12 
+│   │ │ └── find-index@0.1.1 
+│   │ ├── minimatch@2.0.10 
+│   │ ├── ordered-read-streams@0.1.0 
+│   │ ├─┬ through2@0.6.5 
+│   │ │ └─┬ readable-stream@1.0.34 
+│   │ │   └── isarray@0.0.1 
+│   │ └── unique-stream@1.0.0 
+│   ├─┬ glob-watcher@0.0.6 
+│   │ └─┬ gaze@0.5.2 
+│   │   └─┬ globule@0.1.0 
+│   │     ├─┬ glob@3.1.21 
+│   │     │ ├── graceful-fs@1.2.3 
+│   │     │ └── inherits@1.0.2 
+│   │     ├── lodash@1.0.2 
+│   │     └─┬ minimatch@0.2.14 
+│   │       ├── lru-cache@2.7.3 
+│   │       └── sigmund@1.0.1 
+│   ├─┬ graceful-fs@3.0.12 
+│   │ └── natives@1.1.6 
+│   ├─┬ strip-bom@1.0.0 
+│   │ └── first-chunk-stream@1.0.0 
+│   ├─┬ through2@0.6.5 
+│   │ └─┬ readable-stream@1.0.34 
+│   │   └── isarray@0.0.1 
+│   └─┬ vinyl@0.4.6 
+│     └── clone@0.2.0 
+├─┬ gulp-clean-css@2.4.0 
+│ ├─┬ clean-css@4.2.3 
+│ │ └── source-map@0.6.1 
+│ └── vinyl-sourcemaps-apply@0.2.1 
+├─┬ gulp-debug@3.2.0 
+│ ├─┬ chalk@2.4.2 
+│ │ ├─┬ ansi-styles@3.2.1 
+│ │ │ └─┬ color-convert@1.9.3 
+│ │ │   └── color-name@1.1.3 
+│ │ └─┬ supports-color@5.5.0 
+│ │   └── has-flag@3.0.0 
+│ ├─┬ fancy-log@1.3.3 
+│ │ ├─┬ ansi-gray@0.1.1 
+│ │ │ └── ansi-wrap@0.1.0 
+│ │ ├── color-support@1.1.3 
+│ │ ├── parse-node-version@1.0.1 
+│ │ └── time-stamp@1.1.0 
+│ ├─┬ plur@2.1.2 
+│ │ └── irregular-plurals@1.4.0 
+│ └─┬ stringify-object@3.3.0 
+│   ├── get-own-enumerable-property-symbols@3.0.2 
+│   ├── is-obj@1.0.1 
+│   └── is-regexp@1.0.0 
+├─┬ gulp-if@2.0.2 
+│ ├── gulp-match@1.1.0 
+│ └─┬ ternary-stream@2.1.1 
+│   ├─┬ duplexify@3.7.1 
+│   │ ├── end-of-stream@1.4.4 
+│   │ └── stream-shift@1.0.1 
+│   ├── fork-stream@0.0.4 
+│   └── merge-stream@1.0.1 
+├─┬ gulp-less@3.5.0 
+│ ├─┬ accord@0.28.0 
+│ │ ├── indx@0.2.3 
+│ │ ├── lodash.clone@4.5.0 
+│ │ ├── lodash.partialright@4.2.1 
+│ │ ├── lodash.uniq@4.5.0 
+│ │ ├── semver@5.7.1 
+│ │ └── when@3.7.8 
+│ ├─┬ plugin-error@0.1.2 
+│ │ ├── ansi-cyan@0.1.1 
+│ │ ├── ansi-red@0.1.1 
+│ │ ├─┬ arr-diff@1.1.0 
+│ │ │ ├── arr-flatten@1.1.0 
+│ │ │ └── array-slice@0.2.3 
+│ │ ├── arr-union@2.1.0 
+│ │ └─┬ extend-shallow@1.1.4 
+│ │   └── kind-of@1.1.0 
+│ └── replace-ext@1.0.1 
+├── gulp-rename@1.4.0 
+├─┬ gulp-sourcemaps@1.12.1 
+│ ├─┬ @gulp-sourcemaps/map-sources@1.0.0 
+│ │ └─┬ normalize-path@2.1.1 
+│ │   └── remove-trailing-separator@1.1.0 
+│ ├── acorn@4.0.13 
+│ ├─┬ convert-source-map@1.7.0 
+│ │ └── safe-buffer@5.1.2 
+│ ├─┬ css@2.2.4 
+│ │ ├── source-map@0.6.1 
+│ │ ├─┬ source-map-resolve@0.5.3 
+│ │ │ ├── atob@2.1.2 
+│ │ │ ├── decode-uri-component@0.2.0 
+│ │ │ ├── resolve-url@0.2.1 
+│ │ │ └── source-map-url@0.4.0 
+│ │ └── urix@0.1.0 
+│ ├─┬ debug-fabulous@0.0.4 
+│ │ ├── lazy-debug-legacy@0.0.1 
+│ │ └── object-assign@4.1.0 
+│ ├── detect-newline@2.1.0 
+│ ├── graceful-fs@4.2.4 
+│ ├── source-map@0.6.1 
+│ ├─┬ strip-bom@2.0.0 
+│ │ └── is-utf8@0.2.1 
+│ └─┬ vinyl@1.2.0 
+│   ├── clone@1.0.4 
+│   └── clone-stats@0.0.1 
+├─┬ gulp-uglify@2.1.2 
+│ ├─┬ gulplog@1.0.0 
+│ │ └── glogg@1.0.2 
+│ ├─┬ has-gulplog@0.1.0 
+│ │ └── sparkles@1.0.1 
+│ ├─┬ make-error-cause@1.2.2 
+│ │ └── make-error@1.3.6 
+│ ├─┬ uglify-js@2.8.29 
+│ │ ├── uglify-to-browserify@1.0.2 
+│ │ └─┬ yargs@3.10.0 
+│ │   ├── camelcase@1.2.1 
+│ │   ├─┬ cliui@2.1.0 
+│ │   │ ├─┬ center-align@0.1.3 
+│ │   │ │ ├─┬ align-text@0.1.4 
+│ │   │ │ │ └── longest@1.0.1 
+│ │   │ │ └── lazy-cache@1.0.4 
+│ │   │ ├── right-align@0.1.3 
+│ │   │ └── wordwrap@0.0.2 
+│ │   └── window-size@0.1.0 
+│ └── uglify-save-license@0.4.1 
+├─┬ gulp-util@3.0.8 
+│ ├── array-differ@1.0.0 
+│ ├── array-uniq@1.0.3 
+│ ├── beeper@1.1.1 
+│ ├── dateformat@2.2.0 
+│ ├── lodash._reescape@3.0.0 
+│ ├── lodash._reevaluate@3.0.0 
+│ ├── lodash._reinterpolate@3.0.0 
+│ ├─┬ lodash.template@3.6.2 
+│ │ ├── lodash._basecopy@3.0.1 
+│ │ ├── lodash._basetostring@3.0.1 
+│ │ ├── lodash._basevalues@3.0.0 
+│ │ ├── lodash._isiterateecall@3.0.9 
+│ │ ├─┬ lodash.escape@3.2.0 
+│ │ │ └── lodash._root@3.0.1 
+│ │ ├─┬ lodash.keys@3.1.2 
+│ │ │ ├── lodash._getnative@3.9.1 
+│ │ │ ├── lodash.isarguments@3.1.0 
+│ │ │ └── lodash.isarray@3.0.4 
+│ │ ├── lodash.restparam@3.6.1 
+│ │ └── lodash.templatesettings@3.1.1 
+│ ├─┬ multipipe@0.1.2 
+│ │ └─┬ duplexer2@0.0.2 
+│ │   └─┬ readable-stream@1.1.14 
+│ │     └── isarray@0.0.1 
+│ ├── object-assign@3.0.0 
+│ ├── replace-ext@0.0.1 
+│ └── vinyl@0.5.3 
+├─┬ jest-cli@17.0.3 
+│ ├── ansi-escapes@1.4.0 
+│ ├── callsites@2.0.0 
+│ ├─┬ is-ci@1.2.1 
+│ │ └── ci-info@1.6.0 
+│ ├─┬ istanbul-api@1.3.7 
+│ │ ├── async@2.6.3 
+│ │ ├── fileset@2.0.3 
+│ │ ├─┬ istanbul-lib-hook@1.2.2 
+│ │ │ └─┬ append-transform@0.4.0 
+│ │ │   └── default-require-extensions@1.0.0 
+│ │ ├─┬ istanbul-lib-report@1.1.5 
+│ │ │ └─┬ supports-color@3.2.3 
+│ │ │   └── has-flag@1.0.0 
+│ │ ├─┬ istanbul-lib-source-maps@1.2.6 
+│ │ │ └─┬ debug@3.2.6 
+│ │ │   └── ms@2.1.2 
+│ │ └─┬ istanbul-reports@1.5.1 
+│ │   └─┬ handlebars@4.7.6 
+│ │     ├── neo-async@2.6.2 
+│ │     ├── source-map@0.6.1 
+│ │     ├── uglify-js@3.10.0 
+│ │     └── wordwrap@1.0.0 
+│ ├── istanbul-lib-coverage@1.2.1 
+│ ├── istanbul-lib-instrument@1.10.2 
+│ ├── jest-changed-files@17.0.2 
+│ ├─┬ jest-config@17.0.3 
+│ │ ├─┬ istanbul@0.4.5 
+│ │ │ ├── abbrev@1.0.9 
+│ │ │ ├── async@1.5.2 
+│ │ │ ├─┬ escodegen@1.8.1 
+│ │ │ │ ├── esprima@2.7.3 
+│ │ │ │ ├── estraverse@1.9.3 
+│ │ │ │ └─┬ source-map@0.2.0 
+│ │ │ │   └── amdefine@1.0.1 
+│ │ │ ├── esprima@2.7.3 
+│ │ │ ├── glob@5.0.15 
+│ │ │ ├── nopt@3.0.6 
+│ │ │ ├── resolve@1.1.7 
+│ │ │ ├─┬ supports-color@3.2.3 
+│ │ │ │ └── has-flag@1.0.0 
+│ │ │ └── wordwrap@1.0.0 
+│ │ ├── jest-environment-node@17.0.2 
+│ │ └── json-stable-stringify@1.0.1 
+│ ├─┬ jest-environment-jsdom@17.0.2 
+│ │ └─┬ jsdom@9.12.0 
+│ │   ├── abab@1.0.4 
+│ │   ├── acorn@4.0.13 
+│ │   ├─┬ acorn-globals@3.1.0 
+│ │   │ └── acorn@4.0.13 
+│ │   ├── array-equal@1.0.0 
+│ │   ├── content-type-parser@1.0.2 
+│ │   ├── cssom@0.3.8 
+│ │   ├── cssstyle@0.2.37 
+│ │   ├── html-encoding-sniffer@1.0.2 
+│ │   ├── nwmatcher@1.4.4 
+│ │   ├── parse5@1.5.1 
+│ │   ├── sax@1.2.4 
+│ │   ├── symbol-tree@3.2.4 
+│ │   ├── webidl-conversions@4.0.2 
+│ │   ├─┬ whatwg-encoding@1.0.5 
+│ │   │ └── iconv-lite@0.4.24 
+│ │   ├─┬ whatwg-url@4.8.0 
+│ │   │ ├── tr46@0.0.3 
+│ │   │ └── webidl-conversions@3.0.1 
+│ │   └── xml-name-validator@2.0.1 
+│ ├── jest-file-exists@17.0.0 
+│ ├─┬ jest-haste-map@17.0.3 
+│ │ ├─┬ fb-watchman@1.9.2 
+│ │ │ └─┬ bser@1.0.2 
+│ │ │   └── node-int64@0.4.0 
+│ │ └─┬ multimatch@2.1.0 
+│ │   └── array-union@1.0.2 
+│ ├─┬ jest-jasmine2@17.0.3 
+│ │ └── jest-matchers@17.0.3 
+│ ├── jest-mock@17.0.2 
+│ ├── jest-resolve@17.0.3 
+│ ├── jest-resolve-dependencies@17.0.3 
+│ ├─┬ jest-runtime@17.0.3 
+│ │ └── json-stable-stringify@1.0.1 
+│ ├─┬ jest-snapshot@17.0.3 
+│ │ ├── jest-diff@17.0.3 
+│ │ ├── jest-matcher-utils@17.0.3 
+│ │ └── pretty-format@4.2.3 
+│ ├─┬ jest-util@17.0.2 
+│ │ └── diff@3.5.0 
+│ ├── json-stable-stringify@1.0.1 
+│ ├─┬ node-notifier@4.6.1 
+│ │ ├─┬ cli-usage@0.1.10 
+│ │ │ ├── marked@0.7.0 
+│ │ │ └─┬ marked-terminal@3.3.0 
+│ │ │   ├── ansi-escapes@3.2.0 
+│ │ │   ├─┬ cardinal@2.1.1 
+│ │ │   │ ├── ansicolors@0.3.2 
+│ │ │   │ └── redeyed@2.1.1 
+│ │ │   ├─┬ chalk@2.4.2 
+│ │ │   │ ├── ansi-styles@3.2.1 
+│ │ │   │ └── supports-color@5.5.0 
+│ │ │   ├─┬ cli-table@0.3.1 
+│ │ │   │ └── colors@1.0.3 
+│ │ │   ├─┬ node-emoji@1.10.0 
+│ │ │   │ └── lodash.toarray@4.4.0 
+│ │ │   └─┬ supports-hyperlinks@1.0.1 
+│ │ │     ├── has-flag@2.0.0 
+│ │ │     └─┬ supports-color@5.5.0 
+│ │ │       └── has-flag@3.0.0 
+│ │ ├── growly@1.3.0 
+│ │ ├─┬ lodash.clonedeep@3.0.2 
+│ │ │ ├─┬ lodash._baseclone@3.3.0 
+│ │ │ │ ├── lodash._arraycopy@3.0.0 
+│ │ │ │ ├── lodash._arrayeach@3.0.0 
+│ │ │ │ ├── lodash._baseassign@3.2.0 
+│ │ │ │ └── lodash._basefor@3.0.3 
+│ │ │ └── lodash._bindcallback@3.0.1 
+│ │ └── shellwords@0.1.1 
+│ ├─┬ sane@1.4.1 
+│ │ ├─┬ exec-sh@0.2.2 
+│ │ │ └── merge@1.2.1 
+│ │ ├─┬ walker@1.0.7 
+│ │ │ └─┬ makeerror@1.0.11 
+│ │ │   └── tmpl@1.0.4 
+│ │ └── watch@0.10.0 
+│ ├── strip-ansi@3.0.1 
+│ ├── throat@3.2.0 
+│ ├─┬ which@1.3.1 
+│ │ └── isexe@2.0.0 
+│ └── worker-farm@1.7.0 
+├─┬ less@2.7.3 
+│ ├─┬ errno@0.1.7 
+│ │ └── prr@1.0.1 
+│ ├── image-size@0.5.5 
+│ ├── mime@1.6.0 
+│ ├─┬ promise@7.3.1 
+│ │ └── asap@2.0.6 
+│ ├─┬ request@2.81.0 
+│ │ ├── aws-sign2@0.6.0 
+│ │ ├── aws4@1.10.0 
+│ │ ├── caseless@0.12.0 
+│ │ ├─┬ combined-stream@1.0.8 
+│ │ │ └── delayed-stream@1.0.0 
+│ │ ├── forever-agent@0.6.1 
+│ │ ├─┬ form-data@2.1.4 
+│ │ │ └── asynckit@0.4.0 
+│ │ ├─┬ har-validator@4.2.1 
+│ │ │ └── har-schema@1.0.5 
+│ │ ├─┬ hawk@3.1.3 
+│ │ │ ├── boom@2.10.1 
+│ │ │ ├── cryptiles@2.0.5 
+│ │ │ ├── hoek@2.16.3 
+│ │ │ └── sntp@1.0.9 
+│ │ ├─┬ http-signature@1.1.1 
+│ │ │ ├── assert-plus@0.2.0 
+│ │ │ ├─┬ jsprim@1.4.1 
+│ │ │ │ ├── assert-plus@1.0.0 
+│ │ │ │ ├── extsprintf@1.3.0 
+│ │ │ │ ├── json-schema@0.2.3 
+│ │ │ │ └─┬ verror@1.10.0 
+│ │ │ │   └── assert-plus@1.0.0 
+│ │ │ └─┬ sshpk@1.16.1 
+│ │ │   ├── asn1@0.2.4 
+│ │ │   ├── assert-plus@1.0.0 
+│ │ │   ├── bcrypt-pbkdf@1.0.2 
+│ │ │   ├─┬ dashdash@1.14.1 
+│ │ │   │ └── assert-plus@1.0.0 
+│ │ │   ├── ecc-jsbn@0.1.2 
+│ │ │   ├─┬ getpass@0.1.7 
+│ │ │   │ └── assert-plus@1.0.0 
+│ │ │   ├── jsbn@0.1.1 
+│ │ │   ├── safer-buffer@2.1.2 
+│ │ │   └── tweetnacl@0.14.5 
+│ │ ├── is-typedarray@1.0.0 
+│ │ ├── isstream@0.1.2 
+│ │ ├── json-stringify-safe@5.0.1 
+│ │ ├─┬ mime-types@2.1.27 
+│ │ │ └── mime-db@1.44.0 
+│ │ ├── oauth-sign@0.8.2 
+│ │ ├── performance-now@0.2.0 
+│ │ ├── qs@6.4.0 
+│ │ ├── stringstream@0.0.6 
+│ │ ├─┬ tough-cookie@2.3.4 
+│ │ │ └── punycode@1.4.1 
+│ │ └── tunnel-agent@0.6.0 
+│ └── source-map@0.5.7 
+├─┬ material-ui@0.16.7 
+│ ├─┬ inline-style-prefixer@2.0.5 
+│ │ ├── bowser@1.9.4 
+│ │ └── hyphenate-style-name@1.0.3 
+│ ├── keycode@2.2.0 
+│ ├── lodash.merge@4.6.2 
+│ ├── lodash.throttle@4.1.1 
+│ ├── react-addons-create-fragment@15.6.2 
+│ ├─┬ recompose@0.21.2 
+│ │ ├── change-emitter@0.1.6 
+│ │ └── hoist-non-react-statics@1.2.0 
+│ ├── simple-assign@0.1.0 
+│ └── warning@3.0.0 
+├─┬ md5@2.2.1 
+│ ├── charenc@0.0.2 
+│ ├── crypt@0.0.2 
+│ └── is-buffer@1.1.6 
+├─┬ prop-types@15.7.2 
+│ ├─┬ loose-envify@1.4.0 
+│ │ └── js-tokens@4.0.0 
+│ └── react-is@16.13.1 
+├─┬ query-string@4.3.4 
+│ └── strict-uri-encode@1.1.0 
+├─┬ UNMET PEER DEPENDENCY react@15.6.2
+│ ├── create-react-class@15.6.3 
+│ └─┬ fbjs@0.8.17 
+│   ├── core-js@1.2.7 
+│   ├─┬ isomorphic-fetch@2.2.1 
+│   │ ├─┬ node-fetch@1.7.3 
+│   │ │ ├─┬ encoding@0.1.13 
+│   │ │ │ └── iconv-lite@0.6.2 
+│   │ │ └── is-stream@1.1.0 
+│   │ └── whatwg-fetch@3.2.0 
+│   ├── setimmediate@1.0.5 
+│   └── ua-parser-js@0.7.21 
+├── react-addons-test-utils@15.6.2 
+├─┬ react-addons-transition-group@15.6.2 
+│ └─┬ react-transition-group@1.2.1 
+│   └── chain-function@1.0.1 
+├─┬ react-bootstrap@0.30.10 
+│ ├─┬ dom-helpers@3.4.0 
+│ │ └─┬ @babel/runtime@7.10.4 
+│ │   └── regenerator-runtime@0.13.5 
+│ ├── invariant@2.2.4 
+│ ├── react-overlays@0.6.12 
+│ ├── react-prop-types@0.4.0 
+│ └── uncontrollable@4.1.0 
+├── react-bootstrap-dialog@0.9.4 
+├─┬ react-bootstrap-typeahead@1.4.2 
+│ ├─┬ react-highlighter@0.4.3 
+│ │ └── blacklist@1.1.4 
+│ ├── react-input-autosize@1.2.0 
+│ ├── react-onclickoutside@5.11.1 
+│ └─┬ react-overlays@0.7.4 
+│   └─┬ prop-types-extra@1.1.1 
+│     └── warning@4.0.3 
+├── react-dom@15.6.2 
+├── react-event-listener@0.4.5 
+├── react-file-input@0.2.5 
+├── react-native-listener@1.1.0 
+├─┬ react-redux@4.4.10 
+│ └── hoist-non-react-statics@3.3.2 
+├─┬ react-select@1.3.0 
+│ └── react-input-autosize@2.2.2 
+├── react-tap-event-plugin@2.0.1 
+├── react-test-renderer@15.6.2 
+├─┬ redux@3.7.2 
+│ ├── lodash-es@4.17.15 
+│ └── symbol-observable@1.2.0 
+├── redux-thunk@2.3.0 
+├── reselect@2.5.4 
+├─┬ swagger-ui@3.28.0 
+│ ├─┬ @babel/runtime-corejs2@7.10.4 
+│ │ └── regenerator-runtime@0.13.5 
+│ ├── @braintree/sanitize-url@4.0.1 
+│ ├── @kyleshockey/object-assign-deep@0.4.2 
+│ ├─┬ @kyleshockey/xml@1.0.2 
+│ │ └─┬ stream@0.0.2 
+│ │   └── emitter-component@1.1.1 
+│ ├── base64-js@1.3.1 
+│ ├── css.escape@1.5.1 
+│ ├── deep-extend@0.6.0 
+│ ├── dompurify@2.0.12 
+│ ├── ieee754@1.1.13 
+│ ├── immutable@3.8.2 
+│ ├── js-file-download@0.4.12 
+│ ├─┬ memoizee@0.4.14 
+│ │ ├─┬ d@1.0.1 
+│ │ │ └── type@1.2.0 
+│ │ ├─┬ es5-ext@0.10.53 
+│ │ │ └── next-tick@1.0.0 
+│ │ ├── event-emitter@0.3.5 
+│ │ ├── is-promise@2.2.2 
+│ │ ├── lru-queue@0.1.0 
+│ │ ├── next-tick@1.1.0 
+│ │ └── timers-ext@0.1.7 
+│ ├── randombytes@2.1.0 
+│ ├─┬ react-copy-to-clipboard@5.0.1 
+│ │ └─┬ copy-to-clipboard@3.3.1 
+│ │   └── toggle-selection@1.0.6 
+│ ├─┬ react-debounce-input@3.2.2 
+│ │ └── lodash.debounce@4.0.8 
+│ ├── react-immutable-proptypes@2.1.0 
+│ ├─┬ react-immutable-pure-component@1.2.3 
+│ │ └─┬ @types/react@16.4.6 
+│ │   └── csstype@2.6.11 
+│ ├─┬ react-inspector@2.3.1 
+│ │ └─┬ is-dom@1.1.0 
+│ │   ├── is-object@1.0.1 
+│ │   └── is-window@1.0.2 
+│ ├─┬ react-motion@0.5.2 
+│ │ └─┬ raf@3.4.1 
+│ │   └── performance-now@2.1.0 
+│ ├── redux-immutable@3.1.0 
+│ ├─┬ remarkable@2.0.1 
+│ │ └─┬ autolinker@3.14.1 
+│ │   └── tslib@1.13.0 
+│ ├── reselect@4.0.0 
+│ ├── serialize-error@2.1.0 
+│ ├── sha.js@2.4.11 
+│ ├─┬ swagger-client@3.10.9 
+│ │ ├─┬ @babel/runtime-corejs2@7.10.2 
+│ │ │ └── regenerator-runtime@0.13.5 
+│ │ ├── btoa@1.2.1 
+│ │ ├── buffer@5.6.0 
+│ │ ├── cookie@0.4.1 
+│ │ ├─┬ cross-fetch@3.0.5 
+│ │ │ └── node-fetch@2.6.0 
+│ │ ├─┬ fast-json-patch@2.2.1 
+│ │ │ └── fast-deep-equal@2.0.1 
+│ │ ├─┬ isomorphic-form-data@2.0.0 
+│ │ │ └── form-data@2.5.1 
+│ │ ├── lodash@4.17.15 
+│ │ ├── qs@6.9.4 
+│ │ ├── querystring-browser@1.0.4 
+│ │ └── traverse@0.6.6 
+│ ├─┬ url-parse@1.4.7 
+│ │ ├── querystringify@2.1.1 
+│ │ └── requires-port@1.0.0 
+│ ├─┬ xml-but-prettier@1.0.1 
+│ │ └── repeat-string@1.6.1 
+│ └── zenscroll@4.0.2 
+├── uglifycss@0.0.27 
+├── underscore@1.10.2 
+├─┬ vinyl-buffer@1.0.1 
+│ └── bl@1.2.2 
+├─┬ vinyl-source-stream@1.1.2 
+│ └─┬ vinyl@0.4.6 
+│   └── clone@0.2.0 
+├─┬ watchify@3.11.1 
+│ ├─┬ anymatch@2.0.0 
+│ │ └─┬ micromatch@3.1.10 
+│ │   ├── arr-diff@4.0.0 
+│ │   ├── array-unique@0.3.2 
+│ │   ├─┬ braces@2.3.2 
+│ │   │ ├── extend-shallow@2.0.1 
+│ │   │ ├─┬ fill-range@4.0.0 
+│ │   │ │ ├── extend-shallow@2.0.1 
+│ │   │ │ └─┬ is-number@3.0.0 
+│ │   │ │   └── kind-of@3.2.2 
+│ │   │ └── isobject@3.0.1 
+│ │   ├─┬ define-property@2.0.2 
+│ │   │ ├─┬ is-descriptor@1.0.2 
+│ │   │ │ ├── is-accessor-descriptor@1.0.0 
+│ │   │ │ ├── is-data-descriptor@1.0.0 
+│ │   │ │ └── kind-of@6.0.3 
+│ │   │ └── isobject@3.0.1 
+│ │   ├─┬ extend-shallow@3.0.2 
+│ │   │ ├── assign-symbols@1.0.0 
+│ │   │ └── is-extendable@1.0.1 
+│ │   ├─┬ extglob@2.0.4 
+│ │   │ ├─┬ define-property@1.0.0 
+│ │   │ │ └─┬ is-descriptor@1.0.2 
+│ │   │ │   ├── is-accessor-descriptor@1.0.0 
+│ │   │ │   └── is-data-descriptor@1.0.0 
+│ │   │ ├─┬ expand-brackets@2.1.4 
+│ │   │ │ ├─┬ define-property@0.2.5 
+│ │   │ │ │ └─┬ is-descriptor@0.1.6 
+│ │   │ │ │   ├─┬ is-accessor-descriptor@0.1.6 
+│ │   │ │ │   │ └── kind-of@3.2.2 
+│ │   │ │ │   ├─┬ is-data-descriptor@0.1.4 
+│ │   │ │ │   │ └── kind-of@3.2.2 
+│ │   │ │ │   └── kind-of@5.1.0 
+│ │   │ │ ├── extend-shallow@2.0.1 
+│ │   │ │ └── posix-character-classes@0.1.1 
+│ │   │ └── extend-shallow@2.0.1 
+│ │   ├── fragment-cache@0.2.1 
+│ │   ├── kind-of@6.0.3 
+│ │   ├─┬ nanomatch@1.2.13 
+│ │   │ ├── arr-diff@4.0.0 
+│ │   │ ├── array-unique@0.3.2 
+│ │   │ ├── is-windows@1.0.2 
+│ │   │ └── kind-of@6.0.3 
+│ │   ├─┬ regex-not@1.0.2 
+│ │   │ └─┬ safe-regex@1.1.0 
+│ │   │   └── ret@0.1.15 
+│ │   ├─┬ snapdragon@0.8.2 
+│ │   │ ├─┬ base@0.11.2 
+│ │   │ │ ├─┬ cache-base@1.0.1 
+│ │   │ │ │ ├─┬ collection-visit@1.0.0 
+│ │   │ │ │ │ ├── map-visit@1.0.0 
+│ │   │ │ │ │ └─┬ object-visit@1.0.1 
+│ │   │ │ │ │   └── isobject@3.0.1 
+│ │   │ │ │ ├── get-value@2.0.6 
+│ │   │ │ │ ├─┬ has-value@1.0.0 
+│ │   │ │ │ │ ├─┬ has-values@1.0.0 
+│ │   │ │ │ │ │ ├─┬ is-number@3.0.0 
+│ │   │ │ │ │ │ │ └── kind-of@3.2.2 
+│ │   │ │ │ │ │ └── kind-of@4.0.0 
+│ │   │ │ │ │ └── isobject@3.0.1 
+│ │   │ │ │ ├── isobject@3.0.1 
+│ │   │ │ │ ├─┬ set-value@2.0.1 
+│ │   │ │ │ │ └── extend-shallow@2.0.1 
+│ │   │ │ │ ├── to-object-path@0.3.0 
+│ │   │ │ │ ├── union-value@1.0.1 
+│ │   │ │ │ └─┬ unset-value@1.0.0 
+│ │   │ │ │   ├─┬ has-value@0.3.1 
+│ │   │ │ │   │ ├── has-values@0.1.4 
+│ │   │ │ │   │ └── isobject@2.1.0 
+│ │   │ │ │   └── isobject@3.0.1 
+│ │   │ │ ├─┬ class-utils@0.3.6 
+│ │   │ │ │ ├── arr-union@3.1.0 
+│ │   │ │ │ ├── define-property@0.2.5 
+│ │   │ │ │ ├── isobject@3.0.1 
+│ │   │ │ │ └─┬ static-extend@0.1.2 
+│ │   │ │ │   ├── define-property@0.2.5 
+│ │   │ │ │   └─┬ object-copy@0.1.0 
+│ │   │ │ │     ├── copy-descriptor@0.1.1 
+│ │   │ │ │     └── define-property@0.2.5 
+│ │   │ │ ├── component-emitter@1.3.0 
+│ │   │ │ ├─┬ define-property@1.0.0 
+│ │   │ │ │ └─┬ is-descriptor@1.0.2 
+│ │   │ │ │   ├── is-accessor-descriptor@1.0.0 
+│ │   │ │ │   ├── is-data-descriptor@1.0.0 
+│ │   │ │ │   └── kind-of@6.0.3 
+│ │   │ │ ├── isobject@3.0.1 
+│ │   │ │ ├─┬ mixin-deep@1.3.2 
+│ │   │ │ │ └── is-extendable@1.0.1 
+│ │   │ │ └── pascalcase@0.1.1 
+│ │   │ ├─┬ define-property@0.2.5 
+│ │   │ │ └─┬ is-descriptor@0.1.6 
+│ │   │ │   ├── is-accessor-descriptor@0.1.6 
+│ │   │ │   ├── is-data-descriptor@0.1.4 
+│ │   │ │   └── kind-of@5.1.0 
+│ │   │ ├── extend-shallow@2.0.1 
+│ │   │ └── use@3.1.1 
+│ │   └── to-regex@3.0.2 
+│ ├─┬ browserify@16.5.1 
+│ │ ├─┬ browserify-zlib@0.2.0 
+│ │ │ └── pako@1.0.11 
+│ │ ├── buffer@5.2.1 
+│ │ ├── concat-stream@1.6.2 
+│ │ ├── domain-browser@1.2.0 
+│ │ ├── events@2.1.0 
+│ │ ├── https-browserify@1.0.0 
+│ │ ├── mkdirp-classic@0.5.3 
+│ │ ├─┬ module-deps@6.2.2 
+│ │ │ └── detective@5.2.0 
+│ │ ├── os-browserify@0.3.0 
+│ │ ├─┬ stream-http@3.1.1 
+│ │ │ └── readable-stream@3.6.0 
+│ │ ├── string_decoder@1.3.0 
+│ │ └── vm-browserify@1.1.2 
+│ ├─┬ chokidar@2.1.8 
+│ │ ├── async-each@1.0.3 
+│ │ ├─┬ braces@2.3.2 
+│ │ │ ├── array-unique@0.3.2 
+│ │ │ ├─┬ extend-shallow@2.0.1 
+│ │ │ │ └── is-extendable@0.1.1 
+│ │ │ ├─┬ fill-range@4.0.0 
+│ │ │ │ ├── is-number@3.0.0 
+│ │ │ │ └─┬ to-regex-range@2.1.1 
+│ │ │ │   └── is-number@3.0.0 
+│ │ │ ├── isobject@3.0.1 
+│ │ │ ├── repeat-element@1.1.3 
+│ │ │ ├─┬ snapdragon-node@2.1.1 
+│ │ │ │ ├─┬ define-property@1.0.0 
+│ │ │ │ │ └─┬ is-descriptor@1.0.2 
+│ │ │ │ │   ├── is-accessor-descriptor@1.0.0 
+│ │ │ │ │   ├── is-data-descriptor@1.0.0 
+│ │ │ │ │   └── kind-of@6.0.3 
+│ │ │ │ ├── isobject@3.0.1 
+│ │ │ │ └── snapdragon-util@3.0.1 
+│ │ │ └── split-string@3.1.0 
+│ │ ├─┬ glob-parent@3.1.0 
+│ │ │ ├── is-glob@3.1.0 
+│ │ │ └── path-dirname@1.0.2 
+│ │ ├─┬ is-binary-path@1.0.1 
+│ │ │ └── binary-extensions@1.13.1 
+│ │ ├─┬ is-glob@4.0.1 
+│ │ │ └── is-extglob@2.1.1 
+│ │ ├── normalize-path@3.0.0 
+│ │ ├─┬ readdirp@2.2.1 
+│ │ │ └─┬ micromatch@3.1.10 
+│ │ │   ├── arr-diff@4.0.0 
+│ │ │   ├── array-unique@0.3.2 
+│ │ │   ├─┬ braces@2.3.2 
+│ │ │   │ ├── extend-shallow@2.0.1 
+│ │ │   │ ├─┬ fill-range@4.0.0 
+│ │ │   │ │ ├── extend-shallow@2.0.1 
+│ │ │   │ │ └─┬ is-number@3.0.0 
+│ │ │   │ │   └── kind-of@3.2.2 
+│ │ │   │ └── isobject@3.0.1 
+│ │ │   ├─┬ extglob@2.0.4 
+│ │ │   │ ├─┬ define-property@1.0.0 
+│ │ │   │ │ └─┬ is-descriptor@1.0.2 
+│ │ │   │ │   ├── is-accessor-descriptor@1.0.0 
+│ │ │   │ │   └── is-data-descriptor@1.0.0 
+│ │ │   │ ├─┬ expand-brackets@2.1.4 
+│ │ │   │ │ ├─┬ define-property@0.2.5 
+│ │ │   │ │ │ └─┬ is-descriptor@0.1.6 
+│ │ │   │ │ │   ├─┬ is-accessor-descriptor@0.1.6 
+│ │ │   │ │ │   │ └── kind-of@3.2.2 
+│ │ │   │ │ │   ├─┬ is-data-descriptor@0.1.4 
+│ │ │   │ │ │   │ └── kind-of@3.2.2 
+│ │ │   │ │ │   └── kind-of@5.1.0 
+│ │ │   │ │ └── extend-shallow@2.0.1 
+│ │ │   │ └── extend-shallow@2.0.1 
+│ │ │   └── kind-of@6.0.3 
+│ │ └── upath@1.2.0 
+│ └── outpipe@1.1.1 
+└─┬ yargs@6.6.0 
+  ├── camelcase@3.0.0 
+  ├─┬ cliui@3.2.0 
+  │ └── wrap-ansi@2.1.0 
+  ├── decamelize@1.2.0 
+  ├── get-caller-file@1.0.3 
+  ├─┬ os-locale@1.4.0 
+  │ └─┬ lcid@1.0.0 
+  │   └── invert-kv@1.0.0 
+  ├─┬ read-pkg-up@1.0.1 
+  │ └─┬ read-pkg@1.1.0 
+  │   ├── load-json-file@1.1.0 
+  │   └── path-type@1.1.0 
+  ├── require-directory@2.1.1 
+  ├── require-main-filename@1.0.1 
+  ├── set-blocking@2.0.0 
+  ├─┬ string-width@1.0.2 
+  │ ├── code-point-at@1.1.0 
+  │ └─┬ is-fullwidth-code-point@1.0.0 
+  │   └── number-is-nan@1.0.1 
+  ├── which-module@1.0.0 
+  ├── y18n@3.2.1 
+  └─┬ yargs-parser@4.2.1 
+    └── camelcase@3.0.0 
+
+
+travis_time:end:089abb35:start=1594599174618749906,finish=1594599261555392242,duration=86936642336[0Ktravis_fold:end:install.7[0Ktravis_fold:start:before_script[0Ktravis_time:start:128c5941[0K$ ./ops/travis/travis-before.sh $JOB
+Setting up for unit tests...
+---> pavement.make
+---> pavement.javascript
+Combining and Compressing Javascript
+python do_compress.py js
+Compressing Main JavaScript...
+=> static/compiled/javascript/tba_combined_js.main.min.js
+
+Compressing Firebase Messaging Serviceworker JavaScript...
+=> static/compiled/javascript/firebase-messaging-sw.js
+
+Compressing GameDay JavaScript...
+=> static/compiled/javascript/tba_combined_js.gameday.min.js
+
+Compressing EventWizard JavaScript...
+=> static/compiled/javascript/tba_combined_js.eventwizard.min.js
+
+---> pavement.gulp
+Running 'gulp build'
+npm update && gulp build --production
+[00:14:29] Using gulpfile ~/build/failed/the-blue-alliance/the-blue-alliance/gulpfile.js
+[00:14:29] Starting 'gameday-js'...
+[00:14:29] Finished 'gameday-js' after 19 ms
+[00:14:29] Starting 'gameday-less'...
+[00:14:29] Finished 'gameday-less' after 9.27 ms
+[00:14:29] Starting 'apidocs-js'...
+[00:14:29] Finished 'apidocs-js' after 4.47 ms
+[00:14:29] Starting 'apidocs-less'...
+[00:14:29] Finished 'apidocs-less' after 2.53 ms
+[00:14:29] Starting 'eventwizard-js'...
+[00:14:29] Finished 'eventwizard-js' after 4 ms
+[00:14:29] Starting 'eventwizard-less'...
+[00:14:29] Finished 'eventwizard-less' after 858 μs
+[00:14:29] Starting 'build'...
+[00:14:29] Finished 'build' after 1.4 μs
+[00:14:30] gulp-debug: react/gameday2/gameday2.css
+[00:14:30] gulp-debug: 1 item
+[00:14:31] gulp-debug: react/apidocs/apidocs.css
+[00:14:31] gulp-debug: 1 item
+[00:14:31] gulp-debug: react/eventwizard/eventwizard.css
+[00:14:31] gulp-debug: 1 item
+[00:14:58] gulp-debug: gameday2.min.js.map
+[00:14:58] gulp-debug: gameday2.min.js
+[00:14:58] gulp-debug: 2 items
+[00:15:21] gulp-debug: apidocs.min.js.map
+[00:15:21] gulp-debug: apidocs.min.js
+[00:15:21] gulp-debug: 2 items
+[00:15:29] gulp-debug: eventwizard.min.js.map
+[00:15:29] gulp-debug: eventwizard.min.js
+[00:15:29] gulp-debug: 2 items
+---> pavement.less
+Building and Combining CSS
+lessc static/css/less_css/tba_style.main.less static/css/less_css/tba_style.main.css
+lessc static/css/less_css/tba_style.gameday.less static/css/less_css/tba_style.gameday.css
+python do_compress.py css
+Compressing Main CSS...
+=> static/compiled/css/tba_combined_style.main.min.css
+
+Compressing GameDay CSS...
+=> static/compiled/css/tba_combined_style.gameday.min.css
+
+---> pavement.jinja2
+python compile_jinja2_templates.py
+
+
+Captured Task Output:
+---------------------
+
+---> pavement.make
+---> pavement.javascript
+python do_compress.py js
+---> pavement.gulp
+npm update && gulp build --production
+---> pavement.less
+lessc static/css/less_css/tba_style.main.less static/css/less_css/tba_style.main.css
+lessc static/css/less_css/tba_style.gameday.less static/css/less_css/tba_style.gameday.css
+python do_compress.py css
+---> pavement.jinja2
+python compile_jinja2_templates.py
+
+Build failed running pavement.make: Subprocess return code: 1
+
+travis_time:end:128c5941:start=1594599261565634181,finish=1594599333049061345,duration=71483427164[0K
+[31;1mThe command "./ops/travis/travis-before.sh $JOB" failed and exited with 1 during .[0m
+
+Your build has been stopped.

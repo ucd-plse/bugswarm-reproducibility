@@ -1,0 +1,278 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd failed/NMGRL/pychron
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CYTHON=0.20
+$ export PATSY=0.2
+$ export PANDAS=0.12
+$ export COVERAGE=false
+$ export PYTHON=2.7
+
+travis_time:start:04182b60[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:04182b60:start=1592032219805962442,finish=1592032219815448931,duration=9486489[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install.1[0Ktravis_time:start:05cae03c[0K$ wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
+
+travis_time:end:05cae03c:start=1592032220931278738,finish=1592032221784913807,duration=853635069[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:083e5501[0K$ chmod +x miniconda.sh
+
+travis_time:end:083e5501:start=1592032221795646163,finish=1592032221805452873,duration=9806710[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:127c763e[0K$ ./miniconda.sh -b
+PREFIX=/home/travis/miniconda2
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/travis/miniconda2
+
+  added / updated specs:
+    - _libgcc_mutex==0.1=main
+    - asn1crypto==1.2.0=py27_0
+    - ca-certificates==2019.10.16=0
+    - certifi==2019.9.11=py27_0
+    - cffi==1.13.0=py27h2e261b9_0
+    - chardet==3.0.4=py27_1003
+    - conda-package-handling==1.6.0=py27h7b6447c_0
+    - conda==4.7.12=py27_0
+    - cryptography==2.8=py27h1ba5d50_0
+    - enum34==1.1.6=py27_1
+    - futures==3.3.0=py27_0
+    - idna==2.8=py27_0
+    - ipaddress==1.0.23=py_0
+    - libedit==3.1.20181209=hc058e9b_0
+    - libffi==3.2.1=hd88cf55_4
+    - libgcc-ng==9.1.0=hdf63c60_0
+    - libstdcxx-ng==9.1.0=hdf63c60_0
+    - ncurses==6.1=he6710b0_1
+    - openssl==1.1.1d=h7b6447c_3
+    - pip==19.3.1=py27_0
+    - pycosat==0.6.3=py27h14c3975_0
+    - pycparser==2.19=py27_0
+    - pyopenssl==19.0.0=py27_0
+    - pysocks==1.7.1=py27_0
+    - python==2.7.17=h9bab390_0
+    - readline==7.0=h7b6447c_5
+    - requests==2.22.0=py27_0
+    - ruamel_yaml==0.15.46=py27h14c3975_0
+    - setuptools==41.4.0=py27_0
+    - six==1.12.0=py27_0
+    - sqlite==3.30.0=h7b6447c_0
+    - tk==8.6.8=hbc83047_0
+    - tqdm==4.36.1=py_0
+    - urllib3==1.24.2=py27_0
+    - wheel==0.33.6=py27_0
+    - yaml==0.1.7=had09818_2
+    - zlib==1.2.11=h7b6447c_3
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  asn1crypto         pkgs/main/linux-64::asn1crypto-1.2.0-py27_0
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2019.10.16-0
+  certifi            pkgs/main/linux-64::certifi-2019.9.11-py27_0
+  cffi               pkgs/main/linux-64::cffi-1.13.0-py27h2e261b9_0
+  chardet            pkgs/main/linux-64::chardet-3.0.4-py27_1003
+  conda              pkgs/main/linux-64::conda-4.7.12-py27_0
+  conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.6.0-py27h7b6447c_0
+  cryptography       pkgs/main/linux-64::cryptography-2.8-py27h1ba5d50_0
+  enum34             pkgs/main/linux-64::enum34-1.1.6-py27_1
+  futures            pkgs/main/linux-64::futures-3.3.0-py27_0
+  idna               pkgs/main/linux-64::idna-2.8-py27_0
+  ipaddress          pkgs/main/noarch::ipaddress-1.0.23-py_0
+  libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
+  libffi             pkgs/main/linux-64::libffi-3.2.1-hd88cf55_4
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+  ncurses            pkgs/main/linux-64::ncurses-6.1-he6710b0_1
+  openssl            pkgs/main/linux-64::openssl-1.1.1d-h7b6447c_3
+  pip                pkgs/main/linux-64::pip-19.3.1-py27_0
+  pycosat            pkgs/main/linux-64::pycosat-0.6.3-py27h14c3975_0
+  pycparser          pkgs/main/linux-64::pycparser-2.19-py27_0
+  pyopenssl          pkgs/main/linux-64::pyopenssl-19.0.0-py27_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py27_0
+  python             pkgs/main/linux-64::python-2.7.17-h9bab390_0
+  readline           pkgs/main/linux-64::readline-7.0-h7b6447c_5
+  requests           pkgs/main/linux-64::requests-2.22.0-py27_0
+  ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.46-py27h14c3975_0
+  setuptools         pkgs/main/linux-64::setuptools-41.4.0-py27_0
+  six                pkgs/main/linux-64::six-1.12.0-py27_0
+  sqlite             pkgs/main/linux-64::sqlite-3.30.0-h7b6447c_0
+  tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
+  tqdm               pkgs/main/noarch::tqdm-4.36.1-py_0
+  urllib3            pkgs/main/linux-64::urllib3-1.24.2-py27_0
+  wheel              pkgs/main/linux-64::wheel-0.33.6-py27_0
+  yaml               pkgs/main/linux-64::yaml-0.1.7-had09818_2
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+Preparing transaction: ...working... done
+Executing transaction: ...working... done
+installation finished.
+
+travis_time:end:127c763e:start=1592032221815231130,finish=1592032239212519800,duration=17397288670[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:0a0b7380[0K$ export PATH=/home/travis/miniconda2/bin:$PATH
+
+travis_time:end:0a0b7380:start=1592032239223186143,finish=1592032239230979193,duration=7793050[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:047cae8e[0K$ conda update --yes --quiet conda
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/travis/miniconda2
+
+  added / updated specs:
+    - conda
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    asn1crypto-1.3.0           |           py27_0         164 KB
+    ca-certificates-2020.1.1   |                0         125 KB
+    certifi-2019.11.28         |           py27_0         153 KB
+    cffi-1.14.0                |   py27he30daa8_1         221 KB
+    conda-4.8.3                |           py27_0         2.8 MB
+    libffi-3.3                 |       he6710b0_1          50 KB
+    ncurses-6.2                |       he6710b0_1         817 KB
+    openssl-1.1.1g             |       h7b6447c_0         2.5 MB
+    pycosat-0.6.3              |   py27h7b6447c_0          81 KB
+    pycparser-2.20             |             py_0          92 KB
+    pyopenssl-19.1.0           |           py27_0          86 KB
+    requests-2.22.0            |           py27_1          92 KB
+    ruamel_yaml-0.15.87        |   py27h7b6447c_0         249 KB
+    six-1.15.0                 |             py_0          13 KB
+    sqlite-3.31.1              |       h62c20be_1         1.1 MB
+    tqdm-4.46.0                |             py_0          60 KB
+    ------------------------------------------------------------
+                                           Total:         8.6 MB
+
+The following packages will be REMOVED:
+
+  pip-19.3.1-py27_0
+  wheel-0.33.6-py27_0
+
+The following packages will be UPDATED:
+
+  asn1crypto                                   1.2.0-py27_0 --> 1.3.0-py27_0
+  ca-certificates                              2019.10.16-0 --> 2020.1.1-0
+  certifi                                  2019.9.11-py27_0 --> 2019.11.28-py27_0
+  cffi                                1.13.0-py27h2e261b9_0 --> 1.14.0-py27he30daa8_1
+  conda                                       4.7.12-py27_0 --> 4.8.3-py27_0
+  libffi                                   3.2.1-hd88cf55_4 --> 3.3-he6710b0_1
+  ncurses                                    6.1-he6710b0_1 --> 6.2-he6710b0_1
+  openssl                                 1.1.1d-h7b6447c_3 --> 1.1.1g-h7b6447c_0
+  pycparser          pkgs/main/linux-64::pycparser-2.19-py~ --> pkgs/main/noarch::pycparser-2.20-py_0
+  pyopenssl                                   19.0.0-py27_0 --> 19.1.0-py27_0
+  requests                                    2.22.0-py27_0 --> 2.22.0-py27_1
+  ruamel_yaml                        0.15.46-py27h14c3975_0 --> 0.15.87-py27h7b6447c_0
+  six                 pkgs/main/linux-64::six-1.12.0-py27_0 --> pkgs/main/noarch::six-1.15.0-py_0
+  sqlite                                  3.30.0-h7b6447c_0 --> 3.31.1-h62c20be_1
+  tqdm                                          4.36.1-py_0 --> 4.46.0-py_0
+
+The following packages will be DOWNGRADED:
+
+  pycosat                              0.6.3-py27h14c3975_0 --> 0.6.3-py27h7b6447c_0
+
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+travis_time:end:047cae8e:start=1592032239240283395,finish=1592032263559381996,duration=24319098601[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:1895b18c[0K$ export DISPLAY=:99.0
+
+travis_time:end:1895b18c:start=1592032263570564673,finish=1592032263579474143,duration=8909470[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:003dfdbe[0K$ sh -e /etc/init.d/xvfb start
+Starting virtual X frame buffer: Xvfb.
+
+travis_time:end:003dfdbe:start=1592032263590346962,finish=1592032263603285166,duration=12938204[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:1336af6e[0K$ PKGS="python=${PYTHON}"
+
+travis_time:end:1336af6e:start=1592032263613074863,finish=1592032263621436382,duration=8361519[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:1bd09f4c[0K$ PKGS="${PKGS} numpy"; if [ ${NUMPY} ]; then PKGS="${PKGS}=${NUMPY}"; fi
+
+travis_time:end:1bd09f4c:start=1592032263632495298,finish=1592032263641195165,duration=8699867[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:00c84c40[0K$ PKGS="${PKGS} scipy"; if [ ${SCIPY} ]; then PKGS="${PKGS}=${SCIPY}"; fi
+
+travis_time:end:00c84c40:start=1592032263652240607,finish=1592032263661578440,duration=9337833[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:0c379d56[0K$ PKGS="${PKGS} patsy"; if [ ${PATSY} ]; then PKGS="${PKGS}=${PATSY}"; fi
+
+travis_time:end:0c379d56:start=1592032263672631478,finish=1592032263679774426,duration=7142948[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:1f4f7bfc[0K$ PKGS="${PKGS} pandas"; if [ ${PANDAS} ]; then PKGS="${PKGS}=${PANDAS}"; fi
+
+travis_time:end:1f4f7bfc:start=1592032263687861894,finish=1592032263695981594,duration=8119700[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:0135d128[0K$ PKGS="${PKGS} Cython"; if [ ${CYTHON} ]; then PKGS="${PKGS}=${CYTHON}"; fi
+
+travis_time:end:0135d128:start=1592032263706260560,finish=1592032263714223367,duration=7962807[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:028aadf8[0K$ PKGS="${PKGS} pip";
+
+travis_time:end:028aadf8:start=1592032263723086477,finish=1592032263730298288,duration=7211811[0Ktravis_fold:end:before_install.14[0Ktravis_fold:start:install.1[0Ktravis_time:start:17de2e80[0K$ conda create --yes --quiet -n pychron-test ${PKGS} ${OPTIONAL}
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... failed with repodata from current_repodata.json, will retry with next repodata source.
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... failed
+
+travis_time:end:17de2e80:start=1592032263740114824,finish=1592032279113400598,duration=15373285774[0K
+[31;1mThe command "conda create --yes --quiet -n pychron-test ${PKGS} ${OPTIONAL}" failed and exited with 1 during .[0m
+
+Your build has been stopped.

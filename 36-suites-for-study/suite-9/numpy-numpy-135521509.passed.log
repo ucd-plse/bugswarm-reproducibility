@@ -1,0 +1,926 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd passed/numpy/numpy
+travis_fold:start:git.submodule[0Ktravis_time:start:0cc679ba[0K$ git submodule update --init --recursive
+Submodule 'doc/scipy-sphinx-theme' (https://github.com/scipy/scipy-sphinx-theme.git) registered for path 'doc/scipy-sphinx-theme'
+Submodule 'doc/sphinxext' (https://github.com/numpy/numpydoc.git) registered for path 'doc/sphinxext'
+Submodule path 'doc/scipy-sphinx-theme': checked out 'c466764e2231ba132c09826b5b138fffa1cfcec3'
+Submodule path 'doc/sphinxext': checked out 'ef988a4a4658c991f4445f6241ab02d74710c6e3'
+
+travis_time:end:0cc679ba:start=1594500342347760528,finish=1594500345353625229,duration=3005864701[0Ktravis_fold:end:git.submodule[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:065f28ef[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:065f28ef:start=1594500345366913589,finish=1594500350133762935,duration=4766849346[0Ktravis_time:start:024d9ee4[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install gfortran libatlas-dev libatlas-base-dev eatmydata
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  gfortran-4.6 libatlas3gf-base libblas-dev
+Suggested packages:
+  gfortran-multilib gfortran-doc gfortran-4.6-multilib gfortran-4.6-doc
+  libgfortran3-dbg libblas-doc liblapack-doc liblapack-dev
+The following NEW packages will be installed:
+  eatmydata gfortran gfortran-4.6 libatlas-base-dev libatlas-dev
+  libatlas3gf-base libblas-dev
+0 upgraded, 7 newly installed, 0 to remove and 238 not upgraded.
+Need to get 19.6 MB of archives.
+After this operation, 68.4 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/universe eatmydata amd64 26-2 [8,034 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran-4.6 amd64 4.6.3-1ubuntu5 [5,579 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran amd64 4:4.6.3-1ubuntu5 [1,206 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas3gf-base amd64 3.8.4-3build1 [6,191 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ precise/main libblas-dev amd64 1.2.20110419-2ubuntu1 [302 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-dev all 3.8.4-3build1 [13.6 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-base-dev amd64 3.8.4-3build1 [7,461 kB]
+Fetched 19.6 MB in 1s (15.2 MB/s)
+Selecting previously unselected package eatmydata.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking eatmydata (from .../eatmydata_26-2_amd64.deb) ...
+Selecting previously unselected package gfortran-4.6.
+Unpacking gfortran-4.6 (from .../gfortran-4.6_4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package gfortran.
+Unpacking gfortran (from .../gfortran_4%3a4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package libatlas3gf-base.
+Unpacking libatlas3gf-base (from .../libatlas3gf-base_3.8.4-3build1_amd64.deb) ...
+Selecting previously unselected package libblas-dev.
+Unpacking libblas-dev (from .../libblas-dev_1.2.20110419-2ubuntu1_amd64.deb) ...
+Selecting previously unselected package libatlas-dev.
+Unpacking libatlas-dev (from .../libatlas-dev_3.8.4-3build1_all.deb) ...
+Selecting previously unselected package libatlas-base-dev.
+Unpacking libatlas-base-dev (from .../libatlas-base-dev_3.8.4-3build1_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ccache ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up eatmydata (26-2) ...
+Setting up gfortran-4.6 (4.6.3-1ubuntu5) ...
+Setting up gfortran (4:4.6.3-1ubuntu5) ...
+update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f95 (f95) in auto mode.
+Setting up libatlas3gf-base (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so.3gf to provide /usr/lib/libblas.so.3gf (libblas.so.3gf) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so.3gf to provide /usr/lib/liblapack.so.3gf (liblapack.so.3gf) in auto mode.
+Setting up libblas-dev (1.2.20110419-2ubuntu1) ...
+update-alternatives: using /usr/lib/libblas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+Setting up libatlas-dev (3.8.4-3build1) ...
+Setting up libatlas-base-dev (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so to provide /usr/lib/liblapack.so (liblapack.so) in auto mode.
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:024d9ee4:start=1594500350143217053,finish=1594500357810957515,duration=7667740462[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export WHEELHOUSE_UPLOADER_USERNAME=travis.numpy
+$ export PYTHONOPTIMIZE=2
+$ export USE_ASV=1
+
+travis_time:start:09dfefd1[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:09dfefd1:start=1594500357911572462,finish=1594500357921204678,duration=9632216[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0592e6c1[0K$ Installing caching utilities
+
+travis_time:end:0592e6c1:start=1594500358321462801,finish=1594500358383592057,duration=62129256[0Ktravis_time:start:1450a4c3[0K
+travis_time:end:1450a4c3:start=1594500358396065016,finish=1594500358404208190,duration=8143174[0Ktravis_time:start:142d9d1c[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:142d9d1c:start=1594500358413707225,finish=1594500359163170342,duration=749463117[0Ktravis_time:start:053a0c7d[0K
+travis_time:end:053a0c7d:start=1594500359172653033,finish=1594500359180011409,duration=7358376[0Ktravis_time:start:2352b8b9[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:2352b8b9:start=1594500359188830457,finish=1594500359930980661,duration=742150204[0Ktravis_fold:end:cache.1[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install.1[0Ktravis_time:start:039cbfe1[0K$ uname -a
+Linux 4204daff2432 4.15.0-109-generic #110-Ubuntu SMP Tue Jun 23 02:39:32 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+travis_time:end:039cbfe1:start=1594500360597268775,finish=1594500360607790212,duration=10521437[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:02cf08f8[0K$ free -m
+             total       used       free     shared    buffers     cached
+Mem:        192081     113031      79049          0       1188      63486
+-/+ buffers/cache:      48356     143724
+Swap:        65982          1      65981
+
+travis_time:end:02cf08f8:start=1594500360618442536,finish=1594500360627690511,duration=9247975[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:064a76e4[0K$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          91T  4.9T   87T   6% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            94G     0   94G   0% /sys/fs/cgroup
+/dev/sda         91T  4.9T   87T   6% /etc/resolv.conf
+/dev/sda         91T  4.9T   87T   6% /etc/hostname
+/dev/sda         91T  4.9T   87T   6% /etc/hosts
+shm              64M     0   64M   0% /dev/shm
+tmpfs            94G     0   94G   0% /proc/acpi
+tmpfs            64M     0   64M   0% /proc/kcore
+tmpfs            64M     0   64M   0% /proc/keys
+tmpfs            64M     0   64M   0% /proc/timer_list
+tmpfs            64M     0   64M   0% /proc/sched_debug
+tmpfs            94G     0   94G   0% /proc/scsi
+tmpfs            94G     0   94G   0% /sys/firmware
+
+travis_time:end:064a76e4:start=1594500360636754823,finish=1594500360645989197,duration=9234374[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:0cce1080[0K$ ulimit -a
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 767649
+max locked memory       (kbytes, -l) 16384
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1048576
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+travis_time:end:0cce1080:start=1594500360655023186,finish=1594500360662054381,duration=7031195[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:1ec94191[0K$ mkdir builds
+
+travis_time:end:1ec94191:start=1594500360671024031,finish=1594500360680129474,duration=9105443[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:030f6834[0K$ pushd builds
+~/build/passed/numpy/numpy/builds ~/build/passed/numpy/numpy
+
+travis_time:end:030f6834:start=1594500360691198509,finish=1594500360698958039,duration=7759530[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:063df440[0K$ pip install -U 'virtualenv==14.0.6'
+Collecting virtualenv==14.0.6
+  Downloading https://files.pythonhosted.org/packages/39/62/159f60c93e7cf4f88730ec6ee7f23fec4e8f374c133502da18ef1e1420cb/virtualenv-14.0.6-py2.py3-none-any.whl (1.8MB)
+Installing collected packages: virtualenv
+
+Successfully installed virtualenv-14.0.6
+
+travis_time:end:063df440:start=1594500360709638019,finish=1594500361766527896,duration=1056889877[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:1ca68a60[0K$ virtualenv --python=python venv
+Already using interpreter /home/travis/virtualenv/python2.7.9/bin/python
+Using real prefix '/opt/python/2.7.9'
+New python executable in /home/travis/build/passed/numpy/numpy/builds/venv/bin/python
+Installing setuptools, pip, wheel...done.
+
+travis_time:end:1ca68a60:start=1594500361775978559,finish=1594500365430321427,duration=3654342868[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:0fd51c70[0K$ source venv/bin/activate
+
+travis_time:end:0fd51c70:start=1594500365440035884,finish=1594500365449097131,duration=9061247[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:16976520[0K$ python -V
+
+travis_time:end:16976520:start=1594500365460078125,finish=1594500365472382862,duration=12304737[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:14111cbe[0K$ pip install --upgrade pip==8.1.2 setuptools==22.0.5
+Collecting pip==8.1.2
+  Downloading pip-8.1.2-py2.py3-none-any.whl (1.2 MB)
+Collecting setuptools==22.0.5
+  Downloading setuptools-22.0.5-py2.py3-none-any.whl (510 kB)
+Installing collected packages: pip, setuptools
+  Attempting uninstall: pip
+    Found existing installation: pip 20.2b1
+    Uninstalling pip-20.2b1:
+      Successfully uninstalled pip-20.2b1
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 45.0.0
+    Uninstalling setuptools-45.0.0:
+      Successfully uninstalled setuptools-45.0.0
+Successfully installed pip-8.1.2 setuptools-22.0.5
+
+travis_time:end:14111cbe:start=1594500365482584615,finish=1594500370381653063,duration=4899068448[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:1383585c[0K$ pip install nose==1.3.7 pytz==2016.4 cython==0.24
+Collecting nose==1.3.7
+  Downloading https://files.pythonhosted.org/packages/99/4f/13fb671119e65c4dce97c60e67d3fd9e6f7f809f2b307e2611f4701205cb/nose-1.3.7-py2-none-any.whl (154kB)
+Collecting pytz==2016.4
+  Downloading https://files.pythonhosted.org/packages/ae/cf/a7442138ad899a7587489641a8923f1e640cafc2d6ffe4e79e5d15cc5b3e/pytz-2016.4-py2.py3-none-any.whl (480kB)
+Collecting cython==0.24
+  Downloading https://files.pythonhosted.org/packages/05/fc/2549f0ceebcb821ade31552f7393c34214ea7b2bbaafb9eedc38857b5d27/Cython-0.24-cp27-cp27mu-manylinux1_x86_64.whl (5.9MB)
+Installing collected packages: nose, pytz, cython
+Successfully installed cython-0.24 nose-1.3.7 pytz-2016.4
+
+travis_time:end:1383585c:start=1594500370392216864,finish=1594500373880412965,duration=3488196101[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:227193e0[0K$ if [ -n "$USE_ASV" ]; then pip install asv==0.1.1; fi
+Collecting asv==0.1.1
+  Downloading https://files.pythonhosted.org/packages/d1/ee/54f78695ebf20a7c230882fbaad91a343559346bb0e9109e5d8cb7da81af/asv-0.1.1.tar.gz (153kB)
+Collecting six>=1.4 (from asv==0.1.1)
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Building wheels for collected packages: asv
+  Running setup.py bdist_wheel for asv: started
+  Running setup.py bdist_wheel for asv: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/7e/5a/fb/b30878c793ca9db69a72fded8289c0789915e3f2cd52d4bce1
+Successfully built asv
+Installing collected packages: six, asv
+Successfully installed asv-0.1.1 six-1.15.0
+
+travis_time:end:227193e0:start=1594500373891635306,finish=1594500375503114818,duration=1611479512[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:02c44a94[0K$ popd
+~/build/passed/numpy/numpy
+
+travis_time:end:02c44a94:start=1594500375514217397,finish=1594500375522634103,duration=8416706[0Ktravis_fold:end:before_install.14[0KCould not locate requirements.txt. Override the install: key in your .travis.yml to install dependencies.
+travis_time:start:0b350b60[0K$ ./tools/travis-test.sh
+Requirement already satisfied (use --upgrade to upgrade): setuptools in ./builds/venv/lib/python2.7/site-packages
+Processing /home/travis/build/passed/numpy/numpy
+Installing collected packages: numpy
+  Running setup.py install for numpy: started
+    Running setup.py install for numpy: still running...
+    Running setup.py install for numpy: finished with status 'done'
+Successfully installed numpy-1.12.0.dev0+fe2f15e
+Running unit tests for numpy
+NumPy version 1.12.0.dev0+fe2f15e
+NumPy relaxed strides checking option: True
+NumPy is installed in /home/travis/build/passed/numpy/numpy/builds/venv/lib/python2.7/site-packages/numpy
+Python version 2.7.9 (default, Feb  5 2015, 15:48:42) [GCC 4.6.3]
+nose version 1.3.7
+~/build/passed/numpy/numpy/benchmarks ~/build/passed/numpy/numpy/empty
+· No information stored about machine '4204daff2432'. I know about nothing.
+            
+
+· Discovering benchmarks
+· Running 113 total benchmarks (1 commits * 1 environments * 113 benchmarks)
+[  0.00%] ·· Building for /home/travis/build/passed/numpy/numpy/builds/venv/bin/python
+[  0.00%] ·· Benchmarking /home/travis/build/passed/numpy/numpy/builds/venv/bin/python
+[  0.88%] ··· Running bench_app.LaplaceInplace.time_it                        ok
+[  0.88%] ···· 
+               ========= ==========
+                 update            
+               --------- ----------
+                inplace   225.87ms 
+                 normal   236.06ms 
+               ========= ==========
+
+[  1.77%] ··· Running bench_app.MaxesOfDots.time_it                      23.01ms
+[  2.65%] ··· Running bench_core.Core.time_arange_100                   882.36ns
+[  3.54%] ··· Running bench_core.Core.time_array_1                      425.84ns
+[  4.42%] ··· Running bench_core.Core.time_array_empty                  646.38ns
+[  5.31%] ··· Running bench_core.Core.time_array_l                        1.89μs
+[  6.19%] ··· Running bench_core.Core.time_array_l1                     792.44ns
+[  7.08%] ··· Running bench_core.Core.time_array_l100                     5.57μs
+[  7.96%] ··· Running bench_core.Core.time_diag_l100                     12.28μs
+[  8.85%] ··· Running bench_core.Core.time_diagflat_l100                 16.86μs
+[  9.73%] ··· Running bench_core.Core.time_diagflat_l50_l50              17.35μs
+[ 10.62%] ··· Running bench_core.Core.time_dstack_l                       6.76μs
+[ 11.50%] ··· Running bench_core.Core.time_empty_100                    920.40ns
+[ 12.39%] ··· Running bench_core.Core.time_eye_100                        6.22μs
+[ 13.27%] ··· Running bench_core.Core.time_eye_3000                       5.78ms
+[ 14.16%] ··· Running bench_core.Core.time_hstack_l                       4.90μs
+[ 15.04%] ··· Running bench_core.Core.time_identity_100                   8.57μs
+[ 15.93%] ··· Running bench_core.Core.time_identity_3000                  6.53ms
+[ 16.81%] ··· Running bench_core.Core.time_ones_100                       1.78μs
+[ 17.70%] ··· Running bench_core.Core.time_tril_l10x10                   11.15μs
+[ 18.58%] ··· Running bench_core.Core.time_triu_l10x10                   12.42μs
+[ 19.47%] ··· Running bench_core.Core.time_vstack_l                       6.73μs
+[ 20.35%] ··· Running bench_core.Core.time_zeros_100                    729.12ns
+[ 21.24%] ··· Running bench_core.CorrConv.time_convolve                       ok
+[ 21.24%] ···· 
+               ========== ========= ========== ========== ==========
+               --                                 mode              
+               -------------------- --------------------------------
+                 size1      size2     valid       same       full   
+               ========== ========= ========== ========== ==========
+                   50         10      4.47μs     3.92μs     3.92μs  
+                   50        100      6.63μs     9.05μs    10.52μs  
+                   50        1000    67.62μs    84.14μs    68.52μs  
+                   50      10000.0   597.16μs   810.83μs   797.16μs 
+                  1000        10      7.92μs     9.69μs     8.26μs  
+                  1000       100     119.59μs   131.39μs   136.88μs 
+                  1000       1000     5.28μs     1.04ms     1.37ms  
+                  1000     10000.0   12.36ms    13.52ms    13.69ms  
+                100000.0      10     540.18μs   454.28μs   594.16μs 
+                100000.0     100     13.05ms    12.64ms    13.09ms  
+                100000.0     1000    136.42ms   139.36ms   139.29ms 
+                100000.0   10000.0    1.26s      1.46s      1.45s   
+               ========== ========= ========== ========== ==========
+
+[ 21.24%] ····· 
+                
+                For parameters: 50, 10000.0, 'valid'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 50, 10000.0, 'same'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 50, 10000.0, 'full'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 1000, 10000.0, 'valid'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 1000, 10000.0, 'same'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 1000, 10000.0, 'full'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 100000.0, 10, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 10, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 10, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 100, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 100, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 100, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 1000, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 1000, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 1000, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 10000.0, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 100000.0, 10000.0, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 100000.0, 10000.0, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+
+[ 22.12%] ··· Running bench_core.CorrConv.time_correlate                      ok
+[ 22.12%] ···· 
+               ========== ========= ========== ========== ==========
+               --                                 mode              
+               -------------------- --------------------------------
+                 size1      size2     valid       same       full   
+               ========== ========= ========== ========== ==========
+                   50         10      2.02μs     2.96μs     2.80μs  
+                   50        100      5.03μs     8.01μs     9.95μs  
+                   50        1000    79.46μs    68.41μs    70.89μs  
+                   50      10000.0   669.24μs   684.95μs   874.55μs 
+                  1000        10      6.52μs     8.76μs     8.11μs  
+                  1000       100     120.73μs   128.26μs   133.99μs 
+                  1000       1000     3.39μs     1.05ms     1.37ms  
+                  1000     10000.0   12.82ms    13.43ms    13.82ms  
+                100000.0      10     587.53μs   586.06μs   526.35μs 
+                100000.0     100     12.86ms    13.72ms    12.92ms  
+                100000.0     1000    136.37ms   135.92ms   136.43ms 
+                100000.0   10000.0    1.26s      1.43s      1.44s   
+               ========== ========= ========== ========== ==========
+
+[ 22.12%] ····· 
+                
+                For parameters: 50, 10000.0, 'valid'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 50, 10000.0, 'same'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 50, 10000.0, 'full'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 1000, 10000.0, 'valid'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 1000, 10000.0, 'same'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 1000, 10000.0, 'full'
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 100000.0, 10, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 10, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 10, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 100, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 100, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 100, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 1000, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 1000, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 1000, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                
+                For parameters: 100000.0, 10000.0, 'valid'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 100000.0, 10000.0, 'same'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+                
+                For parameters: 100000.0, 10000.0, 'full'
+                benchmarks/bench_core.py:101: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x1 = np.linspace(0, 1, num=size1)
+                benchmarks/bench_core.py:102: DeprecationWarning: object of type <type 'float'> cannot be safely interpreted as an integer.
+                  self.x2 = np.cos(np.linspace(0, 2*np.pi, num=size2))
+
+[ 23.01%] ··· Running bench_core.MA.time_masked_array                    28.29μs
+[ 23.89%] ··· Running bench_core.MA.time_masked_array_l100              488.50μs
+[ 24.78%] ··· Running bench_core.MA.time_masked_array_l100_t100          41.47μs
+[ 25.66%] ··· Running bench_function_base.Bincount.time_bincount        393.85μs
+[ 26.55%] ··· Running bench_function_base.Bincount.time_weights         314.61μs
+[ 27.43%] ··· Running bench_function_base.Median.time_even               58.04μs
+[ 28.32%] ··· Running bench_function_base.Median.time_even_inplace       40.41μs
+[ 29.20%] ··· Running bench_function_base.Median.time_even_small         26.01μs
+[ 30.09%] ··· Running bench_function_base.Median.time_odd                40.93μs
+[ 30.97%] ··· Running bench_function_base.Median.time_odd_inplace        45.96μs
+[ 31.86%] ··· Running bench_function_base.Median.time_odd_small          35.94μs
+[ 32.74%] ··· Running bench_function_base.Percentile.time_percentile     70.11μs
+[ 33.63%] ··· Running bench_function_base.Percentile.time_quartile       75.76μs
+[ 34.51%] ··· Running bench_function_base.Select.time_select             69.49μs
+[ 35.40%] ··· Running bench_function_base.Select.time_select_larger     459.49μs
+[ 36.28%] ··· Running bench_function_base.Sort.time_argsort              84.45μs
+[ 37.17%] ··· Running bench_function_base.Sort.time_sort                 88.91μs
+[ 38.05%] ··· Running bench_function_base.Sort.time_sort_inplace         84.07μs
+[ 38.94%] ··· Running bench_function_base.Where.time_1                   28.35μs
+[ 39.82%] ··· Running bench_function_base.Where.time_2                   26.63μs
+[ 40.71%] ··· Running bench_function_base.Where.time_2_broadcast         34.31μs
+[ 41.59%] ··· Running bench_indexing.Indexing.time_op                         ok
+[ 41.59%] ···· 
+               =============== ============== ========== ==========
+               --                                       op         
+               ------------------------------ ---------------------
+                   indexes          sel           ''         =1    
+               =============== ============== ========== ==========
+                   indexes_          I         102.89μs   108.33μs 
+                   indexes_         :,I        149.39μs   160.56μs 
+                   indexes_     np.ix_(I, I)   679.09μs   993.15μs 
+                indexes_rand_        I         106.22μs   107.34μs 
+                indexes_rand_       :,I        159.93μs   186.06μs 
+                indexes_rand_   np.ix_(I, I)   688.16μs   945.07μs 
+               =============== ============== ========== ==========
+
+[ 42.48%] ··· Running ...ng.IndexingSeparate.time_mmap_fancy_indexing     4.53ms
+[ 43.36%] ··· Running ..._indexing.IndexingSeparate.time_mmap_slicing     1.61ms
+[ 44.25%] ··· Running ...indexing.IndexingStructured0D.time_array_all   614.48ns
+[ 45.13%] ··· Running ...dexing.IndexingStructured0D.time_array_slice   675.38ns
+[ 46.02%] ··· Running ...ndexing.IndexingStructured0D.time_scalar_all     1.17μs
+[ 46.90%] ··· Running ...exing.IndexingStructured0D.time_scalar_slice     1.30μs
+[ 47.79%] ··· Running bench_io.Copy.time_cont_assign                          ok
+[ 47.79%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       1.65μs 
+                  int16       2.30μs 
+                 float32      3.72μs 
+                 float64      6.97μs 
+                complex64     6.68μs 
+                complex128   20.34μs 
+               ============ =========
+
+[ 48.67%] ··· Running bench_io.Copy.time_memcpy                               ok
+[ 48.67%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       1.66μs 
+                  int16       2.39μs 
+                 float32      4.33μs 
+                 float64      9.62μs 
+                complex64    10.00μs 
+                complex128   28.39μs 
+               ============ =========
+
+[ 49.56%] ··· Running bench_io.Copy.time_strided_assign                       ok
+[ 49.56%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       6.10μs 
+                  int16       7.63μs 
+                 float32      7.82μs 
+                 float64      9.61μs 
+                complex64     8.63μs 
+                complex128   13.30μs 
+               ============ =========
+
+[ 50.44%] ··· Running bench_io.Copy.time_strided_copy                         ok
+[ 50.44%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8      14.36μs 
+                  int16      12.44μs 
+                 float32     13.12μs 
+                 float64     19.53μs 
+                complex64    15.17μs 
+                complex128   38.42μs 
+               ============ =========
+
+[ 51.33%] ··· Running bench_io.CopyTo.time_copyto                        31.43μs
+[ 52.21%] ··· Running bench_io.CopyTo.time_copyto_8_dense                86.23μs
+[ 53.10%] ··· Running bench_io.CopyTo.time_copyto_8_sparse               81.43μs
+[ 53.98%] ··· Running bench_io.CopyTo.time_copyto_dense                   5.40μs
+[ 54.87%] ··· Running bench_io.CopyTo.time_copyto_sparse                 66.76μs
+[ 55.75%] ··· Running bench_io.Savez.time_vb_savez_squares              323.27ms
+[ 56.64%] ··· Running bench_linalg.Eindot.time_dot_a_b                   31.71ms
+[ 57.52%] ··· Running bench_linalg.Eindot.time_dot_d_dot_b_c            240.17μs
+[ 58.41%] ··· Running bench_linalg.Eindot.time_dot_trans_a_at             6.04ms
+[ 59.29%] ··· Running bench_linalg.Eindot.time_dot_trans_a_atc            7.12ms
+[ 60.18%] ··· Running bench_linalg.Eindot.time_dot_trans_at_a            13.86ms
+[ 61.06%] ··· Running bench_linalg.Eindot.time_dot_trans_atc_a           20.76ms
+[ 61.95%] ··· Running bench_linalg.Eindot.time_einsum_i_ij_j              1.03ms
+[ 62.83%] ··· Running bench_linalg.Eindot.time_einsum_ij_jk_a_b          14.95ms
+[ 63.72%] ··· Running bench_linalg.Eindot.time_einsum_ijk_jil_kl         30.27ms
+[ 64.60%] ··· Running bench_linalg.Eindot.time_inner_trans_a_a            5.58ms
+[ 65.49%] ··· Running bench_linalg.Eindot.time_inner_trans_a_ac           7.54ms
+[ 66.37%] ··· Running bench_linalg.Eindot.time_matmul_a_b                19.07ms
+[ 67.26%] ··· Running bench_linalg.Eindot.time_matmul_d_matmul_b_c      242.03μs
+[ 68.14%] ··· Running bench_linalg.Eindot.time_matmul_trans_a_at          6.52ms
+[ 69.03%] ··· Running bench_linalg.Eindot.time_matmul_trans_a_atc         7.65ms
+[ 69.91%] ··· Running bench_linalg.Eindot.time_matmul_trans_at_a         12.85ms
+[ 70.80%] ··· Running bench_linalg.Eindot.time_matmul_trans_atc_a        19.01ms
+[ 71.68%] ··· Running ...inalg.Eindot.time_tensordot_a_b_axes_1_0_0_1    18.91ms
+[ 72.57%] ··· Running bench_linalg.Linalg.time_op                             ok
+[ 72.57%] ···· 
+               ====== ============ ==========
+                 op       type               
+               ------ ------------ ----------
+                svd      int16       7.96ms  
+                svd     float16       n/a    
+                svd      int32       7.67ms  
+                svd     float32      7.91ms  
+                svd      int64       7.61ms  
+                svd     float64      8.07ms  
+                svd    complex64    18.56ms  
+                svd    longfloat      n/a    
+                svd    complex128   18.54ms  
+                svd    complex256     n/a    
+                pinv     int16       9.12ms  
+                pinv    float16       n/a    
+                pinv     int32       9.69ms  
+                pinv    float32      9.94ms  
+                pinv     int64       9.99ms  
+                pinv    float64      9.54ms  
+                pinv   complex64    24.98ms  
+                pinv   longfloat      n/a    
+                pinv   complex128   23.66ms  
+                pinv   complex256     n/a    
+                det      int16      249.20μs 
+                det     float16       n/a    
+                det      int32      242.81μs 
+                det     float32     274.16μs 
+                det      int64      252.14μs 
+                det     float64     231.36μs 
+                det    complex64    808.43μs 
+                det    longfloat      n/a    
+                det    complex128   768.85μs 
+                det    complex256     n/a    
+                norm     int16      34.17μs  
+                norm    float16     107.52μs 
+                norm     int32      23.96μs  
+                norm    float32     29.00μs  
+                norm     int64      34.27μs  
+                norm    float64     22.67μs  
+                norm   complex64    38.17μs  
+                norm   longfloat    30.36μs  
+                norm   complex128   49.48μs  
+                norm   complex256   50.01μs  
+               ====== ============ ==========
+
+[ 73.45%] ··· Running ...g.Lstsq.time_numpy_linalg_lstsq_a__b_float64     3.08ms
+[ 74.34%] ··· Running bench_random.Randint.time_randint_fast            584.36μs
+[ 75.22%] ··· Running bench_random.Randint.time_randint_slow              2.94ms
+[ 76.11%] ··· Running bench_random.Randint_dtype.time_randint_fast            ok
+[ 76.11%] ···· 
+               ======== ==========
+                dtype             
+               -------- ----------
+                 bool     6.60μs  
+                uint8    222.22μs 
+                uint16   434.45μs 
+                uint32   630.21μs 
+                uint64   920.65μs 
+               ======== ==========
+
+[ 76.99%] ··· Running bench_random.Randint_dtype.time_randint_slow            ok
+[ 76.99%] ···· 
+               ======== ==========
+                dtype             
+               -------- ----------
+                 bool    140.26μs 
+                uint8     1.28ms  
+                uint16    1.86ms  
+                uint32    2.14ms  
+                uint64    3.92ms  
+               ======== ==========
+
+[ 77.88%] ··· Running bench_random.Random.time_rng                            ok
+[ 77.88%] ···· 
+               ================= ==========
+                     param1                
+               ----------------- ----------
+                     normal        9.33μs  
+                    uniform        5.52μs  
+                   weibull 1      648.75μs 
+                binomial 10 0.5   588.70μs 
+                   poisson 10      2.08ms  
+               ================= ==========
+
+[ 78.76%] ··· Running bench_random.Shuffle.time_100000                    2.15ms
+[ 79.65%] ··· Running bench_reduce.AddReduce.time_axis_0                 29.89ms
+[ 80.53%] ··· Running bench_reduce.AddReduce.time_axis_1                 16.55ms
+[ 81.42%] ··· Running bench_reduce.AddReduceSeparate.time_reduce              ok
+[ 81.42%] ···· 
+               ====== ============ ==========
+                axis      type               
+               ------ ------------ ----------
+                 0       int16       1.02ms  
+                 0      float16     12.84ms  
+                 0       int32      955.98μs 
+                 0      float32     252.65μs 
+                 0       int64      638.02μs 
+                 0      float64     460.70μs 
+                 0     complex64     1.45ms  
+                 0     longfloat     3.36ms  
+                 0     complex128    1.76ms  
+                 0     complex256    5.83ms  
+                 1       int16       1.06ms  
+                 1      float16      4.43ms  
+                 1       int32       1.01ms  
+                 1      float32     432.83μs 
+                 1       int64      658.92μs 
+                 1      float64     396.04μs 
+                 1     complex64    575.19μs 
+                 1     longfloat     1.42ms  
+                 1     complex128    1.07ms  
+                 1     complex256    3.16ms  
+               ====== ============ ==========
+
+[ 82.30%] ··· Running bench_reduce.AnyAll.time_all_fast                   2.95μs
+[ 83.19%] ··· Running bench_reduce.AnyAll.time_all_slow                   7.08μs
+[ 84.07%] ··· Running bench_reduce.AnyAll.time_any_fast                   3.24μs
+[ 84.96%] ··· Running bench_reduce.AnyAll.time_any_slow                   6.11μs
+[ 85.84%] ··· Running bench_reduce.MinMax.time_max                            ok
+[ 85.84%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    6.68μs 
+                <type 'numpy.float64'>   10.10μs 
+                 <type 'numpy.int64'>    17.09μs 
+               ======================== =========
+
+[ 86.73%] ··· Running bench_reduce.MinMax.time_min                            ok
+[ 86.73%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    6.98μs 
+                <type 'numpy.float64'>   10.66μs 
+                 <type 'numpy.int64'>    16.89μs 
+               ======================== =========
+
+[ 87.61%] ··· Running bench_reduce.SmallReduction.time_small              2.83μs
+[ 88.50%] ··· Running bench_ufunc.Broadcast.time_broadcast               25.03ms
+[ 89.38%] ··· Running bench_ufunc.Custom.time_and_bool                    2.67μs
+[ 90.27%] ··· Running bench_ufunc.Custom.time_count_nonzero               1.60μs
+[ 91.15%] ··· Running bench_ufunc.Custom.time_nonzero                    30.86μs
+[ 92.04%] ··· Running bench_ufunc.Custom.time_not_bool                    1.64μs
+[ 92.92%] ··· Running bench_ufunc.Custom.time_or_bool                     1.92μs
+[ 93.81%] ··· Running bench_ufunc.CustomScalar.time_add_scalar2               ok
+[ 93.81%] ···· 
+               ======================== ========
+                        dtype                   
+               ------------------------ --------
+                <type 'numpy.float32'>   6.71μs 
+                <type 'numpy.float64'>   9.37μs 
+               ======================== ========
+
+[ 94.69%] ··· Running bench_ufunc.CustomScalar.time_divide_scalar2            ok
+[ 94.69%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    8.62μs 
+                <type 'numpy.float64'>   16.01μs 
+               ======================== =========
+
+[ 95.58%] ··· Running ...unc.CustomScalar.time_divide_scalar2_inplace         ok
+[ 95.58%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    7.66μs 
+                <type 'numpy.float64'>   15.02μs 
+               ======================== =========
+
+[ 96.46%] ··· Running bench_ufunc.CustomScalar.time_less_than_scalar2         ok
+[ 96.46%] ···· 
+               ======================== ========
+                        dtype                   
+               ------------------------ --------
+                <type 'numpy.float32'>   4.06μs 
+                <type 'numpy.float64'>   6.30μs 
+               ======================== ========
+
+[ 97.35%] ··· Running bench_ufunc.Scalar.time_add_scalar                635.02ns
+[ 98.23%] ··· Running bench_ufunc.Scalar.time_add_scalar_conv           855.97ns
+[ 99.12%] ··· Running bench_ufunc.Scalar.time_add_scalar_conv_complex   916.66ns
+[100.00%] ··· Running bench_ufunc.UFunc.time_ufunc_types                      ok
+[100.00%] ···· 
+               =============== ==========
+                    ufunc                
+               --------------- ----------
+                     abs         1.16ms  
+                   absolute      1.16ms  
+                     add        412.62μs 
+                    arccos       6.35ms  
+                   arccosh       8.72ms  
+                    arcsin       6.27ms  
+                   arcsinh       8.31ms  
+                    arctan       4.39ms  
+                   arctan2       2.16ms  
+                   arctanh       3.48ms  
+                 bitwise_and    28.73μs  
+                 bitwise_not    16.96μs  
+                  bitwise_or    28.91μs  
+                 bitwise_xor    27.93μs  
+                     cbrt        1.89ms  
+                     ceil       529.65μs 
+                     conj       193.45μs 
+                  conjugate     197.31μs 
+                   copysign     331.48μs 
+                     cos         7.39ms  
+                     cosh        8.15ms  
+                   deg2rad      358.49μs 
+                   degrees      359.38μs 
+                    divide       1.04ms  
+                    equal       338.18μs 
+                     exp         5.11ms  
+                     exp2        7.53ms  
+                    expm1        5.93ms  
+                     fabs       355.90μs 
+                    floor       518.78μs 
+                 floor_divide    2.05ms  
+                     fmax       472.67μs 
+                     fmin       462.23μs 
+                     fmod       775.86μs 
+                    frexp       517.77μs 
+                   greater      400.12μs 
+                greater_equal   376.52μs 
+                    hypot        1.38ms  
+                    invert      17.04μs  
+                   isfinite     230.39μs 
+                    isinf       246.80μs 
+                    isnan       198.67μs 
+                    ldexp       294.59μs 
+                  left_shift    47.93μs  
+                     less       373.00μs 
+                  less_equal    361.61μs 
+                     log         4.92ms  
+                    log10        5.75ms  
+                    log1p        4.44ms  
+                     log2        4.72ms  
+                  logaddexp     439.48μs 
+                  logaddexp2    446.28μs 
+                 logical_and    385.33μs 
+                 logical_not    229.50μs 
+                  logical_or    310.23μs 
+                 logical_xor    360.88μs 
+                   maximum      470.02μs 
+                   minimum      463.89μs 
+                     mod         1.32ms  
+                     modf       636.02μs 
+                   multiply     439.48μs 
+                   negative     270.46μs 
+                  nextafter     588.72μs 
+                  not_equal     362.14μs 
+                    power       12.51ms  
+                   rad2deg      370.73μs 
+                   radians      364.64μs 
+                  reciprocal    720.73μs 
+                  remainder      1.33ms  
+                 right_shift    44.77μs  
+                     rint       812.93μs 
+                     sign       386.68μs 
+                   signbit      112.06μs 
+                     sin         7.06ms  
+                     sinh        7.89ms  
+                   spacing      749.06μs 
+                     sqrt        2.28ms  
+                    square      407.24μs 
+                   subtract     429.12μs 
+                     tan         7.42ms  
+                     tanh        4.90ms  
+                 true_divide     1.06ms  
+                    trunc       724.29μs 
+               =============== ==========
+
+~/build/passed/numpy/numpy/empty
+
+travis_time:end:0b350b60:start=1594500375532706545,finish=1594500767853667667,duration=392320961122[0K
+[32;1mThe command "./tools/travis-test.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0f7c2a37[0K
+travis_time:end:0f7c2a37:start=1594500767864112782,finish=1594500767872230077,duration=8117295[0Ktravis_time:start:2d14f0eb[0K[32;1mchanges detected, packing new archive[0m
+
+travis_time:end:2d14f0eb:start=1594500767881023688,finish=1594500769640896442,duration=1759872754[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:13e58ff5[0K$ ./tools/travis-upload-wheel.sh
+
+travis_time:end:13e58ff5:start=1594500769650642162,finish=1594500769661612050,duration=10969888[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

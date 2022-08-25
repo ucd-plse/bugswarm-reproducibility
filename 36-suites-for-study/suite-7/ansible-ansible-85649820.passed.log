@@ -1,0 +1,203 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd passed/ansible/ansible
+travis_fold:start:git.submodule[0Ktravis_time:start:02e54654[0K$ git submodule update --init --recursive
+
+travis_time:end:02e54654:start=1592054309551138954,finish=1592054310390838089,duration=839699135[0Ktravis_fold:end:git.submodule[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TOXENV=py35
+$ export INTEGRATION=no
+
+travis_time:start:0faab72e[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:0faab72e:start=1592054310438231230,finish=1592054310445848910,duration=7617680[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install[0Ktravis_time:start:2e3966d8[0K$ pip install tox PyYAML Jinja2 sphinx
+Collecting tox
+  Downloading https://files.pythonhosted.org/packages/c6/36/b0e6016724ae598ba30168618a91d3ee2d7510c20cb05deb8cdc3f7d53b3/tox-3.15.2-py2.py3-none-any.whl (137kB)
+Collecting PyYAML
+  Downloading https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz (269kB)
+Collecting Jinja2
+  Downloading https://files.pythonhosted.org/packages/30/9e/f663a2aa66a09d838042ae1a2c5659828bb9b41ea3a6efa20a20fd92b121/Jinja2-2.11.2-py2.py3-none-any.whl (125kB)
+Collecting sphinx
+  Downloading https://files.pythonhosted.org/packages/6b/21/8d2fd1d8a5951fcf4ecce1c65a80bdf4d7bc48b95dc795b3df854d69e198/Sphinx-3.1.0-py3-none-any.whl (2.9MB)
+Collecting toml>=0.9.4 (from tox)
+  Downloading https://files.pythonhosted.org/packages/9f/e1/1b40b80f2e1663a6b9f497123c11d7d988c0919abbf3c3f2688e448c5363/toml-0.10.1-py2.py3-none-any.whl
+Requirement already satisfied: virtualenv!=20.0.0,!=20.0.1,!=20.0.2,!=20.0.3,!=20.0.4,!=20.0.5,!=20.0.6,!=20.0.7,>=16.0.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from tox) (16.0.0)
+Collecting packaging>=14 (from tox)
+  Downloading https://files.pythonhosted.org/packages/46/19/c5ab91b1b05cfe63cccd5cfc971db9214c6dd6ced54e33c30d5af1d2bc43/packaging-20.4-py2.py3-none-any.whl
+Collecting importlib-metadata<2,>=0.12; python_version < "3.8" (from tox)
+  Downloading https://files.pythonhosted.org/packages/98/13/a1d703ec396ade42c1d33df0e1cb691a28b7c08b336a5683912c87e04cd7/importlib_metadata-1.6.1-py2.py3-none-any.whl
+Requirement already satisfied: py>=1.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from tox) (1.5.4)
+Collecting filelock>=3.0.0 (from tox)
+  Downloading https://files.pythonhosted.org/packages/93/83/71a2ee6158bb9f39a90c0dea1637f81d5eef866e188e1971a1b1ab01a35a/filelock-3.0.12-py3-none-any.whl
+Collecting six>=1.14.0 (from tox)
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting pluggy>=0.12.0 (from tox)
+  Downloading https://files.pythonhosted.org/packages/a0/28/85c7aa31b80d150b772fbe4a229487bc6644da9ccb7e427dd8cc60cb8a62/pluggy-0.13.1-py2.py3-none-any.whl
+Collecting MarkupSafe>=0.23 (from Jinja2)
+  Downloading https://files.pythonhosted.org/packages/6e/57/d40124076756c19ff2269678de7ae25a14ebbb3f6314eb5ce9477f191350/MarkupSafe-1.1.1-cp35-cp35m-manylinux1_x86_64.whl
+Collecting sphinxcontrib-qthelp (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/2b/14/05f9206cf4e9cfca1afb5fd224c7cd434dcc3a433d6d9e4e0264d29c6cdb/sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl (90kB)
+Collecting sphinxcontrib-applehelp (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/dc/47/86022665a9433d89a66f5911b558ddff69861766807ba685de2e324bd6ed/sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl (121kB)
+Collecting snowballstemmer>=1.1 (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/7d/4b/cdf1113a0e88b641893b814e9c36f69a6fda28cd88b62c7f0d858cde3166/snowballstemmer-2.0.0-py2.py3-none-any.whl (97kB)
+Collecting sphinxcontrib-serializinghtml (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/9a/ca/bfad79b79b3821d0c6361c431f0ef4aec16ee248338b2c2013008b34d345/sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl (89kB)
+Collecting imagesize (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/31/b2/b5522a0c8d11e4aff83f8342f3f0dea68c2fb25aa44403e420587f0ce204/imagesize-1.2.0-py2.py3-none-any.whl
+Collecting docutils>=0.12 (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/81/44/8a15e45ffa96e6cf82956dd8d7af9e666357e16b0d93b253903475ee947f/docutils-0.16-py2.py3-none-any.whl (548kB)
+Requirement already satisfied: setuptools in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from sphinx) (40.0.0)
+Collecting requests>=2.5.0 (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/1a/70/1935c770cb3be6e3a8b78ced23d7e0f3b187f5cbfab4749523ed65d7c9b1/requests-2.23.0-py2.py3-none-any.whl (58kB)
+Collecting babel>=1.3 (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/15/a1/522dccd23e5d2e47aed4b6a16795b8213e3272c7506e625f2425ad025a19/Babel-2.8.0-py2.py3-none-any.whl (8.6MB)
+Collecting sphinxcontrib-devhelp (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/c5/09/5de5ed43a521387f18bdf5f5af31d099605c992fd25372b2b9b825ce48ee/sphinxcontrib_devhelp-1.0.2-py2.py3-none-any.whl (84kB)
+Collecting alabaster<0.8,>=0.7 (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/10/ad/00b090d23a222943eb0eda509720a404f531a439e803f6538f35136cae9e/alabaster-0.7.12-py2.py3-none-any.whl
+Collecting sphinxcontrib-jsmath (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/c2/42/4c8646762ee83602e3fb3fbe774c2fac12f317deb0b5dbeeedd2d3ba4b77/sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl
+Collecting sphinxcontrib-htmlhelp (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/36/62/8222554b29b3acde8420128d6d3999c5904d40922ef4b6ccb370e2be7421/sphinxcontrib_htmlhelp-1.0.3-py2.py3-none-any.whl (96kB)
+Collecting Pygments>=2.0 (from sphinx)
+  Downloading https://files.pythonhosted.org/packages/2d/68/106af3ae51daf807e9cdcba6a90e518954eb8b70341cee52995540a53ead/Pygments-2.6.1-py3-none-any.whl (914kB)
+Collecting pyparsing>=2.0.2 (from packaging>=14->tox)
+  Downloading https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl (67kB)
+Collecting zipp>=0.5 (from importlib-metadata<2,>=0.12; python_version < "3.8"->tox)
+  Downloading https://files.pythonhosted.org/packages/96/0a/67556e9b7782df7118c1f49bdc494da5e5e429c93aa77965f33e81287c8c/zipp-1.2.0-py2.py3-none-any.whl
+Collecting idna<3,>=2.5 (from requests>=2.5.0->sphinx)
+  Downloading https://files.pythonhosted.org/packages/89/e3/afebe61c546d18fb1709a61bee788254b40e736cff7271c7de5de2dc4128/idna-2.9-py2.py3-none-any.whl (58kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=2.5.0->sphinx)
+  Downloading https://files.pythonhosted.org/packages/e1/e5/df302e8017440f111c11cc41a6b432838672f5a70aa29227bf58149dc72f/urllib3-1.25.9-py2.py3-none-any.whl (126kB)
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests>=2.5.0->sphinx) (2018.4.16)
+Collecting chardet<4,>=3.0.2 (from requests>=2.5.0->sphinx)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting pytz>=2015.7 (from babel>=1.3->sphinx)
+  Downloading https://files.pythonhosted.org/packages/4f/a4/879454d49688e2fad93e59d7d4efda580b783c745fd2ec2a3adf87b0808d/pytz-2020.1-py2.py3-none-any.whl (510kB)
+Building wheels for collected packages: PyYAML
+  Running setup.py bdist_wheel for PyYAML: started
+  Running setup.py bdist_wheel for PyYAML: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/a7/c1/ea/cf5bd31012e735dc1dfea3131a2d5eae7978b251083d6247bd
+Successfully built PyYAML
+Installing collected packages: toml, six, pyparsing, packaging, zipp, importlib-metadata, filelock, pluggy, tox, PyYAML, MarkupSafe, Jinja2, sphinxcontrib-qthelp, sphinxcontrib-applehelp, snowballstemmer, sphinxcontrib-serializinghtml, imagesize, docutils, idna, urllib3, chardet, requests, pytz, babel, sphinxcontrib-devhelp, alabaster, sphinxcontrib-jsmath, sphinxcontrib-htmlhelp, Pygments, sphinx
+  Found existing installation: six 1.11.0
+    Uninstalling six-1.11.0:
+      Successfully uninstalled six-1.11.0
+  Found existing installation: pluggy 0.7.1
+    Uninstalling pluggy-0.7.1:
+      Successfully uninstalled pluggy-0.7.1
+Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 PyYAML-5.3.1 Pygments-2.6.1 alabaster-0.7.12 babel-2.8.0 chardet-3.0.4 docutils-0.16 filelock-3.0.12 idna-2.9 imagesize-1.2.0 importlib-metadata-1.6.1 packaging-20.4 pluggy-0.13.1 pyparsing-2.4.7 pytz-2020.1 requests-2.23.0 six-1.15.0 snowballstemmer-2.0.0 sphinx-3.1.0 sphinxcontrib-applehelp-1.0.2 sphinxcontrib-devhelp-1.0.2 sphinxcontrib-htmlhelp-1.0.3 sphinxcontrib-jsmath-1.0.1 sphinxcontrib-qthelp-1.0.3 sphinxcontrib-serializinghtml-1.1.4 toml-0.10.1 tox-3.15.2 urllib3-1.25.9 zipp-1.2.0
+
+travis_time:end:2e3966d8:start=1592054310967264729,finish=1592054331659360224,duration=20692095495[0Ktravis_fold:end:install[0Ktravis_time:start:0017e6fc[0K$ ./test/code-smell/replace-urlopen.sh .
+
+travis_time:end:0017e6fc:start=1592054331675062125,finish=1592054335047771765,duration=3372709640[0K
+[32;1mThe command "./test/code-smell/replace-urlopen.sh ." exited with 0.[0m
+travis_time:start:025466c0[0K$ if test x"$TOXENV" != x'py24' ; then tox ; fi
+GLOB sdist-make: /home/travis/build/passed/ansible/ansible/setup.py
+py35 create: /home/travis/build/passed/ansible/ansible/.tox/py35
+py35 installdeps: -r/home/travis/build/passed/ansible/ansible/test-requirements.txt
+py35 inst: /home/travis/build/passed/ansible/ansible/.tox/.tmp/package/1/ansible-2.0.0.zip
+py35 installed: ansible==2.0.0,bcrypt==3.1.7,certifi==2020.4.5.2,cffi==1.14.0,chardet==3.0.4,coverage==5.1,coveralls==2.0.0,cryptography==2.9.2,docopt==0.6.2,idna==2.9,Jinja2==2.11.2,linecache2==1.0.0,MarkupSafe==1.1.1,mock==1.0.1,nose==1.3.7,paramiko==2.7.1,passlib==1.7.2,pycparser==2.20,pycrypto==2.6.1,PyNaCl==1.4.0,PyYAML==5.3.1,requests==2.23.0,six==1.15.0,traceback2==1.4.0,unittest2==1.1.0,urllib3==1.25.9
+py35 run-test-pre: PYTHONHASHSEED='2503384880'
+py35 run-test: commands[0] | python --version
+Python 3.5.6
+py35 run-test: commands[1] | python -m compileall -fq -x 'lib/ansible/module_utils|lib/ansible/modules' lib test contrib
+___________________________________ summary ____________________________________
+  py35: commands succeeded
+  congratulations :)
+
+travis_time:end:025466c0:start=1592054335059158088,finish=1592054383361265831,duration=48302107743[0K
+[32;1mThe command "if test x"$TOXENV" != x'py24' ; then tox ; fi" exited with 0.[0m
+travis_time:start:01a36148[0K$ if test x"$TOXENV" = x'py24' ; then python2.4 -V && python2.4 -m compileall -fq -x 'module_utils/(a10|rax|openstack|ec2|gce).py' lib/ansible/module_utils ; fi
+
+travis_time:end:01a36148:start=1592054383375030078,finish=1592054383391595852,duration=16565774[0K
+[32;1mThe command "if test x"$TOXENV" = x'py24' ; then python2.4 -V && python2.4 -m compileall -fq -x 'module_utils/(a10|rax|openstack|ec2|gce).py' lib/ansible/module_utils ; fi" exited with 0.[0m
+travis_time:start:017cae92[0K$ if test x"$INTEGRATION" = x'yes' ; then source ./hacking/env-setup && cd test/integration/ && make test_var_precedence ; fi
+
+travis_time:end:017cae92:start=1592054383409706611,finish=1592054383420188449,duration=10481838[0K
+[32;1mThe command "if test x"$INTEGRATION" = x'yes' ; then source ./hacking/env-setup && cd test/integration/ && make test_var_precedence ; fi" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:015772e4[0K$ coveralls
+
+travis_time:end:015772e4:start=1592054383430526216,finish=1592054383441229136,duration=10702920[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

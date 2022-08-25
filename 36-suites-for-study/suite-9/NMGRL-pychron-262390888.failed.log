@@ -1,0 +1,284 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ cd failed/NMGRL/pychron
+travis_time:start:1da8fba4[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:1da8fba4:start=1594431908372143913,finish=1594431908380980070,duration=8836157[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install.1[0Ktravis_time:start:164766f0[0K$ wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
+
+travis_time:end:164766f0:start=1594431910312938205,finish=1594431911115455848,duration=802517643[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:02631250[0K$ chmod +x miniconda.sh
+
+travis_time:end:02631250:start=1594431911124280008,finish=1594431911133276009,duration=8996001[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:049e9180[0K$ ./miniconda.sh -b
+PREFIX=/home/travis/miniconda2
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/travis/miniconda2
+
+  added / updated specs:
+    - _libgcc_mutex==0.1=main
+    - asn1crypto==1.3.0=py27_0
+    - ca-certificates==2020.1.1=0
+    - certifi==2019.11.28=py27_0
+    - cffi==1.14.0=py27he30daa8_1
+    - chardet==3.0.4=py27_1003
+    - conda-package-handling==1.6.0=py27h7b6447c_0
+    - conda==4.8.3=py27_0
+    - cryptography==2.8=py27h1ba5d50_0
+    - enum34==1.1.6=py27_1
+    - futures==3.3.0=py27_0
+    - idna==2.8=py27_0
+    - ipaddress==1.0.23=py_0
+    - libedit==3.1.20181209=hc058e9b_0
+    - libffi==3.3=he6710b0_1
+    - libgcc-ng==9.1.0=hdf63c60_0
+    - libstdcxx-ng==9.1.0=hdf63c60_0
+    - ncurses==6.2=he6710b0_1
+    - openssl==1.1.1g=h7b6447c_0
+    - pip==19.3.1=py27_0
+    - pycosat==0.6.3=py27h7b6447c_0
+    - pycparser==2.20=py_0
+    - pyopenssl==19.1.0=py27_0
+    - pysocks==1.7.1=py27_0
+    - python==2.7.18=h15b4118_1
+    - readline==8.0=h7b6447c_0
+    - requests==2.22.0=py27_1
+    - ruamel_yaml==0.15.87=py27h7b6447c_0
+    - setuptools==44.0.0=py27_0
+    - six==1.13.0=py27_0
+    - sqlite==3.31.1=h62c20be_1
+    - tk==8.6.8=hbc83047_0
+    - tqdm==4.46.0=py_0
+    - urllib3==1.25.7=py27_0
+    - wheel==0.33.6=py27_0
+    - yaml==0.1.7=had09818_2
+    - zlib==1.2.11=h7b6447c_3
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  asn1crypto         pkgs/main/linux-64::asn1crypto-1.3.0-py27_0
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2020.1.1-0
+  certifi            pkgs/main/linux-64::certifi-2019.11.28-py27_0
+  cffi               pkgs/main/linux-64::cffi-1.14.0-py27he30daa8_1
+  chardet            pkgs/main/linux-64::chardet-3.0.4-py27_1003
+  conda              pkgs/main/linux-64::conda-4.8.3-py27_0
+  conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.6.0-py27h7b6447c_0
+  cryptography       pkgs/main/linux-64::cryptography-2.8-py27h1ba5d50_0
+  enum34             pkgs/main/linux-64::enum34-1.1.6-py27_1
+  futures            pkgs/main/linux-64::futures-3.3.0-py27_0
+  idna               pkgs/main/linux-64::idna-2.8-py27_0
+  ipaddress          pkgs/main/noarch::ipaddress-1.0.23-py_0
+  libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_1
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+  openssl            pkgs/main/linux-64::openssl-1.1.1g-h7b6447c_0
+  pip                pkgs/main/linux-64::pip-19.3.1-py27_0
+  pycosat            pkgs/main/linux-64::pycosat-0.6.3-py27h7b6447c_0
+  pycparser          pkgs/main/noarch::pycparser-2.20-py_0
+  pyopenssl          pkgs/main/linux-64::pyopenssl-19.1.0-py27_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py27_0
+  python             pkgs/main/linux-64::python-2.7.18-h15b4118_1
+  readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
+  requests           pkgs/main/linux-64::requests-2.22.0-py27_1
+  ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.87-py27h7b6447c_0
+  setuptools         pkgs/main/linux-64::setuptools-44.0.0-py27_0
+  six                pkgs/main/linux-64::six-1.13.0-py27_0
+  sqlite             pkgs/main/linux-64::sqlite-3.31.1-h62c20be_1
+  tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
+  tqdm               pkgs/main/noarch::tqdm-4.46.0-py_0
+  urllib3            pkgs/main/linux-64::urllib3-1.25.7-py27_0
+  wheel              pkgs/main/linux-64::wheel-0.33.6-py27_0
+  yaml               pkgs/main/linux-64::yaml-0.1.7-had09818_2
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+Preparing transaction: ...working... done
+Executing transaction: ...working... done
+installation finished.
+
+travis_time:end:049e9180:start=1594431911142935180,finish=1594431923628899619,duration=12485964439[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:26b104b7[0K$ export PATH=/home/travis/miniconda2/bin:$PATH
+
+travis_time:end:26b104b7:start=1594431923639009969,finish=1594431923646110030,duration=7100061[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:06a53cb1[0K$ conda update --yes --quiet conda
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/travis/miniconda2
+
+  added / updated specs:
+    - conda
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2020.6.24  |                0         125 KB
+    idna-2.10                  |             py_0          50 KB
+    libedit-3.1.20191231       |       h7b6447c_0         167 KB
+    libffi-3.3                 |       he6710b0_2          50 KB
+    requests-2.24.0            |             py_0          56 KB
+    six-1.15.0                 |             py_0          13 KB
+    sqlite-3.32.3              |       h62c20be_0         1.1 MB
+    tk-8.6.10                  |       hbc83047_0         3.0 MB
+    tqdm-4.47.0                |             py_0          62 KB
+    ------------------------------------------------------------
+                                           Total:         4.6 MB
+
+The following packages will be UPDATED:
+
+  ca-certificates                                2020.1.1-0 --> 2020.6.24-0
+  idna                  pkgs/main/linux-64::idna-2.8-py27_0 --> pkgs/main/noarch::idna-2.10-py_0
+  libedit                           3.1.20181209-hc058e9b_0 --> 3.1.20191231-h7b6447c_0
+  libffi                                     3.3-he6710b0_1 --> 3.3-he6710b0_2
+  requests           pkgs/main/linux-64::requests-2.22.0-p~ --> pkgs/main/noarch::requests-2.24.0-py_0
+  six                 pkgs/main/linux-64::six-1.13.0-py27_0 --> pkgs/main/noarch::six-1.15.0-py_0
+  sqlite                                  3.31.1-h62c20be_1 --> 3.32.3-h62c20be_0
+  tk                                       8.6.8-hbc83047_0 --> 8.6.10-hbc83047_0
+  tqdm                                          4.46.0-py_0 --> 4.47.0-py_0
+
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+travis_time:end:06a53cb1:start=1594431923653903385,finish=1594431936812653034,duration=13158749649[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:23316660[0K$ export DISPLAY=:99.0
+
+travis_time:end:23316660:start=1594431936822723757,finish=1594431936830238490,duration=7514733[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:19d14904[0K$ sh -e /etc/init.d/xvfb start
+Starting virtual X frame buffer: Xvfb.
+
+travis_time:end:19d14904:start=1594431936839234144,finish=1594431936850354551,duration=11120407[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:install.1[0Ktravis_time:start:0c116406[0K$ conda create --yes --quiet -n pychron-test python=2.7
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... failed with repodata from current_repodata.json, will retry with next repodata source.
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/travis/miniconda2/envs/pychron-test
+
+  added / updated specs:
+    - python=2.7
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2020.6.24-0
+  certifi            pkgs/main/linux-64::certifi-2019.11.28-py27_0
+  libedit            pkgs/main/linux-64::libedit-3.1.20191231-h7b6447c_0
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+  pip                pkgs/main/linux-64::pip-19.3.1-py27_0
+  python             pkgs/main/linux-64::python-2.7.18-h15b4118_1
+  readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
+  setuptools         pkgs/main/linux-64::setuptools-44.0.0-py27_0
+  sqlite             pkgs/main/linux-64::sqlite-3.32.3-h62c20be_0
+  tk                 pkgs/main/linux-64::tk-8.6.10-hbc83047_0
+  wheel              pkgs/main/linux-64::wheel-0.33.6-py27_0
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+travis_time:end:0c116406:start=1594431936859487997,finish=1594431958386800158,duration=21527312161[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0175e92c[0K$ source activate pychron-test
+
+travis_time:end:0175e92c:start=1594431958396092559,finish=1594431958525969042,duration=129876483[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:2d88314c[0K$ conda install --yes qt=4.8.5 pyside statsmodels PyYAML traits pyface traitsui enable chaco xlrd xlwt lxml sqlalchemy apptools
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... failed with initial frozen solve. Retrying with flexible solve.
+
+travis_time:end:2d88314c:start=1594431958536149858,finish=1594431965573084529,duration=7036934671[0K
+[31;1mThe command "conda install --yes qt=4.8.5 pyside statsmodels PyYAML traits pyface traitsui enable chaco xlrd xlwt lxml sqlalchemy apptools" failed and exited with 1 during .[0m
+
+Your build has been stopped.

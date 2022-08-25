@@ -1,0 +1,273 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: scala
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+[32;1mUpdating sbt[0m
+$ cd passed/hbz/oerworldmap
+travis_fold:start:git.submodule[0Ktravis_time:start:068b3df4[0K$ git submodule update --init --recursive
+Submodule 'third-party/bootstrap' (https://github.com/twbs/bootstrap.git) registered for path 'third-party/bootstrap'
+Submodule path 'third-party/bootstrap': checked out '063c1b0780ea0240e4adce4c88d57fc23e099475'
+
+travis_time:end:068b3df4:start=1594485344834603323,finish=1594485359761946311,duration=14927342988[0Ktravis_fold:end:git.submodule[0Ktravis_fold:start:services[0Ktravis_time:start:055d9318[0K$ sudo service elasticsearch start
+ * Starting Elasticsearch Server
+   ...done.
+
+travis_time:end:055d9318:start=1594485359771592678,finish=1594485359804054036,duration=32461358[0Ktravis_fold:end:services[0K$ export JVM_OPTS=@/etc/sbt/jvmopts
+$ export SBT_OPTS=@/etc/sbt/sbtopts
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:26504e9a[0K$ Installing caching utilities
+
+travis_time:end:26504e9a:start=1594485364215480819,finish=1594485364267574248,duration=52093429[0Ktravis_time:start:0d970faf[0K
+travis_time:end:0d970faf:start=1594485364278778602,finish=1594485364286465769,duration=7687167[0Ktravis_time:start:0857ebc9[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:0857ebc9:start=1594485364295131491,finish=1594485365083857248,duration=788725757[0Ktravis_time:start:10c38652[0K
+travis_time:end:10c38652:start=1594485365093037046,finish=1594485365101096127,duration=8059081[0Ktravis_time:start:0a891d0b[0K[32;1madding /home/travis/.ivy2/cache to cache[0m
+
+travis_time:end:0a891d0b:start=1594485365111120230,finish=1594485365834611312,duration=723491082[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+$ javac -J-Xmx32m -version
+Using Scala 2.10.4
+travis_fold:start:before_script[0Ktravis_time:start:07c75158[0K$ cp conf/travis.conf conf/test.conf
+
+travis_time:end:07c75158:start=1594485366136444345,finish=1594485366160679114,duration=24234769[0Ktravis_fold:end:before_script[0Ktravis_time:start:02598975[0K$ sbt ++2.10.4 test
+[0m[[0minfo[0m] [0mLoading project definition from /home/travis/build/passed/hbz/oerworldmap/project[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/passed/hbz/oerworldmap/project/}oerworldmap-build...[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.play#sbt-plugin;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#sbt-plugin;2.3.7 ...[0m
+[0m[[31merror[0m] [0mServer access Error: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target url=https://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.3.7/ivys/ivy.xml[0m
+[0m[[31merror[0m] [0mServer access Error: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.3.7/ivys/ivy.xml[0m
+[0m[[31merror[0m] [0mServer access Error: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target url=https://repo.typesafe.com/typesafe/releases/com/typesafe/play/sbt-plugin_2.10_0.13/2.3.7/sbt-plugin-2.3.7.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.play#sbt-plugin;2.3.7[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.3.7/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.3.7/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.play/sbt-plugin/scala_2.10/sbt_0.13/2.3.7/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo1.maven.org/maven2/com/typesafe/play/sbt-plugin_2.10_0.13/2.3.7/sbt-plugin-2.3.7.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo.typesafe.com/typesafe/releases/com/typesafe/play/sbt-plugin_2.10_0.13/2.3.7/sbt-plugin-2.3.7.pom[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-less;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-less;1.0.0 ...[0m
+[0m[[31merror[0m] [0mServer access Error: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target url=https://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.0/ivys/ivy.xml[0m
+[0m[[31merror[0m] [0mServer access Error: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.0/ivys/ivy.xml[0m
+[0m[[31merror[0m] [0mServer access Error: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target url=https://repo.typesafe.com/typesafe/releases/com/typesafe/sbt/sbt-less_2.10_0.13/1.0.0/sbt-less-1.0.0.pom[0m
+[0m[[33mwarn[0m] [0m	module not found: com.typesafe.sbt#sbt-less;1.0.0[0m
+[0m[[33mwarn[0m] [0m==== typesafe-ivy-releases: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo.typesafe.com/typesafe/ivy-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.0/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== sbt-plugin-releases: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.0/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.typesafe.sbt/sbt-less/scala_2.10/sbt_0.13/1.0.0/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo1.maven.org/maven2/com/typesafe/sbt/sbt-less_2.10_0.13/1.0.0/sbt-less-1.0.0.pom[0m
+[0m[[33mwarn[0m] [0m==== Typesafe repository: tried[0m
+[0m[[33mwarn[0m] [0m  https://repo.typesafe.com/typesafe/releases/com/typesafe/sbt/sbt-less_2.10_0.13/1.0.0/sbt-less-1.0.0.pom[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#sbt;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#actions;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classpath;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#launcher-interface;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#interface;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#io;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#control;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#completion;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#collections;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#api;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-integration;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#incremental-compiler;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logging;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#process;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#relation;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compile;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#persist;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-tools.sbinary#sbinary_2.10;0.4.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classfile;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-ivy-integration;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#ivy;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cross;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt.ivy#ivy;2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.jcraft#jsch;0.1.46 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json4s#json4s-native_2.10;3.2.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json4s#json4s-core_2.10;3.2.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json4s#json4s-ast_2.10;3.2.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.thoughtworks.paranamer#paranamer;2.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scalap;2.10.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.spire-math#jawn-parser_2.10;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.spire-math#json4s-support_2.10;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#run;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#task-system;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tasks;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tracking;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cache;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#testing;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-agent;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main-settings;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#apply-macro;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#command;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logic;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-interface;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_8_2;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_2;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_3;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m	::          UNRESOLVED DEPENDENCIES         ::[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.play#sbt-plugin;2.3.7: not found[0m
+[0m[[33mwarn[0m] [0m	:: com.typesafe.sbt#sbt-less;1.0.0: not found[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m[0m
+[0m[[33mwarn[0m] [0m	Note: Some unresolved dependencies have extra attributes.  Check that these dependencies exist with the requested attributes.[0m
+[0m[[33mwarn[0m] [0m		com.typesafe.play:sbt-plugin:2.3.7 (scalaVersion=2.10, sbtVersion=0.13)[0m
+[0m[[33mwarn[0m] [0m		com.typesafe.sbt:sbt-less:1.0.0 (scalaVersion=2.10, sbtVersion=0.13)[0m
+[0m[[33mwarn[0m] [0m[0m
+[0m[[33mwarn[0m] [0m	Note: Unresolved dependencies path:[0m
+[0m[[33mwarn[0m] [0m		com.typesafe.play:sbt-plugin:2.3.7 (scalaVersion=2.10, sbtVersion=0.13) (/home/travis/build/passed/hbz/oerworldmap/project/plugins.sbt#L5-6)[0m
+[0m[[33mwarn[0m] [0m		  +- default:oerworldmap-build:0.1-SNAPSHOT (scalaVersion=2.10, sbtVersion=0.13)[0m
+[0m[[33mwarn[0m] [0m		com.typesafe.sbt:sbt-less:1.0.0 (scalaVersion=2.10, sbtVersion=0.13) (/home/travis/build/passed/hbz/oerworldmap/project/plugins.sbt#L8-9)[0m
+[0m[[33mwarn[0m] [0m		  +- default:oerworldmap-build:0.1-SNAPSHOT (scalaVersion=2.10, sbtVersion=0.13)[0m
+sbt.ResolveException: unresolved dependency: com.typesafe.play#sbt-plugin;2.3.7: not found
+unresolved dependency: com.typesafe.sbt#sbt-less;1.0.0: not found
+	at sbt.IvyActions$.sbt$IvyActions$$resolve(IvyActions.scala:278)
+	at sbt.IvyActions$$anonfun$updateEither$1.apply(IvyActions.scala:175)
+	at sbt.IvyActions$$anonfun$updateEither$1.apply(IvyActions.scala:157)
+	at sbt.IvySbt$Module$$anonfun$withModule$1.apply(Ivy.scala:151)
+	at sbt.IvySbt$Module$$anonfun$withModule$1.apply(Ivy.scala:151)
+	at sbt.IvySbt$$anonfun$withIvy$1.apply(Ivy.scala:128)
+	at sbt.IvySbt.sbt$IvySbt$$action$1(Ivy.scala:56)
+	at sbt.IvySbt$$anon$4.call(Ivy.scala:64)
+	at xsbt.boot.Locks$GlobalLock.withChannel$1(Locks.scala:93)
+	at xsbt.boot.Locks$GlobalLock.xsbt$boot$Locks$GlobalLock$$withChannelRetries$1(Locks.scala:78)
+	at xsbt.boot.Locks$GlobalLock$$anonfun$withFileLock$1.apply(Locks.scala:97)
+	at xsbt.boot.Using$.withResource(Using.scala:10)
+	at xsbt.boot.Using$.apply(Using.scala:9)
+	at xsbt.boot.Locks$GlobalLock.ignoringDeadlockAvoided(Locks.scala:58)
+	at xsbt.boot.Locks$GlobalLock.withLock(Locks.scala:48)
+	at xsbt.boot.Locks$.apply0(Locks.scala:31)
+	at xsbt.boot.Locks$.apply(Locks.scala:28)
+	at sbt.IvySbt.withDefaultLogger(Ivy.scala:64)
+	at sbt.IvySbt.withIvy(Ivy.scala:123)
+	at sbt.IvySbt.withIvy(Ivy.scala:120)
+	at sbt.IvySbt$Module.withModule(Ivy.scala:151)
+	at sbt.IvyActions$.updateEither(IvyActions.scala:157)
+	at sbt.Classpaths$$anonfun$sbt$Classpaths$$work$1$1.apply(Defaults.scala:1318)
+	at sbt.Classpaths$$anonfun$sbt$Classpaths$$work$1$1.apply(Defaults.scala:1315)
+	at sbt.Classpaths$$anonfun$doWork$1$1$$anonfun$85.apply(Defaults.scala:1345)
+	at sbt.Classpaths$$anonfun$doWork$1$1$$anonfun$85.apply(Defaults.scala:1343)
+	at sbt.Tracked$$anonfun$lastOutput$1.apply(Tracked.scala:35)
+	at sbt.Classpaths$$anonfun$doWork$1$1.apply(Defaults.scala:1348)
+	at sbt.Classpaths$$anonfun$doWork$1$1.apply(Defaults.scala:1342)
+	at sbt.Tracked$$anonfun$inputChanged$1.apply(Tracked.scala:45)
+	at sbt.Classpaths$.cachedUpdate(Defaults.scala:1360)
+	at sbt.Classpaths$$anonfun$updateTask$1.apply(Defaults.scala:1300)
+	at sbt.Classpaths$$anonfun$updateTask$1.apply(Defaults.scala:1275)
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
+	at sbt.std.Transform$$anon$4.work(System.scala:63)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
+	at sbt.Execute.work(Execute.scala:235)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[0m[[31merror[0m] [0m(*:[31mupdate[0m) sbt.ResolveException: unresolved dependency: com.typesafe.play#sbt-plugin;2.3.7: not found[0m
+[0m[[31merror[0m] [0munresolved dependency: com.typesafe.sbt#sbt-less;1.0.0: not found[0m
+Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore? 
+travis_time:end:02598975:start=1594485366170730594,finish=1594485376147164643,duration=9976434049[0K
+[31;1mThe command "sbt ++2.10.4 test" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:1be8bfb0[0K
+travis_time:end:1be8bfb0:start=1594485376158850021,finish=1594485376167265014,duration=8414993[0Ktravis_time:start:07070d76[0K[32;1mchanges detected, packing new archive[0m
+.
+
+travis_time:end:07070d76:start=1594485376177685084,finish=1594485383976109177,duration=7798424093[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

@@ -1,0 +1,473 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd failed/acsone/acsone-addons
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:002ea3fc[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:002ea3fc:start=1591446932659198585,finish=1591446937662170023,duration=5002971438[0Ktravis_time:start:00b2395b[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install expect-dev python-lxml
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  expect
+Suggested packages:
+  python-lxml-dbg
+The following NEW packages will be installed:
+  expect expect-dev python-lxml
+0 upgraded, 3 newly installed, 0 to remove and 238 not upgraded.
+Need to get 904 kB of archives.
+After this operation, 2,814 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main expect amd64 5.45-2 [163 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main expect-dev amd64 5.45-2 [80.0 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main python-lxml amd64 2.3.2-1ubuntu0.2 [661 kB]
+Fetched 904 kB in 0s (1,465 kB/s)
+Selecting previously unselected package expect.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking expect (from .../expect_5.45-2_amd64.deb) ...
+Selecting previously unselected package expect-dev.
+Unpacking expect-dev (from .../expect-dev_5.45-2_amd64.deb) ...
+Selecting previously unselected package python-lxml.
+Unpacking python-lxml (from .../python-lxml_2.3.2-1ubuntu0.2_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up expect (5.45-2) ...
+Setting up expect-dev (5.45-2) ...
+Setting up python-lxml (2.3.2-1ubuntu0.2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:00b2395b:start=1591446937671329097,finish=1591446947376943384,duration=9705614287[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export VERSION="10.0"
+$ export TESTS="0"
+$ export LINT_CHECK="0"
+$ export TRANSIFEX="0"
+$ export TESTS="1"
+$ export ODOO_REPO="odoo/odoo"
+
+travis_time:start:0e6dfab6[0K$ source ~/virtualenv/python2.7_with_system_site_packages/bin/activate
+
+travis_time:end:0e6dfab6:start=1591446947596164114,finish=1591446947604533021,duration=8368907[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:18a07f22[0K$ Installing caching utilities
+
+travis_time:end:18a07f22:start=1591446947997501288,finish=1591446948221325347,duration=223824059[0Ktravis_time:start:23bf2f90[0K
+travis_time:end:23bf2f90:start=1591446948231939507,finish=1591446948241721620,duration=9782113[0Ktravis_time:start:03ea37d4[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:03ea37d4:start=1591446948252439442,finish=1591446948989185776,duration=736746334[0Ktravis_fold:end:cache.1[0Ktravis_fold:start:cache.pip[0K
+travis_time:start:0c99d2dc[0K
+travis_time:end:0c99d2dc:start=1591446948999346247,finish=1591446949009679872,duration=10333625[0Ktravis_time:start:04be75f4[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:04be75f4:start=1591446949020508160,finish=1591446949776764560,duration=756256400[0Ktravis_fold:end:cache.pip[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:12bf6496[0K$ pip install anybox.testing.openerp==1.3.1
+Collecting anybox.testing.openerp==1.3.1
+  Downloading https://files.pythonhosted.org/packages/ac/77/80f9253d6ae44090219d8d258eab1b42b17ec51208e2dcbd160a592b7f94/anybox.testing.openerp-1.3.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from anybox.testing.openerp==1.3.1)
+Installing collected packages: anybox.testing.openerp
+  Running setup.py install for anybox.testing.openerp
+Successfully installed anybox.testing.openerp-1.3.1
+
+travis_time:end:12bf6496:start=1591446951593253272,finish=1591446953688240468,duration=2094987196[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0971dc94[0K$ git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+
+travis_time:end:0971dc94:start=1591446953698546670,finish=1591446955155090440,duration=1456543770[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:0e53cb24[0K$ export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+
+travis_time:end:0e53cb24:start=1591446955165810626,finish=1591446955175173311,duration=9362685[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:167b8fe0[0K$ travis_install_nightly
+/home/travis/.nvm/v0.10.36/bin/lessc -> /home/travis/.nvm/v0.10.36/lib/node_modules/less/bin/lessc
+less-plugin-clean-css@1.5.1 /home/travis/.nvm/v0.10.36/lib/node_modules/less-plugin-clean-css
+└── clean-css@3.4.28 (commander@2.8.1, source-map@0.4.4)
+
+less@3.0.4 /home/travis/.nvm/v0.10.36/lib/node_modules/less
+├── graceful-fs@4.2.4
+├── image-size@0.5.5
+├── mime@1.6.0
+├── source-map@0.6.1
+├── errno@0.1.7 (prr@1.0.1)
+├── mkdirp@0.5.5 (minimist@1.2.5)
+├── promise@7.3.1 (asap@2.0.6)
+└── request@2.88.2 (is-typedarray@1.0.0, aws-sign2@0.7.0, oauth-sign@0.9.0, forever-agent@0.6.1, tunnel-agent@0.6.0, caseless@0.12.0, aws4@1.10.0, isstream@0.1.2, json-stringify-safe@5.0.1, safe-buffer@5.2.1, extend@3.0.2, performance-now@2.1.0, uuid@3.4.0, qs@6.5.2, combined-stream@1.0.8, mime-types@2.1.27, form-data@2.3.3, tough-cookie@2.5.0, http-signature@1.2.0, har-validator@5.1.3)
+
+> phantomjs-prebuilt@2.1.16 install /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt
+> node install.js
+
+Considering PhantomJS found at /usr/local/phantomjs/bin/phantomjs
+Found PhantomJS at /usr/local/phantomjs/bin/phantomjs ...verifying
+PhantomJS detected, but wrong version 1.9.8 @ /usr/local/phantomjs/bin/phantomjs.
+Downloading https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
+Saving to /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2
+Receiving...
+
+Received 22866K total.
+Extracting tar contents (via spawned process)
+Removing /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom
+Copying extracted folder /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2-extract-1591446969160/phantomjs-2.1.1-linux-x86_64 -> /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom
+Writing location.js file
+Done. Phantomjs binary available at /home/travis/build/failed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs
+phantomjs-prebuilt@2.1.16 node_modules/phantomjs-prebuilt
+├── progress@1.1.8
+├── kew@0.7.0
+├── which@1.3.1 (isexe@2.0.0)
+├── request-progress@2.0.1 (throttleit@1.0.0)
+├── es6-promise@4.2.8
+├── fs-extra@1.0.0 (klaw@1.3.1, jsonfile@2.4.0, graceful-fs@4.2.4)
+├── hasha@2.2.0 (is-stream@1.1.0, pinkie-promise@2.0.1)
+├── extract-zip@1.7.0 (mkdirp@0.5.5, debug@2.6.9, yauzl@2.10.0, concat-stream@1.6.2)
+└── request@2.88.2 (is-typedarray@1.0.0, aws-sign2@0.7.0, forever-agent@0.6.1, oauth-sign@0.9.0, tunnel-agent@0.6.0, caseless@0.12.0, aws4@1.10.0, isstream@0.1.2, json-stringify-safe@5.0.1, safe-buffer@5.2.1, extend@3.0.2, performance-now@2.1.0, combined-stream@1.0.8, uuid@3.4.0, qs@6.5.2, mime-types@2.1.27, form-data@2.3.3, tough-cookie@2.5.0, http-signature@1.2.0, har-validator@5.1.3)
+Downloading Odoo
+Collecting pip from https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl#sha256=b27c4dedae8c41aa59108f2fa38bf78e0890e590545bc8ece7cdceb4ba60f6e4
+  Downloading https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl (1.5MB)
+Installing collected packages: pip
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-20.1.1
+Getting addons dependencies
+Collecting cachetools<3.0.0,>=2.0.1
+  Downloading cachetools-2.1.0-py2.py3-none-any.whl (12 kB)
+Requirement already up-to-date: unittest2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.1.0)
+Requirement already satisfied, skipping upgrade: six>=1.4 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.10.0)
+Requirement already satisfied, skipping upgrade: traceback2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.4.0)
+Requirement already satisfied, skipping upgrade: argparse in /usr/lib/python2.7 (from unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.2.1)
+Requirement already satisfied, skipping upgrade: linecache2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from traceback2->unittest2->-r /home/travis/dependencies/connector/requirements.txt (line 2)) (1.0.0)
+Installing collected packages: cachetools
+Successfully installed cachetools-2.1.0
+Collecting xlwt
+  Downloading xlwt-1.3.0-py2.py3-none-any.whl (99 kB)
+Collecting xlsxwriter
+  Downloading XlsxWriter-1.2.9-py2.py3-none-any.whl (141 kB)
+Collecting py3o.template
+  Downloading py3o.template-0.10.0.tar.gz (1.0 MB)
+Collecting py3o.formats
+  Downloading py3o.formats-0.3-py2-none-any.whl (4.4 kB)
+Requirement already satisfied, skipping upgrade: setuptools in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (12.0.5)
+Requirement already satisfied, skipping upgrade: six>=1.9 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (1.10.0)
+Requirement already satisfied, skipping upgrade: babel in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (2.3.4)
+Requirement already satisfied, skipping upgrade: lxml in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (3.5.0)
+Collecting genshi>=0.7
+  Downloading Genshi-0.7.3.tar.gz (271 kB)
+Collecting pyjon.utils>0.6
+  Downloading pyjon.utils-0.7-py2-none-any.whl (6.5 kB)
+Requirement already satisfied, skipping upgrade: Pillow in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (3.4.1)
+Requirement already satisfied, skipping upgrade: pytz>=0a in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from babel->py3o.template->-r /home/travis/dependencies/reporting-engine/requirements.txt (line 3)) (2016.7)
+Building wheels for collected packages: py3o.template, genshi
+  Building wheel for py3o.template (setup.py): started
+  Building wheel for py3o.template (setup.py): finished with status 'done'
+  Created wheel for py3o.template: filename=py3o.template-0.10.0-py2-none-any.whl size=613993 sha256=fd91b1d751e1744e0dc825817a740974cf46a070ae765720ff5a046216d94e0c
+  Stored in directory: /home/travis/.cache/pip/wheels/29/9e/a0/ba802b7a352ccefe825244b56b5372b6a67e40205e566a8f61
+  Building wheel for genshi (setup.py): started
+  Building wheel for genshi (setup.py): finished with status 'done'
+  Created wheel for genshi: filename=Genshi-0.7.3-cp27-none-linux_x86_64.whl size=189600 sha256=699eb6770f938d1e1e16bb056da2669a66902e0ebbf9bca887362ae2e3d10b95
+  Stored in directory: /home/travis/.cache/pip/wheels/f8/d4/42/a6d3e7518c284facd0e06eebb3e670e51b4b7e8dcb1c4a49d9
+Successfully built py3o.template genshi
+Installing collected packages: xlwt, xlsxwriter, genshi, pyjon.utils, py3o.template, py3o.formats
+  Attempting uninstall: xlwt
+    Found existing installation: xlwt 1.1.2
+    Uninstalling xlwt-1.1.2:
+      Successfully uninstalled xlwt-1.1.2
+  Attempting uninstall: xlsxwriter
+    Found existing installation: XlsxWriter 0.9.3
+    Uninstalling XlsxWriter-0.9.3:
+      Successfully uninstalled XlsxWriter-0.9.3
+Successfully installed genshi-0.7.3 py3o.formats-0.3 py3o.template-0.10.0 pyjon.utils-0.7 xlsxwriter-1.2.9 xlwt-1.3.0
+Collecting python-ldap
+  Downloading python-ldap-3.2.0.tar.gz (367 kB)
+Collecting unidecode
+  Downloading Unidecode-1.1.1-py2.py3-none-any.whl (238 kB)
+Collecting acme_tiny
+  Downloading acme_tiny-4.1.0-py2.py3-none-any.whl (6.8 kB)
+Collecting IPy
+  Downloading IPy-1.00.tar.gz (35 kB)
+Collecting email_validator
+  Downloading email_validator-1.1.1-py2.py3-none-any.whl (17 kB)
+Collecting pyotp
+  Downloading pyotp-2.3.0-py2.py3-none-any.whl (10 kB)
+Collecting pysftp
+  Downloading pysftp-0.2.9.tar.gz (25 kB)
+Collecting fdb
+  Downloading fdb-2.0.1-py2.py3-none-any.whl (160 kB)
+Collecting sqlalchemy
+  Downloading SQLAlchemy-1.3.17-cp27-cp27mu-manylinux2010_x86_64.whl (1.2 MB)
+Collecting raven
+  Downloading raven-6.10.0-py2.py3-none-any.whl (284 kB)
+Collecting checksumdir
+  Downloading checksumdir-1.1.7.tar.gz (3.1 kB)
+Requirement already up-to-date: python-stdnum in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/server-tools/requirements.txt (line 12)) (1.13)
+Requirement already up-to-date: pyopenssl in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (19.1.0)
+Collecting odoorpc
+  Downloading OdooRPC-0.7.0-py2.py3-none-any.whl (42 kB)
+Collecting pyasn1>=0.3.7
+  Downloading pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Collecting pyasn1_modules>=0.1.5
+  Downloading pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Requirement already satisfied, skipping upgrade: idna>=2.0.0 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from email_validator->-r /home/travis/dependencies/server-tools/requirements.txt (line 5)) (2.7)
+Collecting dnspython>=1.15.0
+  Downloading dnspython-1.16.0-py2.py3-none-any.whl (188 kB)
+Collecting paramiko>=1.17
+  Downloading paramiko-2.7.1-py2.py3-none-any.whl (206 kB)
+Collecting future>=0.16.0
+  Downloading future-0.18.2.tar.gz (829 kB)
+Collecting contextlib2; python_version < "3.2"
+  Downloading contextlib2-0.6.0.post1-py2.py3-none-any.whl (9.8 kB)
+Requirement already satisfied, skipping upgrade: six>=1.5.2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.10.0)
+Requirement already satisfied, skipping upgrade: cryptography>=2.8 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (2.9.2)
+Collecting bcrypt>=3.1.3
+  Downloading bcrypt-3.1.7-cp27-cp27mu-manylinux1_x86_64.whl (59 kB)
+Collecting pynacl>=1.0.1
+  Downloading PyNaCl-1.4.0-cp27-cp27mu-manylinux1_x86_64.whl (964 kB)
+Requirement already satisfied, skipping upgrade: cffi!=1.11.3,>=1.8 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.14.0)
+Requirement already satisfied, skipping upgrade: enum34; python_version < "3" in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.1.10)
+Requirement already satisfied, skipping upgrade: ipaddress; python_version < "3" in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (1.0.23)
+Requirement already satisfied, skipping upgrade: pycparser in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from cffi!=1.11.3,>=1.8->cryptography>=2.8->pyopenssl->-r /home/travis/dependencies/server-tools/requirements.txt (line 13)) (2.20)
+Building wheels for collected packages: python-ldap, IPy, pysftp, checksumdir, future
+  Building wheel for python-ldap (setup.py): started
+  Building wheel for python-ldap (setup.py): finished with status 'done'
+  Created wheel for python-ldap: filename=python_ldap-3.2.0-cp27-none-linux_x86_64.whl size=266189 sha256=e4f2635258372403a4ea537ed9de678e48c9be6f612f0b23b1828d35a94276f4
+  Stored in directory: /home/travis/.cache/pip/wheels/91/1f/a6/71be4d5d402a5ae25c1ef1d8895bd8d2ce58b3b96c02101c03
+  Building wheel for IPy (setup.py): started
+  Building wheel for IPy (setup.py): finished with status 'done'
+  Created wheel for IPy: filename=IPy-1.0-py2-none-any.whl size=23886 sha256=1e7f3152382f9caff696336d3fa214ad90e4ec2f7612666a27467cf82713da31
+  Stored in directory: /home/travis/.cache/pip/wheels/2b/39/82/65aed76b9759f250b21e5eaf5eaff2a233a7f214ba47bf403d
+  Building wheel for pysftp (setup.py): started
+  Building wheel for pysftp (setup.py): finished with status 'done'
+  Created wheel for pysftp: filename=pysftp-0.2.9-py2-none-any.whl size=17696 sha256=b4f76185fa81b99e1d3370a2ad82ebfc8a1234ad0796965615700aa8c37e41cc
+  Stored in directory: /home/travis/.cache/pip/wheels/5c/fa/42/67db66025f7f2de3c82585f4fc6d9817de0b6c6012fc93a398
+  Building wheel for checksumdir (setup.py): started
+  Building wheel for checksumdir (setup.py): finished with status 'done'
+  Created wheel for checksumdir: filename=checksumdir-1.1.7-py2-none-any.whl size=5596 sha256=2fbdc08db82d4ca3d4de2b6800c1b42b6dcb195b85d25b6142cc476d04252918
+  Stored in directory: /home/travis/.cache/pip/wheels/f2/ee/d8/f8f57f7721c30ee9935d7dd40401ec8e282c2d1895831c33dd
+  Building wheel for future (setup.py): started
+  Building wheel for future (setup.py): finished with status 'done'
+  Created wheel for future: filename=future-0.18.2-py2-none-any.whl size=504726 sha256=0d3c48dced9ec94f155ce8120a839342714adb5c97519b7f470da2c2f0fdb8b0
+  Stored in directory: /home/travis/.cache/pip/wheels/5f/11/0c/aad680baf5ef4fbcbab992c9f03e1130357e0c173a4fdabfff
+Successfully built python-ldap IPy pysftp checksumdir future
+Installing collected packages: pyasn1, pyasn1-modules, python-ldap, unidecode, acme-tiny, IPy, dnspython, email-validator, pyotp, bcrypt, pynacl, paramiko, pysftp, future, fdb, sqlalchemy, contextlib2, raven, checksumdir, odoorpc
+  Attempting uninstall: paramiko
+    Found existing installation: paramiko 1.7.7.1
+    Not uninstalling paramiko at /usr/lib/python2.7/dist-packages, outside environment /home/travis/virtualenv/python2.7_with_system_site_packages
+    Can't uninstall 'paramiko'. No files were found to uninstall.
+Successfully installed IPy-1.0 acme-tiny-4.1.0 bcrypt-3.1.7 checksumdir-1.1.7 contextlib2-0.6.0.post1 dnspython-1.16.0 email-validator-1.1.1 fdb-2.0.1 future-0.18.2 odoorpc-0.7.0 paramiko-2.7.1 pyasn1-0.4.8 pyasn1-modules-0.2.8 pynacl-1.4.0 pyotp-2.3.0 pysftp-0.2.9 python-ldap-3.2.0 raven-6.10.0 sqlalchemy-1.3.17 unidecode-1.1.1
+Requirement already up-to-date: python-stdnum in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/partner-contact/requirements.txt (line 1)) (1.13)
+Collecting suds
+  Downloading suds-0.4.tar.gz (104 kB)
+Collecting requests
+  Downloading requests-2.23.0-py2.py3-none-any.whl (58 kB)
+Collecting unicodecsv
+  Downloading unicodecsv-0.14.1.tar.gz (10 kB)
+Requirement already up-to-date: email_validator in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from -r /home/travis/dependencies/partner-contact/requirements.txt (line 5)) (1.1.1)
+Requirement already satisfied, skipping upgrade: idna<3,>=2.5 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (2.7)
+Requirement already satisfied, skipping upgrade: chardet<4,>=3.0.2 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (3.0.4)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (1.24.3)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from requests->-r /home/travis/dependencies/partner-contact/requirements.txt (line 3)) (2020.4.5.1)
+Requirement already satisfied, skipping upgrade: dnspython>=1.15.0 in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from email_validator->-r /home/travis/dependencies/partner-contact/requirements.txt (line 5)) (1.16.0)
+Building wheels for collected packages: suds, unicodecsv
+  Building wheel for suds (setup.py): started
+  Building wheel for suds (setup.py): finished with status 'done'
+  Created wheel for suds: filename=suds-0.4-py2-none-any.whl size=290051 sha256=5a7d92e7ba2be38c3dd87d6abdef18577b25638960ee1e7f6b2d61f485cdb7ca
+  Stored in directory: /home/travis/.cache/pip/wheels/16/1f/2b/ac835cbf5c6be07acaa55267c5cf3f1a709ff0a698ed62a6a4
+  Building wheel for unicodecsv (setup.py): started
+  Building wheel for unicodecsv (setup.py): finished with status 'done'
+  Created wheel for unicodecsv: filename=unicodecsv-0.14.1-py2-none-any.whl size=12316 sha256=6b65a147b8391f1df5a3cc90ed4a642ab3b01a6f394ab3586fc774f72212df1d
+  Stored in directory: /home/travis/.cache/pip/wheels/55/3d/12/a2c6a68a7c6b63f31a4050a791bc2db54ee3e731e06c1e2b5b
+Successfully built suds unicodecsv
+Installing collected packages: suds, requests, unicodecsv
+  Attempting uninstall: requests
+    Found existing installation: requests 2.20.0
+    Uninstalling requests-2.20.0:
+      Successfully uninstalled requests-2.20.0
+Successfully installed requests-2.23.0 suds-0.4 unicodecsv-0.14.1
+Collecting openupgradelib==2.0.0
+  Downloading openupgradelib-2.0.0.tar.gz (53 kB)
+Building wheels for collected packages: openupgradelib
+  Building wheel for openupgradelib (setup.py): started
+  Building wheel for openupgradelib (setup.py): finished with status 'done'
+  Created wheel for openupgradelib: filename=openupgradelib-2.0.0-py2.py3-none-any.whl size=36849 sha256=647587b8d59eaf83b085c54126c082bd2ac13ee7db0c0f4cedebef638fc5f59d
+  Stored in directory: /home/travis/.cache/pip/wheels/56/62/c0/d15f8f07dd0fd69383d6e657c233d9fe011725f3ff4dc4d48c
+Successfully built openupgradelib
+Installing collected packages: openupgradelib
+Successfully installed openupgradelib-2.0.0
+Collecting viivakoodi
+  Downloading viivakoodi-0.8.0.tar.gz (224 kB)
+Building wheels for collected packages: viivakoodi
+  Building wheel for viivakoodi (setup.py): started
+  Building wheel for viivakoodi (setup.py): finished with status 'done'
+  Created wheel for viivakoodi: filename=viivakoodi-0.8.0-py2-none-any.whl size=210741 sha256=a37523f0b67384d53343dd6575d004b127bbd1ebd156cb7619dc92f2391f715b
+  Stored in directory: /home/travis/.cache/pip/wheels/b8/61/0b/8a3d6bca28c46edf7cc7e8cdc9eccc6c78e75290358869b030
+Successfully built viivakoodi
+Installing collected packages: viivakoodi
+Successfully installed viivakoodi-0.8.0
+Collecting coverage
+  Downloading coverage-5.1-cp27-cp27mu-manylinux1_x86_64.whl (224 kB)
+Installing collected packages: coverage
+Successfully installed coverage-5.1
+Content of /home/travis:
+total 40
+-rw-r--r--  1 travis travis  3775 Jun  6 12:35 apt-get-update.log
+drwxrwxrwx  1 root   root      28 May  1  2019 build
+drwxr-xr-x  2 travis travis    10 Feb  5  2015 builds
+drwxr-xr-x 28 travis travis  4096 Jun  6 12:39 dependencies
+-rw-r--r--  1 travis travis 26622 Jun  6 12:40 failed.log
+drwxr-xr-x  7 travis travis   264 Jun  6 12:35 maintainer-quality-tools
+drwxr-xr-x 10 travis travis  4096 Jun  6 12:37 odoo-10.0
+drwxr-xr-x  1 travis travis    57 Feb  5  2015 virtualenv
+Content of /home/travis/dependencies:
+total 108
+drwxr-xr-x  38 travis travis 4096 Jun  6 12:39 account-analytic
+drwxr-xr-x  15 travis travis 4096 Jun  6 12:39 account-closing
+drwxr-xr-x  16 travis travis 4096 Jun  6 12:39 account-financial-reporting
+drwxr-xr-x  56 travis travis 4096 Jun  6 12:39 account-financial-tools
+drwxr-xr-x  45 travis travis 4096 Jun  6 12:39 account-invoicing
+drwxr-xr-x  22 travis travis 4096 Jun  6 12:39 bank-payment
+drwxr-xr-x  10 travis travis 4096 Jun  6 12:39 connector
+drwxr-xr-x  32 travis travis 4096 Jun  6 12:39 crm
+drwxr-xr-x  82 travis travis 4096 Jun  6 12:39 hr
+drwxr-xr-x  22 travis travis 4096 Jun  6 12:39 hr-timesheet
+drwxr-xr-x  36 travis travis 4096 Jun  6 12:39 manufacture
+drwxr-xr-x  70 travis travis 4096 Jun  6 12:39 partner-contact
+drwxr-xr-x  50 travis travis 4096 Jun  6 12:39 product-attribute
+drwxr-xr-x  43 travis travis 4096 Jun  6 12:39 project
+drwxr-xr-x  63 travis travis 4096 Jun  6 12:39 purchase-workflow
+drwxr-xr-x   8 travis travis 4096 Jun  6 12:39 queue
+drwxr-xr-x  19 travis travis 4096 Jun  6 12:39 reporting-engine
+drwxr-xr-x  89 travis travis 4096 Jun  6 12:39 sale-workflow
+drwxr-xr-x 105 travis travis 4096 Jun  6 12:39 server-tools
+drwxr-xr-x  19 travis travis 4096 Jun  6 12:39 stock-logistics-barcode
+drwxr-xr-x  21 travis travis 4096 Jun  6 12:39 stock-logistics-tracking
+drwxr-xr-x  11 travis travis 4096 Jun  6 12:39 stock-logistics-transport
+drwxr-xr-x  61 travis travis 4096 Jun  6 12:39 stock-logistics-warehouse
+drwxr-xr-x  50 travis travis 4096 Jun  6 12:39 stock-logistics-workflow
+drwxr-xr-x  78 travis travis 4096 Jun  6 12:39 web
+drwxr-xr-x   6 travis travis  224 Jun  6 12:39 webkit-tools
+
+travis_time:end:167b8fe0:start=1591446955186161958,finish=1591447218934741500,duration=263748579542[0Ktravis_fold:end:install.4[0Ktravis_time:start:2bf12296[0K$ travis_run_tests
+======== Testing test_server.py ========
+Working in /home/travis/build/failed/acsone/acsone-addons
+Using repo odoo/odoo and addons path /home/travis/build/failed/acsone/acsone-addons,/home/travis/dependencies/account-analytic,/home/travis/dependencies/account-closing,/home/travis/dependencies/account-financial-reporting,/home/travis/dependencies/account-financial-tools,/home/travis/dependencies/account-invoicing,/home/travis/dependencies/bank-payment,/home/travis/dependencies/connector,/home/travis/dependencies/crm,/home/travis/dependencies/hr,/home/travis/dependencies/hr-timesheet,/home/travis/dependencies/manufacture,/home/travis/dependencies/partner-contact,/home/travis/dependencies/product-attribute,/home/travis/dependencies/project,/home/travis/dependencies/purchase-workflow,/home/travis/dependencies/queue,/home/travis/dependencies/reporting-engine,/home/travis/dependencies/sale-workflow,/home/travis/dependencies/server-tools,/home/travis/dependencies/stock-logistics-barcode,/home/travis/dependencies/stock-logistics-warehouse,/home/travis/dependencies/stock-logistics-workflow,/home/travis/dependencies/web,/home/travis/odoo-10.0/addons
+Modules to test: ['pos_cagnotte_coupon']
+Modules to preinstall: ['web', 'product', 'base_setup', 'procurement', 'web_planner', 'bus', 'account', 'web_kanban', 'cagnotte_coupon', 'analytic', 'web_tour', 'point_of_sale', 'base', 'stock_account', 'report', 'mail', 'stock', 'decimal_precision', 'barcodes']
+
+Creating instance:
+Using previous openerp_template database.
+
+Testing ['pos_cagnotte_coupon']:
+unbuffer coverage run /home/travis/odoo-10.0/odoo-bin -d openerp_test --db-filter=^openerp_test$ --stop-after-init --log-level info --log-handler openerp.tools.yaml_import:DEBUG --test-enable --init pos_cagnotte_coupon
+/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/cryptography/hazmat/primitives/constant_time.py:26: CryptographyDeprecationWarning: Support for your Python version is deprecated. The next version of cryptography will remove support. Please upgrade to a release (2.7.7+) that supports hmac.compare_digest as soon as possible.
+utils.PersistentlyDeprecated2018,
+2020-06-06 12:40:22,027 5097 [1;32m[1;49mINFO[0m ? odoo: Odoo version 10.0
+2020-06-06 12:40:22,027 5097 [1;32m[1;49mINFO[0m ? odoo: Using configuration file at /home/travis/.openerp_serverrc
+2020-06-06 12:40:22,027 5097 [1;32m[1;49mINFO[0m ? odoo: addons paths: ['/home/travis/data_dir/addons/10.0', u'/home/travis/build/failed/acsone/acsone-addons', u'/home/travis/dependencies/account-analytic', u'/home/travis/dependencies/account-closing', u'/home/travis/dependencies/account-financial-reporting', u'/home/travis/dependencies/account-financial-tools', u'/home/travis/dependencies/account-invoicing', u'/home/travis/dependencies/bank-payment', u'/home/travis/dependencies/connector', u'/home/travis/dependencies/crm', u'/home/travis/dependencies/hr', u'/home/travis/dependencies/hr-timesheet', u'/home/travis/dependencies/manufacture', u'/home/travis/dependencies/partner-contact', u'/home/travis/dependencies/product-attribute', u'/home/travis/dependencies/project', u'/home/travis/dependencies/purchase-workflow', u'/home/travis/dependencies/queue', u'/home/travis/dependencies/reporting-engine', u'/home/travis/dependencies/sale-workflow', u'/home/travis/dependencies/server-tools', u'/home/travis/dependencies/stock-logistics-barcode', u'/home/travis/dependencies/stock-logistics-warehouse', u'/home/travis/dependencies/stock-logistics-workflow', u'/home/travis/dependencies/web', u'/home/travis/odoo-10.0/addons', '/home/travis/odoo-10.0/odoo/addons']
+2020-06-06 12:40:22,027 5097 [1;32m[1;49mINFO[0m ? odoo: database: default@default:default
+2020-06-06 12:40:22,028 5097 [1;32m[1;49mINFO[0m ? odoo.sql_db: Connection to the database failed
+Traceback (most recent call last):
+File "/home/travis/odoo-10.0/odoo-bin", line 9, in <module>
+odoo.cli.main()
+File "/home/travis/odoo-10.0/odoo/cli/command.py", line 64, in main
+o.run(args)
+File "/home/travis/odoo-10.0/odoo/cli/server.py", line 175, in run
+main(args)
+File "/home/travis/odoo-10.0/odoo/cli/server.py", line 140, in main
+odoo.service.db._create_empty_database(db_name)
+File "/home/travis/odoo-10.0/odoo/service/db.py", line 82, in _create_empty_database
+with closing(db.cursor()) as cr:
+File "/home/travis/odoo-10.0/odoo/sql_db.py", line 638, in cursor
+return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+File "/home/travis/odoo-10.0/odoo/sql_db.py", line 177, in __init__
+self._cnx = pool.borrow(dsn)
+File "/home/travis/odoo-10.0/odoo/sql_db.py", line 521, in _locked
+return fun(self, *args, **kwargs)
+File "/home/travis/odoo-10.0/odoo/sql_db.py", line 589, in borrow
+**connection_info)
+File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/psycopg2/__init__.py", line 130, in connect
+conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+Is the server running locally and accepting
+connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+
+----------
+Message not found: 'Modules loaded.'
+----------
+('\x1b[1;31mFAIL\x1b[0;m', 'Command exited with code 1')
+('\x1b[1;31mFAIL\x1b[0;m', 'Found 1 lines with errors')
+Module test summary
+('\x1b[1;31mFAIL\x1b[0;m', 'pos_cagnotte_coupon')
+
++=======================================
+|  Tests summary:
+|---------------------------------------
+| test_server.py              [1;31mFAIL[0;m
++=======================================
+
+travis_time:end:2bf12296:start=1591447218945140226,finish=1591447222190701977,duration=3245561751[0K
+[31;1mThe command "travis_run_tests" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0ac4e726[0K
+travis_time:end:0ac4e726:start=1591447222202623423,finish=1591447222212748186,duration=10124763[0Ktravis_time:start:0f41ff21[0K[32;1mchanges detected, packing new archive[0m
+
+travis_time:end:0f41ff21:start=1591447222224765762,finish=1591447226069448489,duration=3844682727[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

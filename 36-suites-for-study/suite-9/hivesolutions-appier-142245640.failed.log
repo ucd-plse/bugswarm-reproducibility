@@ -1,0 +1,196 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd failed/hivesolutions/appier
+travis_fold:start:services[0Ktravis_time:start:00470ce6[0K$ sudo service mongodb start
+ * Starting database mongodb
+   ...done.
+
+travis_time:end:00470ce6:start=1594485717286250725,finish=1594485718325766770,duration=1039516045[0Ktravis_fold:end:services[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export ADAPTER=tiny
+
+travis_time:start:24d31e8d[0K$ source ~/virtualenv/python3.4/bin/activate
+
+travis_time:end:24d31e8d:start=1594485721463402651,finish=1594485721473179758,duration=9777107[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:install.1[0Ktravis_time:start:0031d120[0K$ pip install "pkginfo<1.3"
+Collecting pkginfo<1.3
+  Downloading https://files.pythonhosted.org/packages/a9/52/f6f41c68625a79bc037d8d75b5a5aa5f525ce2831152be81b5fdb5150175/pkginfo-1.2.1.tar.gz
+Installing collected packages: pkginfo
+  Running setup.py install for pkginfo
+    Installing pkginfo script to /home/travis/virtualenv/python3.4.2/bin
+Successfully installed pkginfo-1.2.1
+
+travis_time:end:0031d120:start=1594485721839742045,finish=1594485723874493868,duration=2034751823[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:099664e0[0K$ pip install -r requirements.txt
+Collecting pymongo==3.2.2 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/5a/59/d4faf11957b03a470882670f5f7dafd424a0364fdc0d8c7e8ab53f58ac40/pymongo-3.2.2.tar.gz (504kB)
+Collecting tinydb==3.2.1 (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/6c/2e/0df79439cf5cb3c6acfc9fb87e12d9a0ff45d3c573558079b09c72b64ced/tinydb-3.2.1.zip
+Collecting redis==2.10.5 (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/08/c1/457428f7507e27ba7144758a7b716ea35766e6d602f4a0c16e443ab3d381/redis-2.10.5-py2.py3-none-any.whl (60kB)
+Installing collected packages: redis, tinydb, pymongo
+
+  Running setup.py install for tinydb
+  Running setup.py install for pymongo
+    building 'bson._cbson' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -Ibson -I/opt/python/3.4.2/include/python3.4m -c bson/_cbsonmodule.c -o build/temp.linux-x86_64-3.4/bson/_cbsonmodule.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -Ibson -I/opt/python/3.4.2/include/python3.4m -c bson/time64.c -o build/temp.linux-x86_64-3.4/bson/time64.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -Ibson -I/opt/python/3.4.2/include/python3.4m -c bson/buffer.c -o build/temp.linux-x86_64-3.4/bson/buffer.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -Ibson -I/opt/python/3.4.2/include/python3.4m -c bson/encoding_helpers.c -o build/temp.linux-x86_64-3.4/bson/encoding_helpers.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/bson/_cbsonmodule.o build/temp.linux-x86_64-3.4/bson/time64.o build/temp.linux-x86_64-3.4/bson/buffer.o build/temp.linux-x86_64-3.4/bson/encoding_helpers.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/bson/_cbson.cpython-34m.so
+    building 'pymongo._cmessage' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -Ibson -I/opt/python/3.4.2/include/python3.4m -c pymongo/_cmessagemodule.c -o build/temp.linux-x86_64-3.4/pymongo/_cmessagemodule.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -Ibson -I/opt/python/3.4.2/include/python3.4m -c bson/buffer.c -o build/temp.linux-x86_64-3.4/bson/buffer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/pymongo/_cmessagemodule.o build/temp.linux-x86_64-3.4/bson/buffer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/pymongo/_cmessage.cpython-34m.so
+Successfully installed pymongo-3.2.2 redis-2.10.5 tinydb-3.2.1
+
+travis_time:end:099664e0:start=1594485723884427698,finish=1594485729384224421,duration=5499796723[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:05b2fd8f[0K$ pip install coveralls==1.1
+Collecting coveralls==1.1
+  Downloading https://files.pythonhosted.org/packages/81/f9/da2ad9334f60e418cb229c58724330be2635b369676d3eec8f61e1f85faa/coveralls-1.1-py2.py3-none-any.whl
+Collecting coverage>=3.6 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/23/ca/c722303813a4ab9bbaee2c2639aebbfd47cc542081c56608a31a9fa3cf7d/coverage-5.2.tar.gz (693kB)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+Collecting requests>=1.0.0 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl (61kB)
+Collecting docopt>=0.6.1 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting certifi>=2017.4.17 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl (156kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/e1/e5/df302e8017440f111c11cc41a6b432838672f5a70aa29227bf58149dc72f/urllib3-1.25.9-py2.py3-none-any.whl (126kB)
+Collecting chardet<4,>=3.0.2 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Installing collected packages: idna, chardet, urllib3, certifi, docopt, requests, coverage, coveralls
+
+
+
+
+  Running setup.py install for docopt
+
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/module.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/coverage/tracer.cpython-34m.so
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    Installing coverage script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage-3.4 script to /home/travis/virtualenv/python3.4.2/bin
+
+Successfully installed certifi-2020.6.20 chardet-3.0.4 coverage-5.2 coveralls-1.1 docopt-0.6.2 idna-2.10 requests-2.24.0 urllib3-1.25.9
+
+travis_time:end:05b2fd8f:start=1594485729395339361,finish=1594485734994544420,duration=5599205059[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:211903d4[0K$ pip install twine==1.6.5
+Collecting twine==1.6.5
+  Downloading https://files.pythonhosted.org/packages/db/79/db4edb6e85fda783b00d578a44891cc42c1744167ac6137a1da91edd10c1/twine-1.6.5-py2.py3-none-any.whl
+Collecting requests-toolbelt>=0.4.0 (from twine==1.6.5)
+  Downloading https://files.pythonhosted.org/packages/60/ef/7681134338fc097acef8d9b2f8abe0458e4d87559c689a8c306d0957ece5/requests_toolbelt-0.9.1-py2.py3-none-any.whl (54kB)
+Requirement already satisfied (use --upgrade to upgrade): setuptools>=0.7.0 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from twine==1.6.5)
+Requirement already satisfied (use --upgrade to upgrade): pkginfo>=1.0 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from twine==1.6.5)
+Requirement already satisfied (use --upgrade to upgrade): requests>=2.3.0 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from twine==1.6.5)
+Requirement already satisfied (use --upgrade to upgrade): chardet<4,>=3.0.2 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from requests>=2.3.0->twine==1.6.5)
+Requirement already satisfied (use --upgrade to upgrade): certifi>=2017.4.17 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from requests>=2.3.0->twine==1.6.5)
+Requirement already satisfied (use --upgrade to upgrade): idna<3,>=2.5 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from requests>=2.3.0->twine==1.6.5)
+Requirement already satisfied (use --upgrade to upgrade): urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from requests>=2.3.0->twine==1.6.5)
+Installing collected packages: requests-toolbelt, twine
+
+
+Successfully installed requests-toolbelt-0.9.1 twine-1.6.5
+
+travis_time:end:211903d4:start=1594485735004417275,finish=1594485735955094837,duration=950677562[0Ktravis_fold:end:install.4[0Ktravis_time:start:0cfb6394[0K$ if [[ $TRAVIS_PYTHON_VERSION != "3.2" ]]; then coverage run --source=appier setup.py test; else python setup.py test; fi
+running test
+running egg_info
+creating src/appier.egg-info
+writing top-level names to src/appier.egg-info/top_level.txt
+writing dependency_links to src/appier.egg-info/dependency_links.txt
+writing src/appier.egg-info/PKG-INFO
+writing manifest file 'src/appier.egg-info/SOURCES.txt'
+reading manifest file 'src/appier.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src/appier.egg-info/SOURCES.txt'
+running build_ext
+
+travis_time:end:0cfb6394:start=1594485735966854267,finish=1594485739366540537,duration=3399686270[0K
+[31;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != "3.2" ]]; then coverage run --source=appier setup.py test; else python setup.py test; fi" exited with 1.[0m
+
+Done. Your build exited with 1.

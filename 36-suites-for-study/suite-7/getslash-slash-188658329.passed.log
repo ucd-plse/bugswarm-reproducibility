@@ -1,0 +1,406 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd passed/getslash/slash
+travis_time:start:1aa3c3fa[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:1aa3c3fa:start=1592082226698078037,finish=1592082226706692039,duration=8614002[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install[0Ktravis_time:start:027638d0[0K$ pip install virtualenv
+Requirement already satisfied: virtualenv in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (16.0.0)
+
+travis_time:end:027638d0:start=1592082227174282169,finish=1592082228115924811,duration=941642642[0Ktravis_fold:end:install[0Ktravis_time:start:28ce01bc[0K$ make env
+python -m virtualenv .env
+Using real prefix '/opt/python/3.5.6'
+New python executable in /home/travis/build/passed/getslash/slash/.env/bin/python
+Installing setuptools, pip, wheel...done.
+.env/bin/python scripts/install_test_deps.py
+Collecting coverage
+  Downloading coverage-5.1-cp35-cp35m-manylinux1_x86_64.whl (227 kB)
+Collecting coveralls
+  Downloading coveralls-2.0.0-py2.py3-none-any.whl (12 kB)
+Collecting munch
+  Downloading munch-2.5.0-py2.py3-none-any.whl (10 kB)
+Collecting pytest
+  Downloading pytest-5.4.3-py3-none-any.whl (248 kB)
+Collecting pytest-xdist
+  Downloading pytest_xdist-1.32.0-py2.py3-none-any.whl (36 kB)
+Collecting pytest-capturelog
+  Downloading pytest-capturelog-0.7.tar.gz (4.3 kB)
+Collecting pytest-cov
+  Downloading pytest_cov-2.10.0-py2.py3-none-any.whl (19 kB)
+Collecting pytest-timeout
+  Downloading pytest_timeout-1.3.4-py2.py3-none-any.whl (10 kB)
+Collecting pyforge
+  Downloading pyforge-1.3.0.tar.gz (20 kB)
+Collecting lxml<3.6.3
+  Downloading lxml-3.6.2.tar.gz (4.3 MB)
+Collecting pylint>=1.0.0
+  Downloading pylint-2.5.3-py3-none-any.whl (324 kB)
+Collecting requests>=1.0.0
+  Downloading requests-2.23.0-py2.py3-none-any.whl (58 kB)
+Collecting docopt>=0.6.1
+  Downloading docopt-0.6.2.tar.gz (25 kB)
+Collecting six
+  Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting packaging
+  Downloading packaging-20.4-py2.py3-none-any.whl (37 kB)
+Collecting attrs>=17.4.0
+  Downloading attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+Collecting wcwidth
+  Downloading wcwidth-0.2.4-py2.py3-none-any.whl (30 kB)
+Collecting pathlib2>=2.2.0; python_version < "3.6"
+  Downloading pathlib2-2.3.5-py2.py3-none-any.whl (18 kB)
+Collecting py>=1.5.0
+  Downloading py-1.8.1-py2.py3-none-any.whl (83 kB)
+Collecting pluggy<1.0,>=0.12
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting importlib-metadata>=0.12; python_version < "3.8"
+  Downloading importlib_metadata-1.6.1-py2.py3-none-any.whl (31 kB)
+Collecting more-itertools>=4.0.0
+  Downloading more_itertools-8.3.0-py3-none-any.whl (44 kB)
+Collecting execnet>=1.1
+  Downloading execnet-1.7.1-py2.py3-none-any.whl (39 kB)
+Collecting pytest-forked
+  Downloading pytest_forked-1.1.3-py2.py3-none-any.whl (4.5 kB)
+Collecting sentinels>=0.0.4
+  Downloading sentinels-1.0.0.tar.gz (4.1 kB)
+Collecting mccabe<0.7,>=0.6
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting astroid<=2.5,>=2.4.0
+  Downloading astroid-2.4.2-py3-none-any.whl (213 kB)
+Collecting isort<5,>=4.2.5
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+Collecting toml>=0.7.1
+  Downloading toml-0.10.1-py2.py3-none-any.whl (19 kB)
+Collecting idna<3,>=2.5
+  Downloading idna-2.9-py2.py3-none-any.whl (58 kB)
+Collecting chardet<4,>=3.0.2
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Downloading urllib3-1.25.9-py2.py3-none-any.whl (126 kB)
+Collecting certifi>=2017.4.17
+  Downloading certifi-2020.4.5.2-py2.py3-none-any.whl (157 kB)
+Collecting pyparsing>=2.0.2
+  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Collecting zipp>=0.5
+  Downloading zipp-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting apipkg>=1.4
+  Downloading apipkg-1.5-py2.py3-none-any.whl (4.9 kB)
+Collecting lazy-object-proxy==1.4.*
+  Downloading lazy_object_proxy-1.4.3-cp35-cp35m-manylinux1_x86_64.whl (55 kB)
+Collecting typed-ast<1.5,>=1.4.0; implementation_name == "cpython" and python_version < "3.8"
+  Downloading typed_ast-1.4.1-cp35-cp35m-manylinux1_x86_64.whl (737 kB)
+Collecting wrapt~=1.11
+  Downloading wrapt-1.12.1.tar.gz (27 kB)
+Building wheels for collected packages: pytest-capturelog, pyforge, lxml, docopt, sentinels, wrapt
+  Building wheel for pytest-capturelog (setup.py): started
+  Building wheel for pytest-capturelog (setup.py): finished with status 'done'
+  Created wheel for pytest-capturelog: filename=pytest_capturelog-0.7-py3-none-any.whl size=5486 sha256=64a8c9a9859ab0d0c7e5dd3927059bd999351551fa3b5a94c349659dfbdc3edc
+  Stored in directory: /home/travis/.cache/pip/wheels/76/00/27/6ac7e296f4409a440343451964a743db11d43487322ea7cd69
+  Building wheel for pyforge (setup.py): started
+  Building wheel for pyforge (setup.py): finished with status 'done'
+  Created wheel for pyforge: filename=pyforge-1.3.0-py3-none-any.whl size=23215 sha256=e2dd2c4b648fb9fb29e9f6f8339b65cadf1fe388d9401f431ddb6ec524575411
+  Stored in directory: /home/travis/.cache/pip/wheels/6b/32/b6/2348695d72f40c18ce51c5d19e22827914c23d405a8020fcf1
+  Building wheel for lxml (setup.py): started
+  Building wheel for lxml (setup.py): still running...
+  Building wheel for lxml (setup.py): finished with status 'done'
+  Created wheel for lxml: filename=lxml-3.6.2-cp35-cp35m-linux_x86_64.whl size=3132419 sha256=5b75b3aedaeb453076d535e46a4c5b5eae7edee44f307cc9c051ce6b5740b510
+  Stored in directory: /home/travis/.cache/pip/wheels/72/74/2c/4119233cc50e046837b2381813f866784923b909d868cb8fa3
+  Building wheel for docopt (setup.py): started
+  Building wheel for docopt (setup.py): finished with status 'done'
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13704 sha256=99b11b4e5c87493f4e1724bcfa558faa3b143ec824aa8cef96fabd1d1637be6e
+  Stored in directory: /home/travis/.cache/pip/wheels/63/74/c4/1e4f0884a7ba7c26baa4a841240a507953dcfe7de606522571
+  Building wheel for sentinels (setup.py): started
+  Building wheel for sentinels (setup.py): finished with status 'done'
+  Created wheel for sentinels: filename=sentinels-1.0.0-py3-none-any.whl size=3186 sha256=e44f9c82b6a8fa17d8272a3004cf993dd3dca301ca49f2e10edd3ad614a9ee41
+  Stored in directory: /home/travis/.cache/pip/wheels/0b/d5/77/49fb1d1a6209f97f0bb762f0350403d5f69da8e453aa6bbd12
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp35-cp35m-linux_x86_64.whl size=62289 sha256=e1d504791271082cc6504d9a12badbeb1dfb071c63d01b2bee0e1613ee975145
+  Stored in directory: /home/travis/.cache/pip/wheels/b8/2d/88/2fb764a7404287819251978fbfe4cacf9b4d8a1d41fce5dd97
+Successfully built pytest-capturelog pyforge lxml docopt sentinels wrapt
+Installing collected packages: coverage, idna, chardet, urllib3, certifi, requests, docopt, coveralls, six, munch, pyparsing, packaging, attrs, wcwidth, pathlib2, py, zipp, importlib-metadata, pluggy, more-itertools, pytest, apipkg, execnet, pytest-forked, pytest-xdist, pytest-capturelog, pytest-cov, pytest-timeout, sentinels, pyforge, lxml, mccabe, lazy-object-proxy, typed-ast, wrapt, astroid, isort, toml, pylint
+Successfully installed apipkg-1.5 astroid-2.4.2 attrs-19.3.0 certifi-2020.4.5.2 chardet-3.0.4 coverage-5.1 coveralls-2.0.0 docopt-0.6.2 execnet-1.7.1 idna-2.9 importlib-metadata-1.6.1 isort-4.3.21 lazy-object-proxy-1.4.3 lxml-3.6.2 mccabe-0.6.1 more-itertools-8.3.0 munch-2.5.0 packaging-20.4 pathlib2-2.3.5 pluggy-0.13.1 py-1.8.1 pyforge-1.3.0 pylint-2.5.3 pyparsing-2.4.7 pytest-5.4.3 pytest-capturelog-0.7 pytest-cov-2.10.0 pytest-forked-1.1.3 pytest-timeout-1.3.4 pytest-xdist-1.32.0 requests-2.23.0 sentinels-1.0.0 six-1.15.0 toml-0.10.1 typed-ast-1.4.1 urllib3-1.25.9 wcwidth-0.2.4 wrapt-1.12.1 zipp-1.2.0
+.env/bin/pip install -e .
+Obtaining file:///home/travis/build/passed/getslash/slash
+Collecting arrow
+  Downloading arrow-0.15.6-py2.py3-none-any.whl (47 kB)
+Collecting colorama
+  Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
+Collecting confetti>=2.4.1
+  Downloading confetti-2.5.3.tar.gz (6.5 kB)
+Collecting dessert>=1.0.2
+  Downloading dessert-1.4.1.tar.gz (33 kB)
+Collecting emport>=1.1.3
+  Downloading emport-1.3.1.tar.gz (5.3 kB)
+Collecting gossip>=2.0.0
+  Downloading gossip-2.4.0.tar.gz (64 kB)
+Collecting Logbook>=0.11.2
+  Downloading Logbook-1.5.3.tar.gz (85 kB)
+Collecting orderedset>=2.0.0
+  Downloading orderedset-2.0.3.tar.gz (101 kB)
+Requirement already satisfied: requests>=1.1.0 in ./.env/lib/python3.5/site-packages (from slash==1.1.4) (2.23.0)
+Collecting raven
+  Downloading raven-6.10.0-py2.py3-none-any.whl (284 kB)
+Requirement already satisfied: py>=1.4.20 in ./.env/lib/python3.5/site-packages (from slash==1.1.4) (1.8.1)
+Requirement already satisfied: pyparsing in ./.env/lib/python3.5/site-packages (from slash==1.1.4) (2.4.7)
+Collecting IPython
+  Downloading ipython-7.9.0-py3-none-any.whl (775 kB)
+Collecting python-dateutil
+  Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+Requirement already satisfied: sentinels>=0.0.5 in ./.env/lib/python3.5/site-packages (from confetti>=2.4.1->slash==1.1.4) (1.0.0)
+Requirement already satisfied: six in ./.env/lib/python3.5/site-packages (from confetti>=2.4.1->slash==1.1.4) (1.15.0)
+Requirement already satisfied: munch in ./.env/lib/python3.5/site-packages (from dessert>=1.0.2->slash==1.1.4) (2.5.0)
+Collecting atomicwrites>=1.0
+  Downloading atomicwrites-1.4.0-py2.py3-none-any.whl (6.8 kB)
+Requirement already satisfied: attrs in ./.env/lib/python3.5/site-packages (from dessert>=1.0.2->slash==1.1.4) (19.3.0)
+Collecting vintage
+  Downloading vintage-0.4.1.tar.gz (3.9 kB)
+Requirement already satisfied: idna<3,>=2.5 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4) (2.9)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4) (1.25.9)
+Requirement already satisfied: chardet<4,>=3.0.2 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4) (2020.4.5.2)
+Collecting jedi>=0.10
+  Downloading jedi-0.17.0-py2.py3-none-any.whl (1.1 MB)
+Collecting pickleshare
+  Downloading pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+Requirement already satisfied: setuptools>=18.5 in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4) (47.1.1)
+Collecting decorator
+  Downloading decorator-4.4.2-py2.py3-none-any.whl (9.2 kB)
+Collecting pexpect; sys_platform != "win32"
+  Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
+Collecting prompt-toolkit<2.1.0,>=2.0.0
+  Downloading prompt_toolkit-2.0.10-py3-none-any.whl (340 kB)
+Collecting pygments
+  Downloading Pygments-2.6.1-py3-none-any.whl (914 kB)
+Collecting backcall
+  Downloading backcall-0.2.0-py2.py3-none-any.whl (11 kB)
+Collecting traitlets>=4.2
+  Downloading traitlets-4.3.3-py2.py3-none-any.whl (75 kB)
+Collecting parso>=0.7.0
+  Downloading parso-0.7.0-py2.py3-none-any.whl (100 kB)
+Collecting ptyprocess>=0.5
+  Downloading ptyprocess-0.6.0-py2.py3-none-any.whl (39 kB)
+Requirement already satisfied: wcwidth in ./.env/lib/python3.5/site-packages (from prompt-toolkit<2.1.0,>=2.0.0->IPython->slash==1.1.4) (0.2.4)
+Collecting ipython-genutils
+  Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+Building wheels for collected packages: confetti, dessert, emport, gossip, Logbook, orderedset, vintage
+  Building wheel for confetti (setup.py): started
+  Building wheel for confetti (setup.py): finished with status 'done'
+  Created wheel for confetti: filename=confetti-2.5.3-py3-none-any.whl size=7195 sha256=25248e579eb6cb45a708e32263efc0a1b9bf107503e8768da317ad4ec3219c36
+  Stored in directory: /home/travis/.cache/pip/wheels/c2/83/12/94c38beac392040cf33f8f9f85b4f4790d47cb57c38e8badf1
+  Building wheel for dessert (setup.py): started
+  Building wheel for dessert (setup.py): finished with status 'done'
+  Created wheel for dessert: filename=dessert-1.4.1-py3-none-any.whl size=22794 sha256=5677d40b080b9f31340a69d6c4f2bb9b7d7910e3412d14f102418cbd7e780feb
+  Stored in directory: /home/travis/.cache/pip/wheels/bb/58/73/a34b41f1ca18597fe587f0eef13066dc41f076f031ec9f0c7d
+  Building wheel for emport (setup.py): started
+  Building wheel for emport (setup.py): finished with status 'done'
+  Created wheel for emport: filename=emport-1.3.1-py3-none-any.whl size=2951 sha256=fa6fd5d7dd9c26b9def6f51ffc53f802ecec19b9bd06054e385c6edae1709c93
+  Stored in directory: /home/travis/.cache/pip/wheels/6b/fe/a4/1143bef605d816eefeaac66a74314e58818f64ec3d0fb8536f
+  Building wheel for gossip (setup.py): started
+  Building wheel for gossip (setup.py): finished with status 'done'
+  Created wheel for gossip: filename=gossip-2.4.0-py3-none-any.whl size=14828 sha256=791dec87d86c602a429fbb973abe77c7482a042071c9144cb1011d6f456aa1af
+  Stored in directory: /home/travis/.cache/pip/wheels/cc/e4/d6/d5092aa964cdcabfb35062591303dc4a54896617ff46f845c3
+  Building wheel for Logbook (setup.py): started
+  Building wheel for Logbook (setup.py): finished with status 'done'
+  Created wheel for Logbook: filename=Logbook-1.5.3-cp35-cp35m-linux_x86_64.whl size=66383 sha256=d601db2647fdde5dca0e83e972d6fac85c5bf557f63dec47bd32419bea5d198b
+  Stored in directory: /home/travis/.cache/pip/wheels/c1/e7/ba/2f058e795252d37a0833a55df093cc967a20fc30fd226529d4
+  Building wheel for orderedset (setup.py): started
+  Building wheel for orderedset (setup.py): finished with status 'done'
+  Created wheel for orderedset: filename=orderedset-2.0.3-cp35-cp35m-linux_x86_64.whl size=239117 sha256=7e90c8d9bc0cc80c2287be46cfba29b9e30a4d9e29d26717f93ff53dc4593ea9
+  Stored in directory: /home/travis/.cache/pip/wheels/fe/9a/9d/7f149dd9b76e6cc911f97add03d9eaba1733f24795e606d453
+  Building wheel for vintage (setup.py): started
+  Building wheel for vintage (setup.py): finished with status 'done'
+  Created wheel for vintage: filename=vintage-0.4.1-py3-none-any.whl size=2831 sha256=2202af68852e6afdd4e5f179cef7138abb1eef68668bc0e628519430cdae0a66
+  Stored in directory: /home/travis/.cache/pip/wheels/f9/b5/c8/da15ac7b054e05cd8204dc9b8fbe8b7f0921337a2c5ff14bb1
+Successfully built confetti dessert emport gossip Logbook orderedset vintage
+Installing collected packages: python-dateutil, arrow, colorama, confetti, atomicwrites, dessert, Logbook, emport, vintage, gossip, orderedset, raven, parso, jedi, pickleshare, decorator, ptyprocess, pexpect, prompt-toolkit, pygments, backcall, ipython-genutils, traitlets, IPython, slash
+  Running setup.py develop for slash
+Successfully installed IPython-7.9.0 Logbook-1.5.3 arrow-0.15.6 atomicwrites-1.4.0 backcall-0.2.0 colorama-0.4.3 confetti-2.5.3 decorator-4.4.2 dessert-1.4.1 emport-1.3.1 gossip-2.4.0 ipython-genutils-0.2.0 jedi-0.17.0 orderedset-2.0.3 parso-0.7.0 pexpect-4.8.0 pickleshare-0.7.5 prompt-toolkit-2.0.10 ptyprocess-0.6.0 pygments-2.6.1 python-dateutil-2.8.1 raven-6.10.0 slash traitlets-4.3.3 vintage-0.4.1
+.env/bin/pip install -r ./doc/pip_requirements.txt
+Obtaining file:///home/travis/build/passed/getslash/slash (from -r ./doc/pip_requirements.txt (line 2))
+Collecting releases
+  Downloading releases-1.6.3-py2.py3-none-any.whl (22 kB)
+Collecting alabaster
+  Downloading alabaster-0.7.12-py2.py3-none-any.whl (14 kB)
+Collecting Sphinx>1.4
+  Downloading Sphinx-3.1.0-py3-none-any.whl (2.9 MB)
+Requirement already satisfied: arrow in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.15.6)
+Requirement already satisfied: colorama in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.4.3)
+Requirement already satisfied: confetti>=2.4.1 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.5.3)
+Requirement already satisfied: dessert>=1.0.2 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.4.1)
+Requirement already satisfied: emport>=1.1.3 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.3.1)
+Requirement already satisfied: gossip>=2.0.0 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.4.0)
+Requirement already satisfied: Logbook>=0.11.2 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.5.3)
+Requirement already satisfied: orderedset>=2.0.0 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.0.3)
+Requirement already satisfied: requests>=1.1.0 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.23.0)
+Requirement already satisfied: raven in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (6.10.0)
+Requirement already satisfied: py>=1.4.20 in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.8.1)
+Requirement already satisfied: pyparsing in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.4.7)
+Requirement already satisfied: IPython in ./.env/lib/python3.5/site-packages (from slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (7.9.0)
+Collecting semantic-version<2.7
+  Downloading semantic_version-2.6.0-py3-none-any.whl (14 kB)
+Requirement already satisfied: Pygments>=2.0 in ./.env/lib/python3.5/site-packages (from Sphinx>1.4->-r ./doc/pip_requirements.txt (line 5)) (2.6.1)
+Collecting Jinja2>=2.3
+  Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+Collecting imagesize
+  Downloading imagesize-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting docutils>=0.12
+  Downloading docutils-0.16-py2.py3-none-any.whl (548 kB)
+Collecting sphinxcontrib-qthelp
+  Downloading sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl (90 kB)
+Collecting sphinxcontrib-applehelp
+  Downloading sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl (121 kB)
+Requirement already satisfied: setuptools in ./.env/lib/python3.5/site-packages (from Sphinx>1.4->-r ./doc/pip_requirements.txt (line 5)) (47.1.1)
+Requirement already satisfied: packaging in ./.env/lib/python3.5/site-packages (from Sphinx>1.4->-r ./doc/pip_requirements.txt (line 5)) (20.4)
+Collecting sphinxcontrib-devhelp
+  Downloading sphinxcontrib_devhelp-1.0.2-py2.py3-none-any.whl (84 kB)
+Collecting sphinxcontrib-htmlhelp
+  Downloading sphinxcontrib_htmlhelp-1.0.3-py2.py3-none-any.whl (96 kB)
+Collecting snowballstemmer>=1.1
+  Downloading snowballstemmer-2.0.0-py2.py3-none-any.whl (97 kB)
+Collecting sphinxcontrib-serializinghtml
+  Downloading sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl (89 kB)
+Collecting sphinxcontrib-jsmath
+  Downloading sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
+Collecting babel>=1.3
+  Downloading Babel-2.8.0-py2.py3-none-any.whl (8.6 MB)
+Requirement already satisfied: python-dateutil in ./.env/lib/python3.5/site-packages (from arrow->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.8.1)
+Requirement already satisfied: sentinels>=0.0.5 in ./.env/lib/python3.5/site-packages (from confetti>=2.4.1->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.0.0)
+Requirement already satisfied: six in ./.env/lib/python3.5/site-packages (from confetti>=2.4.1->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.15.0)
+Requirement already satisfied: atomicwrites>=1.0 in ./.env/lib/python3.5/site-packages (from dessert>=1.0.2->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.4.0)
+Requirement already satisfied: attrs in ./.env/lib/python3.5/site-packages (from dessert>=1.0.2->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (19.3.0)
+Requirement already satisfied: munch in ./.env/lib/python3.5/site-packages (from dessert>=1.0.2->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.5.0)
+Requirement already satisfied: vintage in ./.env/lib/python3.5/site-packages (from gossip>=2.0.0->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.4.1)
+Requirement already satisfied: idna<3,>=2.5 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.9)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (1.25.9)
+Requirement already satisfied: chardet<4,>=3.0.2 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in ./.env/lib/python3.5/site-packages (from requests>=1.1.0->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2020.4.5.2)
+Requirement already satisfied: traitlets>=4.2 in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (4.3.3)
+Requirement already satisfied: jedi>=0.10 in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.17.0)
+Requirement already satisfied: decorator in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (4.4.2)
+Requirement already satisfied: backcall in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.2.0)
+Requirement already satisfied: pickleshare in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.7.5)
+Requirement already satisfied: pexpect; sys_platform != "win32" in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (4.8.0)
+Requirement already satisfied: prompt-toolkit<2.1.0,>=2.0.0 in ./.env/lib/python3.5/site-packages (from IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (2.0.10)
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp35-cp35m-manylinux1_x86_64.whl (27 kB)
+Collecting pytz>=2015.7
+  Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+Requirement already satisfied: ipython-genutils in ./.env/lib/python3.5/site-packages (from traitlets>=4.2->IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.2.0)
+Requirement already satisfied: parso>=0.7.0 in ./.env/lib/python3.5/site-packages (from jedi>=0.10->IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: ptyprocess>=0.5 in ./.env/lib/python3.5/site-packages (from pexpect; sys_platform != "win32"->IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.6.0)
+Requirement already satisfied: wcwidth in ./.env/lib/python3.5/site-packages (from prompt-toolkit<2.1.0,>=2.0.0->IPython->slash==1.1.4->-r ./doc/pip_requirements.txt (line 2)) (0.2.4)
+Installing collected packages: semantic-version, MarkupSafe, Jinja2, imagesize, docutils, sphinxcontrib-qthelp, sphinxcontrib-applehelp, alabaster, sphinxcontrib-devhelp, sphinxcontrib-htmlhelp, snowballstemmer, sphinxcontrib-serializinghtml, sphinxcontrib-jsmath, pytz, babel, Sphinx, releases, slash
+  Attempting uninstall: slash
+    Found existing installation: slash 1.1.4
+    Uninstalling slash-1.1.4:
+      Successfully uninstalled slash-1.1.4
+  Running setup.py develop for slash
+Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Sphinx-3.1.0 alabaster-0.7.12 babel-2.8.0 docutils-0.16 imagesize-1.2.0 pytz-2020.1 releases-1.6.3 semantic-version-2.6.0 slash snowballstemmer-2.0.0 sphinxcontrib-applehelp-1.0.2 sphinxcontrib-devhelp-1.0.2 sphinxcontrib-htmlhelp-1.0.3 sphinxcontrib-jsmath-1.0.1 sphinxcontrib-qthelp-1.0.3 sphinxcontrib-serializinghtml-1.1.4
+touch .env/.up-to-date
+
+travis_time:end:28ce01bc:start=1592082228127039145,finish=1592082371132687897,duration=143005648752[0K
+[32;1mThe command "make env" exited with 0.[0m
+travis_time:start:1117bf30[0K$ .env/bin/pip install lxml
+Requirement already satisfied: lxml in ./.env/lib/python3.5/site-packages (3.6.2)
+
+travis_time:end:1117bf30:start=1592082371143631410,finish=1592082372443631674,duration=1300000264[0K
+[32;1mThe command ".env/bin/pip install lxml" exited with 0.[0m
+travis_time:start:0e911d60[0K$ .env/bin/py.test tests -k 'xunit and session and errors'
+============================= test session starts ==============================
+platform linux -- Python 3.5.6, pytest-5.4.3, py-1.8.1, pluggy-0.13.1
+rootdir: /home/travis/build/passed/getslash/slash, inifile: pytest.ini
+plugins: forked-1.1.3, xdist-1.32.0, capturelog-0.7, cov-2.10.0, timeout-1.3.4
+collected 1270 items / 1269 deselected / 1 selected
+
+tests/test_xunit_plugin.py .                                             [100%]
+
+================ 1 passed, 1269 deselected, 8 warnings in 5.69s ================
+
+travis_time:end:0e911d60:start=1592082372454904096,finish=1592082383547242695,duration=11092338599[0K
+[32;1mThe command ".env/bin/py.test tests -k 'xunit and session and errors'" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:28ebaff0[0K$ .env/bin/coveralls
+
+travis_time:end:28ebaff0:start=1592082383557096897,finish=1592082384373290662,duration=816193765[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

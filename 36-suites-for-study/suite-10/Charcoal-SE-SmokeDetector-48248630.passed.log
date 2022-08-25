@@ -1,0 +1,148 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Sat Dec 13 00:10:36 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd passed/Charcoal-SE/SmokeDetector
+travis_fold:start:git.submodule[0Ktravis_time:start:07da325a[0K$ git submodule update --init --recursive
+Submodule 'ChatExchange' (https://github.com/Manishearth/ChatExchange.git) registered for path 'ChatExchange'
+Submodule path 'ChatExchange': checked out '2cbd9f4c47efda49b614712ee5632f1616d33204'
+
+travis_time:end:07da325a:start=1597463652979521406,finish=1597463654410032641,duration=1430511235[0Ktravis_fold:end:git.submodule[0Ktravis_time:start:0f724371[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:0f724371:start=1597463654444376646,finish=1597463654453916637,duration=9539991[0K$ python --version
+$ pip --version
+pip 1.5.6 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install[0Ktravis_time:start:05c3a688[0K$ pip install beautifulsoup4==4.3.2 requests==2.5.1 websocket-client==0.23.0 coverage==4.0a3 pytest==2.6.4 phonenumbers==7.0.2
+Downloading/unpacking beautifulsoup4==4.3.2
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/beautifulsoup4/setup.py) egg_info for package beautifulsoup4
+    
+Downloading/unpacking requests==2.5.1
+Downloading/unpacking websocket-client==0.23.0
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/websocket-client/setup.py) egg_info for package websocket-client
+    
+Downloading/unpacking coverage==4.0a3
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/coverage/setup.py) egg_info for package coverage
+    
+    warning: no previously-included files matching '*.pyc' found anywhere in distribution
+Requirement already satisfied (use --upgrade to upgrade): pytest==2.6.4 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages
+Downloading/unpacking phonenumbers==7.0.2
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/phonenumbers/setup.py) egg_info for package phonenumbers
+    
+    warning: no files found matching 'MANIFEST'
+    warning: no previously-included files found matching '.*ignore'
+Downloading/unpacking six (from websocket-client==0.23.0)
+  Downloading six-1.15.0-py2.py3-none-any.whl
+Downloading/unpacking backports.ssl-match-hostname (from websocket-client==0.23.0)
+  Downloading backports.ssl_match_hostname-3.7.0.1.tar.gz
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/backports.ssl-match-hostname/setup.py) egg_info for package backports.ssl-match-hostname
+    
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.25 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from pytest==2.6.4)
+Installing collected packages: beautifulsoup4, requests, websocket-client, coverage, phonenumbers, six, backports.ssl-match-hostname
+  Running setup.py install for beautifulsoup4
+    
+  Running setup.py install for websocket-client
+    changing mode of build/scripts-2.7/wsdump.py from 644 to 755
+    
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/wsdump.py to 755
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/tracer.c -o build/temp.linux-x86_64-2.7/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    
+    warning: no previously-included files matching '*.pyc' found anywhere in distribution
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for phonenumbers
+    
+    warning: no files found matching 'MANIFEST'
+    warning: no previously-included files found matching '.*ignore'
+  Running setup.py install for backports.ssl-match-hostname
+    
+Successfully installed beautifulsoup4 requests websocket-client coverage phonenumbers six backports.ssl-match-hostname
+Cleaning up...
+
+travis_time:end:05c3a688:start=1597463654690603793,finish=1597463664798266400,duration=10107662607[0Ktravis_fold:end:install[0Ktravis_time:start:11961f7a[0K$ python srccheck/checkall.py
+FUNCTION NAME CHECK PASSED.
+
+INDENTATION CHECK PASSED.
+
+
+travis_time:end:11961f7a:start=1597463664809555989,finish=1597463664942729003,duration=133173014[0K
+[32;1mThe command "python srccheck/checkall.py" exited with 0.[0m
+travis_time:start:12ab46a4[0K$ python -W default::Warning -m pytest test
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.9 -- py-1.4.26 -- pytest-2.6.4
+collected 60 items
+
+test/test_parsing.py .....................
+test/test_regexes.py ..................
+test/test_spamhandling.py .....................
+
+========================== 60 passed in 0.61 seconds ===========================
+
+travis_time:end:12ab46a4:start=1597463664954340344,finish=1597463665802938806,duration=848598462[0K
+[32;1mThe command "python -W default::Warning -m pytest test" exited with 0.[0m
+
+Done. Your build exited with 0.

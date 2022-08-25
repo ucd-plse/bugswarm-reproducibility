@@ -1,0 +1,293 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd failed/jacebrowning/doorstop
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export GH_TOKEN=[secure]
+
+travis_time:start:18909efa[0K$ source ~/virtualenv/python3.4/bin/activate
+
+travis_time:end:18909efa:start=1594488779303332738,finish=1594488779311915375,duration=8582637[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:install[0Ktravis_time:start:01eda44b[0K$ pip install coveralls==1.1 scrutinizer-ocular==1.0.3
+Collecting coveralls==1.1
+  Downloading https://files.pythonhosted.org/packages/81/f9/da2ad9334f60e418cb229c58724330be2635b369676d3eec8f61e1f85faa/coveralls-1.1-py2.py3-none-any.whl
+Collecting scrutinizer-ocular==1.0.3
+  Downloading https://files.pythonhosted.org/packages/99/0b/12ff6cb2c09192a0cc2db9edf7d70b732b7711de91a1b02bd163c9329f34/scrutinizer-ocular-1.0.3.tar.gz
+Collecting docopt>=0.6.1 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting requests>=1.0.0 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl (61kB)
+Collecting coverage>=3.6 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/23/ca/c722303813a4ab9bbaee2c2639aebbfd47cc542081c56608a31a9fa3cf7d/coverage-5.2.tar.gz (693kB)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+Collecting argparse>=1.0.0 (from scrutinizer-ocular==1.0.3)
+  Downloading https://files.pythonhosted.org/packages/f2/94/3af39d34be01a24a6e65433d19e107099374224905f1e0cc6bbe1fd22a2f/argparse-1.4.0-py2.py3-none-any.whl
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/e1/e5/df302e8017440f111c11cc41a6b432838672f5a70aa29227bf58149dc72f/urllib3-1.25.9-py2.py3-none-any.whl (126kB)
+Collecting certifi>=2017.4.17 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl (156kB)
+Collecting chardet<4,>=3.0.2 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Installing collected packages: idna, chardet, certifi, urllib3, argparse, coverage, requests, docopt, scrutinizer-ocular, coveralls
+
+
+
+
+
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/module.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/coverage/tracer.cpython-34m.so
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    Installing coverage-3.4 script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.4.2/bin
+
+  Running setup.py install for docopt
+  Running setup.py install for scrutinizer-ocular
+    Installing ocular script to /home/travis/virtualenv/python3.4.2/bin
+
+Successfully installed argparse-1.4.0 certifi-2020.6.20 chardet-3.0.4 coverage-5.2 coveralls-1.1 docopt-0.6.2 idna-2.10 requests-2.24.0 scrutinizer-ocular-1.0.3 urllib3-1.25.9
+
+travis_time:end:01eda44b:start=1594488779681882955,finish=1594488786646807507,duration=6964924552[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:27d2ac0e[0K$ make env
+virtualenv --python python env
+Using real prefix '/opt/python/3.4.2'
+New python executable in env/bin/python
+Installing setuptools, pip...done.
+Running virtualenv with interpreter /home/travis/virtualenv/python3.4.2/bin/python
+env/bin/pip install --upgrade pip
+Collecting pip from https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl#sha256=b27c4dedae8c41aa59108f2fa38bf78e0890e590545bc8ece7cdceb4ba60f6e4
+  Downloading https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl (1.5MB)
+Installing collected packages: pip
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-20.1.1
+VIRTUAL_ENV=env env/bin/python setup.py develop
+running develop
+running egg_info
+creating Doorstop.egg-info
+writing entry points to Doorstop.egg-info/entry_points.txt
+writing requirements to Doorstop.egg-info/requires.txt
+writing top-level names to Doorstop.egg-info/top_level.txt
+writing dependency_links to Doorstop.egg-info/dependency_links.txt
+writing Doorstop.egg-info/PKG-INFO
+writing manifest file 'Doorstop.egg-info/SOURCES.txt'
+reading manifest file 'Doorstop.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'Doorstop.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/Doorstop.egg-link (link to .)
+Adding Doorstop 1.2b1 to easy-install.pth file
+Installing doorstop-server script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing doorstop script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing doorstop-gui script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop
+Processing dependencies for Doorstop==1.2b1
+Searching for pyficache==0.3.1
+Reading https://pypi.python.org/simple/pyficache/
+Best match: pyficache 0.3.1
+Downloading https://files.pythonhosted.org/packages/c1/54/1b4718489d0f361c75b1800447efa43df5462a58d4747c7ce385ed7c6656/pyficache-0.3.1-py3.4.egg#sha256=3bafda326b51729b3e7ea3929b0c72b858d449f14bbbdbf69f3d19fac47c2a5f
+Processing pyficache-0.3.1-py3.4.egg
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/pyficache-0.3.1-py3.4.egg
+Extracting pyficache-0.3.1-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding pyficache 0.3.1 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/pyficache-0.3.1-py3.4.egg
+Searching for requests<3,>=2
+Reading https://pypi.python.org/simple/requests/
+Best match: requests 2.24.0
+Downloading https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz#sha256=b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b
+Processing requests-2.24.0.tar.gz
+Writing /tmp/easy_install-i0f1iwmj/requests-2.24.0/setup.cfg
+Running requests-2.24.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-i0f1iwmj/requests-2.24.0/egg-dist-tmp-v4wtzey4
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/requests-2.24.0-py3.4.egg
+Extracting requests-2.24.0-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding requests 2.24.0 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/requests-2.24.0-py3.4.egg
+Searching for bottle==0.12.13
+Reading https://pypi.python.org/simple/bottle/
+Best match: bottle 0.12.13
+Downloading https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz#sha256=39b751aee0b167be8dffb63ca81b735bbf1dd0905b3bc42761efedee8f123355
+Processing bottle-0.12.13.tar.gz
+Writing /tmp/easy_install-ogq677kj/bottle-0.12.13/setup.cfg
+Running bottle-0.12.13/setup.py -q bdist_egg --dist-dir /tmp/easy_install-ogq677kj/bottle-0.12.13/egg-dist-tmp-l0oijlx9
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/bottle-0.12.13-py3.4.egg
+Extracting bottle-0.12.13-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding bottle 0.12.13 to easy-install.pth file
+Installing bottle.py script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/bottle-0.12.13-py3.4.egg
+Searching for openpyxl!=2.1.0,<3,>=2.1
+Reading https://pypi.python.org/simple/openpyxl/
+Best match: openpyxl 2.6.4
+Downloading https://files.pythonhosted.org/packages/d6/26/eb28e975b7a37aad38d7ec4f7a0f652bdee6ecf36e6bd06f473c5af9b87b/openpyxl-2.6.4.tar.gz#sha256=1d53801678e18d7fe38c116f1ad0c2383a654670c4c8806105b611c92d92f2e3
+Processing openpyxl-2.6.4.tar.gz
+Writing /tmp/easy_install-gg1pa_zj/openpyxl-2.6.4/setup.cfg
+Running openpyxl-2.6.4/setup.py -q bdist_egg --dist-dir /tmp/easy_install-gg1pa_zj/openpyxl-2.6.4/egg-dist-tmp-dyxth310
+Moving openpyxl-2.6.4-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding openpyxl 2.6.4 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/openpyxl-2.6.4-py3.4.egg
+Searching for Markdown<3,>=2
+Reading https://pypi.python.org/simple/Markdown/
+Best match: Markdown 2.6.11
+Downloading https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz#sha256=a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81
+Processing Markdown-2.6.11.tar.gz
+Writing /tmp/easy_install-6kpkbxlr/Markdown-2.6.11/setup.cfg
+Running Markdown-2.6.11/setup.py -q bdist_egg --dist-dir /tmp/easy_install-6kpkbxlr/Markdown-2.6.11/egg-dist-tmp-mokoztzv
+Moving Markdown-2.6.11-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding Markdown 2.6.11 to easy-install.pth file
+Installing markdown_py script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/Markdown-2.6.11-py3.4.egg
+Searching for PyYAML<4,>=3.10
+Reading https://pypi.python.org/simple/PyYAML/
+Best match: PyYAML 3.13
+Downloading https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz#sha256=3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf
+Processing PyYAML-3.13.tar.gz
+Writing /tmp/easy_install-74aa9cdg/PyYAML-3.13/setup.cfg
+Running PyYAML-3.13/setup.py -q bdist_egg --dist-dir /tmp/easy_install-74aa9cdg/PyYAML-3.13/egg-dist-tmp-ccx1mxd4
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/PyYAML-3.13-py3.4-linux-x86_64.egg
+Extracting PyYAML-3.13-py3.4-linux-x86_64.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding PyYAML 3.13 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/PyYAML-3.13-py3.4-linux-x86_64.egg
+Searching for pygments>=2.0
+Reading https://pypi.python.org/simple/pygments/
+Best match: Pygments 2.6.1
+Downloading https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz#sha256=647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44
+Processing Pygments-2.6.1.tar.gz
+Writing /tmp/easy_install-c82blj0_/Pygments-2.6.1/setup.cfg
+Running Pygments-2.6.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-c82blj0_/Pygments-2.6.1/egg-dist-tmp-gbejviuz
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/Pygments-2.6.1-py3.4.egg
+Extracting Pygments-2.6.1-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding Pygments 2.6.1 to easy-install.pth file
+Installing pygmentize script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/Pygments-2.6.1-py3.4.egg
+Searching for coverage
+Reading https://pypi.python.org/simple/coverage/
+Best match: coverage 5.2
+Downloading https://files.pythonhosted.org/packages/23/ca/c722303813a4ab9bbaee2c2639aebbfd47cc542081c56608a31a9fa3cf7d/coverage-5.2.tar.gz#sha256=1874bdc943654ba46d28f179c1846f5710eda3aeb265ff029e0ac2b52daae404
+Processing coverage-5.2.tar.gz
+Writing /tmp/easy_install-51mrrq4y/coverage-5.2/setup.cfg
+Running coverage-5.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-51mrrq4y/coverage-5.2/egg-dist-tmp-ncdztze2
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/coverage-5.2-py3.4-linux-x86_64.egg
+Extracting coverage-5.2-py3.4-linux-x86_64.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding coverage 5.2 to easy-install.pth file
+Installing coverage3 script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing coverage script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing coverage-3.4 script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/coverage-5.2-py3.4-linux-x86_64.egg
+Searching for certifi>=2017.4.17
+Reading https://pypi.python.org/simple/certifi/
+Best match: certifi 2020.6.20
+Downloading https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz#sha256=5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3
+Processing certifi-2020.6.20.tar.gz
+Writing /tmp/easy_install-lk4fkf8_/certifi-2020.6.20/setup.cfg
+Running certifi-2020.6.20/setup.py -q bdist_egg --dist-dir /tmp/easy_install-lk4fkf8_/certifi-2020.6.20/egg-dist-tmp-7pas81fd
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/certifi-2020.6.20-py3.4.egg
+Extracting certifi-2020.6.20-py3.4.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages
+Adding certifi 2020.6.20 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.4/site-packages/certifi-2020.6.20-py3.4.egg
+Searching for urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+Reading https://pypi.python.org/simple/urllib3/
+Best match: urllib3 1.25.9
+Downloading https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz#sha256=3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527
+Processing urllib3-1.25.9.tar.gz
+Writing /tmp/easy_install-vvvcjy6f/urllib3-1.25.9/setup.cfg
+Running urllib3-1.25.9/setup.py -q bdist_egg --dist-dir /tmp/easy_install-vvvcjy6f/urllib3-1.25.9/egg-dist-tmp-68i8szsh
+
+travis_time:end:27d2ac0e:start=1594488786655964888,finish=1594488821645265202,duration=34989300314[0K
+[31;1mThe command "make env" failed and exited with 2 during .[0m
+
+Your build has been stopped.

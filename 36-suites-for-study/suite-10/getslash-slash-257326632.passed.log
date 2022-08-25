@@ -1,0 +1,498 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd passed/getslash/slash
+travis_time:start:10c45980[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:10c45980:start=1597524043970821822,finish=1597524043981243569,duration=10421747[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:288a7af8[0K$ pip install virtualenv==15.1.0
+Collecting virtualenv==15.1.0
+  Downloading https://files.pythonhosted.org/packages/6f/86/3dc328ee7b1a6419ebfac7896d882fba83c48e3561d22ddddf38294d3e83/virtualenv-15.1.0-py2.py3-none-any.whl (1.8MB)
+Installing collected packages: virtualenv
+
+Successfully installed virtualenv-15.1.0
+
+travis_time:end:288a7af8:start=1597524044270292857,finish=1597524045418038749,duration=1147745892[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:011812d4[0K$ pip install codecov==2.0.9
+Collecting codecov==2.0.9
+  Downloading https://files.pythonhosted.org/packages/47/f3/5abe7a91ad9c3ba3d280e5a4bcdef76c90361af2c6afe04fcedc2a2b0ff4/codecov-2.0.9-py2.py3-none-any.whl
+Collecting coverage (from codecov==2.0.9)
+  Downloading https://files.pythonhosted.org/packages/20/c0/0df91b7bde75063316f0aa5fa699f76b2bbb4514f190a2f68580b18d2f31/coverage-5.2.1.tar.gz (694kB)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+Collecting requests>=2.7.9 (from codecov==2.0.9)
+  Downloading https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl (61kB)
+Collecting idna<3,>=2.5 (from requests>=2.7.9->codecov==2.0.9)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting certifi>=2017.4.17 (from requests>=2.7.9->codecov==2.0.9)
+  Downloading https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl (156kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 (from requests>=2.7.9->codecov==2.0.9)
+  Downloading https://files.pythonhosted.org/packages/9f/f0/a391d1463ebb1b233795cabfc0ef38d3db4442339de68f847026199e69d7/urllib3-1.25.10-py2.py3-none-any.whl (127kB)
+Collecting chardet<4,>=3.0.2 (from requests>=2.7.9->codecov==2.0.9)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Installing collected packages: chardet, urllib3, certifi, idna, requests, coverage, codecov
+
+
+
+
+
+  Running setup.py install for coverage
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-2.7/coverage/ctracer/datastack.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-2.7/coverage/ctracer/filedisp.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/ctracer/module.c -o build/temp.linux-x86_64-2.7/coverage/ctracer/module.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-2.7/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/ctracer/datastack.o build/temp.linux-x86_64-2.7/coverage/ctracer/filedisp.o build/temp.linux-x86_64-2.7/coverage/ctracer/module.o build/temp.linux-x86_64-2.7/coverage/ctracer/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+
+Successfully installed certifi-2020.6.20 chardet-3.0.4 codecov-2.0.9 coverage-5.2.1 idna-2.10 requests-2.24.0 urllib3-1.25.10
+
+travis_time:end:011812d4:start=1597524045428659844,finish=1597524051219486082,duration=5790826238[0Ktravis_fold:end:install.2[0Ktravis_time:start:218798a2[0K$ make env
+python -m virtualenv .env
+Using real prefix '/opt/python/2.7.9'
+New python executable in /home/travis/build/passed/getslash/slash/.env/bin/python
+Installing setuptools, pip, wheel...done.
+.env/bin/pip install -e .[testing] -r doc/pip_requirements.txt
+Obtaining file:///home/travis/build/passed/getslash/slash
+Obtaining file:///home/travis/build/passed/getslash/slash (from -r doc/pip_requirements.txt (line 2))
+Collecting releases
+  Downloading releases-1.6.3-py2.py3-none-any.whl (22 kB)
+Collecting alabaster
+  Downloading alabaster-0.7.12-py2.py3-none-any.whl (14 kB)
+Collecting Sphinx>1.4
+  Downloading Sphinx-1.8.5-py2.py3-none-any.whl (3.1 MB)
+Collecting arrow
+  Downloading arrow-0.15.8-py2.py3-none-any.whl (49 kB)
+Collecting colorama
+  Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
+Collecting confetti>=2.4.1
+  Downloading confetti-2.5.3.tar.gz (6.5 kB)
+Collecting dessert>=1.3.1
+  Downloading dessert-1.3.4.tar.gz (16 kB)
+Collecting emport>=1.1.3
+  Downloading emport-1.3.1.tar.gz (5.3 kB)
+Collecting gossip>=2.2.0
+  Downloading gossip-2.4.0.tar.gz (64 kB)
+Collecting Logbook>=1.1.0
+  Downloading Logbook-1.5.3.tar.gz (85 kB)
+Collecting orderedset>=2.0.0
+  Downloading orderedset-2.0.3.tar.gz (101 kB)
+Collecting requests>=1.1.0
+  Using cached requests-2.24.0-py2.py3-none-any.whl (61 kB)
+Collecting SQLAlchemy
+  Downloading SQLAlchemy-1.3.18-cp27-cp27mu-manylinux2010_x86_64.whl (1.2 MB)
+Collecting tmuxp
+  Downloading tmuxp-1.5.5.tar.gz (75 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+    Preparing wheel metadata: started
+    Preparing wheel metadata: finished with status 'done'
+Collecting raven
+  Downloading raven-6.10.0-py2.py3-none-any.whl (284 kB)
+Collecting py>=1.4.20
+  Downloading py-1.9.0-py2.py3-none-any.whl (99 kB)
+Collecting pyparsing
+  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Collecting vintage>=0.4.0
+  Downloading vintage-0.4.1.tar.gz (3.9 kB)
+Collecting IPython
+  Downloading ipython-5.10.0-py2-none-any.whl (760 kB)
+Collecting contextlib2
+  Downloading contextlib2-0.6.0.post1-py2.py3-none-any.whl (9.8 kB)
+Collecting coverage
+  Downloading coverage-5.2.1-cp27-cp27mu-manylinux1_x86_64.whl (226 kB)
+Collecting coveralls
+  Downloading coveralls-1.11.1-py2.py3-none-any.whl (12 kB)
+Collecting munch
+  Downloading munch-2.5.0-py2.py3-none-any.whl (10 kB)
+Collecting pytest
+  Downloading pytest-4.6.11-py2.py3-none-any.whl (231 kB)
+Collecting pytest-xdist
+  Downloading pytest_xdist-1.34.0-py2.py3-none-any.whl (36 kB)
+Collecting pytest-capturelog
+  Downloading pytest-capturelog-0.7.tar.gz (4.3 kB)
+Collecting pytest-cov
+  Downloading pytest_cov-2.10.1-py2.py3-none-any.whl (19 kB)
+Collecting pytest-timeout
+  Downloading pytest_timeout-1.4.2-py2.py3-none-any.whl (10 kB)
+Collecting pyforge
+  Downloading pyforge-1.3.0.tar.gz (20 kB)
+Collecting pylint>=1.7
+  Downloading pylint-1.9.5-py2.py3-none-any.whl (696 kB)
+Collecting semantic-version<2.7
+  Downloading semantic_version-2.6.0.tar.gz (13 kB)
+Collecting snowballstemmer>=1.1
+  Downloading snowballstemmer-2.0.0-py2.py3-none-any.whl (97 kB)
+Collecting Jinja2>=2.3
+  Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+Collecting packaging
+  Downloading packaging-20.4-py2.py3-none-any.whl (37 kB)
+Collecting sphinxcontrib-websupport
+  Downloading sphinxcontrib_websupport-1.1.2-py2.py3-none-any.whl (39 kB)
+Collecting imagesize
+  Downloading imagesize-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting typing; python_version < "3.5"
+  Downloading typing-3.7.4.3-py2-none-any.whl (26 kB)
+Collecting Pygments>=2.0
+  Downloading Pygments-2.5.2-py2.py3-none-any.whl (896 kB)
+Collecting docutils>=0.11
+  Downloading docutils-0.16-py2.py3-none-any.whl (548 kB)
+Requirement already satisfied: setuptools in ./.env/lib/python2.7/site-packages (from Sphinx>1.4->-r doc/pip_requirements.txt (line 5)) (44.1.1)
+Collecting babel!=2.0,>=1.3
+  Downloading Babel-2.8.0-py2.py3-none-any.whl (8.6 MB)
+Collecting six>=1.5
+  Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting backports.functools-lru-cache>=1.2.1; python_version == "2.7"
+  Downloading backports.functools_lru_cache-1.6.1-py2.py3-none-any.whl (5.7 kB)
+Collecting python-dateutil
+  Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+Collecting sentinels>=0.0.5
+  Downloading sentinels-1.0.0.tar.gz (4.1 kB)
+Collecting certifi>=2017.4.17
+  Using cached certifi-2020.6.20-py2.py3-none-any.whl (156 kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Using cached urllib3-1.25.10-py2.py3-none-any.whl (127 kB)
+Collecting idna<3,>=2.5
+  Using cached idna-2.10-py2.py3-none-any.whl (58 kB)
+Collecting chardet<4,>=3.0.2
+  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting kaptan>=0.5.10
+  Downloading kaptan-0.5.12.tar.gz (10 kB)
+Collecting libtmux>=0.8<0.9
+  Downloading libtmux-0.8.2.tar.gz (37 kB)
+Collecting click>=7<8
+  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+Collecting backports.shutil-get-terminal-size; python_version == "2.7"
+  Downloading backports.shutil_get_terminal_size-1.0.0-py2.py3-none-any.whl (6.5 kB)
+Collecting decorator
+  Downloading decorator-4.4.2-py2.py3-none-any.whl (9.2 kB)
+Collecting traitlets>=4.2
+  Downloading traitlets-4.3.3-py2.py3-none-any.whl (75 kB)
+Collecting prompt-toolkit<2.0.0,>=1.0.4
+  Downloading prompt_toolkit-1.0.18-py2-none-any.whl (245 kB)
+Collecting pathlib2; python_version == "2.7" or python_version == "3.3"
+  Downloading pathlib2-2.3.5-py2.py3-none-any.whl (18 kB)
+Collecting simplegeneric>0.8
+  Downloading simplegeneric-0.8.1.zip (12 kB)
+Collecting pickleshare
+  Downloading pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+Collecting pexpect; sys_platform != "win32"
+  Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
+Collecting docopt>=0.6.1
+  Downloading docopt-0.6.2.tar.gz (25 kB)
+Collecting more-itertools<6.0.0,>=4.0.0; python_version <= "2.7"
+  Downloading more_itertools-5.0.0-py2-none-any.whl (52 kB)
+Collecting funcsigs>=1.0; python_version < "3.0"
+  Downloading funcsigs-1.0.2-py2.py3-none-any.whl (17 kB)
+Collecting atomicwrites>=1.0
+  Downloading atomicwrites-1.4.0-py2.py3-none-any.whl (6.8 kB)
+Collecting pluggy<1.0,>=0.12
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting attrs>=17.4.0
+  Downloading attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+Collecting wcwidth
+  Downloading wcwidth-0.2.5-py2.py3-none-any.whl (30 kB)
+Collecting importlib-metadata>=0.12; python_version < "3.8"
+  Downloading importlib_metadata-1.7.0-py2.py3-none-any.whl (31 kB)
+Collecting pytest-forked
+  Downloading pytest_forked-1.3.0-py2.py3-none-any.whl (4.7 kB)
+Collecting execnet>=1.1
+  Downloading execnet-1.7.1-py2.py3-none-any.whl (39 kB)
+Collecting isort>=4.2.5
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+Collecting astroid<2.0,>=1.6
+  Downloading astroid-1.6.6-py2.py3-none-any.whl (305 kB)
+Collecting mccabe
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting singledispatch; python_version < "3.4"
+  Downloading singledispatch-3.4.0.3-py2.py3-none-any.whl (12 kB)
+Collecting configparser; python_version == "2.7"
+  Downloading configparser-4.0.2-py2.py3-none-any.whl (22 kB)
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp27-cp27mu-manylinux1_x86_64.whl (24 kB)
+Collecting pytz>=2015.7
+  Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+Collecting PyYAML<6,>=3.13
+  Downloading PyYAML-5.3.1.tar.gz (269 kB)
+Collecting enum34; python_version == "2.7"
+  Downloading enum34-1.1.10-py2-none-any.whl (11 kB)
+Collecting ipython-genutils
+  Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+Collecting scandir; python_version < "3.5"
+  Downloading scandir-1.10.0.tar.gz (33 kB)
+Collecting ptyprocess>=0.5
+  Downloading ptyprocess-0.6.0-py2.py3-none-any.whl (39 kB)
+Collecting zipp>=0.5
+  Downloading zipp-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting apipkg>=1.4
+  Downloading apipkg-1.5-py2.py3-none-any.whl (4.9 kB)
+Collecting futures; python_version < "3.2"
+  Downloading futures-3.3.0-py2-none-any.whl (16 kB)
+Collecting lazy-object-proxy
+  Downloading lazy_object_proxy-1.5.1-cp27-cp27mu-manylinux1_x86_64.whl (52 kB)
+Collecting wrapt
+  Downloading wrapt-1.12.1.tar.gz (27 kB)
+Building wheels for collected packages: confetti, dessert, emport, gossip, Logbook, orderedset, tmuxp, vintage, pytest-capturelog, pyforge, semantic-version, sentinels, kaptan, libtmux, simplegeneric, docopt, PyYAML, scandir, wrapt
+  Building wheel for confetti (setup.py): started
+  Building wheel for confetti (setup.py): finished with status 'done'
+  Created wheel for confetti: filename=confetti-2.5.3-py2-none-any.whl size=7198 sha256=69fbb632499126693ae93c5544ff0e90dc9339b8d469eeeb4a1dc38cd66dcfea
+  Stored in directory: /home/travis/.cache/pip/wheels/9c/ae/9c/4443ebe298af7d614fdf76d99a8025ac8ec02c561436a2fb50
+  Building wheel for dessert (setup.py): started
+  Building wheel for dessert (setup.py): finished with status 'done'
+  Created wheel for dessert: filename=dessert-1.3.4-py2-none-any.whl size=15242 sha256=184334e0cda1c8cdd77348ff03a83a80cc5e1f315ab59360f86a28b5e7116e56
+  Stored in directory: /home/travis/.cache/pip/wheels/15/b6/04/b1ac7eb6ecaab2bd54591ea69533624e9092a616d43abf00df
+  Building wheel for emport (setup.py): started
+  Building wheel for emport (setup.py): finished with status 'done'
+  Created wheel for emport: filename=emport-1.3.1-py2-none-any.whl size=2951 sha256=b1a95a7ae5da1434b6e763a20ceb2f72e196328a959b4ace25bafa2e0e282aae
+  Stored in directory: /home/travis/.cache/pip/wheels/91/e1/36/a62739f45ae6ccb9b522707e766f24b70f2a0cbac94555d79d
+  Building wheel for gossip (setup.py): started
+  Building wheel for gossip (setup.py): finished with status 'done'
+  Created wheel for gossip: filename=gossip-2.4.0-py2-none-any.whl size=14827 sha256=2af2eb0e42f91b18deb28e3baf9e845941184a6bc05ed861aa7984124e4c7f7c
+  Stored in directory: /home/travis/.cache/pip/wheels/41/4b/9b/e92a8a698a9db152c6e9c762689855868729673e195e97ec89
+  Building wheel for Logbook (setup.py): started
+  Building wheel for Logbook (setup.py): finished with status 'done'
+  Created wheel for Logbook: filename=Logbook-1.5.3-cp27-cp27mu-linux_x86_64.whl size=66387 sha256=96a20c28a38eae8de299fca1744f58417b3c27f90ad582c83a3a2970f0987e92
+  Stored in directory: /home/travis/.cache/pip/wheels/6d/50/55/3281f289dbda0249c2ef047af2163ea4da1eceea05c0ea515f
+  Building wheel for orderedset (setup.py): started
+  Building wheel for orderedset (setup.py): finished with status 'done'
+  Created wheel for orderedset: filename=orderedset-2.0.3-cp27-cp27mu-linux_x86_64.whl size=212386 sha256=4b6532bc92b319d285540d4f7f545eaf8ec3ac123375d9f0edf488d2a6fea5ee
+  Stored in directory: /home/travis/.cache/pip/wheels/8d/c0/e6/6e12cc92f5a7df7edc06b71f2f8f1d858b51f852b3479650de
+  Building wheel for tmuxp (PEP 517): started
+  Building wheel for tmuxp (PEP 517): finished with status 'done'
+  Created wheel for tmuxp: filename=tmuxp-1.5.5-py2-none-any.whl size=25178 sha256=c0fc7a17a07ebc32901a92d248c850315b57c3cebb578a2e66498a2bb2ee64e3
+  Stored in directory: /home/travis/.cache/pip/wheels/77/31/55/bb85c76dd4120dc73d139684fdf01d423599aba57552a97f97
+  Building wheel for vintage (setup.py): started
+  Building wheel for vintage (setup.py): finished with status 'done'
+  Created wheel for vintage: filename=vintage-0.4.1-py2-none-any.whl size=2829 sha256=c319016ccdb3b65d13ed337373dc92b957ed02c152d1c352ab60ca7b8ba96166
+  Stored in directory: /home/travis/.cache/pip/wheels/4e/f9/fc/e5c40ac082687cf516cab3cee73662d6fb1833a67b233eaaa3
+  Building wheel for pytest-capturelog (setup.py): started
+  Building wheel for pytest-capturelog (setup.py): finished with status 'done'
+  Created wheel for pytest-capturelog: filename=pytest_capturelog-0.7-py2-none-any.whl size=5487 sha256=122672a7a77fa8a3277eb01e17651aee6fe60cca054e9e05c957ba8725248c65
+  Stored in directory: /home/travis/.cache/pip/wheels/d1/16/36/08c8fd1fe2ece7715c578ef4caff4ae348c3c4a7d86c29fc03
+  Building wheel for pyforge (setup.py): started
+  Building wheel for pyforge (setup.py): finished with status 'done'
+  Created wheel for pyforge: filename=pyforge-1.3.0-py2-none-any.whl size=23214 sha256=49a6a8230cca6fc23007ff404454b339fec0edbaedc3c77554a3e9df0afc53e5
+  Stored in directory: /home/travis/.cache/pip/wheels/02/ab/f3/87d513d004d1e20f6fe91cbcd02d602a36605334eff11258fc
+  Building wheel for semantic-version (setup.py): started
+  Building wheel for semantic-version (setup.py): finished with status 'done'
+  Created wheel for semantic-version: filename=semantic_version-2.6.0-py2-none-any.whl size=11373 sha256=f13cd2254ee464842d1fd981de93ca20bcb69b63d0e43536821f6bf119154ac9
+  Stored in directory: /home/travis/.cache/pip/wheels/48/9e/05/43554d1e8ed8219a0f2db7383a4500382f4bff6dcd4b8557e4
+  Building wheel for sentinels (setup.py): started
+  Building wheel for sentinels (setup.py): finished with status 'done'
+  Created wheel for sentinels: filename=sentinels-1.0.0-py2-none-any.whl size=3187 sha256=4817946224e0dc5c22e70fb487b2f7571680f483ecb23c959ab3f0acc1b08f67
+  Stored in directory: /home/travis/.cache/pip/wheels/df/e4/c6/b0cdc9e8a1da9e5116345b8a11a1146560f925b861a1807ceb
+  Building wheel for kaptan (setup.py): started
+  Building wheel for kaptan (setup.py): finished with status 'done'
+  Created wheel for kaptan: filename=kaptan-0.5.12-py2-none-any.whl size=10974 sha256=b5b70e3247c922a0823975f994552914d6c5304f5d709e32942092e6df5f7967
+  Stored in directory: /home/travis/.cache/pip/wheels/eb/05/5f/3b85affb01cfe79f3b873a1af39d04816273625d729eaacafd
+  Building wheel for libtmux (setup.py): started
+  Building wheel for libtmux (setup.py): finished with status 'done'
+  Created wheel for libtmux: filename=libtmux-0.8.2-py2-none-any.whl size=29352 sha256=742e0f13b39ffd5afbc6d8b9987ecb5c6f1211700ae4aa727c667fa312e47cc9
+  Stored in directory: /home/travis/.cache/pip/wheels/f0/e0/3a/bfae16698425b4fa089d2493477ac8ce516eceaf5cba8380d9
+  Building wheel for simplegeneric (setup.py): started
+  Building wheel for simplegeneric (setup.py): finished with status 'done'
+  Created wheel for simplegeneric: filename=simplegeneric-0.8.1-py2-none-any.whl size=5074 sha256=1dc469b33b6f6214fdbfbe20d7757c9e000097bb3d6c41aee95af84dbb05f89b
+  Stored in directory: /home/travis/.cache/pip/wheels/1b/83/23/9d866729c0090bfc62d03a5bd43080fb07a5f4fad10a09399a
+  Building wheel for docopt (setup.py): started
+  Building wheel for docopt (setup.py): finished with status 'done'
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13704 sha256=2f56a80b498d74d8396251f127e3fc832d1e749a45e552737b3700ce85b3089a
+  Stored in directory: /home/travis/.cache/pip/wheels/1c/d7/2d/aefbee2bf20e0ed968d4ab943e03451db0f14c52b5f624fc7e
+  Building wheel for PyYAML (setup.py): started
+  Building wheel for PyYAML (setup.py): finished with status 'done'
+  Created wheel for PyYAML: filename=PyYAML-5.3.1-cp27-cp27mu-linux_x86_64.whl size=353300 sha256=9efde7b7bab21a4996d8b23aca3d1a8073f3ec71782f3126f33aa8b406058f53
+  Stored in directory: /home/travis/.cache/pip/wheels/d1/d5/a0/3c27cdc8b0209c5fc1385afeee936cf8a71e13d885388b4be2
+  Building wheel for scandir (setup.py): started
+  Building wheel for scandir (setup.py): finished with status 'done'
+  Created wheel for scandir: filename=scandir-1.10.0-cp27-cp27mu-linux_x86_64.whl size=34050 sha256=dc24be1fe10c87c539e6167bf5484a28717ccbf3f170b63b3e6c5dd9dc4e3c01
+  Stored in directory: /home/travis/.cache/pip/wheels/58/2c/26/52406f7d1f19bcc47a6fbd1037a5f293492f5cf1d58c539edb
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp27-cp27mu-linux_x86_64.whl size=59955 sha256=9316f017fe8e0cc59583e144826f3d301f4fbd86afaa56ccb3d3cacf4bbc3d3c
+  Stored in directory: /home/travis/.cache/pip/wheels/5b/d8/8e/81a83cb5321b940a954996f5b57fddc8976e712b3ac3a1a54b
+Successfully built confetti dessert emport gossip Logbook orderedset tmuxp vintage pytest-capturelog pyforge semantic-version sentinels kaptan libtmux simplegeneric docopt PyYAML scandir wrapt
+Installing collected packages: semantic-version, alabaster, snowballstemmer, MarkupSafe, Jinja2, six, pyparsing, packaging, certifi, urllib3, idna, chardet, requests, sphinxcontrib-websupport, imagesize, typing, Pygments, docutils, pytz, babel, Sphinx, releases, backports.functools-lru-cache, python-dateutil, arrow, colorama, sentinels, confetti, py, munch, dessert, Logbook, emport, vintage, gossip, orderedset, SQLAlchemy, PyYAML, kaptan, libtmux, click, tmuxp, contextlib2, raven, backports.shutil-get-terminal-size, decorator, enum34, ipython-genutils, traitlets, wcwidth, prompt-toolkit, scandir, pathlib2, simplegeneric, pickleshare, ptyprocess, pexpect, IPython, coverage, docopt, coveralls, more-itertools, funcsigs, atomicwrites, zipp, configparser, importlib-metadata, pluggy, attrs, pytest, pytest-forked, apipkg, execnet, pytest-xdist, pytest-capturelog, pytest-cov, pytest-timeout, pyforge, futures, isort, lazy-object-proxy, wrapt, singledispatch, astroid, mccabe, pylint, slash
+  Running setup.py develop for slash
+Successfully installed IPython-5.10.0 Jinja2-2.11.2 Logbook-1.5.3 MarkupSafe-1.1.1 PyYAML-5.3.1 Pygments-2.5.2 SQLAlchemy-1.3.18 Sphinx-1.8.5 alabaster-0.7.12 apipkg-1.5 arrow-0.15.8 astroid-1.6.6 atomicwrites-1.4.0 attrs-19.3.0 babel-2.8.0 backports.functools-lru-cache-1.6.1 backports.shutil-get-terminal-size-1.0.0 certifi-2020.6.20 chardet-3.0.4 click-7.1.2 colorama-0.4.3 confetti-2.5.3 configparser-4.0.2 contextlib2-0.6.0.post1 coverage-5.2.1 coveralls-1.11.1 decorator-4.4.2 dessert-1.3.4 docopt-0.6.2 docutils-0.16 emport-1.3.1 enum34-1.1.10 execnet-1.7.1 funcsigs-1.0.2 futures-3.3.0 gossip-2.4.0 idna-2.10 imagesize-1.2.0 importlib-metadata-1.7.0 ipython-genutils-0.2.0 isort-4.3.21 kaptan-0.5.12 lazy-object-proxy-1.5.1 libtmux-0.8.2 mccabe-0.6.1 more-itertools-5.0.0 munch-2.5.0 orderedset-2.0.3 packaging-20.4 pathlib2-2.3.5 pexpect-4.8.0 pickleshare-0.7.5 pluggy-0.13.1 prompt-toolkit-1.0.18 ptyprocess-0.6.0 py-1.9.0 pyforge-1.3.0 pylint-1.9.5 pyparsing-2.4.7 pytest-4.6.11 pytest-capturelog-0.7 pytest-cov-2.10.1 pytest-forked-1.3.0 pytest-timeout-1.4.2 pytest-xdist-1.34.0 python-dateutil-2.8.1 pytz-2020.1 raven-6.10.0 releases-1.6.3 requests-2.24.0 scandir-1.10.0 semantic-version-2.6.0 sentinels-1.0.0 simplegeneric-0.8.1 singledispatch-3.4.0.3 six-1.15.0 slash snowballstemmer-2.0.0 sphinxcontrib-websupport-1.1.2 tmuxp-1.5.5 traitlets-4.3.3 typing-3.7.4.3 urllib3-1.25.10 vintage-0.4.1 wcwidth-0.2.5 wrapt-1.12.1 zipp-1.2.0
+touch .env/.up-to-date
+
+travis_time:end:218798a2:start=1597524051229995596,finish=1597524118313136986,duration=67083141390[0K
+[32;1mThe command "make env" exited with 0.[0m
+travis_time:start:0a3176ee[0K$ make test
+.env/bin/py.test --cov=slash --cov-report=html tests
+
+travis_time:end:0a3176ee:start=1597524118323463815,finish=1597524120618849946,duration=2295386131[0K
+[31;1mThe command "make test" exited with 2.[0m
+travis_time:start:17a71928[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then make pylint; fi
+
+travis_time:end:17a71928:start=1597524120628379986,finish=1597524120636802789,duration=8422803[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then make pylint; fi" exited with 0.[0m
+travis_fold:start:after_failure[0Ktravis_time:start:2d4ad340[0K$ .env/bin/pip freeze
+alabaster==0.7.12
+apipkg==1.5
+arrow==0.15.8
+astroid==1.6.6
+atomicwrites==1.4.0
+attrs==19.3.0
+Babel==2.8.0
+backports.functools-lru-cache==1.6.1
+backports.shutil-get-terminal-size==1.0.0
+certifi==2020.6.20
+chardet==3.0.4
+click==7.1.2
+colorama==0.4.3
+confetti==2.5.3
+configparser==4.0.2
+contextlib2==0.6.0.post1
+coverage==5.2.1
+coveralls==1.11.1
+decorator==4.4.2
+dessert==1.3.4
+docopt==0.6.2
+docutils==0.16
+emport==1.3.1
+enum34==1.1.10
+execnet==1.7.1
+funcsigs==1.0.2
+futures==3.3.0
+gossip==2.4.0
+idna==2.10
+imagesize==1.2.0
+importlib-metadata==1.7.0
+ipython==5.10.0
+ipython-genutils==0.2.0
+isort==4.3.21
+Jinja2==2.11.2
+kaptan==0.5.12
+lazy-object-proxy==1.5.1
+libtmux==0.8.2
+Logbook==1.5.3
+MarkupSafe==1.1.1
+mccabe==0.6.1
+more-itertools==5.0.0
+munch==2.5.0
+orderedset==2.0.3
+packaging==20.4
+pathlib2==2.3.5
+pexpect==4.8.0
+pickleshare==0.7.5
+pluggy==0.13.1
+prompt-toolkit==1.0.18
+ptyprocess==0.6.0
+py==1.9.0
+pyforge==1.3.0
+Pygments==2.5.2
+pylint==1.9.5
+pyparsing==2.4.7
+pytest==4.6.11
+pytest-capturelog==0.7
+pytest-cov==2.10.1
+pytest-forked==1.3.0
+pytest-timeout==1.4.2
+pytest-xdist==1.34.0
+python-dateutil==2.8.1
+pytz==2020.1
+PyYAML==5.3.1
+raven==6.10.0
+releases==1.6.3
+requests==2.24.0
+scandir==1.10.0
+semantic-version==2.6.0
+sentinels==1.0.0
+simplegeneric==0.8.1
+singledispatch==3.4.0.3
+six==1.15.0
+-e git+https://github.com/getslash/slash.git@00b2acd19f913e892dbbe22cf97be8e8159ceadc#egg=slash
+snowballstemmer==2.0.0
+Sphinx==1.8.5
+sphinxcontrib-websupport==1.1.2
+SQLAlchemy==1.3.18
+tmuxp==1.5.5
+traitlets==4.3.3
+typing==3.7.4.3
+urllib3==1.25.10
+vintage==0.4.1
+wcwidth==0.2.5
+wrapt==1.12.1
+zipp==1.2.0
+
+travis_time:end:2d4ad340:start=1597524120647382777,finish=1597524121177972674,duration=530589897[0Ktravis_fold:end:after_failure[0K
+Done. Your build exited with 1.

@@ -1,0 +1,715 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ cd passed/kairosdb/kairosdb
+$ java -Xmx32m -version
+$ javac -J-Xmx32m -version
+travis_fold:start:before_script[0Ktravis_time:start:06a6f920[0K$ export CLASSPATH=tools/tablesaw-1.2.4.jar
+
+travis_time:end:06a6f920:start=1593791773638105445,finish=1593791773648214798,duration=10109353[0Ktravis_fold:end:before_script[0Ktravis_time:start:04d90dd6[0K$ java make clean junit-test
+===============================================
+===============================================
+Ivy resolving dependencies.
+:: problems summary ::
+:::: WARNINGS
+		module not found: com.google.guava#guava;19.0
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom
+
+	  -- artifact com.google.guava#guava;19.0!guava.jar(bundle):
+
+	  http://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar
+
+		module not found: org.json#org.json;chargebee-1.0
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/json/org.json/chargebee-1.0/org.json-chargebee-1.0.pom
+
+	  -- artifact org.json#org.json;chargebee-1.0!org.json.jar:
+
+	  http://repo1.maven.org/maven2/org/json/org.json/chargebee-1.0/org.json-chargebee-1.0.jar
+
+		module not found: com.google.code.gson#gson;2.2.4
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom
+
+	  -- artifact com.google.code.gson#gson;2.2.4!gson.jar:
+
+	  http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+
+		module not found: io.netty#netty;3.6.5.Final
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/io/netty/netty/3.6.5.Final/netty-3.6.5.Final.pom
+
+	  -- artifact io.netty#netty;3.6.5.Final!netty.jar:
+
+	  http://repo1.maven.org/maven2/io/netty/netty/3.6.5.Final/netty-3.6.5.Final.jar
+
+		module not found: com.google.inject#guice;3.0
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/google/inject/guice/3.0/guice-3.0.pom
+
+	  -- artifact com.google.inject#guice;3.0!guice.jar:
+
+	  http://repo1.maven.org/maven2/com/google/inject/guice/3.0/guice-3.0.jar
+
+		module not found: com.google.inject.extensions#guice-multibindings;3.0
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.pom
+
+	  -- artifact com.google.inject.extensions#guice-multibindings;3.0!guice-multibindings.jar:
+
+	  http://repo1.maven.org/maven2/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.jar
+
+		module not found: com.google.inject.extensions#guice-servlet;3.0
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0.pom
+
+	  -- artifact com.google.inject.extensions#guice-servlet;3.0!guice-servlet.jar:
+
+	  http://repo1.maven.org/maven2/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0.jar
+
+		module not found: com.h2database#h2;1.3.170
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/h2database/h2/1.3.170/h2-1.3.170.pom
+
+	  -- artifact com.h2database#h2;1.3.170!h2.jar:
+
+	  http://repo1.maven.org/maven2/com/h2database/h2/1.3.170/h2-1.3.170.jar
+
+		module not found: c3p0#c3p0;0.9.1.2
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.pom
+
+	  -- artifact c3p0#c3p0;0.9.1.2!c3p0.jar:
+
+	  http://repo1.maven.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
+
+		module not found: org.slf4j#slf4j-api;1.7.2
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.pom
+
+	  -- artifact org.slf4j#slf4j-api;1.7.2!slf4j-api.jar:
+
+	  http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar
+
+		module not found: org.slf4j#jul-to-slf4j;1.7.2
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.2/jul-to-slf4j-1.7.2.pom
+
+	  -- artifact org.slf4j#jul-to-slf4j;1.7.2!jul-to-slf4j.jar:
+
+	  http://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.2/jul-to-slf4j-1.7.2.jar
+
+		module not found: org.apache.commons#commons-math3;3.2
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.pom
+
+	  -- artifact org.apache.commons#commons-math3;3.2!commons-math3.jar:
+
+	  http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar
+
+		module not found: commons-io#commons-io;2.4
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.pom
+
+	  -- artifact commons-io#commons-io;2.4!commons-io.jar:
+
+	  http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar
+
+		module not found: com.beust#jcommander;1.35
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/beust/jcommander/1.35/jcommander-1.35.pom
+
+	  -- artifact com.beust#jcommander;1.35!jcommander.jar:
+
+	  http://repo1.maven.org/maven2/com/beust/jcommander/1.35/jcommander-1.35.jar
+
+		module not found: org.apache.httpcomponents#httpclient;4.2.5
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.pom
+
+	  -- artifact org.apache.httpcomponents#httpclient;4.2.5!httpclient.jar:
+
+	  http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.jar
+
+		module not found: joda-time#joda-time;2.3
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/joda-time/joda-time/2.3/joda-time-2.3.pom
+
+	  -- artifact joda-time#joda-time;2.3!joda-time.jar:
+
+	  http://repo1.maven.org/maven2/joda-time/joda-time/2.3/joda-time-2.3.jar
+
+		module not found: ch.qos.logback#logback-core;1.1.7
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.pom
+
+	  -- artifact ch.qos.logback#logback-core;1.1.7!logback-core.jar:
+
+	  http://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar
+
+		module not found: ch.qos.logback#logback-classic;1.1.7
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.pom
+
+	  -- artifact ch.qos.logback#logback-classic;1.1.7!logback-classic.jar:
+
+	  http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
+
+		module not found: org.agileclick.genorm#genormous;1.6.0.jdbc4
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/agileclick/genorm/genormous/1.6.0.jdbc4/genormous-1.6.0.jdbc4.pom
+
+	  -- artifact org.agileclick.genorm#genormous;1.6.0.jdbc4!genormous.jar:
+
+	  http://repo1.maven.org/maven2/org/agileclick/genorm/genormous/1.6.0.jdbc4/genormous-1.6.0.jdbc4.jar
+
+		module not found: jaxen#jaxen;1.1.6
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/jaxen/jaxen/1.1.6/jaxen-1.1.6.pom
+
+	  -- artifact jaxen#jaxen;1.1.6!jaxen.jar:
+
+	  http://repo1.maven.org/maven2/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar
+
+		module not found: org.hectorclient#hector-core;1.1-4
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/hectorclient/hector-core/1.1-4/hector-core-1.1-4.pom
+
+	  -- artifact org.hectorclient#hector-core;1.1-4!hector-core.jar(bundle):
+
+	  http://repo1.maven.org/maven2/org/hectorclient/hector-core/1.1-4/hector-core-1.1-4.jar
+
+		module not found: org.eclipse.jetty#jetty-server;8.1.16.v20140903
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.16.v20140903/jetty-server-8.1.16.v20140903.pom
+
+	  -- artifact org.eclipse.jetty#jetty-server;8.1.16.v20140903!jetty-server.jar:
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.16.v20140903/jetty-server-8.1.16.v20140903.jar
+
+		module not found: org.eclipse.jetty#jetty-servlet;8.1.16.v20140903
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/8.1.16.v20140903/jetty-servlet-8.1.16.v20140903.pom
+
+	  -- artifact org.eclipse.jetty#jetty-servlet;8.1.16.v20140903!jetty-servlet.jar:
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/8.1.16.v20140903/jetty-servlet-8.1.16.v20140903.jar
+
+		module not found: org.eclipse.jetty#jetty-servlets;8.1.16.v20140903
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlets/8.1.16.v20140903/jetty-servlets-8.1.16.v20140903.pom
+
+	  -- artifact org.eclipse.jetty#jetty-servlets;8.1.16.v20140903!jetty-servlets.jar:
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlets/8.1.16.v20140903/jetty-servlets-8.1.16.v20140903.jar
+
+		module not found: org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.pom
+
+	  -- artifact org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016!javax.servlet.jar(orbit):
+
+	  http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar
+
+		module not found: com.sun.jersey.contribs#jersey-guice;1.18.3
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/contribs/jersey-guice/1.18.3/jersey-guice-1.18.3.pom
+
+	  -- artifact com.sun.jersey.contribs#jersey-guice;1.18.3!jersey-guice.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/contribs/jersey-guice/1.18.3/jersey-guice-1.18.3.jar
+
+		module not found: com.sun.jersey#jersey-server;1.18.3
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-server/1.18.3/jersey-server-1.18.3.pom
+
+	  -- artifact com.sun.jersey#jersey-server;1.18.3!jersey-server.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-server/1.18.3/jersey-server-1.18.3.jar
+
+		module not found: com.sun.jersey#jersey-json;1.18.3
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-json/1.18.3/jersey-json-1.18.3.pom
+
+	  -- artifact com.sun.jersey#jersey-json;1.18.3!jersey-json.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-json/1.18.3/jersey-json-1.18.3.jar
+
+		module not found: com.sun.jersey#jersey-core;1.18.3
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-core/1.18.3/jersey-core-1.18.3.pom
+
+	  -- artifact com.sun.jersey#jersey-core;1.18.3!jersey-core.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-core/1.18.3/jersey-core-1.18.3.jar
+
+		module not found: com.sun.jersey#jersey-servlet;1.18.3
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-servlet/1.18.3/jersey-servlet-1.18.3.pom
+
+	  -- artifact com.sun.jersey#jersey-servlet;1.18.3!jersey-servlet.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/jersey-servlet/1.18.3/jersey-servlet-1.18.3.jar
+
+		module not found: com.sun.jersey.oauth#oauth-signature;1.1.1-ea
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-signature/1.1.1-ea/oauth-signature-1.1.1-ea.pom
+
+	  -- artifact com.sun.jersey.oauth#oauth-signature;1.1.1-ea!oauth-signature.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-signature/1.1.1-ea/oauth-signature-1.1.1-ea.jar
+
+		module not found: com.sun.jersey.oauth#oauth-server;1.1.1-ea
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-server/1.1.1-ea/oauth-server-1.1.1-ea.pom
+
+	  -- artifact com.sun.jersey.oauth#oauth-server;1.1.1-ea!oauth-server.jar:
+
+	  http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-server/1.1.1-ea/oauth-server-1.1.1-ea.jar
+
+		module not found: javax.validation#validation-api;1.0.0.GA
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.pom
+
+	  -- artifact javax.validation#validation-api;1.0.0.GA!validation-api.jar:
+
+	  http://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar
+
+		module not found: org.apache.bval#bval-jsr303;0.5
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/apache/bval/bval-jsr303/0.5/bval-jsr303-0.5.pom
+
+	  -- artifact org.apache.bval#bval-jsr303;0.5!bval-jsr303.jar:
+
+	  http://repo1.maven.org/maven2/org/apache/bval/bval-jsr303/0.5/bval-jsr303-0.5.jar
+
+		module not found: com.google.code.findbugs#jsr305;1.3.9
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+
+	  -- artifact com.google.code.findbugs#jsr305;1.3.9!jsr305.jar:
+
+	  http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+
+		module not found: org.quartz-scheduler#quartz;2.1.7
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.1.7/quartz-2.1.7.pom
+
+	  -- artifact org.quartz-scheduler#quartz;2.1.7!quartz.jar:
+
+	  http://repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.1.7/quartz-2.1.7.jar
+
+		module not found: com.codahale.metrics#metrics-healthchecks;3.0.2
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/codahale/metrics/metrics-healthchecks/3.0.2/metrics-healthchecks-3.0.2.pom
+
+	  -- artifact com.codahale.metrics#metrics-healthchecks;3.0.2!metrics-healthchecks.jar:
+
+	  http://repo1.maven.org/maven2/com/codahale/metrics/metrics-healthchecks/3.0.2/metrics-healthchecks-3.0.2.jar
+
+		module not found: com.codahale.metrics#metrics-jvm;3.0.2
+
+	==== central: tried
+
+	  http://repo1.maven.org/maven2/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2.pom
+
+	  -- artifact com.codahale.metrics#metrics-jvm;3.0.2!metrics-jvm.jar:
+
+	  http://repo1.maven.org/maven2/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2.jar
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		::          UNRESOLVED DEPENDENCIES         ::
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		:: com.google.guava#guava;19.0: not found
+
+		:: org.json#org.json;chargebee-1.0: not found
+
+		:: com.google.code.gson#gson;2.2.4: not found
+
+		:: io.netty#netty;3.6.5.Final: not found
+
+		:: com.google.inject#guice;3.0: not found
+
+		:: com.google.inject.extensions#guice-multibindings;3.0: not found
+
+		:: com.google.inject.extensions#guice-servlet;3.0: not found
+
+		:: com.h2database#h2;1.3.170: not found
+
+		:: c3p0#c3p0;0.9.1.2: not found
+
+		:: org.slf4j#slf4j-api;1.7.2: not found
+
+		:: org.slf4j#jul-to-slf4j;1.7.2: not found
+
+		:: org.apache.commons#commons-math3;3.2: not found
+
+		:: commons-io#commons-io;2.4: not found
+
+		:: com.beust#jcommander;1.35: not found
+
+		:: org.apache.httpcomponents#httpclient;4.2.5: not found
+
+		:: joda-time#joda-time;2.3: not found
+
+		:: ch.qos.logback#logback-core;1.1.7: not found
+
+		:: ch.qos.logback#logback-classic;1.1.7: not found
+
+		:: org.agileclick.genorm#genormous;1.6.0.jdbc4: not found
+
+		:: jaxen#jaxen;1.1.6: not found
+
+		:: org.hectorclient#hector-core;1.1-4: not found
+
+		:: org.eclipse.jetty#jetty-server;8.1.16.v20140903: not found
+
+		:: org.eclipse.jetty#jetty-servlet;8.1.16.v20140903: not found
+
+		:: org.eclipse.jetty#jetty-servlets;8.1.16.v20140903: not found
+
+		:: org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016: not found
+
+		:: com.sun.jersey.contribs#jersey-guice;1.18.3: not found
+
+		:: com.sun.jersey#jersey-server;1.18.3: not found
+
+		:: com.sun.jersey#jersey-json;1.18.3: not found
+
+		:: com.sun.jersey#jersey-core;1.18.3: not found
+
+		:: com.sun.jersey#jersey-servlet;1.18.3: not found
+
+		:: com.sun.jersey.oauth#oauth-signature;1.1.1-ea: not found
+
+		:: com.sun.jersey.oauth#oauth-server;1.1.1-ea: not found
+
+		:: javax.validation#validation-api;1.0.0.GA: not found
+
+		:: org.apache.bval#bval-jsr303;0.5: not found
+
+		:: com.google.code.findbugs#jsr305;1.3.9: not found
+
+		:: org.quartz-scheduler#quartz;2.1.7: not found
+
+		:: com.codahale.metrics#metrics-healthchecks;3.0.2: not found
+
+		:: com.codahale.metrics#metrics-jvm;3.0.2: not found
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::: ERRORS
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/json/org.json/chargebee-1.0/org.json-chargebee-1.0.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/json/org.json/chargebee-1.0/org.json-chargebee-1.0.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/io/netty/netty/3.6.5.Final/netty-3.6.5.Final.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/io/netty/netty/3.6.5.Final/netty-3.6.5.Final.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/inject/guice/3.0/guice-3.0.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/inject/guice/3.0/guice-3.0.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/h2database/h2/1.3.170/h2-1.3.170.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/h2database/h2/1.3.170/h2-1.3.170.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.2/jul-to-slf4j-1.7.2.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.2/jul-to-slf4j-1.7.2.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/beust/jcommander/1.35/jcommander-1.35.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/beust/jcommander/1.35/jcommander-1.35.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/joda-time/joda-time/2.3/joda-time-2.3.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/joda-time/joda-time/2.3/joda-time-2.3.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/agileclick/genorm/genormous/1.6.0.jdbc4/genormous-1.6.0.jdbc4.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/agileclick/genorm/genormous/1.6.0.jdbc4/genormous-1.6.0.jdbc4.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/jaxen/jaxen/1.1.6/jaxen-1.1.6.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/hectorclient/hector-core/1.1-4/hector-core-1.1-4.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/hectorclient/hector-core/1.1-4/hector-core-1.1-4.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.16.v20140903/jetty-server-8.1.16.v20140903.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.16.v20140903/jetty-server-8.1.16.v20140903.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/8.1.16.v20140903/jetty-servlet-8.1.16.v20140903.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/8.1.16.v20140903/jetty-servlet-8.1.16.v20140903.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlets/8.1.16.v20140903/jetty-servlets-8.1.16.v20140903.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlets/8.1.16.v20140903/jetty-servlets-8.1.16.v20140903.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/contribs/jersey-guice/1.18.3/jersey-guice-1.18.3.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/contribs/jersey-guice/1.18.3/jersey-guice-1.18.3.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-server/1.18.3/jersey-server-1.18.3.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-server/1.18.3/jersey-server-1.18.3.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-json/1.18.3/jersey-json-1.18.3.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-json/1.18.3/jersey-json-1.18.3.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-core/1.18.3/jersey-core-1.18.3.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-core/1.18.3/jersey-core-1.18.3.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-servlet/1.18.3/jersey-servlet-1.18.3.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/jersey-servlet/1.18.3/jersey-servlet-1.18.3.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-signature/1.1.1-ea/oauth-signature-1.1.1-ea.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-signature/1.1.1-ea/oauth-signature-1.1.1-ea.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-server/1.1.1-ea/oauth-server-1.1.1-ea.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/sun/jersey/oauth/oauth-server/1.1.1-ea/oauth-server-1.1.1-ea.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/bval/bval-jsr303/0.5/bval-jsr303-0.5.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/apache/bval/bval-jsr303/0.5/bval-jsr303-0.5.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.1.7/quartz-2.1.7.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/org/quartz-scheduler/quartz/2.1.7/quartz-2.1.7.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/codahale/metrics/metrics-healthchecks/3.0.2/metrics-healthchecks-3.0.2.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/codahale/metrics/metrics-healthchecks/3.0.2/metrics-healthchecks-3.0.2.jar
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2.pom
+
+	SERVER ERROR: HTTPS Required url=http://repo1.maven.org/maven2/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2.jar
+
+Exception tablesaw.TablesawException: Unable to resolve dependencies
+[31;1mUnable to resolve dependencies
+[m
+travis_time:end:04d90dd6:start=1593791773661073724,finish=1593791779087856649,duration=5426782925[0K
+[31;1mThe command "java make clean junit-test" exited with 255.[0m
+
+Done. Your build exited with 1.

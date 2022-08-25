@@ -1,0 +1,602 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+$ cd passed/tornadoweb/tornado
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DEPS=false
+
+travis_time:start:0263a24c[0K$ source ~/virtualenv/python2.6/bin/activate
+
+travis_time:end:0263a24c:start=1591593229040839084,finish=1591593229049602112,duration=8763028[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages (python 2.6)
+travis_fold:start:install.1[0Ktravis_time:start:093680a9[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then travis_retry pip install unittest2==1.1.0; fi
+Collecting unittest2==1.1.0
+  Downloading https://files.pythonhosted.org/packages/72/20/7f0f433060a962200b7272b8c12ba90ef5b903e218174301d0abfd523813/unittest2-1.1.0-py2.py3-none-any.whl (96kB)
+Requirement already satisfied (use --upgrade to upgrade): argparse in /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages (from unittest2==1.1.0)
+Collecting traceback2 (from unittest2==1.1.0)
+  Downloading https://files.pythonhosted.org/packages/17/0a/6ac05a3723017a967193456a2efa0aa9ac4b51456891af1e2353bb9de21e/traceback2-1.4.0-py2.py3-none-any.whl
+Collecting six>=1.4 (from unittest2==1.1.0)
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting linecache2 (from traceback2->unittest2==1.1.0)
+  Downloading https://files.pythonhosted.org/packages/c7/a3/c5da2a44c85bfbb6eebcfc1dde24933f8704441b98fdde6528f4831757a6/linecache2-1.0.0-py2.py3-none-any.whl
+Installing collected packages: linecache2, six, traceback2, unittest2
+  Compiling /tmp/pip-build-hb2fkl/linecache2/linecache2/tests/inspect_fodder2.py ...
+  
+  
+
+
+
+
+Successfully installed linecache2-1.0.0 six-1.15.0 traceback2-1.4.0 unittest2-1.1.0
+
+travis_time:end:093680a9:start=1591593229416485512,finish=1591593230839064380,duration=1422578868[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0f484eec[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then travis_retry pip install futures==3.0.3 mock==1.3.0 Monotime==1.0 trollius==2.0; fi
+
+travis_time:end:0f484eec:start=1591593230847716756,finish=1591593230854137827,duration=6421071[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:0ee4377a[0K$ if [[ $TRAVIS_PYTHON_VERSION == 'pypy' && $DEPS == true ]]; then travis_retry pip install futures==3.0.3 mock==1.3.0; fi
+
+travis_time:end:0ee4377a:start=1591593230863322228,finish=1591593230870448021,duration=7125793[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:0cb0fa2a[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then travis_retry pip install pycurl==7.19.5.1; fi
+
+travis_time:end:0cb0fa2a:start=1591593230879605316,finish=1591593230886746096,duration=7140780[0Ktravis_fold:end:install.4[0Ktravis_fold:start:install.5[0Ktravis_time:start:14789f7e[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.2' && $DEPS == true ]]; then travis_retry pip install mock==1.3.0; fi
+
+travis_time:end:14789f7e:start=1591593230895192073,finish=1591593230903021517,duration=7829444[0Ktravis_fold:end:install.5[0Ktravis_fold:start:install.6[0Ktravis_time:start:05219616[0K$ if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then travis_retry pip install Twisted==15.4.0; fi
+
+travis_time:end:05219616:start=1591593230912109934,finish=1591593230919624986,duration=7515052[0Ktravis_fold:end:install.6[0Ktravis_fold:start:install.7[0Ktravis_time:start:023907ad[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then travis_retry pip install sphinx==1.3.1 sphinx_rtd_theme==0.1.9; fi
+
+travis_time:end:023907ad:start=1591593230929570722,finish=1591593230937644409,duration=8073687[0Ktravis_fold:end:install.7[0Ktravis_fold:start:install.8[0Ktravis_time:start:009b9fa9[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then travis_retry pip install sphinx==1.3.1 sphinx_rtd_theme==0.1.9; fi
+
+travis_time:end:009b9fa9:start=1591593230946562549,finish=1591593230953665834,duration=7103285[0Ktravis_fold:end:install.8[0Ktravis_fold:start:install.9[0Ktravis_time:start:058331f0[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi
+
+travis_time:end:058331f0:start=1591593230967626727,finish=1591593230977886599,duration=10259872[0Ktravis_fold:end:install.9[0Ktravis_fold:start:install.10[0Ktravis_time:start:200f94e4[0K$ travis_retry python setup.py install
+running install
+running bdist_egg
+running egg_info
+creating tornado.egg-info
+writing requirements to tornado.egg-info/requires.txt
+writing tornado.egg-info/PKG-INFO
+writing top-level names to tornado.egg-info/top_level.txt
+writing dependency_links to tornado.egg-info/dependency_links.txt
+writing manifest file 'tornado.egg-info/SOURCES.txt'
+reading manifest file 'tornado.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'docs/build'
+warning: no files found matching 'tornado/test/README'
+writing manifest file 'tornado.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.6
+creating build/lib.linux-x86_64-2.6/tornado
+copying tornado/__init__.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/_locale_data.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/auth.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/autoreload.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/concurrent.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/curl_httpclient.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/escape.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/gen.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/http1connection.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/httpclient.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/httpserver.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/httputil.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/ioloop.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/iostream.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/locale.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/locks.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/log.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/netutil.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/options.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/process.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/queues.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/simple_httpclient.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/stack_context.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/tcpclient.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/tcpserver.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/template.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/testing.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/util.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/web.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/websocket.py -> build/lib.linux-x86_64-2.6/tornado
+copying tornado/wsgi.py -> build/lib.linux-x86_64-2.6/tornado
+creating build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/__init__.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/__main__.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/asyncio_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/auth_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/concurrent_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/curl_httpclient_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/escape_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/gen_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/httpclient_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/httpserver_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/httputil_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/import_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/ioloop_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/iostream_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/locale_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/locks_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/log_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/netutil_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/options_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/process_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/queues_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/resolve_test_helper.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/runtests.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/simple_httpclient_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/stack_context_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/tcpclient_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/tcpserver_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/template_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/testing_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/twisted_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/util.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/util_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/web_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/websocket_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/wsgi_test.py -> build/lib.linux-x86_64-2.6/tornado/test
+creating build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/__init__.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/asyncio.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/auto.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/caresresolver.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/common.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/epoll.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/interface.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/kqueue.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/posix.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/select.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/twisted.py -> build/lib.linux-x86_64-2.6/tornado/platform
+copying tornado/platform/windows.py -> build/lib.linux-x86_64-2.6/tornado/platform
+creating build/lib.linux-x86_64-2.6/tornado/test/csv_translations
+copying tornado/test/csv_translations/fr_FR.csv -> build/lib.linux-x86_64-2.6/tornado/test/csv_translations
+creating build/lib.linux-x86_64-2.6/tornado/test/gettext_translations
+creating build/lib.linux-x86_64-2.6/tornado/test/gettext_translations/fr_FR
+creating build/lib.linux-x86_64-2.6/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo -> build/lib.linux-x86_64-2.6/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po -> build/lib.linux-x86_64-2.6/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/options_test.cfg -> build/lib.linux-x86_64-2.6/tornado/test
+creating build/lib.linux-x86_64-2.6/tornado/test/static
+copying tornado/test/static/robots.txt -> build/lib.linux-x86_64-2.6/tornado/test/static
+copying tornado/test/static/sample.xml -> build/lib.linux-x86_64-2.6/tornado/test/static
+copying tornado/test/static/sample.xml.gz -> build/lib.linux-x86_64-2.6/tornado/test/static
+copying tornado/test/static/sample.xml.bz2 -> build/lib.linux-x86_64-2.6/tornado/test/static
+creating build/lib.linux-x86_64-2.6/tornado/test/static/dir
+copying tornado/test/static/dir/index.html -> build/lib.linux-x86_64-2.6/tornado/test/static/dir
+copying tornado/test/static_foo.txt -> build/lib.linux-x86_64-2.6/tornado/test
+creating build/lib.linux-x86_64-2.6/tornado/test/templates
+copying tornado/test/templates/utf8.html -> build/lib.linux-x86_64-2.6/tornado/test/templates
+copying tornado/test/test.crt -> build/lib.linux-x86_64-2.6/tornado/test
+copying tornado/test/test.key -> build/lib.linux-x86_64-2.6/tornado/test
+running build_ext
+building 'tornado.speedups' extension
+creating build/temp.linux-x86_64-2.6
+creating build/temp.linux-x86_64-2.6/tornado
+gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.6.9/include/python2.6 -c tornado/speedups.c -o build/temp.linux-x86_64-2.6/tornado/speedups.o
+gcc -pthread -shared build/temp.linux-x86_64-2.6/tornado/speedups.o -L/opt/python/2.6.9/lib -lpython2.6 -o build/lib.linux-x86_64-2.6/tornado/speedups.so
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/__init__.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/_locale_data.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/auth.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/autoreload.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/concurrent.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/curl_httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/escape.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/gen.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/http1connection.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/httpserver.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/httputil.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/ioloop.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/iostream.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/locale.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/locks.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/log.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/netutil.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/options.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/process.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/queues.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/simple_httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/stack_context.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/tcpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/tcpserver.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/template.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/testing.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/util.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/web.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/websocket.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-2.6/tornado/wsgi.py -> build/bdist.linux-x86_64/egg/tornado
+creating build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/__init__.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/__main__.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/asyncio_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/auth_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/concurrent_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/curl_httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/escape_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/gen_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/httpserver_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/httputil_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/import_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/ioloop_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/iostream_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/locale_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/locks_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/log_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/netutil_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/options_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/process_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/queues_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/resolve_test_helper.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/runtests.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/simple_httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/stack_context_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/tcpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/tcpserver_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/template_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/testing_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/twisted_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/util.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/util_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/web_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/websocket_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/wsgi_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/csv_translations
+copying build/lib.linux-x86_64-2.6/tornado/test/csv_translations/fr_FR.csv -> build/bdist.linux-x86_64/egg/tornado/test/csv_translations
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-2.6/tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo -> build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-2.6/tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po -> build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-2.6/tornado/test/options_test.cfg -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-2.6/tornado/test/static/robots.txt -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-2.6/tornado/test/static/sample.xml -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-2.6/tornado/test/static/sample.xml.gz -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-2.6/tornado/test/static/sample.xml.bz2 -> build/bdist.linux-x86_64/egg/tornado/test/static
+creating build/bdist.linux-x86_64/egg/tornado/test/static/dir
+copying build/lib.linux-x86_64-2.6/tornado/test/static/dir/index.html -> build/bdist.linux-x86_64/egg/tornado/test/static/dir
+copying build/lib.linux-x86_64-2.6/tornado/test/static_foo.txt -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/templates
+copying build/lib.linux-x86_64-2.6/tornado/test/templates/utf8.html -> build/bdist.linux-x86_64/egg/tornado/test/templates
+copying build/lib.linux-x86_64-2.6/tornado/test/test.crt -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-2.6/tornado/test/test.key -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/__init__.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/asyncio.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/auto.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/caresresolver.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/common.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/epoll.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/interface.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/kqueue.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/posix.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/select.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/twisted.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/platform/windows.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-2.6/tornado/speedups.so -> build/bdist.linux-x86_64/egg/tornado
+byte-compiling build/bdist.linux-x86_64/egg/tornado/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/_locale_data.py to _locale_data.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/auth.py to auth.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/autoreload.py to autoreload.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/concurrent.py to concurrent.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/curl_httpclient.py to curl_httpclient.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/escape.py to escape.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/gen.py to gen.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/http1connection.py to http1connection.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httpclient.py to httpclient.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httpserver.py to httpserver.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httputil.py to httputil.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/ioloop.py to ioloop.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/iostream.py to iostream.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/locale.py to locale.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/locks.py to locks.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/log.py to log.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/netutil.py to netutil.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/options.py to options.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/process.py to process.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/queues.py to queues.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/simple_httpclient.py to simple_httpclient.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/stack_context.py to stack_context.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/tcpclient.py to tcpclient.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/tcpserver.py to tcpserver.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/template.py to template.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/testing.py to testing.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/util.py to util.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/web.py to web.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/websocket.py to websocket.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/wsgi.py to wsgi.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/__main__.py to __main__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/asyncio_test.py to asyncio_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/auth_test.py to auth_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/concurrent_test.py to concurrent_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/curl_httpclient_test.py to curl_httpclient_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/escape_test.py to escape_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/gen_test.py to gen_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httpclient_test.py to httpclient_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httpserver_test.py to httpserver_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httputil_test.py to httputil_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/import_test.py to import_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/ioloop_test.py to ioloop_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/iostream_test.py to iostream_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/locale_test.py to locale_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/locks_test.py to locks_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/log_test.py to log_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/netutil_test.py to netutil_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/options_test.py to options_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/process_test.py to process_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/queues_test.py to queues_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/resolve_test_helper.py to resolve_test_helper.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/runtests.py to runtests.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/simple_httpclient_test.py to simple_httpclient_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/stack_context_test.py to stack_context_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/tcpclient_test.py to tcpclient_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/tcpserver_test.py to tcpserver_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/template_test.py to template_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/testing_test.py to testing_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/twisted_test.py to twisted_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/util.py to util.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/util_test.py to util_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/web_test.py to web_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/websocket_test.py to websocket_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/wsgi_test.py to wsgi_test.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/__init__.py to __init__.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/asyncio.py to asyncio.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/auto.py to auto.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/caresresolver.py to caresresolver.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/common.py to common.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/epoll.py to epoll.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/interface.py to interface.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/kqueue.py to kqueue.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/posix.py to posix.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/select.py to select.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/twisted.py to twisted.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/windows.py to windows.pyc
+creating stub loader for tornado/speedups.so
+byte-compiling build/bdist.linux-x86_64/egg/tornado/speedups.py to speedups.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+zip_safe flag not set; analyzing archive contents...
+tornado.autoreload: module references __file__
+tornado.testing: module references __file__
+tornado.test.httpserver_test: module references __file__
+tornado.test.iostream_test: module references __file__
+tornado.test.locale_test: module references __file__
+tornado.test.options_test: module references __file__
+tornado.test.template_test: module references __file__
+tornado.test.web_test: module references __file__
+creating dist
+creating 'dist/tornado-4.3b1-py2.6-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing tornado-4.3b1-py2.6-linux-x86_64.egg
+creating /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/tornado-4.3b1-py2.6-linux-x86_64.egg
+Extracting tornado-4.3b1-py2.6-linux-x86_64.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding tornado 4.3b1 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/tornado-4.3b1-py2.6-linux-x86_64.egg
+Processing dependencies for tornado==4.3b1
+Searching for backports-abc>=0.4
+Reading https://pypi.python.org/simple/backports_abc/
+Best match: backports-abc 0.5
+Downloading https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz#sha256=033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde
+Processing backports_abc-0.5.tar.gz
+Writing /tmp/easy_install-uYpZha/backports_abc-0.5/setup.cfg
+Running backports_abc-0.5/setup.py -q bdist_egg --dist-dir /tmp/easy_install-uYpZha/backports_abc-0.5/egg-dist-tmp-YNqqW5
+zip_safe flag not set; analyzing archive contents...
+Moving backports_abc-0.5-py2.6.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding backports-abc 0.5 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/backports_abc-0.5-py2.6.egg
+Searching for certifi
+Reading https://pypi.python.org/simple/certifi/
+Best match: certifi 2020.4.5.2
+Downloading https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz#sha256=5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1
+Processing certifi-2020.4.5.2.tar.gz
+Writing /tmp/easy_install-bAuH2H/certifi-2020.4.5.2/setup.cfg
+Running certifi-2020.4.5.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-bAuH2H/certifi-2020.4.5.2/egg-dist-tmp-MnDMl1
+creating /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/certifi-2020.4.5.2-py2.6.egg
+Extracting certifi-2020.4.5.2-py2.6.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding certifi 2020.4.5.2 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/certifi-2020.4.5.2-py2.6.egg
+Searching for singledispatch
+Reading https://pypi.python.org/simple/singledispatch/
+Best match: singledispatch 3.4.0.3
+Downloading https://files.pythonhosted.org/packages/d9/e9/513ad8dc17210db12cb14f2d4d190d618fb87dd38814203ea71c87ba5b68/singledispatch-3.4.0.3.tar.gz#sha256=5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c
+Processing singledispatch-3.4.0.3.tar.gz
+Writing /tmp/easy_install-XdOqpN/singledispatch-3.4.0.3/setup.cfg
+Running singledispatch-3.4.0.3/setup.py -q bdist_egg --dist-dir /tmp/easy_install-XdOqpN/singledispatch-3.4.0.3/egg-dist-tmp-JddVEE
+Moving singledispatch-3.4.0.3-py2.6.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding singledispatch 3.4.0.3 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/singledispatch-3.4.0.3-py2.6.egg
+Searching for backports.ssl-match-hostname
+Reading https://pypi.python.org/simple/backports.ssl_match_hostname/
+Best match: backports.ssl-match-hostname 3.7.0.1
+Downloading https://files.pythonhosted.org/packages/ff/2b/8265224812912bc5b7a607c44bf7b027554e1b9775e9ee0de8032e3de4b2/backports.ssl_match_hostname-3.7.0.1.tar.gz#sha256=bb82e60f9fbf4c080eabd957c39f0641f0fc247d9a16e31e26d594d8f42b9fd2
+Processing backports.ssl_match_hostname-3.7.0.1.tar.gz
+Writing /tmp/easy_install-SsHwpD/backports.ssl_match_hostname-3.7.0.1/setup.cfg
+Running backports.ssl_match_hostname-3.7.0.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-SsHwpD/backports.ssl_match_hostname-3.7.0.1/egg-dist-tmp-2bPC0p
+zip_safe flag not set; analyzing archive contents...
+backports.__init__: module references __path__
+creating /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/backports.ssl_match_hostname-3.7.0.1-py2.6.egg
+Extracting backports.ssl_match_hostname-3.7.0.1-py2.6.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding backports.ssl-match-hostname 3.7.0.1 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/backports.ssl_match_hostname-3.7.0.1-py2.6.egg
+Searching for ordereddict
+Reading https://pypi.python.org/simple/ordereddict/
+Best match: ordereddict 1.1
+Downloading https://files.pythonhosted.org/packages/53/25/ef88e8e45db141faa9598fbf7ad0062df8f50f881a36ed6a0073e1572126/ordereddict-1.1.tar.gz#sha256=1c35b4ac206cef2d24816c89f89cf289dd3d38cf7c449bb3fab7bf6d43f01b1f
+Processing ordereddict-1.1.tar.gz
+Writing /tmp/easy_install-bJRZVP/ordereddict-1.1/setup.cfg
+Running ordereddict-1.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-bJRZVP/ordereddict-1.1/egg-dist-tmp-vU9W_Y
+zip_safe flag not set; analyzing archive contents...
+Moving ordereddict-1.1-py2.6.egg to /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Adding ordereddict 1.1 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages/ordereddict-1.1-py2.6.egg
+Searching for six==1.15.0
+Best match: six 1.15.0
+Adding six 1.15.0 to easy-install.pth file
+
+Using /home/travis/virtualenv/python2.6.9/lib/python2.6/site-packages
+Finished processing dependencies for tornado==4.3b1
+
+travis_time:end:200f94e4:start=1591593230987552413,finish=1591593241052649383,duration=10065096970[0Ktravis_fold:end:install.10[0Ktravis_fold:start:install.11[0Ktravis_time:start:21c667f8[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.2' ]]; then travis_retry pip install 'coverage<4.0'; fi
+
+travis_time:end:21c667f8:start=1591593241059557635,finish=1591593241066699800,duration=7142165[0Ktravis_fold:end:install.11[0Ktravis_fold:start:install.12[0Ktravis_time:start:0afd9cbb[0K$ travis_retry pip install codecov==1.5.1
+Collecting codecov==1.5.1
+  Downloading https://files.pythonhosted.org/packages/54/4a/e6458756857b4016d177d5b9d8d79714137751d27b49bcb28612a2f01d0c/codecov-1.5.1.tar.gz
+    /tmp/pip-build-OlxRQt/codecov/setup.py:12: DeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+      "Programming Language :: Python :: 3.4",
+Collecting requests>=2.0.0 (from codecov==1.5.1)
+  Downloading https://files.pythonhosted.org/packages/1a/70/1935c770cb3be6e3a8b78ced23d7e0f3b187f5cbfab4749523ed65d7c9b1/requests-2.23.0-py2.py3-none-any.whl (58kB)
+Collecting coverage (from codecov==1.5.1)
+  Downloading https://files.pythonhosted.org/packages/fe/4d/3d892bdd21acba6c9e9bec6dc93fbe619883a0967c62f976122f2c6366f3/coverage-5.1.tar.gz (687kB)
+    Traceback (most recent call last):
+      File "<string>", line 20, in <module>
+      File "/tmp/pip-build-OlxRQt/coverage/setup.py", line 105, in <module>
+        author='Ned Batchelder and {} others'.format(num_others),
+    ValueError: zero length field name in format
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+    
+      File "<string>", line 20, in <module>
+    
+      File "/tmp/pip-build-OlxRQt/coverage/setup.py", line 105, in <module>
+    
+        author='Ned Batchelder and {} others'.format(num_others),
+    
+    ValueError: zero length field name in format
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-OlxRQt/coverage
+Collecting codecov==1.5.1
+  Using cached https://files.pythonhosted.org/packages/54/4a/e6458756857b4016d177d5b9d8d79714137751d27b49bcb28612a2f01d0c/codecov-1.5.1.tar.gz
+    /tmp/pip-build-kDtX4T/codecov/setup.py:12: DeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+      "Programming Language :: Python :: 3.4",
+Collecting requests>=2.0.0 (from codecov==1.5.1)
+  Using cached https://files.pythonhosted.org/packages/1a/70/1935c770cb3be6e3a8b78ced23d7e0f3b187f5cbfab4749523ed65d7c9b1/requests-2.23.0-py2.py3-none-any.whl
+Collecting coverage (from codecov==1.5.1)
+  Using cached https://files.pythonhosted.org/packages/fe/4d/3d892bdd21acba6c9e9bec6dc93fbe619883a0967c62f976122f2c6366f3/coverage-5.1.tar.gz
+    Traceback (most recent call last):
+      File "<string>", line 20, in <module>
+      File "/tmp/pip-build-kDtX4T/coverage/setup.py", line 105, in <module>
+        author='Ned Batchelder and {} others'.format(num_others),
+    ValueError: zero length field name in format
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+    
+      File "<string>", line 20, in <module>
+    
+      File "/tmp/pip-build-kDtX4T/coverage/setup.py", line 105, in <module>
+    
+        author='Ned Batchelder and {} others'.format(num_others),
+    
+    ValueError: zero length field name in format
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-kDtX4T/coverage
+Collecting codecov==1.5.1
+  Using cached https://files.pythonhosted.org/packages/54/4a/e6458756857b4016d177d5b9d8d79714137751d27b49bcb28612a2f01d0c/codecov-1.5.1.tar.gz
+    /tmp/pip-build-wqhEpF/codecov/setup.py:12: DeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+      "Programming Language :: Python :: 3.4",
+Collecting requests>=2.0.0 (from codecov==1.5.1)
+  Using cached https://files.pythonhosted.org/packages/1a/70/1935c770cb3be6e3a8b78ced23d7e0f3b187f5cbfab4749523ed65d7c9b1/requests-2.23.0-py2.py3-none-any.whl
+Collecting coverage (from codecov==1.5.1)
+  Using cached https://files.pythonhosted.org/packages/fe/4d/3d892bdd21acba6c9e9bec6dc93fbe619883a0967c62f976122f2c6366f3/coverage-5.1.tar.gz
+    Traceback (most recent call last):
+      File "<string>", line 20, in <module>
+      File "/tmp/pip-build-wqhEpF/coverage/setup.py", line 105, in <module>
+        author='Ned Batchelder and {} others'.format(num_others),
+    ValueError: zero length field name in format
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+    
+      File "<string>", line 20, in <module>
+    
+      File "/tmp/pip-build-wqhEpF/coverage/setup.py", line 105, in <module>
+    
+        author='Ned Batchelder and {} others'.format(num_others),
+    
+    ValueError: zero length field name in format
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-wqhEpF/coverage
+
+travis_time:end:0afd9cbb:start=1591593241075598536,finish=1591593251792747486,duration=10717148950[0K
+[31;1mThe command "travis_retry pip install codecov==1.5.1" failed and exited with 1 during .[0m
+
+Your build has been stopped.

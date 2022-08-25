@@ -1,0 +1,156 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ cd failed/acsone/acsone-addons
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:1b31a70c[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:1b31a70c:start=1593750758007871847,finish=1593750841815929518,duration=83808057671[0Ktravis_time:start:22c4baf7[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install expect-dev python-lxml
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  expect
+Suggested packages:
+  python-lxml-dbg
+The following NEW packages will be installed:
+  expect expect-dev python-lxml
+0 upgraded, 3 newly installed, 0 to remove and 263 not upgraded.
+Need to get 904 kB of archives.
+After this operation, 2,814 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main expect amd64 5.45-2 [163 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main expect-dev amd64 5.45-2 [80.0 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main python-lxml amd64 2.3.2-1ubuntu0.2 [661 kB]
+Fetched 904 kB in 0s (1,472 kB/s)
+Selecting previously unselected package expect.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking expect (from .../expect_5.45-2_amd64.deb) ...
+Selecting previously unselected package expect-dev.
+Unpacking expect-dev (from .../expect-dev_5.45-2_amd64.deb) ...
+Selecting previously unselected package python-lxml.
+Unpacking python-lxml (from .../python-lxml_2.3.2-1ubuntu0.2_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up expect (5.45-2) ...
+Setting up expect-dev (5.45-2) ...
+Setting up python-lxml (2.3.2-1ubuntu0.2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:22c4baf7:start=1593750841826263058,finish=1593750851214113518,duration=9387850460[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export VERSION="8.0"
+$ export TESTS="0"
+$ export LINT_CHECK="0"
+$ export TRANSIFEX="0"
+$ export LINT_CHECK="1"
+
+travis_time:start:0b62d9cd[0K$ source ~/virtualenv/python2.7_with_system_site_packages/bin/activate
+
+travis_time:end:0b62d9cd:start=1593750851332912776,finish=1593750851343496858,duration=10584082[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:17589230[0K$ Installing caching utilities
+
+travis_time:end:17589230:start=1593750851760077074,finish=1593750851889231540,duration=129154466[0Ktravis_time:start:02ae02e1[0K
+travis_time:end:02ae02e1:start=1593750851903458106,finish=1593750851913500797,duration=10042691[0Ktravis_time:start:17696fa6[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:17696fa6:start=1593750851925192809,finish=1593750852725623407,duration=800430598[0Ktravis_fold:end:cache.1[0Ktravis_fold:start:cache.pip[0K
+travis_time:start:068d63ae[0K
+travis_time:end:068d63ae:start=1593750852736860285,finish=1593750852746065090,duration=9204805[0Ktravis_time:start:24db7a2e[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:24db7a2e:start=1593750852757565389,finish=1593750853552877990,duration=795312601[0Ktravis_fold:end:cache.pip[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:14456f10[0K$ pip install anybox.testing.openerp
+Collecting anybox.testing.openerp
+  Downloading https://files.pythonhosted.org/packages/ac/77/80f9253d6ae44090219d8d258eab1b42b17ec51208e2dcbd160a592b7f94/anybox.testing.openerp-1.3.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from anybox.testing.openerp)
+Installing collected packages: anybox.testing.openerp
+  Running setup.py install for anybox.testing.openerp
+Successfully installed anybox.testing.openerp-1.3.1
+
+travis_time:end:14456f10:start=1593750853871298167,finish=1593750855261312145,duration=1390013978[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0a9f61c4[0K$ git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+
+travis_time:end:0a9f61c4:start=1593750855273544634,finish=1593750856415406767,duration=1141862133[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:059a2ec8[0K$ export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+
+travis_time:end:059a2ec8:start=1593750856422603853,finish=1593750856428994079,duration=6390226[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:1280447e[0K$ travis_install_nightly
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-KFQFtc/pylint
+
+travis_time:end:1280447e:start=1593750856438757485,finish=1593750860249522206,duration=3810764721[0K
+[31;1mThe command "travis_install_nightly" failed and exited with 1 during .[0m
+
+Your build has been stopped.

@@ -1,0 +1,461 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.206.222.245 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+$ cd failed/Cal-CS-61A-Staff/ok
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CMD=server/apptest.py
+$ export GAE_VERSION=1.9.23
+
+travis_time:start:041e4e64[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:041e4e64:start=1591414773964092191,finish=1591414773972616784,duration=8524593[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:10bdfab8[0K$ Installing caching utilities
+
+travis_time:end:10bdfab8:start=1591414774381167290,finish=1591414774584135565,duration=202968275[0Ktravis_time:start:0016b6ba[0K
+travis_time:end:0016b6ba:start=1591414774598987860,finish=1591414774608346167,duration=9358307[0Ktravis_time:start:12cb6a0d[0K[32;1mattempting to download cache archive[0m
+
+travis_time:end:12cb6a0d:start=1591414774619495439,finish=1591414775428638019,duration=809142580[0Ktravis_time:start:0cd85f84[0K
+travis_time:end:0cd85f84:start=1591414775440409080,finish=1591414775450965387,duration=10556307[0Ktravis_time:start:021d640e[0K[32;1madding /home/travis/virtualenv/python2.7.9 to cache[0m
+
+travis_time:end:021d640e:start=1591414775462171136,finish=1591414776263416081,duration=801244945[0Ktravis_fold:end:cache.1[0K$ python --version
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install[0Ktravis_time:start:0bc428e1[0K$ pip install -r server_requirements.txt
+Collecting Flask==0.10.1 (from -r server_requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/db/9c/149ba60c47d107f85fe52564133348458f093dd5e6b57a5b60ab9ac517bb/Flask-0.10.1.tar.gz (544kB)
+Collecting Flask-Cache==0.13.1 (from -r server_requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/91/c4/f71095437bd4b691c63f240e72a20c57e2c216085cbc271f79665885d3da/Flask-Cache-0.13.1.tar.gz (45kB)
+Collecting Jinja2==2.7.3 (from -r server_requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/b0/73/eab0bca302d6d6a0b5c402f47ad1760dc9cb2dd14bbc1873ad48db258e4d/Jinja2-2.7.3.tar.gz (378kB)
+Collecting MarkupSafe==0.23 (from -r server_requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz
+Collecting PyYAML==3.11 (from -r server_requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz (248kB)
+Collecting Pygments==1.6 (from -r server_requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/e8/90/992eb125901873d81440480a7cf40a40aa5f8b2e41a67fbc568db6c21595/Pygments-1.6.tar.gz (1.4MB)
+Collecting Sphinx==1.2.2 (from -r server_requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/ff/91/edcbcd8126333cf69493fc2a0f1663ffef26d267024125ffd7bd50137bdb/Sphinx-1.2.2-py27-none-any.whl (1.1MB)
+Collecting Werkzeug==0.9.6 (from -r server_requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/63/69/5702e5eb897d1a144001e21d676676bcb87b88c0862f947509ea95ea54fc/Werkzeug-0.9.6.tar.gz (1.1MB)
+Collecting argparse==1.2.1 (from -r server_requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/6f/ad/86448942ad49c5fe05bfdf7ebc874807f521dfcca5ee543afaca2974ad5a/argparse-1.2.1.tar.gz (69kB)
+Collecting astroid==1.1.1 (from -r server_requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/4e/4e/e015f9f2238257dd24a44c3a8507f4682076be0acc86233a1527cd666fe6/astroid-1.1.1.tar.gz (119kB)
+    package init file './test/__init__.py' not found (or not a regular file)
+Collecting docutils==0.11 (from -r server_requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/7f/49/3ff69dcb212900199462a291886e2f30f57ab3a69dc88e31eda6404a17c0/docutils-0.11.tar.gz (1.6MB)
+Collecting git-pylint-commit-hook==2.0.5 (from -r server_requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/ba/36/f9e050552f4ef16df5b314096e0abd93970ceed5cd64eaa931d6f2274296/git-pylint-commit-hook-2.0.5.tar.gz
+Collecting itsdangerous==0.24 (from -r server_requirements.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/dc/b4/a60bcdba945c00f6d608d8975131ab3f25b22f2bcfe1dab221165194b2d4/itsdangerous-0.24.tar.gz (46kB)
+Obtaining linkenv-master from git+git://github.com/ze-phyr-us/linkenv.git@ae463b3211cb8dcc8868e88176a1101733c83b6d#egg=linkenv-master (from -r server_requirements.txt (line 14))
+  Cloning git://github.com/ze-phyr-us/linkenv.git (to ae463b3211cb8dcc8868e88176a1101733c83b6d) to /home/travis/virtualenv/python2.7.9/src/linkenv-master
+  Could not find a tag or branch 'ae463b3211cb8dcc8868e88176a1101733c83b6d', assuming commit.
+Collecting logilab-common==0.61.0 (from -r server_requirements.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/f5/9e/f61e7f6eccb910c0c787eab59d3e60ee65d7cfbbc97790295806598799d9/logilab-common-0.61.0.tar.gz (199kB)
+    package init file './test/__init__.py' not found (or not a regular file)
+Collecting mimerender==0.5.4 (from -r server_requirements.txt (line 16))
+  Downloading https://files.pythonhosted.org/packages/0f/57/b4179f8d2503b6312edb4645299cdec148c7ff547b0fd1d4be39947344df/mimerender-0.5.4.tar.gz
+Collecting nose==1.3.3 (from -r server_requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/54/a4/32d15f534c2b0ec899f8058da165aaa920a84d6eeaf77ed64f03716dd7f0/nose-1.3.3.tar.gz (274kB)
+Collecting pylint==1.2.1 (from -r server_requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/b8/d8/dfeaf85e8de89bb64a0c56dd165215eed2c93b2a49fa9edd611245a71243/pylint-1.2.1.tar.gz (404kB)
+Collecting python-dateutil==2.2 (from -r server_requirements.txt (line 19))
+  Downloading https://files.pythonhosted.org/packages/75/c5/85d027471fa665f8c8b8eb0b925f9d84b4eee745a257b16de4957de99e81/python-dateutil-2.2.tar.gz (259kB)
+Collecting python-mimeparse==0.1.4 (from -r server_requirements.txt (line 20))
+  Downloading https://files.pythonhosted.org/packages/ae/84/0ae5a7a06a7e9ca5834876c0122242ed6cd1419ea26ebe9f1bf9c5a8d272/python-mimeparse-0.1.4.tar.gz
+Collecting requests==2.3.0 (from -r server_requirements.txt (line 21))
+  Downloading https://files.pythonhosted.org/packages/f7/51/7aa1e337862118bee783c0249debd64cb07b8fbdfef154b1e185754b02d5/requests-2.3.0-py2.py3-none-any.whl (452kB)
+Collecting six==1.6.1 (from -r server_requirements.txt (line 22))
+  Downloading https://files.pythonhosted.org/packages/ba/19/aa48edcff9d0c396a4d009d362d0a0a1ac3db6f9d7d5736e0175b94d7ef8/six-1.6.1-py2.py3-none-any.whl
+Collecting sphinxcontrib-httpdomain==1.2.1 (from -r server_requirements.txt (line 23))
+  Downloading https://files.pythonhosted.org/packages/de/d9/0f2475865c51c0852e9f029fa7bf947c9d42574dbb5ffba0e3b677c486e2/sphinxcontrib_httpdomain-1.2.1-py27-none-any.whl
+Collecting unittest2==0.5.1 (from -r server_requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/86/e8/f31a7c9a3b471f6125abc8addd37c17760e00affb45d6db088394a360086/unittest2-0.5.1.tar.gz (62kB)
+Requirement already satisfied (use --upgrade to upgrade): wsgiref==0.1.2 in /opt/python/2.7.9/lib/python2.7 (from -r server_requirements.txt (line 25))
+Collecting ddt==0.8.0 (from -r server_requirements.txt (line 26))
+  Downloading https://files.pythonhosted.org/packages/5d/a4/ae9197f73ebb5f242c25e2ce4f96bf36beb6eb60e3b22debbf81ccba4eb9/ddt-0.8.0-py2.py3-none-any.whl
+Collecting webargs==0.5.0 (from -r server_requirements.txt (line 27))
+  Downloading https://files.pythonhosted.org/packages/00/4f/6215be8e8a4a87842905ffa2a24e239ac172c2ed538ed56e4889356dd6e5/webargs-0.5.0-py2.py3-none-any.whl
+Collecting webob==1.1.1 (from -r server_requirements.txt (line 28))
+  Downloading https://files.pythonhosted.org/packages/6d/6a/b44ec2fa39f7f0db2116fd4ddc661b2709443d9ed879c5cf0e158fc94372/WebOb-1.1.1.zip (196kB)
+Collecting pytz==2014.10 (from -r server_requirements.txt (line 29))
+  Downloading https://files.pythonhosted.org/packages/c5/bc/995a7472f9ca49980ce07ca7a68b0b7c01bc87fc7f9f09707cbfde282a8f/pytz-2014.10-py2.py3-none-any.whl (477kB)
+Collecting coverage==3.7.1 (from -r server_requirements.txt (line 30))
+  Downloading https://files.pythonhosted.org/packages/09/4f/89b06c7fdc09687bca507dc411c342556ef9c5a3b26756137a4878ff19bf/coverage-3.7.1.tar.gz (284kB)
+Collecting coveralls==0.5 (from -r server_requirements.txt (line 31))
+  Downloading https://files.pythonhosted.org/packages/7d/16/db9bcd676fea5cc45980e24ce66c77f348cf3c750d9c2c7bebd8b8792bf1/coveralls-0.5.zip
+Collecting docopt>=0.6.1 (from coveralls==0.5->-r server_requirements.txt (line 31))
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Installing collected packages: docopt, coveralls, coverage, pytz, webob, webargs, ddt, unittest2, sphinxcontrib-httpdomain, six, requests, python-mimeparse, python-dateutil, pylint, nose, mimerender, logilab-common, linkenv-master, itsdangerous, git-pylint-commit-hook, docutils, astroid, argparse, Werkzeug, Sphinx, Pygments, PyYAML, MarkupSafe, Jinja2, Flask-Cache, Flask
+  Running setup.py install for docopt
+  Running setup.py install for coveralls
+    Installing coveralls script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/tracer.c -o build/temp.linux-x86_64-2.7/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+
+  Running setup.py install for webob
+
+
+  Running setup.py install for unittest2
+    changing mode of build/scripts-2.7/unit2.py from 644 to 755
+    changing mode of build/scripts-2.7/unit2 from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/unit2.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/unit2 to 755
+    Installing unit2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing unit2-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+
+
+
+  Running setup.py install for python-mimeparse
+  Running setup.py install for python-dateutil
+  Running setup.py install for pylint
+    changing mode of build/scripts-2.7/pylint from 644 to 755
+    changing mode of build/scripts-2.7/pylint-gui from 644 to 755
+    changing mode of build/scripts-2.7/symilar from 644 to 755
+    changing mode of build/scripts-2.7/epylint from 644 to 755
+    changing mode of build/scripts-2.7/pyreverse from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/pylint to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/pylint-gui to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/symilar to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/epylint to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/pyreverse to 755
+    Installing pyreverse script to /home/travis/virtualenv/python2.7.9/bin
+    Installing pylint script to /home/travis/virtualenv/python2.7.9/bin
+    Installing epylint script to /home/travis/virtualenv/python2.7.9/bin
+    Installing pylint-gui script to /home/travis/virtualenv/python2.7.9/bin
+    Installing symilar script to /home/travis/virtualenv/python2.7.9/bin
+  Found existing installation: nose 1.3.4
+    Uninstalling nose-1.3.4:
+      Successfully uninstalled nose-1.3.4
+  Running setup.py install for nose
+    Installing nosetests script to /home/travis/virtualenv/python2.7.9/bin
+    Installing nosetests-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for mimerender
+  Running setup.py install for logilab-common
+    package init file './test/__init__.py' not found (or not a regular file)
+    package init file './test/__init__.py' not found (or not a regular file)
+    changing mode of build/scripts-2.7/pytest from 644 to 755
+    package init file './test/__init__.py' not found (or not a regular file)
+    Installing /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/logilab_common-0.61.0-py2.7-nspkg.pth
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/pytest to 755
+    package init file './test/__init__.py' not found (or not a regular file)
+  Running setup.py develop for linkenv-master
+    Creating /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/linkenv.egg-link (link to .)
+    Adding linkenv 0.1.0 to easy-install.pth file
+    Installing linkenv script to /home/travis/virtualenv/python2.7.9/bin
+    Installed /home/travis/virtualenv/python2.7.9/src/linkenv-master
+  Running setup.py install for itsdangerous
+  Running setup.py install for git-pylint-commit-hook
+    changing mode of build/scripts-2.7/git-pylint-commit-hook from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/git-pylint-commit-hook to 755
+  Running setup.py install for docutils
+    changing mode of build/scripts-2.7/rst2html.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2s5.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2latex.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2xetex.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2man.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2xml.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2pseudoxml.py from 644 to 755
+    changing mode of build/scripts-2.7/rstpep2html.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2odt.py from 644 to 755
+    changing mode of build/scripts-2.7/rst2odt_prepstyles.py from 644 to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2html.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2s5.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2latex.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2xetex.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2man.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2xml.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2pseudoxml.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rstpep2html.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2odt.py to 755
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/rst2odt_prepstyles.py to 755
+  Running setup.py install for astroid
+    package init file './test/__init__.py' not found (or not a regular file)
+    package init file './test/__init__.py' not found (or not a regular file)
+    package init file './test/__init__.py' not found (or not a regular file)
+    package init file './test/__init__.py' not found (or not a regular file)
+  Running setup.py install for argparse
+  Running setup.py install for Werkzeug
+
+  Running setup.py install for Pygments
+    Installing pygmentize script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for PyYAML
+    checking if libyaml is compilable
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c build/temp.linux-x86_64-2.7/check_libyaml.c -o build/temp.linux-x86_64-2.7/check_libyaml.o
+    checking if libyaml is linkable
+    gcc -pthread build/temp.linux-x86_64-2.7/check_libyaml.o -L/opt/python/2.7.9/lib -lyaml -o build/temp.linux-x86_64-2.7/check_libyaml
+    building '_yaml' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c ext/_yaml.c -o build/temp.linux-x86_64-2.7/ext/_yaml.o
+    In file included from ext/_yaml.c:343:0:
+    ext/_yaml.h:6:0: warning: "PyUnicode_FromString" redefined [enabled by default]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:281:0: note: this is the location of the previous definition
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+    ext/_yaml.c:1346:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+    ext/_yaml.c:2471:5: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, int,  int *)’
+    ext/_yaml.c:2664:5: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4938:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6737:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+    ext/_yaml.c:9532:3: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+    ext/_yaml.c:11721:3: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, int)’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+    ext/_yaml.c:12898:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:12991:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:13248:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_12serialize’:
+    ext/_yaml.c:15784:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15877:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+    ext/_yaml.c:16616:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/ext/_yaml.o -L/opt/python/2.7.9/lib -lyaml -lpython2.7 -o build/lib.linux-x86_64-2.7/_yaml.so
+  Running setup.py install for MarkupSafe
+    building 'markupsafe._speedups' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c markupsafe/_speedups.c -o build/temp.linux-x86_64-2.7/markupsafe/_speedups.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/markupsafe/_speedups.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/markupsafe/_speedups.so
+  Running setup.py install for Jinja2
+  Running setup.py install for Flask-Cache
+  Running setup.py install for Flask
+Successfully installed Flask-0.10.1 Flask-Cache-0.13.1 Jinja2-2.7.3 MarkupSafe-0.23 PyYAML-3.11 Pygments-1.6 Sphinx-1.2.2 Werkzeug-0.9.6 argparse-1.2.1 astroid-1.1.1 coverage-3.7.1 coveralls-0.5 ddt-0.8.0 docopt-0.6.2 docutils-0.11 git-pylint-commit-hook-2.0.5 itsdangerous-0.24 linkenv-master logilab-common-0.61.0 mimerender-0.5.4 nose-1.3.3 pylint-1.2.1 python-dateutil-2.2 python-mimeparse-0.1.4 pytz-2014.10 requests-2.3.0 six-1.6.1 sphinxcontrib-httpdomain-1.2.1 unittest2-0.5.1 webargs-0.5.0 webob-1.1.1
+
+travis_time:end:0bc428e1:start=1591414776552935915,finish=1591414805449318278,duration=28896382363[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:250df12d[0K$ wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_$GAE_VERSION.zip -o gae_sdk.zip
+
+travis_time:end:250df12d:start=1591414805462176823,finish=1591414806215182756,duration=753005933[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:0313ea9d[0K$ unzip -q google_appengine_$GAE_VERSION.zip
+
+travis_time:end:0313ea9d:start=1591414806226283421,finish=1591414808787108553,duration=2560825132[0Ktravis_fold:end:before_script.2[0Ktravis_fold:start:before_script.3[0Ktravis_time:start:2f333400[0K$ mv google_appengine gae_sdk
+
+travis_time:end:2f333400:start=1591414808799476357,finish=1591414808813440973,duration=13964616[0Ktravis_fold:end:before_script.3[0Ktravis_fold:start:before_script.4[0Ktravis_time:start:0aa45f5b[0K$ export GAE_SDK=$PWD/gae_sdk
+
+travis_time:end:0aa45f5b:start=1591414808824341678,finish=1591414808833708259,duration=9366581[0Ktravis_fold:end:before_script.4[0Ktravis_fold:start:before_script.5[0Ktravis_time:start:102d86b0[0K$ export PATH=$PATH:$GAE_SDK
+
+travis_time:end:102d86b0:start=1591414808845742463,finish=1591414808854813972,duration=9071509[0Ktravis_fold:end:before_script.5[0Ktravis_fold:start:before_script.6[0Ktravis_time:start:06ce0c10[0K$ export PYTHONPATH=$PYTHONPATH:$GAE_SDK
+
+travis_time:end:06ce0c10:start=1591414808865675345,finish=1591414808875246830,duration=9571485[0Ktravis_fold:end:before_script.6[0Ktravis_fold:start:before_script.7[0Ktravis_time:start:0578af2a[0K$ python server/app/generate_keys.py
+
+travis_time:end:0578af2a:start=1591414808886220161,finish=1591414808953214743,duration=66994582[0Ktravis_fold:end:before_script.7[0Ktravis_time:start:1555a368[0K$ FLASK_CONF=TEST coverage run $CMD --sdk_location $GAE_SDK --quiet
+============================================================
+Doing integration testing
+============================================================
+============================================================
+Doing unittests testing
+============================================================
+SOME TESTS FAILED
+
+travis_time:end:1555a368:start=1591414808965600225,finish=1591414847329505173,duration=38363904948[0K
+[31;1mThe command "FLASK_CONF=TEST coverage run $CMD --sdk_location $GAE_SDK --quiet" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:015ae1a0[0K
+travis_time:end:015ae1a0:start=1591414847341359960,finish=1591414847350650250,duration=9290290[0Ktravis_time:start:15d54c98[0K[32;1mchanges detected, packing new archive[0m
+
+travis_time:end:15d54c98:start=1591414847362550695,finish=1591414852214637733,duration=4852087038[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.
