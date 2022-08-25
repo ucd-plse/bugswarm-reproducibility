@@ -1,0 +1,386 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build id: ''
+Job id: ''
+Runtime kernel version: 4.15.0-109-generic
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[31;1mTimeout waiting for network availability.[0m
+sed: cannot rename /etc/hosts: Device or resource busy
+travis_fold:start:docker_mtu[0Ktee: /etc/docker/daemon.json: No such file or directory
+docker: unrecognized service
+travis_fold:end:docker_mtu[0K
+$ cd passed/SynBioDex/libSBOLj
+
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:1e59c06b[0K$ mvn -o install -Dhttps.protocols=TLSv1.2 -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-109-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.sbolstandard:libSBOLj-core2:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-javadoc-plugin is missing. @ org.sbolstandard:libSBOLj-core2:[unknown-version], /home/travis/build/passed/SynBioDex/libSBOLj/core2/pom.xml, line 88, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. @ org.sbolstandard:libSBOLj-core2:[unknown-version], /home/travis/build/passed/SynBioDex/libSBOLj/core2/pom.xml, line 76, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] libSBOLj
+[INFO] libSBOLj-core
+[INFO] libSBOLj-core2
+[INFO] libSBOLj-examples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ libSBOLj ---
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/pom.xml to /home/travis/.m2/repository/org/sbolstandard/libSBOLj/2.0.0-SNAPSHOT/libSBOLj-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj-core 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ libSBOLj-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ libSBOLj-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ libSBOLj-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 34 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ libSBOLj-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ libSBOLj-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ libSBOLj-core ---
+[INFO] Building jar: /home/travis/build/passed/SynBioDex/libSBOLj/core/target/libSBOLj-core-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ libSBOLj-core ---
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/core/target/libSBOLj-core-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-core/2.0.0-SNAPSHOT/libSBOLj-core-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/core/pom.xml to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-core/2.0.0-SNAPSHOT/libSBOLj-core-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj-core2 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-core2 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ libSBOLj-core2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/passed/SynBioDex/libSBOLj/core2/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ libSBOLj-core2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ libSBOLj-core2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 99 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ libSBOLj-core2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ libSBOLj-core2 ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ libSBOLj-core2 ---
+[INFO] 
+[INFO] --- maven-shade-plugin:2.3:shade (default) @ libSBOLj-core2 ---
+[INFO] Including uk.ac.ncl.intbio:sbol-data-core:jar:0.1.2 in the shaded jar.
+[INFO] Including uk.ac.ncl.intbio:sbol-data-examples:jar:0.1.2 in the shaded jar.
+[INFO] Including uk.ac.ncl.intbio:sbol-data-io-graphviz:jar:0.1.2 in the shaded jar.
+[INFO] Including uk.ac.ncl.intbio:sbol-data-io-json:jar:0.1.2 in the shaded jar.
+[INFO] Including org.glassfish:javax.json:jar:1.0.2 in the shaded jar.
+[INFO] Including uk.ac.ncl.intbio:sbol-data-io-turtle:jar:0.1.2 in the shaded jar.
+[INFO] Including net.java.dev.stax-utils:stax-utils:jar:20070216 in the shaded jar.
+[INFO] Including uk.ac.ncl.intbio:sbol-data-io-RDF:jar:0.1.2 in the shaded jar.
+[INFO] Including uk.ac.ncl.intbio:sbol-data-nativeSbol:jar:0.1.2 in the shaded jar.
+[INFO] Including org.sbolstandard:libSBOLj-core:jar:2.0.0-SNAPSHOT in the shaded jar.
+[INFO] Attaching shaded artifact.
+[INFO] 
+[INFO] >>> maven-source-plugin:3.2.1:jar (attach-sources) > generate-sources @ libSBOLj-core2 >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-core2 ---
+[INFO] 
+[INFO] <<< maven-source-plugin:3.2.1:jar (attach-sources) < generate-sources @ libSBOLj-core2 <<<
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.1:jar (attach-sources) @ libSBOLj-core2 ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ libSBOLj-core2 ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ libSBOLj-core2 ---
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/core2/target/libSBOLj-core2-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-core2/2.0.0-SNAPSHOT/libSBOLj-core2-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/core2/pom.xml to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-core2/2.0.0-SNAPSHOT/libSBOLj-core2-2.0.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/core2/target/libSBOLj-core2-2.0.0-SNAPSHOT-withDependencies.jar to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-core2/2.0.0-SNAPSHOT/libSBOLj-core2-2.0.0-SNAPSHOT-withDependencies.jar
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/core2/target/libSBOLj-core2-2.0.0-SNAPSHOT-sources.jar to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-core2/2.0.0-SNAPSHOT/libSBOLj-core2-2.0.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj-examples 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-examples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ libSBOLj-examples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/passed/SynBioDex/libSBOLj/examples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ libSBOLj-examples ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ libSBOLj-examples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/passed/SynBioDex/libSBOLj/examples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ libSBOLj-examples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ libSBOLj-examples ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ libSBOLj-examples ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ libSBOLj-examples ---
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/examples/target/libSBOLj-examples-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-examples/2.0.0-SNAPSHOT/libSBOLj-examples-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/passed/SynBioDex/libSBOLj/examples/pom.xml to /home/travis/.m2/repository/org/sbolstandard/libSBOLj-examples/2.0.0-SNAPSHOT/libSBOLj-examples-2.0.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] libSBOLj ........................................... SUCCESS [  0.999 s]
+[INFO] libSBOLj-core ...................................... SUCCESS [ 32.057 s]
+[INFO] libSBOLj-core2 ..................................... SUCCESS [ 56.457 s]
+[INFO] libSBOLj-examples .................................. SUCCESS [  9.114 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:39 min
+[INFO] Finished at: 2022-02-06T01:42:54+00:00
+[INFO] Final Memory: 23M/491M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:1e59c06b:start=1644111673246362935,finish=1644111774249962791,duration=101003599856[0Ktravis_fold:end:install[0Ktravis_time:start:0514457a[0K$ mvn test -Dhttps.protocols=TLSv1.2 -B
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.sbolstandard:libSBOLj-core2:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-javadoc-plugin is missing. @ org.sbolstandard:libSBOLj-core2:[unknown-version], /home/travis/build/passed/SynBioDex/libSBOLj/core2/pom.xml, line 88, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. @ org.sbolstandard:libSBOLj-core2:[unknown-version], /home/travis/build/passed/SynBioDex/libSBOLj/core2/pom.xml, line 76, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] libSBOLj
+[INFO] libSBOLj-core
+[INFO] libSBOLj-core2
+[INFO] libSBOLj-examples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj-core 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ libSBOLj-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ libSBOLj-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ libSBOLj-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 34 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ libSBOLj-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ libSBOLj-core ---
+[INFO] Surefire report directory: /home/travis/build/passed/SynBioDex/libSBOLj/core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sbolstandard.core.SBOLDuplicateObjectTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.747 sec
+Running org.sbolstandard.core.SBOLReaderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.003 sec
+Running org.sbolstandard.core.SBOLValidatorTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.522 sec
+Running org.sbolstandard.core.SBOLWriterTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.029 sec
+
+Results :
+
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 2
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj-core2 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-core2 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ libSBOLj-core2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/passed/SynBioDex/libSBOLj/core2/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ libSBOLj-core2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ libSBOLj-core2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 99 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ libSBOLj-core2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ libSBOLj-core2 ---
+[INFO] Surefire report directory: /home/travis/build/passed/SynBioDex/libSBOLj/core2/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sbolstandard.core2.SBOLDocumentTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 sec
+Running org.sbolstandard.core2.SBOLReaderTest
+Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.884 sec
+Running org.sbolstandard.core2.SBOLWriterTest
+Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.31 sec
+Running org.sbolstandard.core2.URIcomplianceTest
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+
+Results :
+
+Tests run: 153, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building libSBOLj-examples 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ libSBOLj-examples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ libSBOLj-examples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/passed/SynBioDex/libSBOLj/examples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ libSBOLj-examples ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ libSBOLj-examples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/passed/SynBioDex/libSBOLj/examples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ libSBOLj-examples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ libSBOLj-examples ---
+[INFO] No tests to run.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] libSBOLj ........................................... SUCCESS [  0.420 s]
+[INFO] libSBOLj-core ...................................... SUCCESS [  7.518 s]
+[INFO] libSBOLj-core2 ..................................... SUCCESS [ 27.467 s]
+[INFO] libSBOLj-examples .................................. SUCCESS [  0.034 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 35.589 s
+[INFO] Finished at: 2022-02-06T01:43:31+00:00
+[INFO] Final Memory: 14M/491M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:0514457a:start=1644111774258167305,finish=1644111811156040649,duration=36897873344[0K[32;1mThe command "mvn test -Dhttps.protocols=TLSv1.2 -B" exited with 0.[0m
+
+
+
+Done. Your build exited with 0.

@@ -1,0 +1,278 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+Runtime kernel version: 4.15.0-109-generic
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[31;1mTimeout waiting for network availability.[0m
+sed: cannot rename /etc/hosts: Device or resource busy
+travis_fold:start:docker_mtu[0Ktee: /etc/docker/daemon.json: No such file or directory
+docker: unrecognized service
+travis_fold:end:docker_mtu[0K
+travis_fold:start:install_jdk[0K[33;1mInstalling oraclejdk8[0m
+$ jdk_switcher use "oraclejdk8"
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+travis_fold:end:install_jdk[0K
+$ cd passed/graphhopper/graphhopper
+
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export BASEURL=https://www-eu.apache.org/dist/maven/maven-3/VERSION/binaries/apache-maven-VERSION-bin.zip
+$ export FILE=apache-maven-VERSION-bin.zip
+$ export DIR=apache-maven-VERSION
+$ export VERSION=3.3.9
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=${TRAVIS_HOME}/.casher
+travis_time:start:062d36eb[0K$ Installing caching utilities
+
+[31;1mThe command "eval curl -sf  -o $CASHER_DIR/bin/casher https:///files/casher " failed. Retrying, 2 of 3.[0m
+
+
+[31;1mThe command "eval curl -sf  -o $CASHER_DIR/bin/casher https:///files/casher " failed. Retrying, 3 of 3.[0m
+
+
+[31;1mThe command "eval curl -sf  -o $CASHER_DIR/bin/casher https:///files/casher " failed 3 times.[0m
+
+travis_time:end:062d36eb:start=1644083708096021736,finish=1644083711190414947,duration=3094393211[0Ktravis_time:start:0e799780[0K$ Installing caching utilities from the Travis CI server (https:///files/casher) failed, failing over to using GitHub (https://raw.githubusercontent.com/travis-ci/casher/bash/bin/casher)
+travis_time:end:0e799780:start=1644083711199963995,finish=1644083711394843581,duration=194879586[0Ktravis_time:start:07461750[0Ktravis_time:end:07461750:start=1644083711405196930,finish=1644083711411047257,duration=5850327[0Ktravis_time:start:0a69b860[0KYAML safe loading is not available. Please upgrade psych to a version that supports safe loading (>= 2.0).
+attempting to download cache archive[0m
+[31;1mcould not download cache[0m
+travis_time:end:0a69b860:start=1644083711418041025,finish=1644083712887760243,duration=1469719218[0Ktravis_time:start:08e6655f[0Ktravis_time:end:08e6655f:start=1644083712896938522,finish=1644083712903564077,duration=6625555[0Ktravis_time:start:02a929f0[0KYAML safe loading is not available. Please upgrade psych to a version that supports safe loading (>= 2.0).
+adding /home/travis/.m2 to cache[0m
+travis_time:end:02a929f0:start=1644083712911823962,finish=1644083714670766547,duration=1758942585[0Ktravis_fold:end:cache.1[0K
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:before_install.1[0Ktravis_time:start:01dd3459[0K$ if [ "$TRAVIS_OS_NAME" == "linux" ]; then wget --no-check-certificate $(echo -n $BASEURL | sed -e 's#VERSION#'$VERSION'#g'); unzip -qq $(echo -n $FILE | sed -e 's#VERSION#'$VERSION'#'); export M2_HOME=$PWD/$(echo -n $DIR | sed -e 's#VERSION#'$VERSION'#'); export PATH=$M2_HOME/bin:$PATH; fi
+--2022-02-05 17:55:14--  https://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Resolving www-eu.apache.org (www-eu.apache.org)... 95.216.26.30, 2a01:4f9:2a:1a61::2
+Connecting to www-eu.apache.org (www-eu.apache.org)|95.216.26.30|:443... connected.
+WARNING: no certificate subject alternative name matches
+	requested host name `www-eu.apache.org'.
+HTTP request sent, awaiting response... 302 Found
+Location: https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip [following]
+--2022-02-05 17:55:15--  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Resolving downloads.apache.org (downloads.apache.org)... 135.181.214.104, 88.99.95.219, 2a01:4f8:10a:201a::2, ...
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 17:59:38--  (try: 2)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:04:01--  (try: 3)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:08:26--  (try: 4)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:12:51--  (try: 5)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:17:18--  (try: 6)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:21:46--  (try: 7)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:26:13--  (try: 8)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:30:42--  (try: 9)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:35:11--  (try:10)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:39:43--  (try:11)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:44:13--  (try:12)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:48:43--  (try:13)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:53:14--  (try:14)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 18:57:44--  (try:15)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 19:02:14--  (try:16)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 19:06:45--  (try:17)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 19:11:15--  (try:18)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 19:15:45--  (try:19)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Retrying.
+
+--2022-02-05 19:20:16--  (try:20)  https://downloads.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+Connecting to downloads.apache.org (downloads.apache.org)|135.181.214.104|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|88.99.95.219|:443... failed: Connection timed out.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f8:10a:201a::2|:443... failed: Cannot assign requested address.
+Connecting to downloads.apache.org (downloads.apache.org)|2a01:4f9:3a:2c57::2|:443... failed: Cannot assign requested address.
+Giving up.
+
+unzip:  cannot find or open apache-maven-3.3.9-bin.zip, apache-maven-3.3.9-bin.zip.zip or apache-maven-3.3.9-bin.zip.ZIP.
+travis_time:end:01dd3459:start=1644083714951872793,finish=1644089076546834396,duration=5361594961603[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:0d25bbda[0K$ if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$JVM" == "latest" ]; then sudo apt-get update -qq; sudo /bin/echo -e oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections; sudo apt-get -o Dpkg::Options::="--force-confnew" install -y oracle-java9-installer oracle-java9-set-default oracle-java9-unlimited-jce-policy; sudo update-java-alternatives -s java-9-oracle; fi
+travis_time:end:0d25bbda:start=1644089076553047623,finish=1644089076557366975,duration=4319352[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:install[0Ktravis_time:start:00976e60[0K$ true
+travis_time:end:00976e60:start=1644089076564808263,finish=1644089076569427285,duration=4619022[0Ktravis_fold:end:install[0Ktravis_time:start:10a584bc[0K$ mvn clean test verify -Dhttps.protocols=TLSv1.2 -B
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Error: Could not find or load main class org.codehaus.plexus.classworlds.launcher.Launcher
+travis_time:end:10a584bc:start=1644089076576102502,finish=1644089076671986227,duration=95883725[0K[31;1mThe command "mvn clean test verify -Dhttps.protocols=TLSv1.2 -B" exited with 1.[0m
+
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:067619d0[0Ktravis_time:end:067619d0:start=1644089076679361425,finish=1644089076684761002,duration=5399577[0Ktravis_time:start:09e5f2ac[0KYAML safe loading is not available. Please upgrade psych to a version that supports safe loading (>= 2.0).
+[32;1mchanges detected, packing new archive[0m
+[32;1muploading /[0m
+[31;1mfailed to upload cache[0m
+travis_time:end:09e5f2ac:start=1644089076692154742,finish=1644089079220580578,duration=2528425836[0Ktravis_fold:end:cache.2[0K
+
+Done. Your build exited with 1.

@@ -1,0 +1,1593 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ cd failed/raphw/byte-buddy
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:22af5588[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:22af5588:start=1642645230760116640,finish=1642645236542065516,duration=5781948876[0Ktravis_fold:end:apt[0K$ java -Xmx32m -version
+java version "1.8.0_91"
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_91
+travis_fold:start:install[0Ktravis_time:start:03fb5fc4[0K$ mvn -o install -Dhttps.protocols=TLSv1.2 -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_91, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-109-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Byte Buddy (parent)
+[INFO] Byte Buddy Java agent
+[INFO] Byte Buddy (with dependencies)
+[INFO] Byte Buddy (without dependencies)
+[INFO] Byte Buddy benchmarks
+[INFO] Byte Buddy for Android
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (parent) 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-parent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-parent/1.4.6-SNAPSHOT/byte-buddy-parent-1.4.6-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy Java agent 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] >>> maven-bundle-plugin:2.5.4:bundle (default-bundle) > package @ byte-buddy-agent >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] <<< maven-bundle-plugin:2.5.4:bundle (default-bundle) < package @ byte-buddy-agent <<<
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.4:bundle (default-bundle) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-agent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.4.6-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.4.6-SNAPSHOT/byte-buddy-agent-1.4.6-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.4.6-SNAPSHOT/byte-buddy-agent-1.4.6-SNAPSHOT.pom
+[INFO] 
+[INFO] >>> maven-bundle-plugin:2.5.4:install (default-install) > install @ byte-buddy-agent >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] >>> maven-bundle-plugin:2.5.4:bundle (default-bundle) > package @ byte-buddy-agent >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] <<< maven-bundle-plugin:2.5.4:bundle (default-bundle) < package @ byte-buddy-agent <<<
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.4:bundle (default-bundle) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-agent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.4.6-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.4.6-SNAPSHOT/byte-buddy-agent-1.4.6-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.4.6-SNAPSHOT/byte-buddy-agent-1.4.6-SNAPSHOT.pom
+[INFO] 
+[INFO] <<< maven-bundle-plugin:2.5.4:install (default-install) < install @ byte-buddy-agent <<<
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.4:install (default-install) @ byte-buddy-agent ---
+[INFO] Installing net/bytebuddy/byte-buddy-agent/1.4.6-SNAPSHOT/byte-buddy-agent-1.4.6-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (with dependencies) 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-dep ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-dep ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-dep ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-dep ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-dep ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 232 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/target/classes
+[INFO] /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/asm/Advice.java: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/asm/Advice.java uses unchecked or unsafe operations.
+[INFO] /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/asm/Advice.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-dep ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 77 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-dep ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-dep ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy-dep ---
+[INFO] Building jar: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/target/byte-buddy-dep-1.4.6-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-dep ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/target/byte-buddy-dep-1.4.6-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-dep/1.4.6-SNAPSHOT/byte-buddy-dep-1.4.6-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-dep/1.4.6-SNAPSHOT/byte-buddy-dep-1.4.6-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (without dependencies) 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy/target/byte-buddy-1.4.6-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy/1.4.6-SNAPSHOT/byte-buddy-1.4.6-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy/1.4.6-SNAPSHOT/byte-buddy-1.4.6-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy benchmarks 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-benchmark ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-benchmark ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-benchmark ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-benchmark ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-benchmark/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-benchmark ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-benchmark/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-benchmark ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-benchmark/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-benchmark ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-benchmark ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy-benchmark ---
+[INFO] Building jar: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-benchmark/target/byte-buddy-benchmark-1.4.6-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-benchmark ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-benchmark/target/byte-buddy-benchmark-1.4.6-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-benchmark/1.4.6-SNAPSHOT/byte-buddy-benchmark-1.4.6-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-benchmark/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-benchmark/1.4.6-SNAPSHOT/byte-buddy-benchmark-1.4.6-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy for Android 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-android ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-android ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-android ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-android ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-android/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-android ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-android/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-android ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-android/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-android ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-android ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy-android ---
+[INFO] Building jar: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-android/target/byte-buddy-android-1.4.6-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-android ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-android/target/byte-buddy-android-1.4.6-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-android/1.4.6-SNAPSHOT/byte-buddy-android-1.4.6-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-android/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-android/1.4.6-SNAPSHOT/byte-buddy-android-1.4.6-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Byte Buddy (parent) ................................ SUCCESS [01:34 min]
+[INFO] Byte Buddy Java agent .............................. SUCCESS [ 40.441 s]
+[INFO] Byte Buddy (with dependencies) ..................... SUCCESS [01:14 min]
+[INFO] Byte Buddy (without dependencies) .................. SUCCESS [  1.632 s]
+[INFO] Byte Buddy benchmarks .............................. SUCCESS [ 19.018 s]
+[INFO] Byte Buddy for Android ............................. SUCCESS [ 13.074 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 04:43 min
+[INFO] Finished at: 2022-01-20T02:25:53+00:00
+[INFO] Final Memory: 39M/297M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:03fb5fc4:start=1642645258427911568,finish=1642645554710850553,duration=296282938985[0Ktravis_fold:end:install[0Ktravis_time:start:37633b38[0K$ mvn verify $TARGET -Dhttps.protocols=TLSv1.2 -Pintegration
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Byte Buddy (parent)
+[INFO] Byte Buddy Java agent
+[INFO] Byte Buddy (with dependencies)
+[INFO] Byte Buddy (without dependencies)
+[INFO] Byte Buddy benchmarks
+[INFO] Byte Buddy for Android
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (parent) 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> findbugs-maven-plugin:3.0.3:check (default) > :findbugs @ byte-buddy-parent >>>
+[INFO] 
+[INFO] --- findbugs-maven-plugin:3.0.3:findbugs (findbugs) @ byte-buddy-parent ---
+[INFO] 
+[INFO] <<< findbugs-maven-plugin:3.0.3:check (default) < :findbugs @ byte-buddy-parent <<<
+[INFO] 
+[INFO] --- findbugs-maven-plugin:3.0.3:check (default) @ byte-buddy-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy Java agent 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running net.bytebuddy.agent.ByteBuddyAgentAgentProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.101 sec - in net.bytebuddy.agent.ByteBuddyAgentAgentProviderTest
+Running net.bytebuddy.agent.ByteBuddyAgentAttachmentProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.agent.ByteBuddyAgentAttachmentProviderTest
+Running net.bytebuddy.agent.ByteBuddyAgentInstallationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.795 sec - in net.bytebuddy.agent.ByteBuddyAgentInstallationTest
+Running net.bytebuddy.agent.ByteBuddyAgentProcessProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 sec - in net.bytebuddy.agent.ByteBuddyAgentProcessProviderTest
+Running net.bytebuddy.agent.ByteBuddyAgentTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.bytebuddy.agent.ByteBuddyAgentTest
+Running net.bytebuddy.agent.InstallerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.36 sec - in net.bytebuddy.agent.InstallerTest
+
+Results :
+
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] >>> maven-bundle-plugin:2.5.4:bundle (default-bundle) > package @ byte-buddy-agent >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] 
+[INFO] <<< maven-bundle-plugin:2.5.4:bundle (default-bundle) < package @ byte-buddy-agent <<<
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.4:bundle (default-bundle) @ byte-buddy-agent ---
+[INFO] 
+[INFO] >>> findbugs-maven-plugin:3.0.3:check (default) > :findbugs @ byte-buddy-agent >>>
+[INFO] 
+[INFO] --- findbugs-maven-plugin:3.0.3:findbugs (findbugs) @ byte-buddy-agent ---
+[INFO] Fork Value is true
+[INFO] Done FindBugs Analysis....
+[INFO] 
+[INFO] <<< findbugs-maven-plugin:3.0.3:check (default) < :findbugs @ byte-buddy-agent <<<
+[INFO] 
+[INFO] --- findbugs-maven-plugin:3.0.3:check (default) @ byte-buddy-agent ---
+[INFO] BugInstance size is 0
+[INFO] Error size is 0
+[INFO] No errors/warnings found
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (with dependencies) 1.4.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-dep ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-dep ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 232 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/target/classes
+[INFO] /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/asm/Advice.java: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/asm/Advice.java uses unchecked or unsafe operations.
+[INFO] /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/asm/Advice.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-dep ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 77 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-dep ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-dep ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running net.bytebuddy.ByteBuddyTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.564 sec - in net.bytebuddy.ByteBuddyTest
+Running net.bytebuddy.ByteBuddyTutorialExamplesTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.758 sec - in net.bytebuddy.ByteBuddyTutorialExamplesTest
+Running net.bytebuddy.ClassFileVersionKnownVersionsTest
+Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 sec - in net.bytebuddy.ClassFileVersionKnownVersionsTest
+Running net.bytebuddy.ClassFileVersionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.557 sec - in net.bytebuddy.ClassFileVersionTest
+Running net.bytebuddy.NamingStrategyTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec - in net.bytebuddy.NamingStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderDefaultApplicationTest
+Tests run: 116, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.152 sec - in net.bytebuddy.agent.builder.AgentBuilderDefaultApplicationTest
+Running net.bytebuddy.agent.builder.AgentBuilderDefaultNativeMethodStrategyTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in net.bytebuddy.agent.builder.AgentBuilderDefaultNativeMethodStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderDefaultTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.191 sec - in net.bytebuddy.agent.builder.AgentBuilderDefaultTest
+Running net.bytebuddy.agent.builder.AgentBuilderDescriptionStrategyTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.agent.builder.AgentBuilderDescriptionStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderInitializationStrategySelfInjectionDispatcherTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.05 sec - in net.bytebuddy.agent.builder.AgentBuilderInitializationStrategySelfInjectionDispatcherTest
+Running net.bytebuddy.agent.builder.AgentBuilderInitializationStrategyTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.732 sec - in net.bytebuddy.agent.builder.AgentBuilderInitializationStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderInstallationStrategyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in net.bytebuddy.agent.builder.AgentBuilderInstallationStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderLambdaInstrumentationStrategyTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in net.bytebuddy.agent.builder.AgentBuilderLambdaInstrumentationStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderListenerTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.325 sec - in net.bytebuddy.agent.builder.AgentBuilderListenerTest
+Running net.bytebuddy.agent.builder.AgentBuilderRawMatcherConjunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 sec - in net.bytebuddy.agent.builder.AgentBuilderRawMatcherConjunctionTest
+Running net.bytebuddy.agent.builder.AgentBuilderRawMatcherDisjunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.299 sec - in net.bytebuddy.agent.builder.AgentBuilderRawMatcherDisjunctionTest
+Running net.bytebuddy.agent.builder.AgentBuilderRawMatcherForElementMatchersTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.agent.builder.AgentBuilderRawMatcherForElementMatchersTest
+Running net.bytebuddy.agent.builder.AgentBuilderRedefinitionStrategyTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.311 sec - in net.bytebuddy.agent.builder.AgentBuilderRedefinitionStrategyTest
+Running net.bytebuddy.agent.builder.AgentBuilderTransformerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.agent.builder.AgentBuilderTransformerTest
+Running net.bytebuddy.agent.builder.AgentBuilderTypeLocatorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.agent.builder.AgentBuilderTypeLocatorTest
+Running net.bytebuddy.agent.builder.AgentBuilderTypeLocatorWithTypePoolCacheSimpleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.agent.builder.AgentBuilderTypeLocatorWithTypePoolCacheSimpleTest
+Running net.bytebuddy.agent.builder.AgentBuilderTypeStrategyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.agent.builder.AgentBuilderTypeStrategyTest
+Running net.bytebuddy.agent.builder.LambdaFactoryTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.364 sec - in net.bytebuddy.agent.builder.LambdaFactoryTest
+Running net.bytebuddy.asm.AdviceAnnotationTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.asm.AdviceAnnotationTest
+Running net.bytebuddy.asm.AdviceBoxedAssignmentTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.054 sec - in net.bytebuddy.asm.AdviceBoxedAssignmentTest
+Running net.bytebuddy.asm.AdviceFrameTest
+Tests run: 72, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.978 sec - in net.bytebuddy.asm.AdviceFrameTest
+Running net.bytebuddy.asm.AdviceIllegalTypeTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.367 sec - in net.bytebuddy.asm.AdviceIllegalTypeTest
+Running net.bytebuddy.asm.AdviceSuppressionTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 sec - in net.bytebuddy.asm.AdviceSuppressionTest
+Running net.bytebuddy.asm.AdviceTest
+Tests run: 128, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.038 sec - in net.bytebuddy.asm.AdviceTest
+Running net.bytebuddy.asm.AdviceTypeTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.121 sec - in net.bytebuddy.asm.AdviceTypeTest
+Running net.bytebuddy.asm.AsmVisitorWrapperCompoundTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in net.bytebuddy.asm.AsmVisitorWrapperCompoundTest
+Running net.bytebuddy.asm.AsmVisitorWrapperForDeclaredFieldsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 sec - in net.bytebuddy.asm.AsmVisitorWrapperForDeclaredFieldsTest
+Running net.bytebuddy.asm.AsmVisitorWrapperForDeclaredMethodsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 sec - in net.bytebuddy.asm.AsmVisitorWrapperForDeclaredMethodsTest
+Running net.bytebuddy.asm.AsmVisitorWrapperNoOpTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.asm.AsmVisitorWrapperNoOpTest
+Running net.bytebuddy.asm.TypeConstantAdjustmentTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.asm.TypeConstantAdjustmentTest
+Running net.bytebuddy.description.ByteCodeElementTokenListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.description.ByteCodeElementTokenListTest
+Running net.bytebuddy.description.TypeVariableSourceVisitorNoOpTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.TypeVariableSourceVisitorNoOpTest
+Running net.bytebuddy.description.annotation.AnnotationDescriptionAbstractPreparedExceptionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 sec - in net.bytebuddy.description.annotation.AnnotationDescriptionAbstractPreparedExceptionTest
+Running net.bytebuddy.description.annotation.AnnotationDescriptionAnnotationInvocationHandlerTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 sec - in net.bytebuddy.description.annotation.AnnotationDescriptionAnnotationInvocationHandlerTest
+Running net.bytebuddy.description.annotation.AnnotationDescriptionAnnotationValueLoadedStateTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.annotation.AnnotationDescriptionAnnotationValueLoadedStateTest
+Running net.bytebuddy.description.annotation.AnnotationDescriptionBuilderTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.556 sec - in net.bytebuddy.description.annotation.AnnotationDescriptionBuilderTest
+Running net.bytebuddy.description.annotation.AnnotationDescriptionForLoadedAnnotationTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.201 sec - in net.bytebuddy.description.annotation.AnnotationDescriptionForLoadedAnnotationTest
+Running net.bytebuddy.description.annotation.AnnotationDescriptionLatentTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 sec - in net.bytebuddy.description.annotation.AnnotationDescriptionLatentTest
+Running net.bytebuddy.description.annotation.AnnotationListEmptyTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.annotation.AnnotationListEmptyTest
+Running net.bytebuddy.description.annotation.AnnotationListExplicitTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec - in net.bytebuddy.description.annotation.AnnotationListExplicitTest
+Running net.bytebuddy.description.annotation.AnnotationListForLoadedAnnotationsTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.annotation.AnnotationListForLoadedAnnotationsTest
+Running net.bytebuddy.description.enumeration.EnumerationDescriptionForLoadedEnumerationTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.412 sec - in net.bytebuddy.description.enumeration.EnumerationDescriptionForLoadedEnumerationTest
+Running net.bytebuddy.description.enumeration.EnumerationDescriptionLatentTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.enumeration.EnumerationDescriptionLatentTest
+Running net.bytebuddy.description.field.FieldDescriptionForLoadedFieldsTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.542 sec - in net.bytebuddy.description.field.FieldDescriptionForLoadedFieldsTest
+Running net.bytebuddy.description.field.FieldDescriptionLatentTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.field.FieldDescriptionLatentTest
+Running net.bytebuddy.description.field.FieldDescriptionSignatureTokenTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.field.FieldDescriptionSignatureTokenTest
+Running net.bytebuddy.description.field.FieldDescriptionTokenTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.field.FieldDescriptionTokenTest
+Running net.bytebuddy.description.field.FieldListEmptyTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.field.FieldListEmptyTest
+Running net.bytebuddy.description.field.FieldListExplicitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in net.bytebuddy.description.field.FieldListExplicitTest
+Running net.bytebuddy.description.field.FieldListForLoadedFieldsTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.field.FieldListForLoadedFieldsTest
+Running net.bytebuddy.description.method.MethodDescriptionForLoadedTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.035 sec - in net.bytebuddy.description.method.MethodDescriptionForLoadedTest
+Running net.bytebuddy.description.method.MethodDescriptionLatentTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in net.bytebuddy.description.method.MethodDescriptionLatentTest
+Running net.bytebuddy.description.method.MethodDescriptionLatentTypeInitializerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.method.MethodDescriptionLatentTypeInitializerTest
+Running net.bytebuddy.description.method.MethodDescriptionSignatureTokenTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.method.MethodDescriptionSignatureTokenTest
+Running net.bytebuddy.description.method.MethodDescriptionTokenTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in net.bytebuddy.description.method.MethodDescriptionTokenTest
+Running net.bytebuddy.description.method.MethodDescriptionTypeTokenTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.method.MethodDescriptionTypeTokenTest
+Running net.bytebuddy.description.method.MethodListEmptyTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.method.MethodListEmptyTest
+Running net.bytebuddy.description.method.MethodListExplicitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 sec - in net.bytebuddy.description.method.MethodListExplicitTest
+Running net.bytebuddy.description.method.MethodListForLoadedTypesTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.method.MethodListForLoadedTypesTest
+Running net.bytebuddy.description.method.ParameterDescriptionForLoadedParameterDispatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 sec - in net.bytebuddy.description.method.ParameterDescriptionForLoadedParameterDispatcherTest
+Running net.bytebuddy.description.method.ParameterDescriptionTokenTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.method.ParameterDescriptionTokenTest
+Running net.bytebuddy.description.method.ParameterListEmptyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.method.ParameterListEmptyTest
+Running net.bytebuddy.description.method.ParameterListExplicitTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.method.ParameterListExplicitTest
+Running net.bytebuddy.description.method.ParameterListForLoadedExectutableDispatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.method.ParameterListForLoadedExectutableDispatcherTest
+Running net.bytebuddy.description.method.ParameterListForLoadedParameterTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.method.ParameterListForLoadedParameterTest
+Running net.bytebuddy.description.modifier.EnumerationStateTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.EnumerationStateTest
+Running net.bytebuddy.description.modifier.FieldManifestationTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.FieldManifestationTest
+Running net.bytebuddy.description.modifier.MethodArgumentsTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.MethodArgumentsTest
+Running net.bytebuddy.description.modifier.MethodManifestationTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.modifier.MethodManifestationTest
+Running net.bytebuddy.description.modifier.ModifierConstributorObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.ModifierConstributorObjectPropertiesTest
+Running net.bytebuddy.description.modifier.ModifierContributorResolverTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.ModifierContributorResolverTest
+Running net.bytebuddy.description.modifier.ModifierContributorTest
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.ModifierContributorTest
+Running net.bytebuddy.description.modifier.OwnershipTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.modifier.OwnershipTest
+Running net.bytebuddy.description.modifier.ParameterManifestationTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.ParameterManifestationTest
+Running net.bytebuddy.description.modifier.ProvisioningStateTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.ProvisioningStateTest
+Running net.bytebuddy.description.modifier.SynchronizationStateTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.SynchronizationStateTest
+Running net.bytebuddy.description.modifier.SyntheticStateTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.SyntheticStateTest
+Running net.bytebuddy.description.modifier.TypeManifestationTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.TypeManifestationTest
+Running net.bytebuddy.description.modifier.VisibilityTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.modifier.VisibilityTest
+Running net.bytebuddy.description.type.GenericSignatureResolutionTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 sec - in net.bytebuddy.description.type.GenericSignatureResolutionTest
+Running net.bytebuddy.description.type.PackageDescriptionForLoadedPackageTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.365 sec - in net.bytebuddy.description.type.PackageDescriptionForLoadedPackageTest
+Running net.bytebuddy.description.type.PackageDescriptionSimpleTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.type.PackageDescriptionSimpleTest
+Running net.bytebuddy.description.type.TypeDefinitionSortOtherTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.type.TypeDefinitionSortOtherTest
+Running net.bytebuddy.description.type.TypeDefinitionSortTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.type.TypeDefinitionSortTest
+Running net.bytebuddy.description.type.TypeDefinitionSuperClassIteratorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.description.type.TypeDefinitionSuperClassIteratorTest
+Running net.bytebuddy.description.type.TypeDescriptionArrayProjectionTest
+Tests run: 199, Failures: 0, Errors: 0, Skipped: 11, Time elapsed: 4.639 sec - in net.bytebuddy.description.type.TypeDescriptionArrayProjectionTest
+Running net.bytebuddy.description.type.TypeDescriptionForLoadedTypeTest
+Tests run: 199, Failures: 0, Errors: 0, Skipped: 11, Time elapsed: 0.002 sec - in net.bytebuddy.description.type.TypeDescriptionForLoadedTypeTest
+Running net.bytebuddy.description.type.TypeDescriptionForPackageDescriptionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeDescriptionForPackageDescriptionTest
+Running net.bytebuddy.description.type.TypeInitializerTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.type.TypeInitializerTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericAnnotationReaderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.533 sec - in net.bytebuddy.description.type.TypeDescriptionGenericAnnotationReaderTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericBuilderTest
+Tests run: 150, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.255 sec - in net.bytebuddy.description.type.TypeDescriptionGenericBuilderTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorAnnotationStripperTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.34 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorAnnotationStripperTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorAssignerTest
+Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorAssignerTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorForSignatureVisitorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorForSignatureVisitorTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorNoOpTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorNoOpTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorReducingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorReducingTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForAttachmentTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.382 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForAttachmentTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForDetachmentTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForDetachmentTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForTokenNormalizationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForTokenNormalizationTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForTypeVariableBindingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorSubstitutorForTypeVariableBindingTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorTypeErasingTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorTypeErasingTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorTypeVariableErasingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorTypeVariableErasingTest
+Running net.bytebuddy.description.type.TypeDescriptionGenericVisitorValidatorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeDescriptionGenericVisitorValidatorTest
+Running net.bytebuddy.description.type.TypeDescriptionLatentTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.description.type.TypeDescriptionLatentTest
+Running net.bytebuddy.description.type.TypeListEmptyTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.type.TypeListEmptyTest
+Running net.bytebuddy.description.type.TypeListExplicitTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 sec - in net.bytebuddy.description.type.TypeListExplicitTest
+Running net.bytebuddy.description.type.TypeListForLoadedTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeListForLoadedTest
+Running net.bytebuddy.description.type.TypeListGenericEmptyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.description.type.TypeListGenericEmptyTest
+Running net.bytebuddy.description.type.TypeListGenericExplicitTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeListGenericExplicitTest
+Running net.bytebuddy.description.type.TypeListGenericForLoadedTypesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.description.type.TypeListGenericForLoadedTypesTest
+Running net.bytebuddy.description.type.TypeVariableTokenTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.description.type.TypeVariableTokenTest
+Running net.bytebuddy.dynamic.ClassFileLocatorAgentBasedTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.005 sec - in net.bytebuddy.dynamic.ClassFileLocatorAgentBasedTest
+Running net.bytebuddy.dynamic.ClassFileLocatorCompoundTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.dynamic.ClassFileLocatorCompoundTest
+Running net.bytebuddy.dynamic.ClassFileLocatorForClassLoaderTest
+Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.258 sec <<< FAILURE! - in net.bytebuddy.dynamic.ClassFileLocatorForClassLoaderTest
+testReadTypeBootstrapClassLoader(net.bytebuddy.dynamic.ClassFileLocatorForClassLoaderTest)  Time elapsed: 0.01 sec  <<< ERROR!
+java.lang.NullPointerException
+	at net.bytebuddy.dynamic.ClassFileLocatorForClassLoaderTest.testReadTypeBootstrapClassLoader(ClassFileLocatorForClassLoaderTest.java:65)
+
+Running net.bytebuddy.dynamic.ClassFileLocatorForClassLoaderWeaklyReferencedTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.ClassFileLocatorForClassLoaderWeaklyReferencedTest
+Running net.bytebuddy.dynamic.ClassFileLocatorForFolderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.ClassFileLocatorForFolderTest
+Running net.bytebuddy.dynamic.ClassFileLocatorForJarFileTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.ClassFileLocatorForJarFileTest
+Running net.bytebuddy.dynamic.ClassFileLocatorNoOpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.ClassFileLocatorNoOpTest
+Running net.bytebuddy.dynamic.ClassFileLocatorResolutionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.ClassFileLocatorResolutionTest
+Running net.bytebuddy.dynamic.ClassFileLocatorSimpleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.ClassFileLocatorSimpleTest
+Running net.bytebuddy.dynamic.DynamicTypeBuilderObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.DynamicTypeBuilderObjectPropertiesTest
+Running net.bytebuddy.dynamic.DynamicTypeDefaultLoadedTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.DynamicTypeDefaultLoadedTest
+Running net.bytebuddy.dynamic.DynamicTypeDefaultTest
+Jan 20, 2022 2:28:55 AM net.bytebuddy.dynamic.DynamicType$Default inject
+INFO: Overwriting file /tmp/bar9024756364791516365tmp7518475620873224621tmp
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.199 sec - in net.bytebuddy.dynamic.DynamicTypeDefaultTest
+Running net.bytebuddy.dynamic.DynamicTypeDefaultUnloadedTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.dynamic.DynamicTypeDefaultUnloadedTest
+Running net.bytebuddy.dynamic.FieldTransformerCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.FieldTransformerCompoundTest
+Running net.bytebuddy.dynamic.FieldTransformerNoOpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.FieldTransformerNoOpTest
+Running net.bytebuddy.dynamic.FieldTransformerSimpleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.dynamic.FieldTransformerSimpleTest
+Running net.bytebuddy.dynamic.MethodTransformerCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.MethodTransformerCompoundTest
+Running net.bytebuddy.dynamic.MethodTransformerNoOpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.MethodTransformerNoOpTest
+Running net.bytebuddy.dynamic.MethodTransformerSimpleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.MethodTransformerSimpleTest
+Running net.bytebuddy.dynamic.TargetTypeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.TargetTypeTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderChildFirstPrependingEnumerationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderChildFirstPrependingEnumerationTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderChildFirstTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.276 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderChildFirstTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderEmptyEnumerationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderEmptyEnumerationTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderObjectPropertiesTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderSingletonEnumerationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderSingletonEnumerationTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderSynchronizationStrategyTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderSynchronizationStrategyTest
+Running net.bytebuddy.dynamic.loading.ByteArrayClassLoaderTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.loading.ByteArrayClassLoaderTest
+Running net.bytebuddy.dynamic.loading.ClassInjectorUsingInstrumentationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.loading.ClassInjectorUsingInstrumentationTest
+Running net.bytebuddy.dynamic.loading.ClassInjectorUsingReflectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 sec - in net.bytebuddy.dynamic.loading.ClassInjectorUsingReflectionTest
+Running net.bytebuddy.dynamic.loading.ClassLoadingStrategyDefaultTest
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 sec - in net.bytebuddy.dynamic.loading.ClassLoadingStrategyDefaultTest
+Running net.bytebuddy.dynamic.loading.ClassLoadingStrategyForBootstrapInjectionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.325 sec - in net.bytebuddy.dynamic.loading.ClassLoadingStrategyForBootstrapInjectionTest
+Running net.bytebuddy.dynamic.loading.ClassReloadingStrategyTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.131 sec - in net.bytebuddy.dynamic.loading.ClassReloadingStrategyTest
+Running net.bytebuddy.dynamic.loading.MultipleParentClassLoaderTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.575 sec - in net.bytebuddy.dynamic.loading.MultipleParentClassLoaderTest
+Running net.bytebuddy.dynamic.loading.PackageDefinitionStrategyTypeSimpleTest
+Jan 20, 2022 2:29:02 AM net.bytebuddy.dynamic.DynamicType$Default toJar
+INFO: Overwriting existing file: /tmp/foo4291593681489452177bar
+Jan 20, 2022 2:29:03 AM net.bytebuddy.dynamic.DynamicType$Default toJar
+INFO: Overwriting existing file: /tmp/foo5777283047879335551bar
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.281 sec - in net.bytebuddy.dynamic.loading.PackageDefinitionStrategyTypeSimpleTest
+Running net.bytebuddy.dynamic.loading.PackageDefinitionStrategyTypeTrivialTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.loading.PackageDefinitionStrategyTypeTrivialTest
+Running net.bytebuddy.dynamic.loading.PackageDefinitionStrategyTypeUndefinedTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.loading.PackageDefinitionStrategyTypeUndefinedTest
+Running net.bytebuddy.dynamic.loading.PackageDefinitionTrivialTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.loading.PackageDefinitionTrivialTest
+Running net.bytebuddy.dynamic.loading.PackageTypeStrategyManifestReadingTest
+Jan 20, 2022 2:29:03 AM net.bytebuddy.test.utility.JavaVersionRule$NoOpStatement evaluate
+WARNING: Ignoring test case: Requires a Java version of at least 9
+Jan 20, 2022 2:29:03 AM net.bytebuddy.test.utility.JavaVersionRule$NoOpStatement evaluate
+WARNING: Ignoring test case: Requires a Java version of at least 9
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.677 sec - in net.bytebuddy.dynamic.loading.PackageTypeStrategyManifestReadingTest
+Running net.bytebuddy.dynamic.loading.PackageTypeStrategyNoOpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.loading.PackageTypeStrategyNoOpTest
+Running net.bytebuddy.dynamic.scaffold.FieldLocatorExactTypeTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 sec - in net.bytebuddy.dynamic.scaffold.FieldLocatorExactTypeTest
+Running net.bytebuddy.dynamic.scaffold.FieldLocatorForClassHierarchyTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 sec - in net.bytebuddy.dynamic.scaffold.FieldLocatorForClassHierarchyTest
+Running net.bytebuddy.dynamic.scaffold.FieldLocatorNoOpTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.FieldLocatorNoOpTest
+Running net.bytebuddy.dynamic.scaffold.FieldLocatorResolutionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.FieldLocatorResolutionTest
+Running net.bytebuddy.dynamic.scaffold.FieldRegistryCompiledNoOpTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.scaffold.FieldRegistryCompiledNoOpTest
+Running net.bytebuddy.dynamic.scaffold.FieldRegistryDefaultTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in net.bytebuddy.dynamic.scaffold.FieldRegistryDefaultTest
+Running net.bytebuddy.dynamic.scaffold.InstrumentedTypeDefaultTest
+Tests run: 111, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.081 sec - in net.bytebuddy.dynamic.scaffold.InstrumentedTypeDefaultTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultHarmonizerForJVMMethodTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.277 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultHarmonizerForJVMMethodTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultHarmonizerForJavaMethodTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.344 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultHarmonizerForJavaMethodTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultKeyTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.819 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultKeyTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultMergerDirectionalTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultMergerDirectionalTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultTest
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.758 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphCompilerDefaultTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphEmptyTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphEmptyTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphLinkedDelegationTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphLinkedDelegationTest
+Running net.bytebuddy.dynamic.scaffold.inline.InlineImplementationMatcherTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.dynamic.scaffold.inline.InlineImplementationMatcherTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodNameTransformerPrefixingTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodNameTransformerPrefixingTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodNameTransformerSuffixingTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodNameTransformerSuffixingTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverDefaultTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverDefaultTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverDisabledTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverDisabledTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverResolutionForRebasedConstructorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverResolutionForRebasedConstructorTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverResolutionForRebasedMethodTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverResolutionForRebasedMethodTest
+Running net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverResolutionPreservedTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.MethodRebaseResolverResolutionPreservedTest
+Running net.bytebuddy.dynamic.scaffold.inline.RebaseDynamicTypeBuilderRebaseableMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.inline.RebaseDynamicTypeBuilderRebaseableMatcherTest
+Running net.bytebuddy.dynamic.scaffold.inline.RebaseDynamicTypeBuilderTest
+Tests run: 70, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.716 sec - in net.bytebuddy.dynamic.scaffold.inline.RebaseDynamicTypeBuilderTest
+Running net.bytebuddy.dynamic.scaffold.inline.RebaseImplementationTargetFactoryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.dynamic.scaffold.inline.RebaseImplementationTargetFactoryTest
+Running net.bytebuddy.dynamic.scaffold.inline.RebaseImplementationTargetSpecialMethodInvocationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 sec - in net.bytebuddy.dynamic.scaffold.inline.RebaseImplementationTargetSpecialMethodInvocationTest
+Running net.bytebuddy.dynamic.scaffold.inline.RebaseImplementationTargetTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in net.bytebuddy.dynamic.scaffold.inline.RebaseImplementationTargetTest
+Running net.bytebuddy.dynamic.scaffold.inline.RedefinitionDynamicTypeBuilderTest
+Tests run: 68, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.091 sec - in net.bytebuddy.dynamic.scaffold.inline.RedefinitionDynamicTypeBuilderTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphNodeListTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphNodeListTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphNodeSimpleTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphNodeSimpleTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphNodeSortTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphNodeSortTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphNodeUnresolvedTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphNodeUnresolvedTest
+Running net.bytebuddy.dynamic.scaffold.MethodGraphSimpleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.MethodGraphSimpleTest
+Running net.bytebuddy.dynamic.scaffold.MethodRegistryDefaultTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in net.bytebuddy.dynamic.scaffold.MethodRegistryDefaultTest
+Running net.bytebuddy.dynamic.scaffold.MethodRegistryHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.dynamic.scaffold.MethodRegistryHandlerTest
+Running net.bytebuddy.dynamic.scaffold.TypeValidationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.TypeValidationTest
+Running net.bytebuddy.dynamic.scaffold.TypeWriterDefaultFrameComputingClassWriterTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.TypeWriterDefaultFrameComputingClassWriterTest
+Running net.bytebuddy.dynamic.scaffold.TypeWriterDefaultTest
+Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.799 sec - in net.bytebuddy.dynamic.scaffold.TypeWriterDefaultTest
+Running net.bytebuddy.dynamic.scaffold.TypeWriterFieldPoolRecordTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.dynamic.scaffold.TypeWriterFieldPoolRecordTest
+Running net.bytebuddy.dynamic.scaffold.TypeWriterMethodPoolRecordTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in net.bytebuddy.dynamic.scaffold.TypeWriterMethodPoolRecordTest
+Running net.bytebuddy.dynamic.scaffold.subclass.ConstructorStrategyDefaultTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.bytebuddy.dynamic.scaffold.subclass.ConstructorStrategyDefaultTest
+Running net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilderInstrumentableMatcherTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilderInstrumentableMatcherTest
+Running net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilderTest
+Tests run: 72, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 8.164 sec - in net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilderTest
+Running net.bytebuddy.dynamic.scaffold.subclass.SubclassImplementationTargetFactoryTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.dynamic.scaffold.subclass.SubclassImplementationTargetFactoryTest
+Running net.bytebuddy.dynamic.scaffold.subclass.SubclassImplementationTargetTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in net.bytebuddy.dynamic.scaffold.subclass.SubclassImplementationTargetTest
+Running net.bytebuddy.implementation.DefaultMethodCallTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.646 sec - in net.bytebuddy.implementation.DefaultMethodCallTest
+Running net.bytebuddy.implementation.ExceptionMethodTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in net.bytebuddy.implementation.ExceptionMethodTest
+Running net.bytebuddy.implementation.FieldAccessorExceptionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 sec - in net.bytebuddy.implementation.FieldAccessorExceptionTest
+Running net.bytebuddy.implementation.FieldAccessorFieldNameExtractorForBeanPropertyTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.FieldAccessorFieldNameExtractorForBeanPropertyTest
+Running net.bytebuddy.implementation.FieldAccessorNonBeanTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.FieldAccessorNonBeanTest
+Running net.bytebuddy.implementation.FieldAccessorObjectPropertiesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in net.bytebuddy.implementation.FieldAccessorObjectPropertiesTest
+Running net.bytebuddy.implementation.FieldAccessorPreparationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.FieldAccessorPreparationTest
+Running net.bytebuddy.implementation.FieldAccessorTest
+Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.004 sec - in net.bytebuddy.implementation.FieldAccessorTest
+Running net.bytebuddy.implementation.FixedValueConstantPoolTypesTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 sec - in net.bytebuddy.implementation.FixedValueConstantPoolTypesTest
+Running net.bytebuddy.implementation.FixedValueTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 sec - in net.bytebuddy.implementation.FixedValueTest
+Running net.bytebuddy.implementation.ForwardingTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 sec - in net.bytebuddy.implementation.ForwardingTest
+Running net.bytebuddy.implementation.ImplementationCompoundTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.ImplementationCompoundTest
+Running net.bytebuddy.implementation.ImplementationContextDefaultOtherTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in net.bytebuddy.implementation.ImplementationContextDefaultOtherTest
+Running net.bytebuddy.implementation.ImplementationContextDefaultTest
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 sec - in net.bytebuddy.implementation.ImplementationContextDefaultTest
+Running net.bytebuddy.implementation.ImplementationContextDisabledTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.ImplementationContextDisabledTest
+Running net.bytebuddy.implementation.ImplementationContextExtractableViewInjectedCodeNoneTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.ImplementationContextExtractableViewInjectedCodeNoneTest
+Running net.bytebuddy.implementation.ImplementationSimpleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.ImplementationSimpleTest
+Running net.bytebuddy.implementation.ImplementationSpecialMethodInvocationIllegalTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.ImplementationSpecialMethodInvocationIllegalTest
+Running net.bytebuddy.implementation.ImplementationSpecialMethodInvocationSimpleTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 sec - in net.bytebuddy.implementation.ImplementationSpecialMethodInvocationSimpleTest
+Running net.bytebuddy.implementation.InvocationHandlerAdapterTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.InvocationHandlerAdapterTest
+Running net.bytebuddy.implementation.InvokeDynamicTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.892 sec - in net.bytebuddy.implementation.InvokeDynamicTest
+Running net.bytebuddy.implementation.LoadedTypeInitializerCompoundTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 sec - in net.bytebuddy.implementation.LoadedTypeInitializerCompoundTest
+Running net.bytebuddy.implementation.LoadedTypeInitializerForStaticFieldTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.bytebuddy.implementation.LoadedTypeInitializerForStaticFieldTest
+Running net.bytebuddy.implementation.MethodCallTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.098 sec - in net.bytebuddy.implementation.MethodCallTest
+Running net.bytebuddy.implementation.MethodCallTypeTest
+Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in net.bytebuddy.implementation.MethodCallTypeTest
+Running net.bytebuddy.implementation.MethodDelegationAllArgumentsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.262 sec - in net.bytebuddy.implementation.MethodDelegationAllArgumentsTest
+Running net.bytebuddy.implementation.MethodDelegationArgumentTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.381 sec - in net.bytebuddy.implementation.MethodDelegationArgumentTest
+Running net.bytebuddy.implementation.StubMethodTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.423 sec - in net.bytebuddy.implementation.StubMethodTest
+Running net.bytebuddy.implementation.MethodDelegationBindingPriorityTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.MethodDelegationBindingPriorityTest
+Running net.bytebuddy.implementation.MethodDelegationChainedTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.MethodDelegationChainedTest
+Running net.bytebuddy.implementation.MethodDelegationCheckedExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.MethodDelegationCheckedExceptionTest
+Running net.bytebuddy.implementation.MethodDelegationConstructionTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.MethodDelegationConstructionTest
+Running net.bytebuddy.implementation.MethodDelegationDefaultCallTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.374 sec - in net.bytebuddy.implementation.MethodDelegationDefaultCallTest
+Running net.bytebuddy.implementation.MethodDelegationDefaultTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.261 sec - in net.bytebuddy.implementation.MethodDelegationDefaultTest
+Running net.bytebuddy.implementation.MethodDelegationExceptionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.591 sec - in net.bytebuddy.implementation.MethodDelegationExceptionTest
+Running net.bytebuddy.implementation.MethodDelegationFieldProxyTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.914 sec - in net.bytebuddy.implementation.MethodDelegationFieldProxyTest
+Running net.bytebuddy.implementation.MethodDelegationFieldValueTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.253 sec - in net.bytebuddy.implementation.MethodDelegationFieldValueTest
+Running net.bytebuddy.implementation.MethodDelegationIgnoreForBindingTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 sec - in net.bytebuddy.implementation.MethodDelegationIgnoreForBindingTest
+Running net.bytebuddy.implementation.MethodDelegationMorphTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.674 sec - in net.bytebuddy.implementation.MethodDelegationMorphTest
+Running net.bytebuddy.implementation.MethodDelegationOriginTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.408 sec - in net.bytebuddy.implementation.MethodDelegationOriginTest
+Running net.bytebuddy.implementation.MethodDelegationOtherTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in net.bytebuddy.implementation.MethodDelegationOtherTest
+Running net.bytebuddy.implementation.MethodDelegationPipeTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.383 sec - in net.bytebuddy.implementation.MethodDelegationPipeTest
+Running net.bytebuddy.implementation.MethodDelegationRuntimeTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.406 sec - in net.bytebuddy.implementation.MethodDelegationRuntimeTypeTest
+Running net.bytebuddy.implementation.MethodDelegationStubValueTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.bytebuddy.implementation.MethodDelegationStubValueTest
+Running net.bytebuddy.implementation.attribute.AnnotationAppenderDefaultTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.827 sec - in net.bytebuddy.implementation.attribute.AnnotationAppenderDefaultTest
+Running net.bytebuddy.implementation.attribute.AnnotationAppenderForTypeAnnotationsTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.AnnotationAppenderForTypeAnnotationsTest
+Running net.bytebuddy.implementation.attribute.AnnotationAppenderTargetTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.AnnotationAppenderTargetTest
+Running net.bytebuddy.implementation.attribute.AnnotationRetentionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.AnnotationRetentionTest
+Running net.bytebuddy.implementation.attribute.AnnotationValueFilterDefaultTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.AnnotationValueFilterDefaultTest
+Running net.bytebuddy.implementation.attribute.FieldAttributeAppenderCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.FieldAttributeAppenderCompoundTest
+Running net.bytebuddy.implementation.attribute.FieldAttributeAppenderFactoryCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.FieldAttributeAppenderFactoryCompoundTest
+Running net.bytebuddy.implementation.attribute.FieldAttributeAppenderForAnnotationsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.404 sec - in net.bytebuddy.implementation.attribute.FieldAttributeAppenderForAnnotationsTest
+Running net.bytebuddy.implementation.attribute.FieldAttributeAppenderForInstrumentedFieldTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in net.bytebuddy.implementation.attribute.FieldAttributeAppenderForInstrumentedFieldTest
+Running net.bytebuddy.implementation.attribute.FieldAttributeAppenderNoOpTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.FieldAttributeAppenderNoOpTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderCompoundTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderExplicitTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderExplicitTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderFactoryCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderFactoryCompoundTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderForInstrumentedMethodOtherTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderForInstrumentedMethodOtherTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderForInstrumentedMethodTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderForInstrumentedMethodTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderForReceiverTypeTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderForReceiverTypeTest
+Running net.bytebuddy.implementation.attribute.MethodAttributeAppenderNoOpTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.MethodAttributeAppenderNoOpTest
+Running net.bytebuddy.implementation.attribute.TypeAttributeAppenderCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.TypeAttributeAppenderCompoundTest
+Running net.bytebuddy.implementation.attribute.TypeAttributeAppenderExplicitTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.189 sec - in net.bytebuddy.implementation.attribute.TypeAttributeAppenderExplicitTest
+Running net.bytebuddy.implementation.attribute.TypeAttributeAppenderForInstrumentedTypeDifferentiatingTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.bytebuddy.implementation.attribute.TypeAttributeAppenderForInstrumentedTypeDifferentiatingTest
+Running net.bytebuddy.implementation.attribute.TypeAttributeAppenderForInstrumentedTypeTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.bytebuddy.implementation.attribute.TypeAttributeAppenderForInstrumentedTypeTest
+Running net.bytebuddy.implementation.attribute.TypeAttributeAppenderNoOpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.attribute.TypeAttributeAppenderNoOpTest
+Running net.bytebuddy.implementation.MethodDelegationSuperCallTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.334 sec - in net.bytebuddy.implementation.MethodDelegationSuperCallTest
+Running net.bytebuddy.implementation.MethodDelegationSuperTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.304 sec - in net.bytebuddy.implementation.MethodDelegationSuperTest
+Running net.bytebuddy.implementation.MethodDelegationTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec - in net.bytebuddy.implementation.MethodDelegationTest
+Running net.bytebuddy.implementation.MethodDelegationThisTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 sec - in net.bytebuddy.implementation.MethodDelegationThisTest
+Running net.bytebuddy.implementation.ModifierReviewableTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.implementation.ModifierReviewableTest
+Running net.bytebuddy.implementation.StubMethodOtherTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.StubMethodOtherTest
+Running net.bytebuddy.implementation.SuperMethodCallOtherTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 sec - in net.bytebuddy.implementation.SuperMethodCallOtherTest
+Running net.bytebuddy.implementation.SuperMethodCallTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.bytebuddy.implementation.SuperMethodCallTest
+Running net.bytebuddy.implementation.auxiliary.AuxiliaryTypeMethodAccessorFactoryIllegalTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.auxiliary.AuxiliaryTypeMethodAccessorFactoryIllegalTest
+Running net.bytebuddy.implementation.auxiliary.AuxiliaryTypeSignatureRelevantTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.auxiliary.AuxiliaryTypeSignatureRelevantTest
+Running net.bytebuddy.implementation.auxiliary.MethodCallProxyObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.implementation.auxiliary.MethodCallProxyObjectPropertiesTest
+Running net.bytebuddy.implementation.auxiliary.MethodCallProxySingleArgumentTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.auxiliary.MethodCallProxySingleArgumentTest
+Running net.bytebuddy.implementation.auxiliary.MethodCallProxyTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in net.bytebuddy.implementation.auxiliary.MethodCallProxyTest
+Running net.bytebuddy.implementation.auxiliary.TrivialTypeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.implementation.auxiliary.TrivialTypeTest
+Running net.bytebuddy.implementation.auxiliary.TypeProxyCreationTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.179 sec - in net.bytebuddy.implementation.auxiliary.TypeProxyCreationTest
+Running net.bytebuddy.implementation.auxiliary.TypeProxyInvocationFactoryDefaultTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.auxiliary.TypeProxyInvocationFactoryDefaultTest
+Running net.bytebuddy.implementation.auxiliary.TypeProxyObjectPropertiesTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 sec - in net.bytebuddy.implementation.auxiliary.TypeProxyObjectPropertiesTest
+Running net.bytebuddy.implementation.bind.ArgumentTypeResolverPrimitiveTest
+Tests run: 140, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bind.ArgumentTypeResolverPrimitiveTest
+Running net.bytebuddy.implementation.bind.ArgumentTypeResolverReferenceTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.ArgumentTypeResolverReferenceTest
+Running net.bytebuddy.implementation.bind.DeclaringTypeResolverTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.DeclaringTypeResolverTest
+Running net.bytebuddy.implementation.bind.MethodBindingAmbiguityResolutionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.MethodBindingAmbiguityResolutionTest
+Running net.bytebuddy.implementation.bind.MethodBindingBuilderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in net.bytebuddy.implementation.bind.MethodBindingBuilderTest
+Running net.bytebuddy.implementation.bind.MethodDelegationBinderAmbiguityResolverChainTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.MethodDelegationBinderAmbiguityResolverChainTest
+Running net.bytebuddy.implementation.bind.MethodDelegationBinderAmbiguityResolverDirectionalTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.MethodDelegationBinderAmbiguityResolverDirectionalTest
+Running net.bytebuddy.implementation.bind.MethodDelegationBinderAmbiguityResolverNoOpTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.MethodDelegationBinderAmbiguityResolverNoOpTest
+Running net.bytebuddy.implementation.bind.MethodDelegationBinderProcessorTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.bytebuddy.implementation.bind.MethodDelegationBinderProcessorTest
+Running net.bytebuddy.implementation.bind.MethodDelegationBinderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.441 sec - in net.bytebuddy.implementation.bind.MethodDelegationBinderTest
+Running net.bytebuddy.implementation.bind.MethodDelegationBindingParameterBindingTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.MethodDelegationBindingParameterBindingTest
+Running net.bytebuddy.implementation.bind.MethodNameEqualityResolverTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.MethodNameEqualityResolverTest
+Running net.bytebuddy.implementation.bind.ParameterLengthResolverTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.ParameterLengthResolverTest
+Running net.bytebuddy.implementation.bind.ParameterMethodBindingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.ParameterMethodBindingTest
+Running net.bytebuddy.implementation.bind.annotation.AllArgumentsBinderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in net.bytebuddy.implementation.bind.annotation.AllArgumentsBinderTest
+Running net.bytebuddy.implementation.bind.annotation.ArgumentBinderTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 sec - in net.bytebuddy.implementation.bind.annotation.ArgumentBinderTest
+Running net.bytebuddy.implementation.bind.annotation.ArgumentNextUnboundAsDefaultBinderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.implementation.bind.annotation.ArgumentNextUnboundAsDefaultBinderTest
+Running net.bytebuddy.implementation.bind.annotation.BindingPriorityResolverTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.implementation.bind.annotation.BindingPriorityResolverTest
+Running net.bytebuddy.implementation.bind.annotation.DefaultBinderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in net.bytebuddy.implementation.bind.annotation.DefaultBinderTest
+Running net.bytebuddy.implementation.bind.annotation.DefaultCallBinderTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in net.bytebuddy.implementation.bind.annotation.DefaultCallBinderTest
+Running net.bytebuddy.implementation.bind.annotation.EmptyBinderObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.EmptyBinderObjectPropertiesTest
+Running net.bytebuddy.implementation.bind.annotation.EmptyBinderTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in net.bytebuddy.implementation.bind.annotation.EmptyBinderTest
+Running net.bytebuddy.implementation.bind.annotation.EmptyDefaultsProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bind.annotation.EmptyDefaultsProviderTest
+Running net.bytebuddy.implementation.bind.annotation.FieldProxyBinderTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.29 sec - in net.bytebuddy.implementation.bind.annotation.FieldProxyBinderTest
+Running net.bytebuddy.implementation.bind.annotation.FieldValueBinderTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.625 sec - in net.bytebuddy.implementation.bind.annotation.FieldValueBinderTest
+Running net.bytebuddy.implementation.bind.annotation.IgnoreForBindingVerifierTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.IgnoreForBindingVerifierTest
+Running net.bytebuddy.implementation.bind.annotation.MorphBinderTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.595 sec - in net.bytebuddy.implementation.bind.annotation.MorphBinderTest
+Running net.bytebuddy.implementation.bind.annotation.OriginBinderTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in net.bytebuddy.implementation.bind.annotation.OriginBinderTest
+Running net.bytebuddy.implementation.bind.annotation.PipeBinderTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.implementation.bind.annotation.PipeBinderTest
+Running net.bytebuddy.implementation.bind.annotation.RuntimeTypeVerifierTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bind.annotation.RuntimeTypeVerifierTest
+Running net.bytebuddy.implementation.bind.annotation.StubValueBinderTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.StubValueBinderTest
+Running net.bytebuddy.implementation.bind.annotation.SuperBinderTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.SuperBinderTest
+Running net.bytebuddy.implementation.bind.annotation.SuperCallBinderTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.SuperCallBinderTest
+Running net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDrivenBinderTerminationHandlerDroppingTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDrivenBinderTerminationHandlerDroppingTest
+Running net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDrivenBinderTerminationHandlerReturningTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDrivenBinderTerminationHandlerReturningTest
+Running net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDrivenBinderTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.662 sec - in net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDrivenBinderTest
+Running net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDriverBinderParameterBinderForFixedValueOfConstantOtherTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.353 sec - in net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDriverBinderParameterBinderForFixedValueOfConstantOtherTest
+Running net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDriverBinderParameterBinderForFixedValueOfConstantTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.bytebuddy.implementation.bind.annotation.TargetMethodAnnotationDriverBinderParameterBinderForFixedValueOfConstantTest
+Running net.bytebuddy.implementation.bind.annotation.ThisBinderTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in net.bytebuddy.implementation.bind.annotation.ThisBinderTest
+Running net.bytebuddy.implementation.bytecode.ByteCodeAppenderCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.ByteCodeAppenderCompoundTest
+Running net.bytebuddy.implementation.bytecode.ByteCodeAppenderSimpleTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.ByteCodeAppenderSimpleTest
+Running net.bytebuddy.implementation.bytecode.ByteCodeAppenderSizeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.ByteCodeAppenderSizeTest
+Running net.bytebuddy.implementation.bytecode.DuplicationObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.DuplicationObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.DuplicationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.DuplicationTest
+Running net.bytebuddy.implementation.bytecode.RemovalObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.RemovalObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.RemovalTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.RemovalTest
+Running net.bytebuddy.implementation.bytecode.StackManipulationCompoundTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.StackManipulationCompoundTest
+Running net.bytebuddy.implementation.bytecode.StackManipulationSizeTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.StackManipulationSizeTest
+Running net.bytebuddy.implementation.bytecode.StackManipulationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.StackManipulationTest
+Running net.bytebuddy.implementation.bytecode.StackSizeMaximumTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.StackSizeMaximumTest
+Running net.bytebuddy.implementation.bytecode.StackSizeObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.StackSizeObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.StackSizeTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.StackSizeTest
+Running net.bytebuddy.implementation.bytecode.ThrowTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.ThrowTest
+Running net.bytebuddy.implementation.bytecode.TypeCreationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.TypeCreationTest
+Running net.bytebuddy.implementation.bytecode.assign.AssignerEqualTypesOnlyObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.AssignerEqualTypesOnlyObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.assign.AssignerEqualTypesOnlyTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.AssignerEqualTypesOnlyTest
+Running net.bytebuddy.implementation.bytecode.assign.AssignerRefusingObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.AssignerRefusingObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.assign.AssignerRefusingTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.AssignerRefusingTest
+Running net.bytebuddy.implementation.bytecode.assign.AssignerTypingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.AssignerTypingTest
+Running net.bytebuddy.implementation.bytecode.assign.TypeCastingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 sec - in net.bytebuddy.implementation.bytecode.assign.TypeCastingTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveBoxingDelegateObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveBoxingDelegateObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveBoxingDelegateTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveBoxingDelegateTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveBoxingDelegateTestWithReferenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveBoxingDelegateTestWithReferenceTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerBoxingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerBoxingTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerImplicitUnboxingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerImplicitUnboxingTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerPrimitiveTest
+Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerPrimitiveTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerUnboxingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssignerUnboxingTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveUnboxingDelegateDirectTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveUnboxingDelegateDirectTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveUnboxingDelegateOtherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveUnboxingDelegateOtherTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveUnboxingDelegateWideningTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveUnboxingDelegateWideningTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateIllegalTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateIllegalTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateNontrivialTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateNontrivialTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateOtherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateOtherTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateTrivialTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveWideningDelegateTrivialTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.VoidAwareAssignerNonVoidToVoidTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.VoidAwareAssignerNonVoidToVoidTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.VoidAwareAssignerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.VoidAwareAssignerTest
+Running net.bytebuddy.implementation.bytecode.assign.primitive.VoidAwareAssignerVoidToNonVoidTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.primitive.VoidAwareAssignerVoidToNonVoidTest
+Running net.bytebuddy.implementation.bytecode.assign.reference.ReferenceTypeAwareAssignerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.assign.reference.ReferenceTypeAwareAssignerTest
+Running net.bytebuddy.implementation.bytecode.collection.ArrayAccessOtherTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.collection.ArrayAccessOtherTest
+Running net.bytebuddy.implementation.bytecode.collection.ArrayAccessTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.collection.ArrayAccessTest
+Running net.bytebuddy.implementation.bytecode.collection.ArrayFactoryObjectPropertiesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec - in net.bytebuddy.implementation.bytecode.collection.ArrayFactoryObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.collection.ArrayFactoryPrimitiveTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.implementation.bytecode.collection.ArrayFactoryPrimitiveTest
+Running net.bytebuddy.implementation.bytecode.collection.ArrayFactoryReferenceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.collection.ArrayFactoryReferenceTest
+Running net.bytebuddy.implementation.bytecode.constant.ClassConstantPrimitiveTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.constant.ClassConstantPrimitiveTest
+Running net.bytebuddy.implementation.bytecode.constant.ClassConstantReferenceTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.ClassConstantReferenceTest
+Running net.bytebuddy.implementation.bytecode.constant.DefaultValueObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.DefaultValueObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.constant.DefaultValueTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.constant.DefaultValueTest
+Running net.bytebuddy.implementation.bytecode.constant.DoubleConstantObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.DoubleConstantObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.constant.DoubleConstantOpcodeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.DoubleConstantOpcodeTest
+Running net.bytebuddy.implementation.bytecode.constant.DoubleConstantTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.implementation.bytecode.constant.DoubleConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.FieldConstantTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.implementation.bytecode.constant.FieldConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.FloatConstantObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.FloatConstantObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.constant.FloatConstantOpcodeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.FloatConstantOpcodeTest
+Running net.bytebuddy.implementation.bytecode.constant.FloatConstantTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.FloatConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.IntegerConstantObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.IntegerConstantObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.constant.IntegerConstantOpcodeTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.IntegerConstantOpcodeTest
+Running net.bytebuddy.implementation.bytecode.constant.IntegerConstantTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.304 sec - in net.bytebuddy.implementation.bytecode.constant.IntegerConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.JavaConstantValueTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.JavaConstantValueTest
+Running net.bytebuddy.implementation.bytecode.constant.LongConstantObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.LongConstantObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.constant.LongConstantOpcodeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.LongConstantOpcodeTest
+Running net.bytebuddy.implementation.bytecode.constant.LongConstantTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.LongConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.MethodConstantTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.implementation.bytecode.constant.MethodConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.NullConstantTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.NullConstantTest
+Running net.bytebuddy.implementation.bytecode.constant.TextConstantTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.constant.TextConstantTest
+Running net.bytebuddy.implementation.bytecode.member.FieldAccessOtherTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.implementation.bytecode.member.FieldAccessOtherTest
+Running net.bytebuddy.implementation.bytecode.member.FieldAccessTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.member.FieldAccessTest
+Running net.bytebuddy.implementation.bytecode.member.HandleInvocationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.member.HandleInvocationTest
+Running net.bytebuddy.implementation.bytecode.member.MethodInvocationDynamicTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.member.MethodInvocationDynamicTest
+Running net.bytebuddy.implementation.bytecode.member.MethodInvocationGenericTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.member.MethodInvocationGenericTest
+Running net.bytebuddy.implementation.bytecode.member.MethodInvocationOtherTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.14 sec - in net.bytebuddy.implementation.bytecode.member.MethodInvocationOtherTest
+Running net.bytebuddy.implementation.bytecode.member.MethodInvocationTest
+Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in net.bytebuddy.implementation.bytecode.member.MethodInvocationTest
+Running net.bytebuddy.implementation.bytecode.member.MethodReturnObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.member.MethodReturnObjectPropertiesTest
+Running net.bytebuddy.implementation.bytecode.member.MethodReturnTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.member.MethodReturnTest
+Running net.bytebuddy.implementation.bytecode.member.MethodVariableAccessOfMethodArgumentsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.implementation.bytecode.member.MethodVariableAccessOfMethodArgumentsTest
+Running net.bytebuddy.implementation.bytecode.member.MethodVariableAccessOtherTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.implementation.bytecode.member.MethodVariableAccessOtherTest
+Running net.bytebuddy.implementation.bytecode.member.MethodVariableAccessTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.implementation.bytecode.member.MethodVariableAccessTest
+Running net.bytebuddy.matcher.AnnotationTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.AnnotationTypeMatcherTest
+Running net.bytebuddy.matcher.BooleanMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.matcher.BooleanMatcherTest
+Running net.bytebuddy.matcher.CachingMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.matcher.CachingMatcherTest
+Running net.bytebuddy.matcher.ClassLoaderHierarchyMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.ClassLoaderHierarchyMatcherTest
+Running net.bytebuddy.matcher.ClassLoaderParentMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.ClassLoaderParentMatcherTest
+Running net.bytebuddy.matcher.CollectionElementMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.CollectionElementMatcherTest
+Running net.bytebuddy.matcher.CollectionItemMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.CollectionItemMatcherTest
+Running net.bytebuddy.matcher.CollectionOneToOneMatcherTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in net.bytebuddy.matcher.CollectionOneToOneMatcherTest
+Running net.bytebuddy.matcher.CollectionRawTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.CollectionRawTypeMatcherTest
+Running net.bytebuddy.matcher.CollectionSizeMatcherTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.matcher.CollectionSizeMatcherTest
+Running net.bytebuddy.matcher.DeclaringAnnotationMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.DeclaringAnnotationMatcherTest
+Running net.bytebuddy.matcher.DeclaringFieldMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.DeclaringFieldMatcherTest
+Running net.bytebuddy.matcher.DeclaringMethodMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.DeclaringMethodMatcherTest
+Running net.bytebuddy.matcher.DeclaringTypeMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.DeclaringTypeMatcherTest
+Running net.bytebuddy.matcher.DefinedShapeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.DefinedShapeMatcherTest
+Running net.bytebuddy.matcher.DescriptorMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.DescriptorMatcherTest
+Running net.bytebuddy.matcher.ElementMatcherJunctionConjunctionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.ElementMatcherJunctionConjunctionTest
+Running net.bytebuddy.matcher.ElementMatcherJunctionDisjunctionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.ElementMatcherJunctionDisjunctionTest
+Running net.bytebuddy.matcher.ElementMatchersTest
+Tests run: 108, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.021 sec - in net.bytebuddy.matcher.ElementMatchersTest
+Running net.bytebuddy.matcher.EqualityMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.EqualityMatcherTest
+Running net.bytebuddy.matcher.FailSafeMatcherTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.FailSafeMatcherTest
+Running net.bytebuddy.matcher.FieldTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.FieldTypeMatcherTest
+Running net.bytebuddy.matcher.FilterableListEmptyTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.FilterableListEmptyTest
+Running net.bytebuddy.matcher.HasSuperTypeMatcherTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.HasSuperTypeMatcherTest
+Running net.bytebuddy.matcher.InheritedAnnotationMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.InheritedAnnotationMatcherTest
+Running net.bytebuddy.matcher.IsNamedMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.IsNamedMatcherTest
+Running net.bytebuddy.matcher.LatentMatcherAccessorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.LatentMatcherAccessorTest
+Running net.bytebuddy.matcher.LatentMatcherCompoundTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.LatentMatcherCompoundTest
+Running net.bytebuddy.matcher.LatentMatcherForFieldTokenTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.LatentMatcherForFieldTokenTest
+Running net.bytebuddy.matcher.LatentMatcherForMethodTokenTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.LatentMatcherForMethodTokenTest
+Running net.bytebuddy.matcher.MethodExceptionTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.MethodExceptionTypeMatcherTest
+Running net.bytebuddy.matcher.MethodParameterMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.MethodParameterMatcherTest
+Running net.bytebuddy.matcher.MethodParameterTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.MethodParameterTypeMatcherTest
+Running net.bytebuddy.matcher.MethodParameterTypesMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.MethodParameterTypesMatcherTest
+Running net.bytebuddy.matcher.MethodReturnTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.MethodReturnTypeMatcherTest
+Running net.bytebuddy.matcher.MethodSortMatcherObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.MethodSortMatcherObjectPropertiesTest
+Running net.bytebuddy.matcher.MethodSortMatcherTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 sec - in net.bytebuddy.matcher.MethodSortMatcherTest
+Running net.bytebuddy.matcher.ModifierMatcherObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.ModifierMatcherObjectPropertiesTest
+Running net.bytebuddy.matcher.ModifierMatcherTest
+Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.bytebuddy.matcher.ModifierMatcherTest
+Running net.bytebuddy.matcher.NameMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.matcher.NameMatcherTest
+Running net.bytebuddy.matcher.NegatingMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.NegatingMatcherTest
+Running net.bytebuddy.matcher.NullMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.NullMatcherTest
+Running net.bytebuddy.matcher.RawTypeMatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.RawTypeMatcherTest
+Running net.bytebuddy.matcher.StringMatcherObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.StringMatcherObjectPropertiesTest
+Running net.bytebuddy.matcher.StringMatcherTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.matcher.StringMatcherTest
+Running net.bytebuddy.matcher.SubTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.SubTypeMatcherTest
+Running net.bytebuddy.matcher.SuperTypeMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.SuperTypeMatcherTest
+Running net.bytebuddy.matcher.TypeSortMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.TypeSortMatcherTest
+Running net.bytebuddy.matcher.VisibilityMatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.matcher.VisibilityMatcherTest
+Running net.bytebuddy.pool.TypePoolCacheProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolCacheProviderTest
+Running net.bytebuddy.pool.TypePoolClassLoadingTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolClassLoadingTest
+Running net.bytebuddy.pool.TypePoolDefaultAnnotationDescriptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolDefaultAnnotationDescriptionTest
+Running net.bytebuddy.pool.TypePoolDefaultCacheTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolDefaultCacheTest
+Running net.bytebuddy.pool.TypePoolDefaultComponentTypeLocatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.257 sec - in net.bytebuddy.pool.TypePoolDefaultComponentTypeLocatorTest
+Running net.bytebuddy.pool.TypePoolDefaultEnumerationDescriptionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.pool.TypePoolDefaultEnumerationDescriptionTest
+Running net.bytebuddy.pool.TypePoolDefaultFieldDescriptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in net.bytebuddy.pool.TypePoolDefaultFieldDescriptionTest
+Running net.bytebuddy.pool.TypePoolDefaultGenericTypeListTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in net.bytebuddy.pool.TypePoolDefaultGenericTypeListTest
+Running net.bytebuddy.pool.TypePoolDefaultHierarchyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in net.bytebuddy.pool.TypePoolDefaultHierarchyTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyAnnotationListTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.bytebuddy.pool.TypePoolDefaultLazyAnnotationListTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyDeclarationContextTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.pool.TypePoolDefaultLazyDeclarationContextTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyFieldListTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.pool.TypePoolDefaultLazyFieldListTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyMethodListTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolDefaultLazyMethodListTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyObjectPropertiesTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.268 sec - in net.bytebuddy.pool.TypePoolDefaultLazyObjectPropertiesTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyParameterListTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.bytebuddy.pool.TypePoolDefaultLazyParameterListTest
+Running net.bytebuddy.pool.TypePoolDefaultLazyTypeListTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.38 sec - in net.bytebuddy.pool.TypePoolDefaultLazyTypeListTest
+Running net.bytebuddy.pool.TypePoolDefaultMethodDescriptionTest
+Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in net.bytebuddy.pool.TypePoolDefaultMethodDescriptionTest
+Running net.bytebuddy.pool.TypePoolDefaultPackageDescriptionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.pool.TypePoolDefaultPackageDescriptionTest
+Running net.bytebuddy.pool.TypePoolDefaultParameterBagTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolDefaultParameterBagTest
+Running net.bytebuddy.pool.TypePoolDefaultPrimitiveTypeTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolDefaultPrimitiveTypeTest
+Running net.bytebuddy.pool.TypePoolDefaultReaderModeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolDefaultReaderModeTest
+Running net.bytebuddy.pool.TypePoolDefaultTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.283 sec - in net.bytebuddy.pool.TypePoolDefaultTest
+Running net.bytebuddy.pool.TypePoolDefaultTypeDescriptionTest
+Tests run: 198, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.208 sec - in net.bytebuddy.pool.TypePoolDefaultTypeDescriptionTest
+Running net.bytebuddy.pool.TypePoolEmptyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolEmptyTest
+Running net.bytebuddy.pool.TypePoolExplicitTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolExplicitTest
+Running net.bytebuddy.pool.TypePoolLazyFacadeTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolLazyFacadeTest
+Running net.bytebuddy.pool.TypePoolLazyFacadeTypeDescriptionTest
+Tests run: 198, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.326 sec - in net.bytebuddy.pool.TypePoolLazyFacadeTypeDescriptionTest
+Running net.bytebuddy.pool.TypePoolResolutionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.pool.TypePoolResolutionTest
+Running net.bytebuddy.utility.AccessActionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.utility.AccessActionTest
+Running net.bytebuddy.utility.CompoundListTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.537 sec - in net.bytebuddy.utility.CompoundListTest
+Running net.bytebuddy.utility.ExceptionTableSensitiveMethodVisitorTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in net.bytebuddy.utility.ExceptionTableSensitiveMethodVisitorTest
+Running net.bytebuddy.utility.JavaConstantMethodHandleDispatcherTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.829 sec - in net.bytebuddy.utility.JavaConstantMethodHandleDispatcherTest
+Running net.bytebuddy.utility.JavaConstantMethodHandleTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.bytebuddy.utility.JavaConstantMethodHandleTest
+Running net.bytebuddy.utility.JavaConstantMethodTypeDispatcherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.utility.JavaConstantMethodTypeDispatcherTest
+Running net.bytebuddy.utility.JavaConstantMethodTypeTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.utility.JavaConstantMethodTypeTest
+Running net.bytebuddy.utility.JavaModuleTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.utility.JavaModuleTest
+Running net.bytebuddy.utility.JavaTypeTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.utility.JavaTypeTest
+Running net.bytebuddy.utility.PropertyDispatcherObjectPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.utility.PropertyDispatcherObjectPropertiesTest
+Running net.bytebuddy.utility.PropertyDispatcherTest
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.bytebuddy.utility.PropertyDispatcherTest
+Running net.bytebuddy.utility.RandomStringTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.utility.RandomStringTest
+Running net.bytebuddy.utility.StreamDrainerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.bytebuddy.utility.StreamDrainerTest
+
+Results :
+
+Tests in error: 
+  ClassFileLocatorForClassLoaderTest.testReadTypeBootstrapClassLoader:65 » NullPointer
+
+Tests run: 5914, Failures: 0, Errors: 1, Skipped: 27
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Byte Buddy (parent) ................................ SUCCESS [ 32.182 s]
+[INFO] Byte Buddy Java agent .............................. SUCCESS [01:10 min]
+[INFO] Byte Buddy (with dependencies) ..................... FAILURE [02:18 min]
+[INFO] Byte Buddy (without dependencies) .................. SKIPPED
+[INFO] Byte Buddy benchmarks .............................. SKIPPED
+[INFO] Byte Buddy for Android ............................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 04:01 min
+[INFO] Finished at: 2022-01-20T02:29:57+00:00
+[INFO] Final Memory: 38M/346M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project byte-buddy-dep: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :byte-buddy-dep
+
+travis_time:end:37633b38:start=1642645554718076457,finish=1642645797962500227,duration=243244423770[0K
+[31;1mThe command "mvn verify $TARGET -Dhttps.protocols=TLSv1.2 -Pintegration" exited with 1.[0m
+
+Done. Your build exited with 1.

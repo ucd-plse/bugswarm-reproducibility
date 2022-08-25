@@ -1,0 +1,432 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ cd failed/raphw/byte-buddy
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:00a4a4f2[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:00a4a4f2:start=1642648927671395155,finish=1642648933749233637,duration=6077838482[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TARGET=-Pjava8
+
+$ java -Xmx32m -version
+java version "1.8.0_111"
+Java(TM) SE Runtime Environment (build 1.8.0_111-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_111
+travis_fold:start:install[0Ktravis_time:start:14337c04[0K$ mvn -o install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_111, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-109-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Byte Buddy (parent)
+[INFO] Byte Buddy Java agent
+[INFO] Byte Buddy (with dependencies)
+[INFO] Byte Buddy (without dependencies)
+[INFO] Byte Buddy benchmarks
+[INFO] Byte Buddy for Android
+[INFO] Byte Buddy (Maven plugin)
+[INFO] Byte Buddy (Gradle plugin)
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (parent) 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-parent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-parent/1.5.2-SNAPSHOT/byte-buddy-parent-1.5.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy Java agent 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy-agent ---
+[INFO] Building jar: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.5.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-agent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.5.2-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.5.2-SNAPSHOT/byte-buddy-agent-1.5.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.5.2-SNAPSHOT/byte-buddy-agent-1.5.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (with dependencies) 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-dep ---
+[INFO] Starting audit...
+/home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bind/annotation/TargetMethodAnnotationDrivenBinder.java:558: error: First sentence should end with a period.
+Audit done.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Byte Buddy (parent) ................................ SUCCESS [01:34 min]
+[INFO] Byte Buddy Java agent .............................. SUCCESS [01:07 min]
+[INFO] Byte Buddy (with dependencies) ..................... FAILURE [ 25.527 s]
+[INFO] Byte Buddy (without dependencies) .................. SKIPPED
+[INFO] Byte Buddy benchmarks .............................. SKIPPED
+[INFO] Byte Buddy for Android ............................. SKIPPED
+[INFO] Byte Buddy (Maven plugin) .......................... SKIPPED
+[INFO] Byte Buddy (Gradle plugin) ......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 03:10 min
+[INFO] Finished at: 2022-01-20T03:26:07+00:00
+[INFO] Final Memory: 23M/283M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (default) on project byte-buddy-dep: Failed during checkstyle execution: There is 1 error reported by Checkstyle 6.11.2 with checkstyle.xml ruleset. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :byte-buddy-dep
+
+[31;1mThe command "eval mvn -o install -DskipTests=true -Dmaven.javadoc.skip=true -B -V " failed. Retrying, 2 of 3.[0m
+
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_111, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-109-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Byte Buddy (parent)
+[INFO] Byte Buddy Java agent
+[INFO] Byte Buddy (with dependencies)
+[INFO] Byte Buddy (without dependencies)
+[INFO] Byte Buddy benchmarks
+[INFO] Byte Buddy for Android
+[INFO] Byte Buddy (Maven plugin)
+[INFO] Byte Buddy (Gradle plugin)
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (parent) 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-parent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-parent/1.5.2-SNAPSHOT/byte-buddy-parent-1.5.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy Java agent 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy-agent ---
+[INFO] Building jar: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.5.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-agent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.5.2-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.5.2-SNAPSHOT/byte-buddy-agent-1.5.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.5.2-SNAPSHOT/byte-buddy-agent-1.5.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (with dependencies) 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-dep ---
+[INFO] Starting audit...
+/home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bind/annotation/TargetMethodAnnotationDrivenBinder.java:558: error: First sentence should end with a period.
+Audit done.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Byte Buddy (parent) ................................ SUCCESS [  1.957 s]
+[INFO] Byte Buddy Java agent .............................. SUCCESS [  1.566 s]
+[INFO] Byte Buddy (with dependencies) ..................... FAILURE [  0.869 s]
+[INFO] Byte Buddy (without dependencies) .................. SKIPPED
+[INFO] Byte Buddy benchmarks .............................. SKIPPED
+[INFO] Byte Buddy for Android ............................. SKIPPED
+[INFO] Byte Buddy (Maven plugin) .......................... SKIPPED
+[INFO] Byte Buddy (Gradle plugin) ......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.573 s
+[INFO] Finished at: 2022-01-20T03:26:14+00:00
+[INFO] Final Memory: 23M/324M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (default) on project byte-buddy-dep: Failed during checkstyle execution: There is 1 error reported by Checkstyle 6.11.2 with checkstyle.xml ruleset. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :byte-buddy-dep
+
+[31;1mThe command "eval mvn -o install -DskipTests=true -Dmaven.javadoc.skip=true -B -V " failed. Retrying, 3 of 3.[0m
+
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_111, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-109-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Byte Buddy (parent)
+[INFO] Byte Buddy Java agent
+[INFO] Byte Buddy (with dependencies)
+[INFO] Byte Buddy (without dependencies)
+[INFO] Byte Buddy benchmarks
+[INFO] Byte Buddy for Android
+[INFO] Byte Buddy (Maven plugin)
+[INFO] Byte Buddy (Gradle plugin)
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (parent) 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-parent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-parent/1.5.2-SNAPSHOT/byte-buddy-parent-1.5.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy Java agent 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-agent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ byte-buddy-agent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ byte-buddy-agent ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ byte-buddy-agent ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ byte-buddy-agent ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ byte-buddy-agent ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ byte-buddy-agent ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ byte-buddy-agent ---
+[INFO] Building jar: /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.5.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ byte-buddy-agent ---
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/target/byte-buddy-agent-1.5.2-SNAPSHOT.jar to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.5.2-SNAPSHOT/byte-buddy-agent-1.5.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/failed/raphw/byte-buddy/byte-buddy-agent/pom.xml to /home/travis/.m2/repository/net/bytebuddy/byte-buddy-agent/1.5.2-SNAPSHOT/byte-buddy-agent-1.5.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Byte Buddy (with dependencies) 1.5.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (default) @ byte-buddy-dep ---
+[INFO] Starting audit...
+/home/travis/build/failed/raphw/byte-buddy/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bind/annotation/TargetMethodAnnotationDrivenBinder.java:558: error: First sentence should end with a period.
+Audit done.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Byte Buddy (parent) ................................ SUCCESS [  2.108 s]
+[INFO] Byte Buddy Java agent .............................. SUCCESS [  1.484 s]
+[INFO] Byte Buddy (with dependencies) ..................... FAILURE [  0.821 s]
+[INFO] Byte Buddy (without dependencies) .................. SKIPPED
+[INFO] Byte Buddy benchmarks .............................. SKIPPED
+[INFO] Byte Buddy for Android ............................. SKIPPED
+[INFO] Byte Buddy (Maven plugin) .......................... SKIPPED
+[INFO] Byte Buddy (Gradle plugin) ......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.595 s
+[INFO] Finished at: 2022-01-20T03:26:21+00:00
+[INFO] Final Memory: 23M/327M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (default) on project byte-buddy-dep: Failed during checkstyle execution: There is 1 error reported by Checkstyle 6.11.2 with checkstyle.xml ruleset. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :byte-buddy-dep
+
+[31;1mThe command "eval mvn -o install -DskipTests=true -Dmaven.javadoc.skip=true -B -V " failed 3 times.[0m
+
+
+travis_time:end:14337c04:start=1642648962663746373,finish=1642649182569727501,duration=219905981128[0K
+[31;1mThe command "mvn -o install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed and exited with 1 during .[0m
+
+Your build has been stopped.
