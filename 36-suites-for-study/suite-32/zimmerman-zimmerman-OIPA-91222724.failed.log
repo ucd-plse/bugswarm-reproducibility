@@ -1,0 +1,228 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 52.21.89.200 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd failed/zimmerman-zimmerman/OIPA
+travis_fold:start:services[0Ktravis_time:start:2d8b5aea[0K$ sudo service elasticsearch start
+ * Starting Elasticsearch Server
+error: "Read-only file system" setting key "vm.max_map_count"
+   ...done.
+
+travis_time:end:2d8b5aea:start=1617110481302911534,finish=1617110481614826875,duration=311915341[0Ktravis_fold:end:services[0Ktravis_fold:start:postgresql[0K[33;1mStarting PostgreSQL v9.4[0m
+travis_time:start:0ed4553e[0K$ sudo service postgresql stop
+ * Stopping PostgreSQL 9.1 database server
+   ...done.
+ * Stopping PostgreSQL 9.2 database server
+   ...done.
+ * Stopping PostgreSQL 9.3 database server
+   ...done.
+ * Stopping PostgreSQL 9.4 database server
+   ...done.
+
+travis_time:end:0ed4553e:start=1617110484628426290,finish=1617110485346439403,duration=718013113[0Ktravis_time:start:09f20bda[0K$ sudo service postgresql start 9.4
+ * Starting PostgreSQL 9.4 database server
+   ...done.
+
+travis_time:end:09f20bda:start=1617110485357078916,finish=1617110488078286551,duration=2721207635[0Ktravis_time:start:17cd8100[0K$ sudo -u postgres createuser -s -p 5432 travis &>/dev/null
+
+travis_time:end:17cd8100:start=1617110488089829442,finish=1617110488155150809,duration=65321367[0Ktravis_time:start:0021afa7[0K$ sudo -u postgres createdb -O travis -p 5432 travis &>/dev/null
+
+travis_time:end:0021afa7:start=1617110488166545083,finish=1617110488455815887,duration=289270804[0Ktravis_time:start:1adb0af0[0K$ sudo -u postgres createuser -s -p 5433 travis &>/dev/null
+
+travis_time:end:1adb0af0:start=1617110488466040511,finish=1617110488523454381,duration=57413870[0Ktravis_time:start:13be2ce0[0K$ sudo -u postgres createdb -O travis -p 5433 travis &>/dev/null
+
+travis_time:end:13be2ce0:start=1617110488534346362,finish=1617110488592599310,duration=58252948[0Ktravis_fold:end:postgresql[0Ktravis_time:start:0549bfba[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:0549bfba:start=1617110488772209753,finish=1617110488781156866,duration=8947113[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:1dabfb4c[0K$ Installing caching utilities
+
+travis_time:end:1dabfb4c:start=1617110489223926210,finish=1617110489536651807,duration=312725597[0Ktravis_time:start:10350945[0K
+travis_time:end:10350945:start=1617110489552814058,finish=1617110489563217175,duration=10403117[0Ktravis_time:start:10b4783a[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:10b4783a:start=1617110489574234137,finish=1617110490443722396,duration=869488259[0Ktravis_time:start:0411c4ad[0K
+travis_time:end:0411c4ad:start=1617110490456041109,finish=1617110490466094162,duration=10053053[0Ktravis_time:start:02ca1e15[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:02ca1e15:start=1617110490477892822,finish=1617110491252483087,duration=774590265[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:0cab732f[0K$ pip install -r OIPA/requirements.txt
+Collecting git+git://github.com/gkuhn1/django-admin-multiupload.git (from -r OIPA/requirements.txt (line 30))
+  Cloning git://github.com/gkuhn1/django-admin-multiupload.git to /tmp/pip-1nJQZW-build
+Collecting lxml==3.4.4 (from -r OIPA/requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/63/c7/4f2a2a4ad6c6fa99b14be6b3c1cece9142e2d915aa7c43c908677afc8fa4/lxml-3.4.4.tar.gz (3.5MB)
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'bugtrack_url'
+      warnings.warn(msg)
+    Building lxml version 3.4.4.
+    Building without Cython.
+    Using build configuration of libxslt 1.1.26
+    Building against libxml2/libxslt in the following directory: /usr/lib/x86_64-linux-gnu
+Collecting psycopg2==2.6.1 (from -r OIPA/requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/86/fd/cc8315be63a41fe000cce20482a917e874cdc1151e62cb0141f5e55f711e/psycopg2-2.6.1.tar.gz (371kB)
+Collecting django-debug-toolbar==1.3.2 (from -r OIPA/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/b2/16/67eeeb95cc02f1d068d25282444052836d4be4274c941fe21b7c5ea7a8fd/django_debug_toolbar-1.3.2-py2.py3-none-any.whl (206kB)
+Collecting Django==1.8.4 (from -r OIPA/requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/7e/c3/2574a681af30d99b8fd60008c3e56f4ab0acad2af70fea6c135b8bff60a2/Django-1.8.4-py2.py3-none-any.whl (6.2MB)
+Collecting python-dateutil==2.2 (from -r OIPA/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/75/c5/85d027471fa665f8c8b8eb0b925f9d84b4eee745a257b16de4957de99e81/python-dateutil-2.2.tar.gz (259kB)
+Collecting defusedxml==0.4.1 (from -r OIPA/requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/09/3b/b1afa9649f48517d027e99413fec54f387f648c90156b3cf6451c8cd45f9/defusedxml-0.4.1.tar.gz (48kB)
+Collecting contexttimer==0.3.0 (from -r OIPA/requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/00/b7/0d2b64022fd14a76c2eb3e82ae6d7fe4aac5ab3fab652686aa02b24759bd/contexttimer-0.3.0.tar.gz
+Collecting mechanize==0.2.5 (from -r OIPA/requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/32/bc/d5b44fe4a3b5079f035240a7c76bd0c71a60c6082f4bfcb1c7585604aa35/mechanize-0.2.5.tar.gz (383kB)
+Collecting django-suit==0.2.14 (from -r OIPA/requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/ef/ec/44c2392311d66aabb0e0ab71d418608729fc40dccdde0c85e3ff81b90fae/django-suit-0.2.14.tar.gz (1.4MB)
+Collecting objgraph==1.8.1 (from -r OIPA/requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/09/20/6d58b4f659212e1b3adae0d52efc430d395cc79828b6a45a2ece3f4e8fed/objgraph-1.8.1.tar.gz (549kB)
+Collecting guppy==0.1.10 (from -r OIPA/requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/2b/b0/8614c981bc40c10ec4e24a7428e998d05d11e4b9680c718952207ff63a26/guppy-0.1.10.tar.gz (484kB)
+Collecting ujson==1.33 (from -r OIPA/requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/98/8c/47949a4e454b7ee27cf82a81735414187368fb94bae94de0291903c9881b/ujson-1.33.zip (197kB)
+Collecting redis==2.10.3 (from -r OIPA/requirements.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/37/a8/42e2f2785339cd0a4b4f42316b767ccbf68acf05eb1ba20d737599cccecd/redis-2.10.3.tar.gz (86kB)
+Collecting rq==0.4.6 (from -r OIPA/requirements.txt (line 14))
+  Downloading https://files.pythonhosted.org/packages/b1/27/2cbca4255e6efed0b389ea7e5aed7cfe24662bc4d4bc295e8fb60bf414f5/rq-0.4.6-py2.py3-none-any.whl (43kB)
+Collecting rq-scheduler==0.5.0 (from -r OIPA/requirements.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/4a/0e/5b7d9460be830af0a3e99c337b7198b3a677417e03c68497e15775fca13a/rq-scheduler-0.5.0.tar.gz
+Collecting django-rq==0.7.0 (from -r OIPA/requirements.txt (line 16))
+  Downloading https://files.pythonhosted.org/packages/12/61/874eb0a36fd972d83f038ad564277753f97b3c81ede6cd231d3d16f3511a/django-rq-0.7.0.tar.gz
+Collecting supervisor==3.1.3 (from -r OIPA/requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/a6/41/65ad5bd66230b173eb4d0b8810230f3a9c59ef52ae066e540b6b99895db7/supervisor-3.1.3.tar.gz (391kB)
+Collecting django-supervisor==0.3.2 (from -r OIPA/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/65/01/bcb90600985a497274af93fde9d2a6cdacbeb6bb82e9cd45d8fc002a56e7/django-supervisor-0.3.2.tar.gz
+Collecting djangorestframework==3.2.3 (from -r OIPA/requirements.txt (line 19))
+  Downloading https://files.pythonhosted.org/packages/34/24/7d7e7c93325fccd101e5b6bed62c01992b047763e608f8fdde842c6fc568/djangorestframework-3.2.3-py2.py3-none-any.whl (515kB)
+Collecting django-cors-headers==0.11 (from -r OIPA/requirements.txt (line 20))
+  Downloading https://files.pythonhosted.org/packages/fe/12/a1fb0f5808a66c1fda5ecd3270015895a713417d7c599a513008360d8fad/django-cors-headers-0.11.tar.gz
+Collecting django-filter==0.11.0 (from -r OIPA/requirements.txt (line 21))
+  Downloading https://files.pythonhosted.org/packages/3f/c0/04e6fcdf9bd63fb381db12037a2cc1be2d322c5cb6a1e61544dac1308285/django_filter-0.11.0-py2.py3-none-any.whl
+Collecting markdown==2.6.2 (from -r OIPA/requirements.txt (line 22))
+  Downloading https://files.pythonhosted.org/packages/59/bf/6bce4d6d91d25eaa58d8e88d8994b2b603ed1b223b25a92f68c3fd0e8fd9/Markdown-2.6.2-py2.py3-none-any.whl (157kB)
+Collecting django-otp==0.3.1 (from -r OIPA/requirements.txt (line 23))
+  Downloading https://files.pythonhosted.org/packages/e8/25/68c7a5e186da2723fbe2a6f50a95ed91c026c716f74ba5f2731a6463b04c/django-otp-0.3.1.tar.gz
+Collecting django-otp-yubikey==0.3.1 (from -r OIPA/requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/22/fd/0ae631b9ce401e46b1860df6d37fab84b72ec8febeced5e99f74556ac1c7/django-otp-yubikey-0.3.1.tar.gz
+Collecting django-two-factor-auth==1.2.0 (from -r OIPA/requirements.txt (line 25))
+  Downloading https://files.pythonhosted.org/packages/88/c2/d3080818cdb0ef57bc553260cb51d8bc16cf5e8c0d793cd7772be11a8800/django_two_factor_auth-1.2.0-py2.py3-none-any.whl (137kB)
+Collecting django-formtools==1.0 (from -r OIPA/requirements.txt (line 26))
+  Downloading https://files.pythonhosted.org/packages/c7/14/a1b162c1ceeba8b5276fb0905d3bfdb996b2fdaa8279ff26a677a7259727/django_formtools-1.0-py2.py3-none-any.whl (132kB)
+Collecting django-haystack==2.4.0 (from -r OIPA/requirements.txt (line 27))
+  Downloading https://files.pythonhosted.org/packages/ea/5a/161abe73efb58a11217491d714b0f62de11468bea82fee6de3e42660a462/django-haystack-2.4.0.tar.gz (160kB)
+Collecting elasticsearch==1.7.0 (from -r OIPA/requirements.txt (line 28))
+  Downloading https://files.pythonhosted.org/packages/47/79/1b5574b0417de61392f04c0742aaed0977f6fd246be3cb377907b0d1e3ce/elasticsearch-1.7.0-py2.py3-none-any.whl (58kB)
+Collecting django-nested-inline==0.3.5 (from -r OIPA/requirements.txt (line 29))
+  Downloading https://files.pythonhosted.org/packages/45/f9/2729ab8abfe99420f092f2dc9e4a5f7b5ea234cfecbafad34496855ac3c1/django-nested-inline-0.3.5.tar.gz
+Collecting sqlparse (from django-debug-toolbar==1.3.2->-r OIPA/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a2/54/da10f9a0235681179144a5ca02147428f955745e9393f859dec8d0d05b41/sqlparse-0.4.1.tar.gz (67kB)
+Collecting six (from python-dateutil==2.2->-r OIPA/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting meld3>=0.6.5 (from supervisor==3.1.3->-r OIPA/requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/d8/5b/65a655a1090d98c8d604ac9e97d5df3a2ae276f881d4e2911ba38800f2ed/meld3-2.0.1-py2.py3-none-any.whl
+Collecting watchdog (from django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/17/8c/fe6b8554e6a107437375ea6f76c62fbb0deb22288c2eb846c2f92b0d843e/watchdog-2.0.2.tar.gz (103kB)
+    Traceback (most recent call last):
+      File "<string>", line 20, in <module>
+      File "/tmp/pip-build-JnVJuN/watchdog/setup.py", line 18, in <module>
+        import importlib.util
+    ImportError: No module named util
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+    
+      File "<string>", line 20, in <module>
+    
+      File "/tmp/pip-build-JnVJuN/watchdog/setup.py", line 18, in <module>
+    
+        import importlib.util
+    
+    ImportError: No module named util
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-JnVJuN/watchdog
+
+travis_time:end:0cab732f:start=1617110491557693285,finish=1617110509647963537,duration=18090270252[0K
+[31;1mThe command "pip install -r OIPA/requirements.txt" failed and exited with 1 during .[0m
+
+Your build has been stopped.

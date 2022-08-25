@@ -1,0 +1,789 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd passed/numpy/numpy
+travis_fold:start:git.submodule[0Ktravis_time:start:01e773f8[0K$ git submodule update --init --recursive
+Submodule 'doc/scipy-sphinx-theme' (https://github.com/scipy/scipy-sphinx-theme.git) registered for path 'doc/scipy-sphinx-theme'
+Submodule 'doc/sphinxext' (https://github.com/numpy/numpydoc.git) registered for path 'doc/sphinxext'
+Cloning into 'doc/scipy-sphinx-theme'...
+Submodule path 'doc/scipy-sphinx-theme': checked out 'c466764e2231ba132c09826b5b138fffa1cfcec3'
+Cloning into 'doc/sphinxext'...
+Submodule path 'doc/sphinxext': checked out '84cc897d266e0afc28fc5296edf01afb08005472'
+
+travis_time:end:01e773f8:start=1616906188420724906,finish=1616906191888821126,duration=3468096220[0Ktravis_fold:end:git.submodule[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:051f2a9f[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:051f2a9f:start=1616906191902020490,finish=1616906196960115000,duration=5058094510[0Ktravis_time:start:066671be[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install gfortran libatlas-dev libatlas-base-dev eatmydata
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  gfortran-4.6 libatlas3gf-base libblas-dev
+Suggested packages:
+  gfortran-multilib gfortran-doc gfortran-4.6-multilib gfortran-4.6-doc
+  libgfortran3-dbg libblas-doc liblapack-doc liblapack-dev
+The following NEW packages will be installed:
+  eatmydata gfortran gfortran-4.6 libatlas-base-dev libatlas-dev
+  libatlas3gf-base libblas-dev
+0 upgraded, 7 newly installed, 0 to remove and 238 not upgraded.
+Need to get 19.6 MB of archives.
+After this operation, 68.4 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/universe eatmydata amd64 26-2 [8,034 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran-4.6 amd64 4.6.3-1ubuntu5 [5,579 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran amd64 4:4.6.3-1ubuntu5 [1,206 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas3gf-base amd64 3.8.4-3build1 [6,191 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ precise/main libblas-dev amd64 1.2.20110419-2ubuntu1 [302 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-dev all 3.8.4-3build1 [13.6 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-base-dev amd64 3.8.4-3build1 [7,461 kB]
+Fetched 19.6 MB in 1s (14.1 MB/s)
+Selecting previously unselected package eatmydata.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking eatmydata (from .../eatmydata_26-2_amd64.deb) ...
+Selecting previously unselected package gfortran-4.6.
+Unpacking gfortran-4.6 (from .../gfortran-4.6_4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package gfortran.
+Unpacking gfortran (from .../gfortran_4%3a4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package libatlas3gf-base.
+Unpacking libatlas3gf-base (from .../libatlas3gf-base_3.8.4-3build1_amd64.deb) ...
+Selecting previously unselected package libblas-dev.
+Unpacking libblas-dev (from .../libblas-dev_1.2.20110419-2ubuntu1_amd64.deb) ...
+Selecting previously unselected package libatlas-dev.
+Unpacking libatlas-dev (from .../libatlas-dev_3.8.4-3build1_all.deb) ...
+Selecting previously unselected package libatlas-base-dev.
+Unpacking libatlas-base-dev (from .../libatlas-base-dev_3.8.4-3build1_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ccache ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up eatmydata (26-2) ...
+Setting up gfortran-4.6 (4.6.3-1ubuntu5) ...
+Setting up gfortran (4:4.6.3-1ubuntu5) ...
+update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f95 (f95) in auto mode.
+Setting up libatlas3gf-base (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so.3gf to provide /usr/lib/libblas.so.3gf (libblas.so.3gf) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so.3gf to provide /usr/lib/liblapack.so.3gf (liblapack.so.3gf) in auto mode.
+Setting up libblas-dev (1.2.20110419-2ubuntu1) ...
+update-alternatives: using /usr/lib/libblas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+Setting up libatlas-dev (3.8.4-3build1) ...
+Setting up libatlas-base-dev (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so to provide /usr/lib/liblapack.so (liblapack.so) in auto mode.
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:066671be:start=1616906196969179119,finish=1616906206379324156,duration=9410145037[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export WHEELHOUSE_UPLOADER_USERNAME=travis.numpy
+$ export PYTHONOPTIMIZE=2
+$ export USE_ASV=1
+
+travis_time:start:00adb848[0K$ source ~/virtualenv/python2.7/bin/activate
+
+travis_time:end:00adb848:start=1616906206823126155,finish=1616906206832763865,duration=9637710[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0bce3aa9[0K$ Installing caching utilities
+
+travis_time:end:0bce3aa9:start=1616906207232981009,finish=1616906207439225722,duration=206244713[0Ktravis_time:start:0071ab52[0K
+travis_time:end:0071ab52:start=1616906207450877474,finish=1616906207459029013,duration=8151539[0Ktravis_time:start:17647c27[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:17647c27:start=1616906207468433161,finish=1616906208246224880,duration=777791719[0Ktravis_time:start:0d5665a0[0K
+travis_time:end:0d5665a0:start=1616906208256178707,finish=1616906208265072791,duration=8894084[0Ktravis_time:start:0644123d[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:0644123d:start=1616906208274761693,finish=1616906209082550917,duration=807789224[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install.1[0Ktravis_time:start:0b1c20a4[0K$ uname -a
+Linux 8777a3181291 4.15.0-109-generic #110-Ubuntu SMP Tue Jun 23 02:39:32 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+travis_time:end:0b1c20a4:start=1616906209730712568,finish=1616906209742054884,duration=11342316[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:1c154b34[0K$ free -m
+             total       used       free     shared    buffers     cached
+Mem:        192081     179712      12368          0       2426     151803
+-/+ buffers/cache:      25482     166598
+Swap:        65982        413      65569
+
+travis_time:end:1c154b34:start=1616906209752859566,finish=1616906209762684857,duration=9825291[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:0865b01e[0K$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          91T  8.4T   83T  10% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            94G     0   94G   0% /sys/fs/cgroup
+/dev/sda         91T  8.4T   83T  10% /etc/resolv.conf
+/dev/sda         91T  8.4T   83T  10% /etc/hostname
+/dev/sda         91T  8.4T   83T  10% /etc/hosts
+shm              64M     0   64M   0% /dev/shm
+tmpfs            94G     0   94G   0% /proc/acpi
+tmpfs            64M     0   64M   0% /proc/kcore
+tmpfs            64M     0   64M   0% /proc/keys
+tmpfs            64M     0   64M   0% /proc/timer_list
+tmpfs            64M     0   64M   0% /proc/sched_debug
+tmpfs            94G     0   94G   0% /proc/scsi
+tmpfs            94G     0   94G   0% /sys/firmware
+
+travis_time:end:0865b01e:start=1616906209774157571,finish=1616906209785431744,duration=11274173[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:1c6973dc[0K$ ulimit -a
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 767649
+max locked memory       (kbytes, -l) 16384
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1048576
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+travis_time:end:1c6973dc:start=1616906209796584994,finish=1616906209805178638,duration=8593644[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:08bde158[0K$ mkdir builds
+
+travis_time:end:08bde158:start=1616906209816764480,finish=1616906209828277110,duration=11512630[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:137154c0[0K$ pushd builds
+~/build/passed/numpy/numpy/builds ~/build/passed/numpy/numpy
+
+travis_time:end:137154c0:start=1616906209839272644,finish=1616906209848715513,duration=9442869[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:1ee776a1[0K$ virtualenv --python=python venv
+Using real prefix '/opt/python/2.7.9'
+New python executable in venv/bin/python
+Installing setuptools, pip...done.
+Running virtualenv with interpreter /home/travis/virtualenv/python2.7.9/bin/python
+
+travis_time:end:1ee776a1:start=1616906209860406255,finish=1616906211682190172,duration=1821783917[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:010426b2[0K$ source venv/bin/activate
+
+travis_time:end:010426b2:start=1616906211694120771,finish=1616906211704707712,duration=10586941[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:3d995994[0K$ python -V
+Python 2.7.9
+
+travis_time:end:3d995994:start=1616906211716649790,finish=1616906211728844999,duration=12195209[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:00a3e88c[0K$ pip install --upgrade pip==8.0.2 setuptools==19.6
+Collecting pip==8.0.2
+  Downloading https://files.pythonhosted.org/packages/e7/a0/bd35f5f978a5e925953ce02fa0f078a232f0f10fcbe543d8cfc043f74fda/pip-8.0.2-py2.py3-none-any.whl (1.2MB)
+Collecting setuptools==19.6
+  Downloading https://files.pythonhosted.org/packages/1c/84/e54b5356f7de2f7d33b6c6c4c187b12dc6f5417861a0d81271a6c37ecc3c/setuptools-19.6-py2.py3-none-any.whl (472kB)
+Installing collected packages: setuptools, pip
+  Found existing installation: setuptools 12.0.5
+    Uninstalling setuptools-12.0.5:
+      Successfully uninstalled setuptools-12.0.5
+
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-8.0.2 setuptools-19.6
+
+travis_time:end:00a3e88c:start=1616906211740535673,finish=1616906214462189319,duration=2721653646[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:0215711d[0K$ pip install nose==1.3.7
+Collecting nose==1.3.7
+  Downloading https://files.pythonhosted.org/packages/99/4f/13fb671119e65c4dce97c60e67d3fd9e6f7f809f2b307e2611f4701205cb/nose-1.3.7-py2-none-any.whl (154kB)
+Installing collected packages: nose
+Successfully installed nose-1.3.7
+
+travis_time:end:0215711d:start=1616906214474276728,finish=1616906215134075313,duration=659798585[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:048c8f5b[0K$ pip install --install-option="--no-cython-compile" Cython==0.23.4
+/home/travis/build/passed/numpy/numpy/builds/venv/lib/python2.7/site-packages/pip/commands/install.py:180: UserWarning: Disabling all use of wheels due to the use of --build-options / --global-options / --install-options.
+  cmdoptions.check_install_build_global(options)
+Collecting Cython==0.23.4
+  Downloading https://files.pythonhosted.org/packages/b3/89/e8dddc86bf4f144407962e04c4018f53dfe4d6ae5010d34573d8521e810e/Cython-0.23.4.tar.gz (1.6MB)
+Installing collected packages: Cython
+  Running setup.py install for Cython: started
+[?25l    Running setup.py install for Cython: finished with status 'done'
+[?25hSuccessfully installed Cython-0.23.4
+
+travis_time:end:048c8f5b:start=1616906215144982859,finish=1616906218311336942,duration=3166354083[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:0827bb86[0K$ if [ -n "$USE_ASV" ]; then pip install asv==0.1.1; fi
+Collecting asv==0.1.1
+  Downloading https://files.pythonhosted.org/packages/d1/ee/54f78695ebf20a7c230882fbaad91a343559346bb0e9109e5d8cb7da81af/asv-0.1.1.tar.gz (153kB)
+Collecting six>=1.4 (from asv==0.1.1)
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Installing collected packages: six, asv
+  Running setup.py install for asv: started
+[?25l    Running setup.py install for asv: finished with status 'done'
+[?25hSuccessfully installed asv-0.1.1 six-1.15.0
+
+travis_time:end:0827bb86:start=1616906218322753490,finish=1616906219679836544,duration=1357083054[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:1f7a7a83[0K$ popd
+~/build/passed/numpy/numpy
+
+travis_time:end:1f7a7a83:start=1616906219691859284,finish=1616906219700994792,duration=9135508[0Ktravis_fold:end:before_install.14[0KCould not locate requirements.txt. Override the install: key in your .travis.yml to install dependencies.
+travis_time:start:120b6767[0K$ ./tools/travis-test.sh
++export NPY_NUM_BUILD_JOBS=2
++NPY_NUM_BUILD_JOBS=2
++'[' -r /usr/lib/libeatmydata/libeatmydata.so ']'
++export LD_PRELOAD=/usr/lib/libeatmydata/libeatmydata.so
++LD_PRELOAD=/usr/lib/libeatmydata/libeatmydata.so
++PYTHON=python
++PIP=pip
++'[' -n '' ']'
++'[' -n '' ']'
++werrors='-Werror=declaration-after-statement -Werror=vla '
++werrors+='-Werror=nonnull -Werror=pointer-arith'
++export PYTHON
++export PIP
++pip install setuptools
+Requirement already satisfied (use --upgrade to upgrade): setuptools in ./builds/venv/lib/python2.7/site-packages
++'[' -n '' ']'
++'[' -n '' ']'
++'[' -n '' ']'
++setup_base
++'[' -z '' ']'
++'[' -z '' ']'
++pip install .
+Processing /home/travis/build/passed/numpy/numpy
+Installing collected packages: numpy
+  Running setup.py install for numpy: started
+[?25l    Running setup.py install for numpy: still running...
+    Running setup.py install for numpy: finished with status 'done'
+[?25hSuccessfully installed numpy-1.12.0.dev0+d3ada92
++run_test
++'[' -n '' ']'
++mkdir -p empty
++cd empty
+++python -c 'import os; import numpy; print(os.path.dirname(numpy.__file__))'
++INSTALLDIR=/home/travis/build/passed/numpy/numpy/builds/venv/lib/python2.7/site-packages/numpy
++export PYTHONWARNINGS=default
++PYTHONWARNINGS=default
++python ../tools/test-installed-numpy.py
+...............................S...........................................................................................................................................S.........................................................................................................................................................................................................S..SS...SSS.KKK..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S.....................................................................................................................................................................................S................................................................................................................................................................................................................................................................................................K............................................................................................................................................................................................................................................................................................................................SSS.....................................................................S.............................................................................................................................S..............................................................................................................................................................................................................................................................................................................................................................K......................K..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 6193 tests in 53.046s
+
+OK (KNOWNFAIL=6, SKIP=17)
+Running unit tests for numpy
+NumPy version 1.12.0.dev0+d3ada92
+NumPy relaxed strides checking option: True
+NumPy is installed in /home/travis/build/passed/numpy/numpy/builds/venv/lib/python2.7/site-packages/numpy
+Python version 2.7.9 (default, Feb  5 2015, 15:48:42) [GCC 4.6.3]
+nose version 1.3.7
++'[' -n 1 ']'
++pushd ../benchmarks
+~/build/passed/numpy/numpy/benchmarks ~/build/passed/numpy/numpy/empty
+++which asv
++python /home/travis/build/passed/numpy/numpy/builds/venv/bin/asv machine --machine travis
+· No information stored about machine '8777a3181291'. I know about nothing.
+            
+
++tee asv-output.log
+++which asv
++python /home/travis/build/passed/numpy/numpy/builds/venv/bin/asv dev
+· Discovering benchmarks
+· Running 111 total benchmarks (1 commits * 1 environments * 111 benchmarks)
+[  0.00%] ·· Building for /home/travis/build/passed/numpy/numpy/builds/venv/bin/python
+[  0.00%] ·· Benchmarking /home/travis/build/passed/numpy/numpy/builds/venv/bin/python
+[  0.90%] ··· Running bench_app.LaplaceInplace.time_it                        ok
+[  0.90%] ···· 
+               ========= ==========
+                 update            
+               --------- ----------
+                inplace   212.08ms 
+                 normal   220.27ms 
+               ========= ==========
+
+[  1.80%] ··· Running bench_app.MaxesOfDots.time_it                      23.53ms
+[  2.70%] ··· Running bench_core.Core.time_arange_100                   715.13ns
+[  3.60%] ··· Running bench_core.Core.time_array_1                      544.68ns
+[  4.50%] ··· Running bench_core.Core.time_array_empty                  677.29ns
+[  5.41%] ··· Running bench_core.Core.time_array_l                        1.99μs
+[  6.31%] ··· Running bench_core.Core.time_array_l1                     731.86ns
+[  7.21%] ··· Running bench_core.Core.time_array_l100                     4.68μs
+[  8.11%] ··· Running bench_core.Core.time_diag_l100                     10.35μs
+[  9.01%] ··· Running bench_core.Core.time_diagflat_l100                 14.97μs
+[  9.91%] ··· Running bench_core.Core.time_diagflat_l50_l50              17.00μs
+[ 10.81%] ··· Running bench_core.Core.time_dstack_l                       5.94μs
+[ 11.71%] ··· Running bench_core.Core.time_empty_100                    638.13ns
+[ 12.61%] ··· Running bench_core.Core.time_eye_100                        5.69μs
+[ 13.51%] ··· Running bench_core.Core.time_eye_3000                       4.34ms
+[ 14.41%] ··· Running bench_core.Core.time_hstack_l                       4.77μs
+[ 15.32%] ··· Running bench_core.Core.time_identity_100                   6.31μs
+[ 16.22%] ··· Running bench_core.Core.time_identity_3000                  4.33ms
+[ 17.12%] ··· Running bench_core.Core.time_ones_100                       1.60μs
+[ 18.02%] ··· Running bench_core.Core.time_tril_l10x10                   10.20μs
+[ 18.92%] ··· Running bench_core.Core.time_triu_l10x10                   10.63μs
+[ 19.82%] ··· Running bench_core.Core.time_vstack_l                       5.36μs
+[ 20.72%] ··· Running bench_core.Core.time_zeros_100                    678.73ns
+[ 21.62%] ··· Running bench_core.MA.time_masked_array                    19.77μs
+[ 22.52%] ··· Running bench_core.MA.time_masked_array_l100              461.68μs
+[ 23.42%] ··· Running bench_core.MA.time_masked_array_l100_t100          29.27μs
+[ 24.32%] ··· Running bench_function_base.Bincount.time_bincount        276.13μs
+[ 25.23%] ··· Running bench_function_base.Bincount.time_weights         301.94μs
+[ 26.13%] ··· Running bench_function_base.Median.time_even               38.70μs
+[ 27.03%] ··· Running bench_function_base.Median.time_even_inplace       37.87μs
+[ 27.93%] ··· Running bench_function_base.Median.time_even_small         23.82μs
+[ 28.83%] ··· Running bench_function_base.Median.time_odd                34.28μs
+[ 29.73%] ··· Running bench_function_base.Median.time_odd_inplace        31.24μs
+[ 30.63%] ··· Running bench_function_base.Median.time_odd_small          33.70μs
+[ 31.53%] ··· Running bench_function_base.Percentile.time_percentile     63.60μs
+[ 32.43%] ··· Running bench_function_base.Percentile.time_quartile       64.80μs
+[ 33.33%] ··· Running bench_function_base.Select.time_select             69.43μs
+[ 34.23%] ··· Running bench_function_base.Select.time_select_larger     410.78μs
+[ 35.14%] ··· Running bench_function_base.Sort.time_argsort              86.44μs
+[ 36.04%] ··· Running bench_function_base.Sort.time_sort                 69.88μs
+[ 36.94%] ··· Running bench_function_base.Sort.time_sort_inplace         65.57μs
+[ 37.84%] ··· Running bench_function_base.Where.time_1                   36.84μs
+[ 38.74%] ··· Running bench_function_base.Where.time_2                   21.81μs
+[ 39.64%] ··· Running bench_function_base.Where.time_2_broadcast         21.98μs
+[ 40.54%] ··· Running bench_indexing.Indexing.time_op                         ok
+[ 40.54%] ···· 
+               =============== ============== ========== ==========
+               --                                       op         
+               ------------------------------ ---------------------
+                   indexes          sel           ''         =1    
+               =============== ============== ========== ==========
+                   indexes_          I         97.03μs    96.96μs  
+                   indexes_         :,I        138.90μs   158.26μs 
+                   indexes_     np.ix_(I, I)   625.97μs   882.39μs 
+                indexes_rand_        I         92.42μs    97.39μs  
+                indexes_rand_       :,I        163.64μs   175.71μs 
+                indexes_rand_   np.ix_(I, I)   697.03μs    1.00ms  
+               =============== ============== ========== ==========
+
+[ 41.44%] ··· Running ...ng.IndexingSeparate.time_mmap_fancy_indexing     3.63ms
+[ 42.34%] ··· Running ..._indexing.IndexingSeparate.time_mmap_slicing     1.54ms
+[ 43.24%] ··· Running ...indexing.IndexingStructured0D.time_array_all   780.05ns
+[ 44.14%] ··· Running ...dexing.IndexingStructured0D.time_array_slice   676.99ns
+[ 45.05%] ··· Running ...ndexing.IndexingStructured0D.time_scalar_all     1.23μs
+[ 45.95%] ··· Running ...exing.IndexingStructured0D.time_scalar_slice     1.26μs
+[ 46.85%] ··· Running bench_io.Copy.time_cont_assign                          ok
+[ 46.85%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       1.79μs 
+                  int16       2.30μs 
+                 float32      4.01μs 
+                 float64      9.21μs 
+                complex64    10.06μs 
+                complex128   18.73μs 
+               ============ =========
+
+[ 47.75%] ··· Running bench_io.Copy.time_memcpy                               ok
+[ 47.75%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       1.49μs 
+                  int16       2.27μs 
+                 float32      4.39μs 
+                 float64      9.67μs 
+                complex64     8.85μs 
+                complex128   32.35μs 
+               ============ =========
+
+[ 48.65%] ··· Running bench_io.Copy.time_strided_assign                       ok
+[ 48.65%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       5.40μs 
+                  int16       5.70μs 
+                 float32      5.54μs 
+                 float64      6.23μs 
+                complex64     5.95μs 
+                complex128   12.57μs 
+               ============ =========
+
+[ 49.55%] ··· Running bench_io.Copy.time_strided_copy                         ok
+[ 49.55%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8      10.68μs 
+                  int16      12.48μs 
+                 float32     12.04μs 
+                 float64     13.59μs 
+                complex64    14.59μs 
+                complex128   29.59μs 
+               ============ =========
+
+[ 50.45%] ··· Running bench_io.CopyTo.time_copyto                        37.67μs
+[ 51.35%] ··· Running bench_io.CopyTo.time_copyto_8_dense                85.58μs
+[ 52.25%] ··· Running bench_io.CopyTo.time_copyto_8_sparse               80.16μs
+[ 53.15%] ··· Running bench_io.CopyTo.time_copyto_dense                   5.57μs
+[ 54.05%] ··· Running bench_io.CopyTo.time_copyto_sparse                 73.18μs
+[ 54.95%] ··· Running bench_io.Savez.time_vb_savez_squares              305.24ms
+[ 55.86%] ··· Running bench_linalg.Eindot.time_dot_a_b                   28.07ms
+[ 56.76%] ··· Running bench_linalg.Eindot.time_dot_d_dot_b_c            313.09μs
+[ 57.66%] ··· Running bench_linalg.Eindot.time_dot_trans_a_at             5.31ms
+[ 58.56%] ··· Running bench_linalg.Eindot.time_dot_trans_a_atc            7.71ms
+[ 59.46%] ··· Running bench_linalg.Eindot.time_dot_trans_at_a            12.35ms
+[ 60.36%] ··· Running bench_linalg.Eindot.time_dot_trans_atc_a           25.16ms
+[ 61.26%] ··· Running bench_linalg.Eindot.time_einsum_i_ij_j            971.31μs
+[ 62.16%] ··· Running bench_linalg.Eindot.time_einsum_ij_jk_a_b          13.91ms
+[ 63.06%] ··· Running bench_linalg.Eindot.time_einsum_ijk_jil_kl         40.51ms
+[ 63.96%] ··· Running bench_linalg.Eindot.time_inner_trans_a_a            5.69ms
+[ 64.86%] ··· Running bench_linalg.Eindot.time_inner_trans_a_ac           7.17ms
+[ 65.77%] ··· Running bench_linalg.Eindot.time_matmul_a_b                28.00ms
+[ 66.67%] ··· Running bench_linalg.Eindot.time_matmul_d_matmul_b_c      312.32μs
+[ 67.57%] ··· Running bench_linalg.Eindot.time_matmul_trans_a_at          5.50ms
+[ 68.47%] ··· Running bench_linalg.Eindot.time_matmul_trans_a_atc         6.77ms
+[ 69.37%] ··· Running bench_linalg.Eindot.time_matmul_trans_at_a         13.40ms
+[ 70.27%] ··· Running bench_linalg.Eindot.time_matmul_trans_atc_a        25.26ms
+[ 71.17%] ··· Running ...inalg.Eindot.time_tensordot_a_b_axes_1_0_0_1    19.79ms
+[ 72.07%] ··· Running bench_linalg.Linalg.time_op                             ok
+[ 72.07%] ···· 
+               ====== ============ ==========
+                 op       type               
+               ------ ------------ ----------
+                svd      int16       8.02ms  
+                svd     float16       n/a    
+                svd      int32       7.71ms  
+                svd     float32      7.53ms  
+                svd      int64       6.53ms  
+                svd     float64      7.94ms  
+                svd    complex64    14.40ms  
+                svd    longfloat      n/a    
+                svd    complex128   17.93ms  
+                svd    complex256     n/a    
+                pinv     int16       9.41ms  
+                pinv    float16       n/a    
+                pinv     int32      10.13ms  
+                pinv    float32      9.72ms  
+                pinv     int64       9.93ms  
+                pinv    float64      9.53ms  
+                pinv   complex64    24.14ms  
+                pinv   longfloat      n/a    
+                pinv   complex128   24.48ms  
+                pinv   complex256     n/a    
+                det      int16      244.30μs 
+                det     float16       n/a    
+                det      int32      231.29μs 
+                det     float32     231.43μs 
+                det      int64      236.02μs 
+                det     float64     231.11μs 
+                det    complex64    795.20μs 
+                det    longfloat      n/a    
+                det    complex128   743.33μs 
+                det    complex256     n/a    
+                norm     int16      33.28μs  
+                norm    float16     93.17μs  
+                norm     int32      23.95μs  
+                norm    float32     20.12μs  
+                norm     int64      43.14μs  
+                norm    float64     23.30μs  
+                norm   complex64    40.80μs  
+                norm   longfloat    27.07μs  
+                norm   complex128   41.57μs  
+                norm   complex256   49.50μs  
+               ====== ============ ==========
+
+[ 72.97%] ··· Running ...g.Lstsq.time_numpy_linalg_lstsq_a__b_float64     3.02ms
+[ 73.87%] ··· Running bench_random.Randint.time_randint_fast            582.32μs
+[ 74.77%] ··· Running bench_random.Randint.time_randint_slow              2.41ms
+[ 75.68%] ··· Running bench_random.Randint_dtype.time_randint_fast            ok
+[ 75.68%] ···· 
+               ======== ==========
+                dtype             
+               -------- ----------
+                 bool     7.40μs  
+                uint8    341.61μs 
+                uint16   365.90μs 
+                uint32   670.69μs 
+                uint64    1.07ms  
+               ======== ==========
+
+[ 76.58%] ··· Running bench_random.Randint_dtype.time_randint_slow            ok
+[ 76.58%] ···· 
+               ======== ==========
+                dtype             
+               -------- ----------
+                 bool    118.21μs 
+                uint8     1.37ms  
+                uint16    1.73ms  
+                uint32    2.97ms  
+                uint64    3.29ms  
+               ======== ==========
+
+[ 77.48%] ··· Running bench_random.Random.time_rng                            ok
+[ 77.48%] ···· 
+               ================= ==========
+                     param1                
+               ----------------- ----------
+                     normal        9.24μs  
+                    uniform        4.08μs  
+                   weibull 1      659.24μs 
+                binomial 10 0.5   592.04μs 
+                   poisson 10      1.99ms  
+               ================= ==========
+
+[ 78.38%] ··· Running bench_random.Shuffle.time_100000                    2.10ms
+[ 79.28%] ··· Running bench_reduce.AddReduce.time_axis_0                 33.26ms
+[ 80.18%] ··· Running bench_reduce.AddReduce.time_axis_1                 17.49ms
+[ 81.08%] ··· Running bench_reduce.AddReduceSeparate.time_reduce              ok
+[ 81.08%] ···· 
+               ====== ============ ==========
+                axis      type               
+               ------ ------------ ----------
+                 0       int16      826.73μs 
+                 0      float16     15.25ms  
+                 0       int32      856.44μs 
+                 0      float32     231.96μs 
+                 0       int64      632.39μs 
+                 0      float64     468.66μs 
+                 0     complex64     1.72ms  
+                 0     longfloat     3.37ms  
+                 0     complex128    2.14ms  
+                 0     complex256    6.44ms  
+                 1       int16      953.99μs 
+                 1      float16      4.87ms  
+                 1       int32      950.06μs 
+                 1      float32     290.02μs 
+                 1       int64      665.18μs 
+                 1      float64     400.48μs 
+                 1     complex64    636.80μs 
+                 1     longfloat     1.84ms  
+                 1     complex128    1.27ms  
+                 1     complex256    4.55ms  
+               ====== ============ ==========
+
+[ 81.98%] ··· Running bench_reduce.AnyAll.time_all_fast                   2.78μs
+[ 82.88%] ··· Running bench_reduce.AnyAll.time_all_slow                   6.65μs
+[ 83.78%] ··· Running bench_reduce.AnyAll.time_any_fast                   2.87μs
+[ 84.68%] ··· Running bench_reduce.AnyAll.time_any_slow                   6.44μs
+[ 85.59%] ··· Running bench_reduce.MinMax.time_max                            ok
+[ 85.59%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    7.20μs 
+                <type 'numpy.float64'>    9.36μs 
+                 <type 'numpy.int64'>    15.85μs 
+               ======================== =========
+
+[ 86.49%] ··· Running bench_reduce.MinMax.time_min                            ok
+[ 86.49%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    6.84μs 
+                <type 'numpy.float64'>   10.54μs 
+                 <type 'numpy.int64'>    15.78μs 
+               ======================== =========
+
+[ 87.39%] ··· Running bench_reduce.SmallReduction.time_small              3.42μs
+[ 88.29%] ··· Running bench_ufunc.Broadcast.time_broadcast               26.28ms
+[ 89.19%] ··· Running bench_ufunc.Custom.time_and_bool                    2.74μs
+[ 90.09%] ··· Running bench_ufunc.Custom.time_count_nonzero               1.45μs
+[ 90.99%] ··· Running bench_ufunc.Custom.time_nonzero                    29.00μs
+[ 91.89%] ··· Running bench_ufunc.Custom.time_not_bool                    1.67μs
+[ 92.79%] ··· Running bench_ufunc.Custom.time_or_bool                     1.77μs
+[ 93.69%] ··· Running bench_ufunc.CustomScalar.time_add_scalar2               ok
+[ 93.69%] ···· 
+               ======================== ========
+                        dtype                   
+               ------------------------ --------
+                <type 'numpy.float32'>   5.14μs 
+                <type 'numpy.float64'>   9.01μs 
+               ======================== ========
+
+[ 94.59%] ··· Running bench_ufunc.CustomScalar.time_divide_scalar2            ok
+[ 94.59%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    7.01μs 
+                <type 'numpy.float64'>   16.54μs 
+               ======================== =========
+
+[ 95.50%] ··· Running ...unc.CustomScalar.time_divide_scalar2_inplace         ok
+[ 95.50%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    7.16μs 
+                <type 'numpy.float64'>   14.76μs 
+               ======================== =========
+
+[ 96.40%] ··· Running bench_ufunc.CustomScalar.time_less_than_scalar2         ok
+[ 96.40%] ···· 
+               ======================== ========
+                        dtype                   
+               ------------------------ --------
+                <type 'numpy.float32'>   3.68μs 
+                <type 'numpy.float64'>   6.22μs 
+               ======================== ========
+
+[ 97.30%] ··· Running bench_ufunc.Scalar.time_add_scalar                567.61ns
+[ 98.20%] ··· Running bench_ufunc.Scalar.time_add_scalar_conv           783.45ns
+[ 99.10%] ··· Running bench_ufunc.Scalar.time_add_scalar_conv_complex   890.66ns
+[100.00%] ··· Running bench_ufunc.UFunc.time_ufunc_types                      ok
+[100.00%] ···· 
+               =============== ==========
+                    ufunc                
+               --------------- ----------
+                     abs         1.13ms  
+                   absolute      1.13ms  
+                     add        420.56μs 
+                    arccos       6.21ms  
+                   arccosh       8.51ms  
+                    arcsin       6.03ms  
+                   arcsinh       7.39ms  
+                    arctan       3.97ms  
+                   arctan2       2.50ms  
+                   arctanh       3.38ms  
+                 bitwise_and    27.73μs  
+                 bitwise_not    17.58μs  
+                  bitwise_or    28.21μs  
+                 bitwise_xor    25.44μs  
+                     cbrt        1.90ms  
+                     ceil       462.68μs 
+                     conj       199.88μs 
+                  conjugate     197.86μs 
+                   copysign     319.91μs 
+                     cos         7.32ms  
+                     cosh        7.89ms  
+                   deg2rad      387.13μs 
+                   degrees      363.13μs 
+                    divide       1.06ms  
+                    equal       302.82μs 
+                     exp         5.38ms  
+                     exp2        6.97ms  
+                    expm1        5.37ms  
+                     fabs       351.95μs 
+                    floor       523.21μs 
+                 floor_divide    1.30ms  
+                     fmax       432.09μs 
+                     fmin       437.01μs 
+                     fmod       747.77μs 
+                    frexp       501.19μs 
+                   greater      344.46μs 
+                greater_equal   358.05μs 
+                    hypot        1.27ms  
+                    invert      16.76μs  
+                   isfinite     228.42μs 
+                    isinf       224.22μs 
+                    isnan       190.09μs 
+                    ldexp       282.30μs 
+                  left_shift    46.28μs  
+                     less       346.64μs 
+                  less_equal    366.97μs 
+                     log         5.04ms  
+                    log10        5.58ms  
+                    log1p        4.33ms  
+                     log2        4.68ms  
+                  logaddexp     450.93μs 
+                  logaddexp2    452.55μs 
+                 logical_and    352.60μs 
+                 logical_not    219.19μs 
+                  logical_or    305.47μs 
+                 logical_xor    343.44μs 
+                   maximum      458.64μs 
+                   minimum      458.86μs 
+                     mod        753.77μs 
+                     modf       613.47μs 
+                   multiply     454.19μs 
+                   negative     261.92μs 
+                  nextafter     618.20μs 
+                  not_equal     341.06μs 
+                    power       13.96ms  
+                   rad2deg      362.15μs 
+                   radians      359.86μs 
+                  reciprocal    689.27μs 
+                  remainder     747.72μs 
+                 right_shift    41.84μs  
+                     rint       765.07μs 
+                     sign       284.41μs 
+                   signbit      106.84μs 
+                     sin         6.88ms  
+                     sinh        7.62ms  
+                   spacing      566.81μs 
+                     sqrt        1.93ms  
+                    square      329.32μs 
+                   subtract     442.28μs 
+                     tan         7.15ms  
+                     tanh        5.00ms  
+                 true_divide     1.11ms  
+                    trunc       561.28μs 
+               =============== ==========
+
++grep -q Traceback asv-output.log
++popd
+~/build/passed/numpy/numpy/empty
+
+travis_time:end:120b6767:start=1616906219711320051,finish=1616906566309785414,duration=346598465363[0K
+[32;1mThe command "./tools/travis-test.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:1bd28523[0K
+travis_time:end:1bd28523:start=1616906566322719034,finish=1616906566333459958,duration=10740924[0Ktravis_time:start:10600509[0K/home/travis/.casher/bin/casher:190: warning: Insecure world writable dir /home/travis/build/passed/numpy/numpy in PATH, mode 040777
+[32;1mchanges detected, packing new archive[0m
+/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:143:in `push'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+
+travis_time:end:10600509:start=1616906566344644042,finish=1616906568178340136,duration=1833696094[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:0a1eafc4[0K$ ./tools/travis-upload-wheel.sh
++export CLOUD_CONTAINER_NAME=travis-dev-wheels
++CLOUD_CONTAINER_NAME=travis-dev-wheels
++[[ '' == 1 ]]
+
+travis_time:end:0a1eafc4:start=1616906568190895535,finish=1616906568204001825,duration=13106290[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

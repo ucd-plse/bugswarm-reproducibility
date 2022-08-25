@@ -1,0 +1,257 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd passed/acsone/acsone-addons
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:08b58340[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:08b58340:start=1616814040872395256,finish=1616814045366477219,duration=4494081963[0Ktravis_time:start:05265828[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install expect-dev python-lxml
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  expect
+Suggested packages:
+  python-lxml-dbg
+The following NEW packages will be installed:
+  expect expect-dev python-lxml
+0 upgraded, 3 newly installed, 0 to remove and 238 not upgraded.
+Need to get 904 kB of archives.
+After this operation, 2,814 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main expect amd64 5.45-2 [163 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main expect-dev amd64 5.45-2 [80.0 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main python-lxml amd64 2.3.2-1ubuntu0.2 [661 kB]
+Fetched 904 kB in 0s (1,416 kB/s)
+Selecting previously unselected package expect.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking expect (from .../expect_5.45-2_amd64.deb) ...
+Selecting previously unselected package expect-dev.
+Unpacking expect-dev (from .../expect-dev_5.45-2_amd64.deb) ...
+Selecting previously unselected package python-lxml.
+Unpacking python-lxml (from .../python-lxml_2.3.2-1ubuntu0.2_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up expect (5.45-2) ...
+Setting up expect-dev (5.45-2) ...
+Setting up python-lxml (2.3.2-1ubuntu0.2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:05265828:start=1616814045377764515,finish=1616814054469024276,duration=9091259761[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export VERSION="10.0"
+$ export TESTS="0"
+$ export LINT_CHECK="0"
+$ export TRANSIFEX="0"
+$ export TESTS="1"
+$ export ODOO_REPO="OCA/OCB"
+
+travis_time:start:0d3bcdb6[0K$ source ~/virtualenv/python2.7_with_system_site_packages/bin/activate
+
+travis_time:end:0d3bcdb6:start=1616814054606472436,finish=1616814054617802153,duration=11329717[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:01ea9830[0K$ Installing caching utilities
+
+travis_time:end:01ea9830:start=1616814055061156090,finish=1616814055128502481,duration=67346391[0Ktravis_time:start:0c74b158[0K
+travis_time:end:0c74b158:start=1616814055144979198,finish=1616814055155720581,duration=10741383[0Ktravis_time:start:2a0b49b0[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:2a0b49b0:start=1616814055168145483,finish=1616814056050650109,duration=882504626[0Ktravis_fold:end:cache.1[0Ktravis_fold:start:cache.pip[0K
+travis_time:start:122359e4[0K
+travis_time:end:122359e4:start=1616814056062321268,finish=1616814056070254188,duration=7932920[0Ktravis_time:start:0bce7bf9[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:0bce7bf9:start=1616814056080620221,finish=1616814056973033841,duration=892413620[0Ktravis_fold:end:cache.pip[0K$ python --version
+Python 2.7.3
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:1ad050a0[0K$ pip install anybox.testing.openerp==1.3.1
+Collecting anybox.testing.openerp==1.3.1
+  Downloading https://files.pythonhosted.org/packages/ac/77/80f9253d6ae44090219d8d258eab1b42b17ec51208e2dcbd160a592b7f94/anybox.testing.openerp-1.3.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /home/travis/virtualenv/python2.7_with_system_site_packages/lib/python2.7/site-packages (from anybox.testing.openerp==1.3.1)
+Installing collected packages: anybox.testing.openerp
+  Running setup.py install for anybox.testing.openerp
+Successfully installed anybox.testing.openerp-1.3.1
+
+travis_time:end:1ad050a0:start=1616814057297760026,finish=1616814058526005253,duration=1228245227[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0b533cf8[0K$ git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+Cloning into '/home/travis/maintainer-quality-tools'...
+
+travis_time:end:0b533cf8:start=1616814058538186959,finish=1616814061956830806,duration=3418643847[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:17f5908f[0K$ export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+
+travis_time:end:17f5908f:start=1616814061968474937,finish=1616814061976858184,duration=8383247[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:006c4f85[0K$ travis_install_nightly
+npm WARN engine less@3.0.4: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN engine request@2.88.2: wanted: {"node":">= 6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine mime@1.6.0: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN engine har-validator@5.1.5: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine form-data@2.3.3: wanted: {"node":">= 0.12"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-schema@2.0.0: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+/home/travis/.nvm/v0.10.36/bin/lessc -> /home/travis/.nvm/v0.10.36/lib/node_modules/less/bin/lessc
+less-plugin-clean-css@1.5.1 /home/travis/.nvm/v0.10.36/lib/node_modules/less-plugin-clean-css
+└── clean-css@3.4.28 (source-map@0.4.4, commander@2.8.1)
+
+less@3.0.4 /home/travis/.nvm/v0.10.36/lib/node_modules/less
+├── graceful-fs@4.2.6
+├── image-size@0.5.5
+├── mime@1.6.0
+├── source-map@0.6.1
+├── promise@7.3.1 (asap@2.0.6)
+├── errno@0.1.8 (prr@1.0.1)
+├── mkdirp@0.5.5 (minimist@1.2.5)
+└── request@2.88.2 (is-typedarray@1.0.0, oauth-sign@0.9.0, forever-agent@0.6.1, aws-sign2@0.7.0, tunnel-agent@0.6.0, caseless@0.12.0, isstream@0.1.2, json-stringify-safe@5.0.1, safe-buffer@5.2.1, aws4@1.11.0, extend@3.0.2, performance-now@2.1.0, uuid@3.4.0, qs@6.5.2, mime-types@2.1.29, combined-stream@1.0.8, form-data@2.3.3, tough-cookie@2.5.0, har-validator@5.1.5, http-signature@1.2.0)
+npm WARN deprecated phantomjs-prebuilt@2.1.16: this package is now deprecated
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN engine request@2.88.2: wanted: {"node":">= 6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN engine form-data@2.3.3: wanted: {"node":">= 0.12"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-validator@5.1.5: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine har-schema@2.0.0: wanted: {"node":">=4"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+npm WARN engine punycode@2.1.1: wanted: {"node":">=6"} (current: {"node":"0.10.36","npm":"1.4.28"})
+
+> phantomjs-prebuilt@2.1.16 install /home/travis/build/passed/acsone/acsone-addons/node_modules/phantomjs-prebuilt
+> node install.js
+
+Considering PhantomJS found at /usr/local/phantomjs/bin/phantomjs
+Found PhantomJS at /usr/local/phantomjs/bin/phantomjs ...verifying
+PhantomJS detected, but wrong version 1.9.8 @ /usr/local/phantomjs/bin/phantomjs.
+Downloading https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
+Saving to /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2
+Receiving...
+
+Received 22866K total.
+Extracting tar contents (via spawned process)
+Removing /home/travis/build/passed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom
+Copying extracted folder /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2-extract-1616814078012/phantomjs-2.1.1-linux-x86_64 -> /home/travis/build/passed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom
+Writing location.js file
+Done. Phantomjs binary available at /home/travis/build/passed/acsone/acsone-addons/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs
+phantomjs-prebuilt@2.1.16 node_modules/phantomjs-prebuilt
+├── progress@1.1.8
+├── kew@0.7.0
+├── request-progress@2.0.1 (throttleit@1.0.0)
+├── es6-promise@4.2.8
+├── fs-extra@1.0.0 (klaw@1.3.1, jsonfile@2.4.0, graceful-fs@4.2.6)
+├── which@1.3.1 (isexe@2.0.0)
+├── hasha@2.2.0 (is-stream@1.1.0, pinkie-promise@2.0.1)
+├── request@2.88.2 (is-typedarray@1.0.0, aws-sign2@0.7.0, oauth-sign@0.9.0, forever-agent@0.6.1, tunnel-agent@0.6.0, caseless@0.12.0, isstream@0.1.2, json-stringify-safe@5.0.1, aws4@1.11.0, safe-buffer@5.2.1, extend@3.0.2, performance-now@2.1.0, combined-stream@1.0.8, uuid@3.4.0, qs@6.5.2, mime-types@2.1.29, form-data@2.3.3, tough-cookie@2.5.0, http-signature@1.2.0, har-validator@5.1.5)
+└── extract-zip@1.7.0 (mkdirp@0.5.5, debug@2.6.9, yauzl@2.10.0, concat-stream@1.6.2)
+Downloading Odoo
+Cloning into '/home/travis/OCB-10.0'...
+Checking out files:  39% (8676/22037)   Checking out files:  40% (8815/22037)   Checking out files:  41% (9036/22037)   Checking out files:  42% (9256/22037)   Checking out files:  43% (9476/22037)   Checking out files:  44% (9697/22037)   Checking out files:  45% (9917/22037)   Checking out files:  46% (10138/22037)   Checking out files:  47% (10358/22037)   Checking out files:  48% (10578/22037)   Checking out files:  49% (10799/22037)   Checking out files:  50% (11019/22037)   Checking out files:  51% (11239/22037)   Checking out files:  52% (11460/22037)   Checking out files:  53% (11680/22037)   Checking out files:  54% (11900/22037)   Checking out files:  55% (12121/22037)   Checking out files:  56% (12341/22037)   Checking out files:  57% (12562/22037)   Checking out files:  58% (12782/22037)   Checking out files:  59% (13002/22037)   Checking out files:  60% (13223/22037)   Checking out files:  61% (13443/22037)   Checking out files:  62% (13663/22037)   Checking out files:  63% (13884/22037)   Checking out files:  64% (14104/22037)   Checking out files:  65% (14325/22037)   Checking out files:  66% (14545/22037)   Checking out files:  67% (14765/22037)   Checking out files:  68% (14986/22037)   Checking out files:  69% (15206/22037)   Checking out files:  70% (15426/22037)   Checking out files:  71% (15647/22037)   Checking out files:  72% (15867/22037)   Checking out files:  73% (16088/22037)   Checking out files:  74% (16308/22037)   Checking out files:  75% (16528/22037)   Checking out files:  76% (16749/22037)   Checking out files:  77% (16969/22037)   Checking out files:  78% (17189/22037)   Checking out files:  79% (17410/22037)   Checking out files:  80% (17630/22037)   Checking out files:  80% (17654/22037)   Checking out files:  81% (17850/22037)   Checking out files:  82% (18071/22037)   Checking out files:  83% (18291/22037)   Checking out files:  84% (18512/22037)   Checking out files:  85% (18732/22037)   Checking out files:  86% (18952/22037)   Checking out files:  87% (19173/22037)   Checking out files:  88% (19393/22037)   Checking out files:  89% (19613/22037)   Checking out files:  90% (19834/22037)   Checking out files:  91% (20054/22037)   Checking out files:  92% (20275/22037)   Checking out files:  93% (20495/22037)   Checking out files:  94% (20715/22037)   Checking out files:  95% (20936/22037)   Checking out files:  96% (21156/22037)   Checking out files:  97% (21376/22037)   Checking out files:  98% (21597/22037)   Checking out files:  99% (21817/22037)   Checking out files: 100% (22037/22037)   Checking out files: 100% (22037/22037), done.
+From https://github.com/oca/OCB
+ * branch            10.0       -> FETCH_HEAD
+Collecting pip from https://files.pythonhosted.org/packages/b7/2d/ad02de84a4c9fd3b1958dc9fb72764de1aa2605a9d7e943837be6ad82337/pip-21.0.1.tar.gz#sha256=99bbde183ec5ec037318e774b0d8ae0a64352fe53b2c7fd630be1d07e94f41e5
+  Downloading https://files.pythonhosted.org/packages/b7/2d/ad02de84a4c9fd3b1958dc9fb72764de1aa2605a9d7e943837be6ad82337/pip-21.0.1.tar.gz (1.5MB)
+    /usr/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /usr/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+Installing collected packages: pip
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+  Running setup.py install for pip
+    /usr/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /usr/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    Installing pip script to /home/travis/virtualenv/python2.7_with_system_site_packages/bin
+    Installing pip2.7 script to /home/travis/virtualenv/python2.7_with_system_site_packages/bin
+    Installing pip2 script to /home/travis/virtualenv/python2.7_with_system_site_packages/bin
+Successfully installed pip-21.0.1
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python2.7_with_system_site_packages/bin/pip", line 9, in <module>
+    load_entry_point('pip==21.0.1', 'console_scripts', 'pip')()
+  File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 519, in load_entry_point
+    return get_distribution(dist).load_entry_point(group, name)
+  File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2630, in load_entry_point
+    return ep.load()
+  File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2310, in load
+    return self.resolve()
+  File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2316, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/pip/_internal/cli/main.py", line 60
+    sys.stderr.write(f"ERROR: {exc}")
+                                   ^
+SyntaxError: invalid syntax
+
+travis_time:end:006c4f85:start=1616814061987274005,finish=1616814114294474300,duration=52307200295[0K
+[31;1mThe command "travis_install_nightly" failed and exited with 1 during .[0m
+
+Your build has been stopped.

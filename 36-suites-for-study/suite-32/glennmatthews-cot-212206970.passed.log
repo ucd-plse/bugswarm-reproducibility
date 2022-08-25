@@ -1,0 +1,538 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+[33;1m3.6 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.6.tar.bz2[0m
+$ sudo tar xjf python-3.6.tar.bz2 --directory /
+$ cd passed/glennmatthews/cot
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:229797b4[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:229797b4:start=1616874962606631927,finish=1616874967098075920,duration=4491443993[0Ktravis_time:start:0312c414[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install make gcc qemu-utils xorriso zlib1g-dev
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version.
+gcc set to manually installed.
+zlib1g-dev is already the newest version.
+zlib1g-dev set to manually installed.
+make is already the newest version.
+make set to manually installed.
+The following extra packages will be installed:
+  libaio1 libburn4 libisoburn1 libisofs6 libjte1 librados2 librbd1
+Suggested packages:
+  jigit cdck
+The following NEW packages will be installed:
+  libaio1 libburn4 libisoburn1 libisofs6 libjte1 librados2 librbd1 qemu-utils
+  xorriso
+0 upgraded, 9 newly installed, 0 to remove and 238 not upgraded.
+Need to get 1,939 kB of archives.
+After this operation, 4,723 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main libaio1 amd64 0.3.109-2ubuntu1 [6,396 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main libburn4 amd64 1.1.8-1 [129 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/main libjte1 amd64 1.19-1 [28.0 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise/main libisofs6 amd64 1.1.6-1ubuntu1 [148 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ precise/main libisoburn1 amd64 1.1.8-1 [337 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main librados2 amd64 0.41-1ubuntu2.1 [784 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main librbd1 amd64 0.41-1ubuntu2.1 [49.8 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main qemu-utils amd64 1.0+noroms-0ubuntu14.31 [357 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu/ precise/main xorriso amd64 1.1.8-1 [100 kB]
+Fetched 1,939 kB in 0s (2,588 kB/s)
+Selecting previously unselected package libaio1.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking libaio1 (from .../libaio1_0.3.109-2ubuntu1_amd64.deb) ...
+Selecting previously unselected package libburn4.
+Unpacking libburn4 (from .../libburn4_1.1.8-1_amd64.deb) ...
+Selecting previously unselected package libjte1.
+Unpacking libjte1 (from .../libjte1_1.19-1_amd64.deb) ...
+Selecting previously unselected package libisofs6.
+Unpacking libisofs6 (from .../libisofs6_1.1.6-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package libisoburn1.
+Unpacking libisoburn1 (from .../libisoburn1_1.1.8-1_amd64.deb) ...
+Selecting previously unselected package librados2.
+Unpacking librados2 (from .../librados2_0.41-1ubuntu2.1_amd64.deb) ...
+Selecting previously unselected package librbd1.
+Unpacking librbd1 (from .../librbd1_0.41-1ubuntu2.1_amd64.deb) ...
+Selecting previously unselected package qemu-utils.
+Unpacking qemu-utils (from .../qemu-utils_1.0+noroms-0ubuntu14.31_amd64.deb) ...
+Selecting previously unselected package xorriso.
+Unpacking xorriso (from .../xorriso_1.1.8-1_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up libaio1 (0.3.109-2ubuntu1) ...
+Setting up libburn4 (1.1.8-1) ...
+Setting up libjte1 (1.19-1) ...
+Setting up libisofs6 (1.1.6-1ubuntu1) ...
+Setting up libisoburn1 (1.1.8-1) ...
+Setting up librados2 (0.41-1ubuntu2.1) ...
+Setting up librbd1 (0.41-1ubuntu2.1) ...
+Setting up qemu-utils (1.0+noroms-0ubuntu14.31) ...
+Setting up xorriso (1.1.8-1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+
+travis_time:end:0312c414:start=1616874967108279231,finish=1616874973574205187,duration=6465925956[0Ktravis_fold:end:apt[0Ktravis_time:start:35d35199[0K$ source ~/virtualenv/python3.6/bin/activate
+
+travis_time:end:35d35199:start=1616874973653378818,finish=1616874973661646395,duration=8267577[0Ktravis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:06b259b4[0K$ Installing caching utilities
+
+travis_time:end:06b259b4:start=1616874974035345470,finish=1616874974105921731,duration=70576261[0Ktravis_time:start:050ee434[0K
+travis_time:end:050ee434:start=1616874974120611777,finish=1616874974129089790,duration=8478013[0Ktravis_time:start:070a6f60[0K/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:65:in `block in fetch'
+	from /home/travis/.casher/bin/casher:64:in `each'
+	from /home/travis/.casher/bin/casher:64:in `fetch'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+[32;1mattempting to download cache archive[0m
+
+travis_time:end:070a6f60:start=1616874974139302566,finish=1616874974911166568,duration=771864002[0Ktravis_time:start:0747986c[0K
+travis_time:end:0747986c:start=1616874974921541535,finish=1616874974929909756,duration=8368221[0Ktravis_time:start:0349aaa4[0K[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:0349aaa4:start=1616874974939739171,finish=1616874975734430961,duration=794691790[0Ktravis_fold:end:cache.1[0K$ python --version
+Python 3.6.7
+$ pip --version
+pip 18.1 from /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pip (python 3.6)
+travis_fold:start:install.1[0Ktravis_time:start:01036146[0K$ pip install --upgrade pip==9.0.1 setuptools==34.3.2
+Collecting pip==9.0.1
+  Downloading https://files.pythonhosted.org/packages/b6/ac/7015eb97dc749283ffdec1c3a88ddb8ae03b8fad0f0e611408f196358da3/pip-9.0.1-py2.py3-none-any.whl (1.3MB)
+Collecting setuptools==34.3.2
+  Downloading https://files.pythonhosted.org/packages/de/b2/b63accae9aa1a4cf02e03c7522102f686a1bd9b8b1b847716198152d2c63/setuptools-34.3.2-py2.py3-none-any.whl (389kB)
+Collecting appdirs>=1.4.0 (from setuptools==34.3.2)
+  Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+Requirement already satisfied, skipping upgrade: six>=1.6.0 in /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages (from setuptools==34.3.2) (1.11.0)
+Collecting packaging>=16.8 (from setuptools==34.3.2)
+  Downloading https://files.pythonhosted.org/packages/3e/89/7ea760b4daa42653ece2380531c90f64788d979110a2ab51049d92f408af/packaging-20.9-py2.py3-none-any.whl (40kB)
+Collecting pyparsing>=2.0.2 (from packaging>=16.8->setuptools==34.3.2)
+  Downloading https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl (67kB)
+pipenv 2018.10.13 has requirement setuptools>=36.2.1, but you'll have setuptools 34.3.2 which is incompatible.
+Installing collected packages: pip, appdirs, pyparsing, packaging, setuptools
+  Found existing installation: pip 18.1
+    Uninstalling pip-18.1:
+      Successfully uninstalled pip-18.1
+  Found existing installation: setuptools 40.4.3
+    Uninstalling setuptools-40.4.3:
+      Successfully uninstalled setuptools-40.4.3
+Successfully installed appdirs-1.4.4 packaging-20.9 pip-9.0.1 pyparsing-2.4.7 setuptools-34.3.2
+
+travis_time:end:01036146:start=1616874976158709319,finish=1616874980205461394,duration=4046752075[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:015b2b97[0K$ pip install tox-travis==0.8
+Collecting tox-travis==0.8
+  Downloading https://files.pythonhosted.org/packages/1f/b5/030fcb9c925c5096bb5dad662789167b496bf19cb8449eb7ecc454cc9206/tox_travis-0.8-py2.py3-none-any.whl
+Collecting tox>=2.0 (from tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/ec/7e/4609fd0386d41f0b94fe952708970fb87cc1fb66e088758b1f0ab336802e/tox-3.23.0-py2.py3-none-any.whl (85kB)
+Collecting six>=1.14.0 (from tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Requirement already satisfied: virtualenv!=20.0.0,!=20.0.1,!=20.0.2,!=20.0.3,!=20.0.4,!=20.0.5,!=20.0.6,!=20.0.7,>=16.0.0 in /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages (from tox>=2.0->tox-travis==0.8)
+Collecting pluggy>=0.12.0 (from tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/a0/28/85c7aa31b80d150b772fbe4a229487bc6644da9ccb7e427dd8cc60cb8a62/pluggy-0.13.1-py2.py3-none-any.whl
+Requirement already satisfied: py>=1.4.17 in /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages (from tox>=2.0->tox-travis==0.8)
+Requirement already satisfied: packaging>=14 in /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages (from tox>=2.0->tox-travis==0.8)
+Collecting importlib-metadata>=0.12; python_version < "3.8" (from tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/d4/61/5a799932038cd33f50799c8b539fc58c747cb5ed8082b5dcaa4d90c1cd1a/importlib_metadata-3.8.1-py3-none-any.whl
+Collecting filelock>=3.0.0 (from tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/93/83/71a2ee6158bb9f39a90c0dea1637f81d5eef866e188e1971a1b1ab01a35a/filelock-3.0.12-py3-none-any.whl
+Collecting toml>=0.9.4 (from tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+Requirement already satisfied: pyparsing>=2.0.2 in /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages (from packaging>=14->tox>=2.0->tox-travis==0.8)
+Collecting typing-extensions>=3.6.4; python_version < "3.8" (from importlib-metadata>=0.12; python_version < "3.8"->tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/60/7a/e881b5abb54db0e6e671ab088d079c57ce54e8a01a3ca443f561ccadb37e/typing_extensions-3.7.4.3-py3-none-any.whl
+Collecting zipp>=0.5 (from importlib-metadata>=0.12; python_version < "3.8"->tox>=2.0->tox-travis==0.8)
+  Downloading https://files.pythonhosted.org/packages/0f/8c/715c54e9e34c0c4820f616a913a7de3337d0cd79074dd1bed4dd840f16ae/zipp-3.4.1-py3-none-any.whl
+Installing collected packages: six, typing-extensions, zipp, importlib-metadata, pluggy, filelock, toml, tox, tox-travis
+  Found existing installation: six 1.11.0
+    Uninstalling six-1.11.0:
+      Successfully uninstalled six-1.11.0
+  Found existing installation: pluggy 0.8.0
+    Uninstalling pluggy-0.8.0:
+      Successfully uninstalled pluggy-0.8.0
+Successfully installed filelock-3.0.12 importlib-metadata-3.8.1 pluggy-0.13.1 six-1.15.0 toml-0.10.2 tox-3.23.0 tox-travis-0.8 typing-extensions-3.7.4.3 zipp-3.4.1
+
+travis_time:end:015b2b97:start=1616874980218349307,finish=1616874983294400922,duration=3076051615[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:1a1d55d0[0K$ pip install codecov==2.0.5
+Collecting codecov==2.0.5
+  Downloading https://files.pythonhosted.org/packages/f4/d3/c060620c5e6532378df91406c2e0ab6764887c60d16d1508587073fe8135/codecov-2.0.5-py2.py3-none-any.whl
+Collecting coverage (from codecov==2.0.5)
+  Downloading https://files.pythonhosted.org/packages/af/a7/c4d5a5f0dc3f06184ec5c4fdd3d8d57a8e454e677945386859238ab220e7/coverage-5.5-cp36-cp36m-manylinux1_x86_64.whl (240kB)
+Collecting requests>=2.0.0 (from codecov==2.0.5)
+  Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl (61kB)
+Collecting argparse (from codecov==2.0.5)
+  Downloading https://files.pythonhosted.org/packages/f2/94/3af39d34be01a24a6e65433d19e107099374224905f1e0cc6bbe1fd22a2f/argparse-1.4.0-py2.py3-none-any.whl
+Collecting chardet<5,>=3.0.2 (from requests>=2.0.0->codecov==2.0.5)
+  Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl (178kB)
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages (from requests>=2.0.0->codecov==2.0.5)
+Collecting idna<3,>=2.5 (from requests>=2.0.0->codecov==2.0.5)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting urllib3<1.27,>=1.21.1 (from requests>=2.0.0->codecov==2.0.5)
+  Downloading https://files.pythonhosted.org/packages/09/c6/d3e3abe5b4f4f16cf0dfc9240ab7ce10c2baa0e268989a4e3ec19e90c84e/urllib3-1.26.4-py2.py3-none-any.whl (153kB)
+Installing collected packages: coverage, chardet, idna, urllib3, requests, argparse, codecov
+Successfully installed argparse-1.4.0 chardet-4.0.0 codecov-2.0.5 coverage-5.5 idna-2.10 requests-2.25.1 urllib3-1.26.4
+
+travis_time:end:1a1d55d0:start=1616874983305118385,finish=1616874987484451190,duration=4179332805[0Ktravis_fold:end:install.3[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:166a8dc4[0K$ export PATH=$PATH:$PWD/bin
+
+travis_time:end:166a8dc4:start=1616874987496517725,finish=1616874987505552518,duration=9034793[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:04081988[0K$ export PREFIX=$PWD
+
+travis_time:end:04081988:start=1616874987516308158,finish=1616874987524560307,duration=8252149[0Ktravis_fold:end:before_script.2[0Ktravis_time:start:109f1f38[0K$ tox
+GLOB sdist-make: /home/travis/build/passed/glennmatthews/cot/setup.py
+ERROR: invocation failed (exit code 1), logfile: /home/travis/build/passed/glennmatthews/cot/.tox/log/GLOB-0.log
+================================== log start ===================================
+no previously-included directories found matching 'build'
+
+Installed /home/travis/build/passed/glennmatthews/cot/.eggs/sphinx_rtd_theme-0.5.1-py3.6.egg
+Searching for sphinx>=1.3.1
+Reading https://pypi.python.org/simple/sphinx/
+Downloading https://files.pythonhosted.org/packages/47/8c/b8edf8b293613057355d45365201d9e98560a484a9c177934a6f25115826/Sphinx-3.5.3.tar.gz#sha256=ce9c228456131bab09a3d7d10ae58474de562a6f79abb3dc811ae401cf8c1abc
+Best match: Sphinx 3.5.3
+Processing Sphinx-3.5.3.tar.gz
+Writing /tmp/easy_install-2vld54q5/Sphinx-3.5.3/setup.cfg
+Running Sphinx-3.5.3/setup.py -q bdist_egg --dist-dir /tmp/easy_install-2vld54q5/Sphinx-3.5.3/egg-dist-tmp-9sh__dg4
+/opt/python/3.6.7/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'long_description_content_type'
+  warnings.warn(msg)
+/opt/python/3.6.7/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'project_urls'
+  warnings.warn(msg)
+warning: no files found matching 'sphinx-autogen.py'
+warning: no files found matching 'sphinx-build.py'
+warning: no files found matching 'sphinx-quickstart.py'
+warning: no files found matching 'sphinx-apidoc.py'
+warning: no files found matching 'sphinx/locale/.tx/config'
+no previously-included directories found matching 'doc/_build'
+no previously-included directories found matching 'sphinx/locale/.tx'
+creating /home/travis/build/passed/glennmatthews/cot/.eggs/Sphinx-3.5.3-py3.6.egg
+Extracting Sphinx-3.5.3-py3.6.egg to /home/travis/build/passed/glennmatthews/cot/.eggs
+
+Installed /home/travis/build/passed/glennmatthews/cot/.eggs/Sphinx-3.5.3-py3.6.egg
+Searching for verboselogs>=1.6
+Reading https://pypi.python.org/simple/verboselogs/
+Downloading https://files.pythonhosted.org/packages/29/15/90ffe9bdfdd1e102bc6c21b1eea755d34e69772074b6e706cab741b9b698/verboselogs-1.7.tar.gz#sha256=e33ddedcdfdafcb3a174701150430b11b46ceb64c2a9a26198c76a156568e427
+Best match: verboselogs 1.7
+Processing verboselogs-1.7.tar.gz
+Writing /tmp/easy_install-wkvgu0et/verboselogs-1.7/setup.cfg
+Running verboselogs-1.7/setup.py -q bdist_egg --dist-dir /tmp/easy_install-wkvgu0et/verboselogs-1.7/egg-dist-tmp-zqn5epg5
+zip_safe flag not set; analyzing archive contents...
+Moving verboselogs-1.7-py3.6.egg to /home/travis/build/passed/glennmatthews/cot/.eggs
+
+Installed /home/travis/build/passed/glennmatthews/cot/.eggs/verboselogs-1.7-py3.6.egg
+Searching for pyvmomi>=5.5.0.2014.1
+Reading https://pypi.python.org/simple/pyvmomi/
+Downloading https://files.pythonhosted.org/packages/ba/69/4e8bfd6b0aae49382e1ab9e3ce7de9ea6318eac007b3076e6006dbe5a7cd/pyvmomi-7.0.1.tar.gz#sha256=028c4dec176d28805be7fc647cfe7f14357324522d6f08860fd34efaa66ec834
+Best match: pyvmomi 7.0.1
+Processing pyvmomi-7.0.1.tar.gz
+Writing /tmp/easy_install-u6jyzv6k/pyvmomi-7.0.1/setup.cfg
+Running pyvmomi-7.0.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-u6jyzv6k/pyvmomi-7.0.1/egg-dist-tmp-i7zcurx8
+Moving pyvmomi-7.0.1-py3.6.egg to /home/travis/build/passed/glennmatthews/cot/.eggs
+
+Installed /home/travis/build/passed/glennmatthews/cot/.eggs/pyvmomi-7.0.1-py3.6.egg
+Searching for colorlog>=2.5.0
+Reading https://pypi.python.org/simple/colorlog/
+Downloading https://files.pythonhosted.org/packages/75/32/cdfba08674d72fe7895a8ec7be8f171e8502274999cae9497e4545404873/colorlog-4.8.0.tar.gz#sha256=59b53160c60902c405cdec28d38356e09d40686659048893e026ecbd589516b1
+Best match: colorlog 4.8.0
+Processing colorlog-4.8.0.tar.gz
+Writing /tmp/easy_install-e3znjciz/colorlog-4.8.0/setup.cfg
+Running colorlog-4.8.0/setup.py -q bdist_egg --dist-dir /tmp/easy_install-e3znjciz/colorlog-4.8.0/egg-dist-tmp-ngnbiz3a
+Traceback (most recent call last):
+  File "/opt/python/3.6.7/lib/python3.6/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/opt/python/3.6.7/lib/python3.6/distutils/dist.py", line 955, in run_commands
+    self.run_command(cmd)
+  File "/opt/python/3.6.7/lib/python3.6/distutils/dist.py", line 974, in run_command
+    cmd_obj.run()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/bdist_egg.py", line 152, in run
+    self.run_command("egg_info")
+  File "/opt/python/3.6.7/lib/python3.6/distutils/cmd.py", line 313, in run_command
+    self.distribution.run_command(command)
+  File "/opt/python/3.6.7/lib/python3.6/distutils/dist.py", line 974, in run_command
+    cmd_obj.run()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/egg_info.py", line 279, in run
+    self.find_sources()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/egg_info.py", line 294, in find_sources
+    mm.run()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/egg_info.py", line 525, in run
+    self.add_defaults()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/egg_info.py", line 561, in add_defaults
+    sdist.add_defaults(self)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/py36compat.py", line 34, in add_defaults
+    self._add_defaults_python()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/sdist.py", line 134, in _add_defaults_python
+    self.filelist.extend(build_py.get_source_files())
+  File "/opt/python/3.6.7/lib/python3.6/distutils/command/build_py.py", line 301, in get_source_files
+    return [module[-1] for module in self.find_all_modules()]
+  File "/opt/python/3.6.7/lib/python3.6/distutils/command/build_py.py", line 296, in find_all_modules
+    m = self.find_package_modules(package, package_dir)
+  File "/opt/python/3.6.7/lib/python3.6/distutils/command/build_py.py", line 218, in find_package_modules
+    self.check_package(package, package_dir)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/build_py.py", line 163, in check_package
+    init_py = orig.build_py.check_package(self, package, package_dir)
+  File "/opt/python/3.6.7/lib/python3.6/distutils/command/build_py.py", line 191, in check_package
+    "package directory '%s' does not exist" % package_dir)
+distutils.errors.DistutilsFileError: package directory 'find_namespace:' does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 157, in save_modules
+    yield saved
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 198, in setup_context
+    yield
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 255, in run_setup
+    DirectorySandbox(setup_dir).run(runner)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 285, in run
+    return func()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 253, in runner
+    _execfile(setup_script, ns)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 47, in _execfile
+    exec(code, globals, locals)
+  File "/tmp/easy_install-e3znjciz/colorlog-4.8.0/temp/easy_install-4n5mglgm/setuptools-54.2.0/setup.py", line 162, in <module>
+    'Intended Audience :: Information Technology',
+  File "/opt/python/3.6.7/lib/python3.6/distutils/core.py", line 163, in setup
+    raise SystemExit("error: " + str(msg))
+SystemExit: error: package directory 'find_namespace:' does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1106, in run_setup
+    run_setup(setup_script, args)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 258, in run_setup
+    raise
+  File "/opt/python/3.6.7/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 198, in setup_context
+    yield
+  File "/opt/python/3.6.7/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 169, in save_modules
+    saved_exc.resume()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 144, in resume
+    six.reraise(type, exc, self._tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/six.py", line 702, in reraise
+    raise value.with_traceback(tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 157, in save_modules
+    yield saved
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 198, in setup_context
+    yield
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 255, in run_setup
+    DirectorySandbox(setup_dir).run(runner)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 285, in run
+    return func()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 253, in runner
+    _execfile(setup_script, ns)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 47, in _execfile
+    exec(code, globals, locals)
+  File "/tmp/easy_install-e3znjciz/colorlog-4.8.0/temp/easy_install-4n5mglgm/setuptools-54.2.0/setup.py", line 162, in <module>
+    'Intended Audience :: Information Technology',
+  File "/opt/python/3.6.7/lib/python3.6/distutils/core.py", line 163, in setup
+    raise SystemExit("error: " + str(msg))
+SystemExit: error: package directory 'find_namespace:' does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 157, in save_modules
+    yield saved
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 198, in setup_context
+    yield
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 255, in run_setup
+    DirectorySandbox(setup_dir).run(runner)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 285, in run
+    return func()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 253, in runner
+    _execfile(setup_script, ns)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 47, in _execfile
+    exec(code, globals, locals)
+  File "/tmp/easy_install-e3znjciz/colorlog-4.8.0/setup.py", line 32, in <module>
+    
+  File "/opt/python/3.6.7/lib/python3.6/distutils/core.py", line 108, in setup
+    _setup_distribution = dist = klass(attrs)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 317, in __init__
+    self.fetch_build_eggs(attrs['setup_requires'])
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 372, in fetch_build_eggs
+    replace_conflicting=True,
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 851, in resolve
+    dist = best[req.key] = env.best_match(req, ws, installer)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1123, in best_match
+    return self.obtain(req, installer)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1135, in obtain
+    return installer(requirement)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 440, in fetch_build_egg
+    return cmd.easy_install(req)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 674, in easy_install
+    return self.install_item(spec, dist.location, tmpdir, deps)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 700, in install_item
+    dists = self.install_eggs(spec, download, tmpdir)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 881, in install_eggs
+    return self.build_and_install(setup_script, setup_base)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1120, in build_and_install
+    self.run_setup(setup_script, setup_base, args)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1108, in run_setup
+    raise DistutilsError("Setup script exited with %s" % (v.args[0],))
+distutils.errors.DistutilsError: Setup script exited with error: package directory 'find_namespace:' does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "setup.py", line 184, in <module>
+    keywords='virtualization ovf ova esxi vmware vcenter',
+  File "/opt/python/3.6.7/lib/python3.6/distutils/core.py", line 108, in setup
+    _setup_distribution = dist = klass(attrs)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 317, in __init__
+    self.fetch_build_eggs(attrs['setup_requires'])
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 372, in fetch_build_eggs
+    replace_conflicting=True,
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 851, in resolve
+    dist = best[req.key] = env.best_match(req, ws, installer)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1123, in best_match
+    return self.obtain(req, installer)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1135, in obtain
+    return installer(requirement)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 440, in fetch_build_egg
+    return cmd.easy_install(req)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 674, in easy_install
+    return self.install_item(spec, dist.location, tmpdir, deps)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 700, in install_item
+    dists = self.install_eggs(spec, download, tmpdir)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 881, in install_eggs
+    return self.build_and_install(setup_script, setup_base)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1120, in build_and_install
+    self.run_setup(setup_script, setup_base, args)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1106, in run_setup
+    run_setup(setup_script, args)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 258, in run_setup
+    raise
+  File "/opt/python/3.6.7/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 198, in setup_context
+    yield
+  File "/opt/python/3.6.7/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 169, in save_modules
+    saved_exc.resume()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 144, in resume
+    six.reraise(type, exc, self._tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/six.py", line 702, in reraise
+    raise value.with_traceback(tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 157, in save_modules
+    yield saved
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 198, in setup_context
+    yield
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 255, in run_setup
+    DirectorySandbox(setup_dir).run(runner)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 285, in run
+    return func()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 253, in runner
+    _execfile(setup_script, ns)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/sandbox.py", line 47, in _execfile
+    exec(code, globals, locals)
+  File "/tmp/easy_install-e3znjciz/colorlog-4.8.0/setup.py", line 32, in <module>
+    
+  File "/opt/python/3.6.7/lib/python3.6/distutils/core.py", line 108, in setup
+    _setup_distribution = dist = klass(attrs)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 317, in __init__
+    self.fetch_build_eggs(attrs['setup_requires'])
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 372, in fetch_build_eggs
+    replace_conflicting=True,
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 851, in resolve
+    dist = best[req.key] = env.best_match(req, ws, installer)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1123, in best_match
+    return self.obtain(req, installer)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1135, in obtain
+    return installer(requirement)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/dist.py", line 440, in fetch_build_egg
+    return cmd.easy_install(req)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 674, in easy_install
+    return self.install_item(spec, dist.location, tmpdir, deps)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 700, in install_item
+    dists = self.install_eggs(spec, download, tmpdir)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 881, in install_eggs
+    return self.build_and_install(setup_script, setup_base)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1120, in build_and_install
+    self.run_setup(setup_script, setup_base, args)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/setuptools/command/easy_install.py", line 1108, in run_setup
+    raise DistutilsError("Setup script exited with %s" % (v.args[0],))
+distutils.errors.DistutilsError: Setup script exited with error: package directory 'find_namespace:' does not exist
+
+=================================== log end ====================================
+ERROR: FAIL could not package project - v = InvocationError('/home/travis/virtualenv/python3.6.7/bin/python setup.py sdist --formats=zip --dist-dir /home/travis/build/passed/glennmatthews/cot/.tox/dist', 1)
+The [tox:travis] section is deprecated in favor of the "python" key of the [travis] section.
+
+travis_time:end:109f1f38:start=1616874987533833739,finish=1616875010123897823,duration=22590064084[0K
+[31;1mThe command "tox" exited with 2.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:05923908[0K
+travis_time:end:05923908:start=1616875010135486822,finish=1616875010142723254,duration=7236432[0Ktravis_time:start:1dd69d32[0K/home/travis/.casher/bin/casher:190: warning: Insecure world writable dir /home/travis/build/passed/glennmatthews/cot/. in PATH, mode 040777
+[32;1mchanges detected, packing new archive[0m
+/home/travis/.casher/bin/casher:213:in `cache_archive_name': undefined method `[]' for nil:NilClass (NoMethodError)
+	from /home/travis/.casher/bin/casher:143:in `push'
+	from /home/travis/.casher/bin/casher:53:in `block in run'
+	from /home/travis/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/timeout.rb:69:in `timeout'
+	from /home/travis/.casher/bin/casher:53:in `run'
+	from /home/travis/.casher/bin/casher:263:in `<main>'
+
+travis_time:end:1dd69d32:start=1616875010152046153,finish=1616875011929686129,duration=1777639976[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

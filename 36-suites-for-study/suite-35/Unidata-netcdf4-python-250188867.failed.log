@@ -1,0 +1,491 @@
+travis_time:start:037d8258[0Ktravis_time:end:037d8258:start=1622247566805874719,finish=1622247566995545626,duration=189670907,event=no_world_writable_dirs[0Ktravis_time:start:0664e649[0Ktravis_time:end:0664e649:start=1622247567002563402,finish=1622247567007202693,duration=4639291,event=check_unsupported[0Ktravis_time:start:164fe1f8[0Ktravis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+Runtime kernel version: 4.15.0-109-generic
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_time:end:164fe1f8:start=1622247567013761206,finish=1622247567023562139,duration=9800933,event=show_system_info[0Ktravis_time:start:03e7b2bf[0Ktravis_time:end:03e7b2bf:start=1622247567029761272,finish=1622247567047751247,duration=17989975,event=rm_riak_source[0Ktravis_time:start:000913da[0Ktravis_time:end:000913da:start=1622247567053977233,finish=1622247567063500263,duration=9523030,event=fix_rwky_redis[0Ktravis_time:start:0ff48b0a[0K[31;1mTimeout waiting for network availability.[0m
+travis_time:end:0ff48b0a:start=1622247567069078417,finish=1622247587796406248,duration=20727327831,event=wait_for_network[0Ktravis_time:start:1a0364fe[0Ktravis_time:end:1a0364fe:start=1622247587803390763,finish=1622247594628884904,duration=6825494141,event=update_apt_keys[0Ktravis_time:start:1976e580[0Ktravis_time:end:1976e580:start=1622247594634172319,finish=1622247594694311234,duration=60138915,event=fix_hhvm_source[0Ktravis_time:start:0516786a[0Ktravis_time:end:0516786a:start=1622247594700969976,finish=1622247594706351924,duration=5381948,event=update_mongo_arch[0Ktravis_time:start:26f79d32[0Ktravis_time:end:26f79d32:start=1622247594712332073,finish=1622247594757411185,duration=45079112,event=fix_sudo_enabled_trusty[0Ktravis_time:start:05eb3a3e[0Ktravis_time:end:05eb3a3e:start=1622247594762205207,finish=1622247594775392266,duration=13187059,event=clean_up_path[0Ktravis_time:start:03ce5ac8[0Ktravis_time:end:03ce5ac8:start=1622247594780142847,finish=1622247594800509404,duration=20366557,event=fix_resolv_conf[0Ktravis_time:start:0af67545[0Ktravis_time:end:0af67545:start=1622247594806544938,finish=1622247594820681158,duration=14136220,event=fix_etc_hosts[0Ktravis_time:start:118a4574[0Ktravis_time:end:118a4574:start=1622247594826295244,finish=1622247595472247950,duration=645952706,event=fix_mvn_settings_xml[0Ktravis_time:start:05b8b79c[0Ktravis_time:end:05b8b79c:start=1622247595478161367,finish=1622247595494094795,duration=15933428,event=no_ipv6_localhost[0Ktravis_time:start:020cc956[0Ktravis_time:end:020cc956:start=1622247595498562158,finish=1622247595529227472,duration=30665314,event=fix_etc_mavenrc[0Ktravis_time:start:1cae69bc[0Ktravis_time:end:1cae69bc:start=1622247595534264565,finish=1622247595540328118,duration=6063553,event=fix_wwdr_certificate[0Ktravis_time:start:028ff728[0Ktravis_time:end:028ff728:start=1622247595546769985,finish=1622247595581170167,duration=34400182,event=put_localhost_first[0Ktravis_time:start:02c0906d[0Ktravis_time:end:02c0906d:start=1622247595586523262,finish=1622247595591028796,duration=4505534,event=home_paths[0Ktravis_time:start:036aa0b0[0Ktravis_time:end:036aa0b0:start=1622247595596517831,finish=1622247595640710960,duration=44193129,event=disable_initramfs[0Ktravis_time:start:02ad912e[0Ktravis_time:end:02ad912e:start=1622247595646906923,finish=1622247595667293205,duration=20386282,event=disable_ssh_roaming[0Ktravis_time:start:01c0c9d3[0Ktravis_time:end:01c0c9d3:start=1622247595673105495,finish=1622247595677156585,duration=4051090,event=debug_tools[0Ktravis_time:start:08b09de0[0Ktravis_time:end:08b09de0:start=1622247595682997134,finish=1622247595689240108,duration=6242974,event=uninstall_oclint[0Ktravis_time:start:0fdc8bd0[0Ktravis_time:end:0fdc8bd0:start=1622247595695136533,finish=1622247595700758328,duration=5621795,event=rvm_use[0Ktravis_time:start:091f54a1[0Ktravis_time:end:091f54a1:start=1622247595706505081,finish=1622247595719327950,duration=12822869,event=rm_etc_boto_cfg[0Ktravis_time:start:2ac93110[0Ktravis_time:end:2ac93110:start=1622247595724843100,finish=1622247595729702268,duration=4859168,event=rm_oraclejdk8_symlink[0Ktravis_time:start:1bb8a5d1[0Ktravis_time:end:1bb8a5d1:start=1622247595735651017,finish=1622247595780417305,duration=44766288,event=enable_i386[0Ktravis_time:start:13c9baa7[0Ktravis_time:end:13c9baa7:start=1622247595786264228,finish=1622247595792546390,duration=6282162,event=update_rubygems[0Ktravis_time:start:00467ee0[0Ktravis_time:end:00467ee0:start=1622247595798848129,finish=1622247595807228645,duration=8380516,event=ensure_path_components[0Ktravis_time:start:2efb4965[0Ktravis_time:end:2efb4965:start=1622247595812962842,finish=1622247595817499731,duration=4536889,event=redefine_curl[0Ktravis_time:start:0f5645a0[0Ktravis_time:end:0f5645a0:start=1622247595823305903,finish=1622247595827616836,duration=4310933,event=nonblock_pipe[0Ktravis_time:start:2358290a[0Ktravis_time:end:2358290a:start=1622247595832883504,finish=1622247598883070276,duration=3050186772,event=apt_get_update[0Ktravis_time:start:265fe404[0Ktravis_time:end:265fe404:start=1622247598888999183,finish=1622247598893929793,duration=4930610,event=deprecate_xcode_64[0Ktravis_time:start:108812d7[0Ktravis_time:end:108812d7:start=1622247598900430353,finish=1622247598908384832,duration=7954479,event=update_heroku[0Ktravis_time:start:10f85a42[0Ktravis_time:end:10f85a42:start=1622247598914697341,finish=1622247598919254585,duration=4557244,event=shell_session_update[0Ktravis_time:start:06cf0f53[0Ktravis_fold:start:docker_mtu[0Ktee: /etc/docker/daemon.json: No such file or directory
+docker: unrecognized service
+travis_fold:end:docker_mtu[0Ktravis_time:end:06cf0f53:start=1622247598924800489,finish=1622247598951807275,duration=27006786,event=set_docker_mtu[0Ktravis_time:start:29371f7d[0Ktravis_time:end:29371f7d:start=1622247598956392674,finish=1622247598967838410,duration=11445736,event=resolvconf[0K[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+travis_time:start:337b00d8[0K$ curl -sSf --retry 5 -o python-3.5.tar.bz2 ${archive_url}
+travis_time:end:337b00d8:start=1622247599048097179,finish=1622247602150823441,duration=3102726262,event=configure[0Ktravis_time:start:2740ea08[0K$ sudo tar xjf python-3.5.tar.bz2 --directory /
+travis_time:end:2740ea08:start=1622247602158195997,finish=1622247613623587959,duration=11465391962,event=configure[0Ktravis_fold:start:apt[0Ktravis_time:start:19a6f1de[0K$ travis_apt_get_update
+travis_time:end:19a6f1de:start=1622247613699796845,finish=1622247616545075598,duration=2845278753,event=prepare[0K[33;1mInstalling APT Packages[0m
+travis_time:start:05382e8e[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends $(travis_apt_get_options) install libhdf5-serial-dev netcdf-bin libnetcdf-dev
+Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Unable to locate package libhdf5-serial-dev
+E: Unable to locate package netcdf-bin
+E: Unable to locate package libnetcdf-dev
+travis_time:end:05382e8e:start=1622247616553016358,finish=1622247616630615929,duration=77599571,event=prepare[0Ktravis_fold:start:apt-get.diagnostics[0K[31;1mapt-get install failed[0m
+$ cat ${TRAVIS_HOME}/apt-get-update.log
+Ign http://us.archive.ubuntu.com precise Release.gpg
+Ign http://us.archive.ubuntu.com precise-updates Release.gpg
+Ign http://us.archive.ubuntu.com precise-backports Release.gpg
+Ign http://security.ubuntu.com precise-security Release.gpg
+Ign http://us.archive.ubuntu.com precise Release
+Ign http://us.archive.ubuntu.com precise-updates Release
+Ign http://security.ubuntu.com precise-security Release
+Ign http://us.archive.ubuntu.com precise-backports Release
+Err http://security.ubuntu.com precise-security/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://security.ubuntu.com precise-security/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+Ign http://security.ubuntu.com precise-security Release.gpg
+Ign http://us.archive.ubuntu.com precise Release.gpg
+Ign http://us.archive.ubuntu.com precise-updates Release.gpg
+Ign http://us.archive.ubuntu.com precise-backports Release.gpg
+Ign http://security.ubuntu.com precise-security Release
+Ign http://us.archive.ubuntu.com precise Release
+Ign http://us.archive.ubuntu.com precise-updates Release
+Ign http://us.archive.ubuntu.com precise-backports Release
+Err http://security.ubuntu.com precise-security/main Sources
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/restricted Sources
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/universe Sources
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/multiverse Sources
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/main amd64 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/main i386 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/universe i386 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://security.ubuntu.com precise-security/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.39 80]
+Err http://us.archive.ubuntu.com precise/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-updates/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/main Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/restricted Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/universe Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/multiverse Sources
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/main amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/restricted amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/universe amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/multiverse amd64 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/main i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/restricted i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/universe i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+Err http://us.archive.ubuntu.com precise-backports/multiverse i386 Packages
+  404  Not Found [IP: 91.189.91.38 80]
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/main/source/Sources  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/restricted/source/Sources  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/universe/source/Sources  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/multiverse/source/Sources  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/precise-security/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.39 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-updates/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/main/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/restricted/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/universe/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/multiverse/source/Sources  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/main/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/restricted/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/multiverse/binary-amd64/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/main/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/restricted/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/universe/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/precise-backports/multiverse/binary-i386/Packages  404  Not Found [IP: 91.189.91.38 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+travis_fold:end:apt-get.diagnostics[0K[31;1mThe command "sudo -E apt-get -yq --no-install-suggests --no-install-recommends $(travis_apt_get_options) install libhdf5-serial-dev netcdf-bin libnetcdf-dev" failed and exited with 100 during .[0m
+
+Your build has been stopped.

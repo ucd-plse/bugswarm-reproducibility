@@ -1,0 +1,563 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd failed/jacebrowning/doorstop
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export GH_TOKEN=[secure]
+
+travis_time:start:04d0df3c[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:04d0df3c:start=1615666580789478166,finish=1615666580799998071,duration=10519905[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:install[0Ktravis_time:start:0d740530[0K$ pip install coveralls==1.1 scrutinizer-ocular==1.0.3
+Collecting coveralls==1.1
+  Downloading https://files.pythonhosted.org/packages/81/f9/da2ad9334f60e418cb229c58724330be2635b369676d3eec8f61e1f85faa/coveralls-1.1-py2.py3-none-any.whl
+Collecting scrutinizer-ocular==1.0.3
+  Downloading https://files.pythonhosted.org/packages/99/0b/12ff6cb2c09192a0cc2db9edf7d70b732b7711de91a1b02bd163c9329f34/scrutinizer-ocular-1.0.3.tar.gz
+Collecting docopt>=0.6.1 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting requests>=1.0.0 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl (61kB)
+Collecting coverage>=3.6 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/18/97/fda94f1e78b508dd1a493106c236076c4c82a9925c9347211afc4d6bd4e0/coverage-5.5-cp35-cp35m-manylinux1_x86_64.whl (240kB)
+Collecting argparse>=1.0.0 (from scrutinizer-ocular==1.0.3)
+  Downloading https://files.pythonhosted.org/packages/f2/94/3af39d34be01a24a6e65433d19e107099374224905f1e0cc6bbe1fd22a2f/argparse-1.4.0-py2.py3-none-any.whl
+Requirement already satisfied: certifi>=2017.4.17 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from requests>=1.0.0->coveralls==1.1) (2018.4.16)
+Collecting urllib3<1.27,>=1.21.1 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/23/fc/8a49991f7905261f9ca9df5aa9b58363c3c821ce3e7f671895442b7100f2/urllib3-1.26.3-py2.py3-none-any.whl (137kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Collecting chardet<5,>=3.0.2 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl (178kB)
+Building wheels for collected packages: scrutinizer-ocular, docopt
+  Running setup.py bdist_wheel for scrutinizer-ocular: started
+  Running setup.py bdist_wheel for scrutinizer-ocular: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/a0/5e/a6/46f867cd78b371176f6eeecce41b01ceff4be0f6f325e4276c
+  Running setup.py bdist_wheel for docopt: started
+  Running setup.py bdist_wheel for docopt: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/9b/04/dd/7daf4150b6d9b12949298737de9431a324d4b797ffd63f526e
+Successfully built scrutinizer-ocular docopt
+Installing collected packages: docopt, urllib3, idna, chardet, requests, coverage, coveralls, argparse, scrutinizer-ocular
+Successfully installed argparse-1.4.0 chardet-4.0.0 coverage-5.5 coveralls-1.1 docopt-0.6.2 idna-2.10 requests-2.25.1 scrutinizer-ocular-1.0.3 urllib3-1.26.3
+
+travis_time:end:0d740530:start=1615666581208488523,finish=1615666585617104607,duration=4408616084[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:024c7f74[0K$ make env
+virtualenv --python python env
+Already using interpreter /home/travis/virtualenv/python3.5.6/bin/python
+Using real prefix '/opt/python/3.5.6'
+New python executable in /home/travis/build/failed/jacebrowning/doorstop/env/bin/python
+Installing setuptools, pip, wheel...done.
+env/bin/pip install --upgrade pip
+DEPRECATION: Python 3.5 reached the end of its life on September 13th, 2020. Please upgrade your Python as Python 3.5 is no longer maintained. pip 21.0 will drop support for Python 3.5 in January 2021. pip 21.0 will remove support for this functionality.
+Requirement already satisfied: pip in ./env/lib/python3.5/site-packages (20.3.4)
+Collecting pip
+  Using cached pip-20.3.4-py2.py3-none-any.whl (1.5 MB)
+  Downloading pip-20.3.3-py2.py3-none-any.whl (1.5 MB)
+VIRTUAL_ENV=env env/bin/python setup.py develop
+running develop
+running egg_info
+creating Doorstop.egg-info
+writing entry points to Doorstop.egg-info/entry_points.txt
+writing Doorstop.egg-info/PKG-INFO
+writing top-level names to Doorstop.egg-info/top_level.txt
+writing dependency_links to Doorstop.egg-info/dependency_links.txt
+writing requirements to Doorstop.egg-info/requires.txt
+writing manifest file 'Doorstop.egg-info/SOURCES.txt'
+reading manifest file 'Doorstop.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.rst'
+warning: no files found matching '*.txt'
+warning: no files found matching '*.rst' under directory 'docs'
+warning: no files found matching '*.txt' under directory 'docs'
+warning: no directories found matching '*/files'
+writing manifest file 'Doorstop.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/Doorstop.egg-link (link to .)
+Adding Doorstop 1.2.1 to easy-install.pth file
+Installing doorstop-server script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing doorstop-gui script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing doorstop script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop
+Processing dependencies for Doorstop==1.2.1
+Searching for pyficache==0.3.1
+Reading https://pypi.org/simple/pyficache/
+Downloading https://files.pythonhosted.org/packages/42/4d/262574948de06a5fa4ade0be6ca79a2f0ee6cbe548b5a42332e0552ac5e6/pyficache-0.3.1-py3.5.egg#sha256=1ef1c7d56b7d926339a12d003e6a1e908c0a71fd4c1af8a7782471cc3b418ff6
+Best match: pyficache 0.3.1
+Processing pyficache-0.3.1-py3.5.egg
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/pyficache-0.3.1-py3.5.egg
+Extracting pyficache-0.3.1-py3.5.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding pyficache 0.3.1 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/pyficache-0.3.1-py3.5.egg
+Searching for requests<3,>=2
+Reading https://pypi.org/simple/requests/
+Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl#sha256=c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e
+Best match: requests 2.25.1
+Processing requests-2.25.1-py2.py3-none-any.whl
+Installing requests-2.25.1-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding requests 2.25.1 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/requests-2.25.1-py3.5.egg
+Searching for bottle==0.12.13
+Reading https://pypi.org/simple/bottle/
+Downloading https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz#sha256=39b751aee0b167be8dffb63ca81b735bbf1dd0905b3bc42761efedee8f123355
+Best match: bottle 0.12.13
+Processing bottle-0.12.13.tar.gz
+Writing /tmp/easy_install-odjgy7v3/bottle-0.12.13/setup.cfg
+Running bottle-0.12.13/setup.py -q bdist_egg --dist-dir /tmp/easy_install-odjgy7v3/bottle-0.12.13/egg-dist-tmp-46oh52zk
+warning: no files found matching 'LICENSE.txt'
+zip_safe flag not set; analyzing archive contents...
+__pycache__.bottle.cpython-35: module references __file__
+__pycache__.bottle.cpython-35: module references __path__
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/bottle-0.12.13-py3.5.egg
+Extracting bottle-0.12.13-py3.5.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding bottle 0.12.13 to easy-install.pth file
+Installing bottle.py script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/bottle-0.12.13-py3.5.egg
+Searching for openpyxl<2.2,>=2.1
+Reading https://pypi.org/simple/openpyxl/
+Downloading https://files.pythonhosted.org/packages/87/d5/8f5732092a76f38fe9f420e5f66335b7a072cb7e61024540a07cf18101b2/openpyxl-2.1.5.tar.gz#sha256=1c0f7ceae3d65f86c09ca29cf369371cc87205c07ba64e215c825e7fb8a49e93
+Best match: openpyxl 2.1.5
+Processing openpyxl-2.1.5.tar.gz
+Writing /tmp/easy_install-egiobjxe/openpyxl-2.1.5/setup.cfg
+Running openpyxl-2.1.5/setup.py -q bdist_egg --dist-dir /tmp/easy_install-egiobjxe/openpyxl-2.1.5/egg-dist-tmp-l_g4za7h
+no previously-included directories found matching 'openpyxl/tests'
+no previously-included directories found matching 'openpyxl/sample'
+no previously-included directories found matching 'openpyxl/benchmarks'
+warning: no previously-included files matching 'test_*.py' found under directory 'openpyxl'
+warning: no previously-included files matching 'tests/*.py' found under directory 'openpyxl'
+zip_safe flag not set; analyzing archive contents...
+openpyxl.__pycache__.profiling.cpython-35: module references __file__
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/openpyxl-2.1.5-py3.5.egg
+Extracting openpyxl-2.1.5-py3.5.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding openpyxl 2.1.5 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/openpyxl-2.1.5-py3.5.egg
+Searching for Markdown<3,>=2
+Reading https://pypi.org/simple/Markdown/
+Downloading https://files.pythonhosted.org/packages/6d/7d/488b90f470b96531a3f5788cf12a93332f543dbab13c423a5e7ce96a0493/Markdown-2.6.11-py2.py3-none-any.whl#sha256=9ba587db9daee7ec761cfc656272be6aabe2ed300fece21208e4aab2e457bc8f
+Best match: Markdown 2.6.11
+Processing Markdown-2.6.11-py2.py3-none-any.whl
+Installing Markdown-2.6.11-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding Markdown 2.6.11 to easy-install.pth file
+Installing markdown_py script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/Markdown-2.6.11-py3.5.egg
+Searching for PyYAML<4,>=3.10
+Reading https://pypi.org/simple/PyYAML/
+Downloading https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz#sha256=3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf
+Best match: PyYAML 3.13
+Processing PyYAML-3.13.tar.gz
+Writing /tmp/easy_install-59sa9t_o/PyYAML-3.13/setup.cfg
+Running PyYAML-3.13/setup.py -q bdist_egg --dist-dir /tmp/easy_install-59sa9t_o/PyYAML-3.13/egg-dist-tmp-wowaae4d
+In file included from ext/_yaml.c:565:0:
+ext/_yaml.h:10:0: warning: "PyString_CheckExact" redefined [enabled by default]
+ext/_yaml.c:455:0: note: this is the location of the previous definition
+ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+ext/_yaml.c:1818:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+ext/_yaml.c:3318:5: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+/usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, size_t,  size_t *)’
+ext/_yaml.c:3559:5: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+ext/_yaml.c:5457:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:5469:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:6583:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:6675:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:6767:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:6779:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:6911:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:1278:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+ext/_yaml.c:8664:9: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:8676:9: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:8935:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9047:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9088:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9109:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:1278:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9490:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9531:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9779:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:9820:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+ext/_yaml.c:11517:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:11837:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:11893:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:11949:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+ext/_yaml.c:12626:3: warning: pointer targets in passing argument 1 of ‘PyUnicode_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:1278:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c:12849:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+ext/_yaml.c:13419:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+ext/_yaml.c:14052:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+/opt/python/3.5.6/include/python3.5m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_input_handler’:
+ext/_yaml.c:14903:87: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+ext/_yaml.c:15423:3: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+/usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, size_t)’
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+ext/_yaml.c:16813:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+ext/_yaml.c:16928:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+ext/_yaml.c:17265:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:17980:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:17980:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:17980:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:18414:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:18414:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:18848:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:18848:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_12serialize’:
+ext/_yaml.c:20317:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+ext/_yaml.c:20432:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+ext/_yaml.c:21288:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:22099:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:22099:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:22099:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:22486:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:22486:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:23016:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+ext/_yaml.c:23016:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+/usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+zip_safe flag not set; analyzing archive contents...
+__pycache__._yaml.cpython-35: module references __file__
+creating /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/PyYAML-3.13-py3.5-linux-x86_64.egg
+Extracting PyYAML-3.13-py3.5-linux-x86_64.egg to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding PyYAML 3.13 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/PyYAML-3.13-py3.5-linux-x86_64.egg
+Searching for pygments>=2.0
+Reading https://pypi.org/simple/pygments/
+Downloading https://files.pythonhosted.org/packages/3a/80/a52c0a7c5939737c6dca75a831e89658ecb6f590fb7752ac777d221937b9/Pygments-2.8.1-py3-none-any.whl#sha256=534ef71d539ae97d4c3a4cf7d6f110f214b0e687e92f9cb9d2a3b0d3101289c8
+Best match: Pygments 2.8.1
+Processing Pygments-2.8.1-py3-none-any.whl
+Installing Pygments-2.8.1-py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding Pygments 2.8.1 to easy-install.pth file
+Installing pygmentize script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/Pygments-2.8.1-py3.5.egg
+Searching for coverage
+Reading https://pypi.org/simple/coverage/
+Downloading https://files.pythonhosted.org/packages/2f/19/4ebe9fe7006d46dd56eacd8cdc800b465590037bffeea17852520613cfaf/coverage-5.5-cp35-cp35m-manylinux2010_x86_64.whl#sha256=30c77c1dc9f253283e34c27935fded5015f7d1abe83bc7821680ac444eaf7793
+Best match: coverage 5.5
+Processing coverage-5.5-cp35-cp35m-manylinux2010_x86_64.whl
+Installing coverage-5.5-cp35-cp35m-manylinux2010_x86_64.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding coverage 5.5 to easy-install.pth file
+Installing coverage script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing coverage-3.5 script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+Installing coverage3 script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/coverage-5.5-py3.5-linux-x86_64.egg
+Searching for urllib3<1.27,>=1.21.1
+Reading https://pypi.org/simple/urllib3/
+Downloading https://files.pythonhosted.org/packages/23/fc/8a49991f7905261f9ca9df5aa9b58363c3c821ce3e7f671895442b7100f2/urllib3-1.26.3-py2.py3-none-any.whl#sha256=1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80
+Best match: urllib3 1.26.3
+Processing urllib3-1.26.3-py2.py3-none-any.whl
+Installing urllib3-1.26.3-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding urllib3 1.26.3 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/urllib3-1.26.3-py3.5.egg
+Searching for idna<3,>=2.5
+Reading https://pypi.org/simple/idna/
+Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl#sha256=b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0
+Best match: idna 2.10
+Processing idna-2.10-py2.py3-none-any.whl
+Installing idna-2.10-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding idna 2.10 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/idna-2.10-py3.5.egg
+Searching for chardet<5,>=3.0.2
+Reading https://pypi.org/simple/chardet/
+Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl#sha256=f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5
+Best match: chardet 4.0.0
+Processing chardet-4.0.0-py2.py3-none-any.whl
+Installing chardet-4.0.0-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding chardet 4.0.0 to easy-install.pth file
+Installing chardetect script to /home/travis/build/failed/jacebrowning/doorstop/env/bin
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/chardet-4.0.0-py3.5.egg
+Searching for certifi>=2017.4.17
+Reading https://pypi.org/simple/certifi/
+Downloading https://files.pythonhosted.org/packages/5e/a0/5f06e1e1d463903cf0c0eebeb751791119ed7a4b3737fdc9a77f1cdfb51f/certifi-2020.12.5-py2.py3-none-any.whl#sha256=719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830
+Best match: certifi 2020.12.5
+Processing certifi-2020.12.5-py2.py3-none-any.whl
+Installing certifi-2020.12.5-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding certifi 2020.12.5 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/certifi-2020.12.5-py3.5.egg
+Searching for jdcal
+Reading https://pypi.org/simple/jdcal/
+Downloading https://files.pythonhosted.org/packages/f0/da/572cbc0bc582390480bbd7c4e93d14dc46079778ed915b505dc494b37c57/jdcal-1.4.1-py2.py3-none-any.whl#sha256=1abf1305fce18b4e8aa248cf8fe0c56ce2032392bc64bbd61b5dff2a19ec8bba
+Best match: jdcal 1.4.1
+Processing jdcal-1.4.1-py2.py3-none-any.whl
+Installing jdcal-1.4.1-py2.py3-none-any.whl to /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages
+Adding jdcal 1.4.1 to easy-install.pth file
+
+Installed /home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/jdcal-1.4.1-py3.5.egg
+Finished processing dependencies for Doorstop==1.2.1
+touch Doorstop.egg-info  # flag to indicate package is installed
+
+travis_time:end:024c7f74:start=1615666585626899257,finish=1615666607360030124,duration=21733130867[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:1a496244[0K$ make depends-ci
+env/bin/pip install --upgrade pep8 pep257 pylint coverage nose
+DEPRECATION: Python 3.5 reached the end of its life on September 13th, 2020. Please upgrade your Python as Python 3.5 is no longer maintained. pip 21.0 will drop support for Python 3.5 in January 2021. pip 21.0 will remove support for this functionality.
+Collecting pep8
+  Downloading pep8-1.7.1-py2.py3-none-any.whl (41 kB)
+Collecting pep257
+  Downloading pep257-0.7.0-py2.py3-none-any.whl (18 kB)
+Collecting pylint
+  Downloading pylint-2.6.2-py3-none-any.whl (325 kB)
+Requirement already satisfied: coverage in ./env/lib/python3.5/site-packages/coverage-5.5-py3.5-linux-x86_64.egg (5.5)
+Collecting coverage
+  Downloading coverage-5.5-cp35-cp35m-manylinux2010_x86_64.whl (240 kB)
+  Downloading coverage-5.4-cp35-cp35m-manylinux2010_x86_64.whl (240 kB)
+Collecting nose
+  Downloading nose-1.3.7-py3-none-any.whl (154 kB)
+Collecting isort<6,>=4.2.5
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+Collecting mccabe<0.7,>=0.6
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting astroid<2.5,>=2.4.0
+  Downloading astroid-2.4.2-py3-none-any.whl (213 kB)
+Collecting toml>=0.7.1
+  Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting typed-ast<1.5,>=1.4.0
+  Downloading typed_ast-1.4.2-cp35-cp35m-manylinux1_x86_64.whl (743 kB)
+Collecting lazy-object-proxy==1.4.*
+  Downloading lazy_object_proxy-1.4.3-cp35-cp35m-manylinux1_x86_64.whl (55 kB)
+Collecting six~=1.12
+  Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting wrapt~=1.11
+  Downloading wrapt-1.12.1.tar.gz (27 kB)
+Building wheels for collected packages: wrapt
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp35-cp35m-linux_x86_64.whl size=62319 sha256=07bb49a9f5a680056a4fc78d6886df63f5efc1907e6b2d73530e169f588c2c6b
+  Stored in directory: /home/travis/.cache/pip/wheels/b8/2d/88/2fb764a7404287819251978fbfe4cacf9b4d8a1d41fce5dd97
+Successfully built wrapt
+Installing collected packages: wrapt, typed-ast, six, lazy-object-proxy, toml, mccabe, isort, astroid, pylint, pep8, pep257, nose
+Successfully installed astroid-2.4.2 isort-4.3.21 lazy-object-proxy-1.4.3 mccabe-0.6.1 nose-1.3.7 pep257-0.7.0 pep8-1.7.1 pylint-2.6.2 six-1.15.0 toml-0.10.2 typed-ast-1.4.2 wrapt-1.12.1
+touch env/.depends-ci  # flag to indicate dependencies are installed
+
+travis_time:end:1a496244:start=1615666607369510955,finish=1615666614225955539,duration=6856444584[0Ktravis_fold:end:before_script.2[0Ktravis_time:start:007dffc2[0K$ make ci
+env/bin/doorstop --warn-all --error-all --quiet
+CRITICAL: cannot ignore 'build' on the CI server
+env/bin/pep8 doorstop --ignore=E501
+/home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/pep8.py:2124: UserWarning: 
+
+pep8 has been renamed to pycodestyle (GitHub issue #466)
+Use of the pep8 tool will be removed in a future release.
+Please install and use `pycodestyle` instead.
+
+$ pip install pycodestyle
+$ pycodestyle ...
+
+  '\n\n'
+env/bin/pep257 doorstop
+rm -rf .coverage htmlcov
+env/bin/nosetests --config=.noserc
+.SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.......SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS....SSSS......./home/travis/build/failed/jacebrowning/doorstop/doorstop/cli/utilities.py:122: DeprecationWarning: '--no-body-levels' option will be removed in a future release
+  warnings.warn(msg, DeprecationWarning)
+.........................................E..........................S........SS.S..../home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/pyficache-0.3.1-py3.5.egg/pyficache.py:579: DeprecationWarning: 'U' mode is deprecated
+  with open(path, 'rU') as fp:
+........................................................../home/travis/build/failed/jacebrowning/doorstop/doorstop/core/document.py:304: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+  log.warn("server is behind, requesting next number...")
+....................................../home/travis/build/failed/jacebrowning/doorstop/env/lib/python3.5/site-packages/openpyxl-2.1.5-py3.5.egg/openpyxl/workbook/names/named_range.py:121: UserWarning: Discarded range with reserved name
+  warnings.warn("Discarded range with reserved name")
+...............................................................................................................................................................................................................................................................................SS..................................
+======================================================================
+ERROR: Verify the placeholder VCS does not delete files.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/python/3.5.6/lib/python3.5/unittest/mock.py", line 1159, in patched
+    return func(*args, **keywargs)
+  File "/home/travis/build/failed/jacebrowning/doorstop/doorstop/core/vcs/test/test_commands.py", line 107, in test_delete
+    self.delete()
+  File "/home/travis/build/failed/jacebrowning/doorstop/doorstop/core/vcs/test/test_commands.py", line 36, in delete
+    self.wc.delete(self.path)
+  File "/home/travis/build/failed/jacebrowning/doorstop/doorstop/core/vcs/mockvcs.py", line 29, in delete
+    os.remove(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'path/to/mock/file.txt'
+
+Name                              Stmts   Miss Branch BrPart  Cover
+-------------------------------------------------------------------
+doorstop/cli/main.py                165      2      4      1    98%
+doorstop/cli/utilities.py           151      0     70     13    94%
+doorstop/common.py                   71      5     14      0    89%
+doorstop/core/__init__.py             4      0      0      0   100%
+doorstop/core/base.py               153      0     42      0   100%
+doorstop/core/builder.py             53      0     12      0   100%
+doorstop/core/document.py           385      5    158     10    97%
+doorstop/core/editor.py               9      0      0      0   100%
+doorstop/core/exporter.py           146      3     62      0    99%
+doorstop/core/importer.py           145      0     52      1    99%
+doorstop/core/item.py               503     18    204     17    94%
+doorstop/core/publisher.py          262      3    112      5    98%
+doorstop/core/tree.py               303      2    136      8    98%
+doorstop/core/types.py              333      0    120      2    99%
+doorstop/core/vcs/__init__.py        26      0     11      0   100%
+doorstop/core/vcs/base.py            58      0     28      2    98%
+doorstop/core/vcs/git.py             19      0      0      0   100%
+doorstop/core/vcs/mercurial.py       19      0      0      0   100%
+doorstop/core/vcs/mockvcs.py         20      0      0      0   100%
+doorstop/core/vcs/subversion.py      20      0      0      0   100%
+doorstop/core/vcs/veracity.py        20      0      0      0   100%
+doorstop/gui/__init__.py              0      0      0      0   100%
+doorstop/gui/main.py                 52      0      6      0   100%
+doorstop/server/__init__.py           1      0      0      0   100%
+doorstop/server/client.py            44      0     16      1    98%
+doorstop/server/main.py             110      0     32      0   100%
+doorstop/server/utilities.py         18      0      6      1    96%
+-------------------------------------------------------------------
+TOTAL                              3090     38   1085     61    97%
+----------------------------------------------------------------------
+Ran 608 tests in 8.646s
+
+FAILED (SKIP=107, errors=1)
+make: *** [test] Error 1
+
+travis_time:end:007dffc2:start=1615666614236192330,finish=1615666634545438418,duration=20309246088[0K
+[31;1mThe command "make ci" exited with 2.[0m
+travis_fold:start:after_script[0Ktravis_time:start:022481d3[0K$ echo $TRAVIS_BRANCH; echo $TRAVIS_PULL_REQUEST; echo $TRAVIS_PYTHON_VERSION; if [[ $TRAVIS_BRANCH == 'develop' && $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_PYTHON_VERSION == '3.3' ]]; then
+  
+    # Generate Doorstop HTML pages
+    make reqs ;
+  
+    # Configure Git with Travis CI information
+    git config --global user.email "travis@travis-ci.org" ;
+    git config --global user.name "travis-ci" ;
+  
+    # Delete the current repository
+    rm -rf .git ;
+  
+    # Rebuild the repository from the generated files and push to GitHub pages
+    cd docs/gen ;
+    echo "[${TRAVIS_REPO_SLUG}](~${TRAVIS_REPO_SLUG})" | sed -e 's/\//.github.io\//g' | sed -e 's/~/http:\/\//g' > README.md ;
+    touch .nojekyll ;
+    git init ;
+    git add . ;
+    git commit -m "Deploy Travis CI build $TRAVIS_BUILD_NUMBER to GitHub pages" ;
+    git push -f https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG} master:gh-pages ;
+  
+  fi
+  
+
+false
+3.5
+
+travis_time:end:022481d3:start=1615666634554991243,finish=1615666634562085707,duration=7094464[0Ktravis_fold:end:after_script[0K
+Done. Your build exited with 1.

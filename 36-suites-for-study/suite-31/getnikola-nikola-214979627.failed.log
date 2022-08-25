@@ -1,0 +1,754 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+[33;1m3.5 is not installed; attempting download[0m
+[33;1mDownloading archive: https://s3.amazonaws.com/travis-python-archives/binaries/ubuntu/12.04/x86_64/python-3.5.tar.bz2[0m
+$ sudo tar xjf python-3.5.tar.bz2 --directory /
+$ cd failed/getnikola/nikola
+travis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:0c4c226a[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:0c4c226a:start=1615647655519497085,finish=1615647660355436610,duration=4835939525[0Ktravis_time:start:1636689a[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install language-pack-en-base language-pack-pl-base
+Reading package lists...
+Building dependency tree...
+Reading state information...
+language-pack-en-base is already the newest version.
+language-pack-en-base set to manually installed.
+Recommended packages:
+  firefox-locale-pl
+The following NEW packages will be installed:
+  language-pack-pl language-pack-pl-base
+0 upgraded, 2 newly installed, 0 to remove and 238 not upgraded.
+Need to get 2,310 kB of archives.
+After this operation, 7,759 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main language-pack-pl-base all 1:12.04+20140106 [2,308 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main language-pack-pl all 1:12.04+20140106 [1,970 B]
+Fetched 2,310 kB in 0s (3,135 kB/s)
+Selecting previously unselected package language-pack-pl-base.
+(Reading database ... 72431 files and directories currently installed.)
+Unpacking language-pack-pl-base (from .../language-pack-pl-base_1%3a12.04+20140106_all.deb) ...
+Selecting previously unselected package language-pack-pl.
+Unpacking language-pack-pl (from .../language-pack-pl_1%3a12.04+20140106_all.deb) ...
+Setting up language-pack-pl (1:12.04+20140106) ...
+Setting up language-pack-pl-base (1:12.04+20140106) ...
+Generating locales...
+  pl_PL.UTF-8... done
+Generation complete.
+
+travis_time:end:1636689a:start=1615647660365666212,finish=1615647674108526692,duration=13742860480[0Ktravis_fold:end:apt[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CODACY_PROJECT_TOKEN=[secure]
+$ export NMODE=nikola
+
+travis_time:start:059c32cc[0K$ source ~/virtualenv/python3.5/bin/activate
+
+travis_time:end:059c32cc:start=1615647674125525594,finish=1615647674136182279,duration=10656685[0K$ python --version
+Python 3.5.6
+$ pip --version
+pip 18.0 from /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/pip (python 3.5)
+travis_fold:start:before_install[0Ktravis_time:start:073a3a0c[0K$ pip install --upgrade pip==9.0.1 wheel==0.30.0a0
+Collecting pip==9.0.1
+  Downloading https://files.pythonhosted.org/packages/b6/ac/7015eb97dc749283ffdec1c3a88ddb8ae03b8fad0f0e611408f196358da3/pip-9.0.1-py2.py3-none-any.whl (1.3MB)
+Collecting wheel==0.30.0a0
+  Downloading https://files.pythonhosted.org/packages/83/53/e120833aa2350db333df89a40dea3b310dd9dabf6f29eaa18934a597dc79/wheel-0.30.0a0-py2.py3-none-any.whl (69kB)
+Installing collected packages: pip, wheel
+  Found existing installation: pip 18.0
+    Uninstalling pip-18.0:
+      Successfully uninstalled pip-18.0
+  Found existing installation: wheel 0.31.1
+    Uninstalling wheel-0.31.1:
+      Successfully uninstalled wheel-0.31.1
+Successfully installed pip-9.0.1 wheel-0.30.0a0
+
+travis_time:end:073a3a0c:start=1615647674581218966,finish=1615647677778637450,duration=3197418484[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install.1[0Ktravis_time:start:0fcf9880[0K$ if [[ $NMODE == 'nikola' ]]; then scripts/getwheelhouse.sh $(scripts/getpyver.py short); fi
+--2021-03-13 15:01:17--  https://github.com/getnikola/wheelhouse/archive/v3.5.zip
+Resolving github.com (github.com)... 192.30.255.112
+Connecting to github.com (github.com)|192.30.255.112|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2021-03-13 15:01:18 ERROR 404: Not Found.
+
+unzip:  cannot find or open v3.5.zip, v3.5.zip.zip or v3.5.zip.ZIP.
+Collecting lxml
+  Url 'wheelhouse-3.5' is ignored. It is either a non-existing path or lacks a specific scheme.
+  Could not find a version that satisfies the requirement lxml (from versions: )
+No matching distribution found for lxml
+
+travis_time:end:0fcf9880:start=1615647677789034026,finish=1615647679083078332,duration=1294044306[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0ae04914[0K$ if [[ $NMODE == 'nikola' ]]; then pip install -r requirements-tests.txt; if [[ "$?" == '1' ]]; then cat /home/travis/.pip/pip.log; false; fi; fi
+Collecting Pygments==2.2.0 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/02/ee/b6e02dc6529e82b75bb06823ff7d005b141037cb1416b10c6f00fc419dca/Pygments-2.2.0-py2.py3-none-any.whl (841kB)
+Collecting Pillow==4.0.0 (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/12/17/4b18b5f344098d2ac701b67660e7b2cd523b38462a08fd59960c1712e90b/Pillow-4.0.0-cp35-cp35m-manylinux1_x86_64.whl (5.6MB)
+Collecting python-dateutil==2.6.0 (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/40/8b/275015d7a9ec293cf1bbf55433258fbc9d0711890a7f6dc538bac7b86bce/python_dateutil-2.6.0-py2.py3-none-any.whl (194kB)
+Collecting docutils==0.13.1 (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/7c/30/8fb30d820c012a6f701a66618ce065b6d61d08ac0a77e47fc7808dbaee47/docutils-0.13.1-py3-none-any.whl (536kB)
+Collecting mako==1.0.6 (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/56/4b/cb75836863a6382199aefb3d3809937e21fa4cb0db15a4f4ba0ecc2e7e8e/Mako-1.0.6.tar.gz (575kB)
+Collecting unidecode==0.04.20 (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/c3/6f/05f5deb753d0594583aa1cc0d2fe9d631d9a00e9b28d0da49f8d3763755b/Unidecode-0.04.20-py2.py3-none-any.whl (228kB)
+Collecting lxml==3.7.3 (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/ac/d5/b938145eaf7ba9bf97cd0d4c71344c29cca9191e06452c8db65fd2887e3f/lxml-3.7.3-cp35-cp35m-manylinux1_x86_64.whl (7.1MB)
+Collecting Yapsy==1.11.223 (from -r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/8f/02/0f635f65c6ecbc75bd18f07fa9bb29c7823f4098b37623000bfc6e5861f4/Yapsy-1.11.223.tar.gz (80kB)
+Collecting PyRSS2Gen==1.1 (from -r requirements.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/6d/01/fd610d5fc86f7dbdbefc4baa8f7fe15a2e5484244c41dcf363ca7e89f60c/PyRSS2Gen-1.1.tar.gz
+Collecting logbook==1.0.0 (from -r requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/34/e8/6419c217bbf464fe8a902418120cccaf476201bd03b50958db24d6e90f65/Logbook-1.0.0.tar.gz (178kB)
+Collecting blinker==1.4 (from -r requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz (111kB)
+Collecting setuptools==34.3.2 (from -r requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/de/b2/b63accae9aa1a4cf02e03c7522102f686a1bd9b8b1b847716198152d2c63/setuptools-34.3.2-py2.py3-none-any.whl (389kB)
+Collecting natsort==5.0.2 (from -r requirements.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/09/6c/1ec71a9cd37d334d7f50c59a9d9de02370bd22b49f59534a136d2080f6da/natsort-5.0.2-py2.py3-none-any.whl
+Collecting requests==2.13.0 (from -r requirements.txt (line 14))
+  Downloading https://files.pythonhosted.org/packages/7e/ac/a80ed043485a3764053f59ca92f809cc8a18344692817152b0e8bd3ca891/requests-2.13.0-py2.py3-none-any.whl (584kB)
+Collecting piexif==1.0.12 (from -r requirements.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/e7/b7/b38c921b767bc16c5d476a140a8e5ed4845b852e6ce2f9546ddc83d6638b/piexif-1.0.12-py2.py3-none-any.whl
+Collecting Markdown==2.6.8 (from -r requirements-extras.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/1d/25/3f6d2cb31ec42ca5bd3bfbea99b63892b735d76e26f20dd2dcc34ffe4f0d/Markdown-2.6.8.tar.gz (307kB)
+Collecting Jinja2==2.9.5 (from -r requirements-extras.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/3c/d1/49d69bc23d0e0c7612248dd8f5391bd043648865132309616c280ca1c837/Jinja2-2.9.5-py2.py3-none-any.whl (340kB)
+Collecting husl==4.0.3 (from -r requirements-extras.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/85/49/089bab9b89e6b5ee99e1c1408664ea0c18a78a8fff3a90ce34daccd241de/husl-4.0.3.tar.gz
+Collecting pyphen==0.9.4 (from -r requirements-extras.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/dd/c4/74859f895e2361d92cfbb6208ea7afd06c2f1f05c491da71cbd7ce3887be/Pyphen-0.9.4-py2.py3-none-any.whl (1.9MB)
+Collecting micawber==0.3.3 (from -r requirements-extras.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/dd/0c/f641271301a8f93353a001ccd39ba35c205247fe106003bb66ab87b3b176/micawber-0.3.3.tar.gz
+Collecting pygal==2.3.1 (from -r requirements-extras.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/d5/c9/1aad2cdae9de823e67ea5cbae33e6103a50323eef51a167f912ad50146f2/pygal-2.3.1-py2.py3-none-any.whl (126kB)
+Collecting typogrify==2.0.7 (from -r requirements-extras.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/8a/bf/64959d6187d42472acb846bcf462347c9124952c05bd57e5769d5f28f9a6/typogrify-2.0.7.tar.gz
+Collecting phpserialize==1.3 (from -r requirements-extras.txt (line 9))
+  Downloading https://files.pythonhosted.org/packages/ec/6d/437efc62d7327bcbcfa18f6bb27a0de3c8621e9af045dfc322d12eb310c9/phpserialize-1.3.tar.gz
+Collecting webassets==0.12.1 (from -r requirements-extras.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/9a/35/d86c6d3bd31e2e9c8351c8766ef3688c75d56bc5233ed49061e522efc3cc/webassets-0.12.1.tar.gz (179kB)
+Collecting notebook==5.0.0rc2 (from -r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/8a/da/b47486f19947e6ee45488f6f34e471ece105f9218174c68a7562a3495fb0/notebook-5.0.0rc2-py2.py3-none-any.whl (6.9MB)
+Collecting ipykernel==4.5.2 (from -r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/84/ee/853184d1cad29e26fd419b6a394119ebc03dea57f96c068ea495fc7cce13/ipykernel-4.5.2-py2.py3-none-any.whl (98kB)
+Collecting ghp-import2==1.0.1 (from -r requirements-extras.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/5f/ef/9a7f507f73b9ae27830de96419ba99e4b8a6b84ac177df6292a7510a0b66/ghp_import2-1.0.1-py2.py3-none-any.whl
+Collecting ws4py==0.4.0 (from -r requirements-extras.txt (line 14))
+  Downloading https://files.pythonhosted.org/packages/9f/f8/1e35369b50ad6a0fc1bc73560008030f1ecc87d3c7cd8d38d769b8acc90d/ws4py-0.4.0.tar.gz (40kB)
+Collecting watchdog==0.8.3 (from -r requirements-extras.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/54/7d/c7c0ad1e32b9f132075967fc353a244eb2b375a3d2f5b0ce612fd96e107e/watchdog-0.8.3.tar.gz (83kB)
+Requirement already satisfied: mock==2.0.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from -r requirements-tests.txt (line 2))
+Collecting coverage==4.3.4 (from -r requirements-tests.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/e2/af/f6ff05313f67cb1e6b3f1405b378d219cb2f76010bca51d7f3eb0b0f88ed/coverage-4.3.4-cp35-cp35m-manylinux1_x86_64.whl (191kB)
+Collecting pytest==3.0.7 (from -r requirements-tests.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/8e/81/40a4b62b1d15441c282db485f8f08c7c38edab9ffe750a31d77805cd5f6a/pytest-3.0.7-py2.py3-none-any.whl (172kB)
+Collecting pytest-cov==2.4.0 (from -r requirements-tests.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/85/e6/f041bcf77bcf7bf11ccb9b8a6cdb3a2ee70c1bd2ab49d87d2269cfd4f3e0/pytest_cov-2.4.0-py2.py3-none-any.whl
+Collecting freezegun==0.3.8 (from -r requirements-tests.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/0f/e9/c7d3ff0a0f1650dae522ac75bd1990c20a6fbf521385a8f6902b5d1f99f4/freezegun-0.3.8-py2.py3-none-any.whl
+Collecting codacy-coverage==1.3.6 (from -r requirements-tests.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/88/bf/254d3dd04beea62e5009182e723bd1d19626716d060bd7221e3dc0b7a823/codacy_coverage-1.3.6-py2.py3-none-any.whl
+Collecting colorama==0.3.7 (from -r requirements-tests.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/b7/8e/ddb32ddaabd431813e180ca224e844bab8ad42fbb47ee07553f0ec44cd86/colorama-0.3.7-py2.py3-none-any.whl
+Collecting olefile (from Pillow==4.0.0->-r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/34/81/e1ac43c6b45b4c5f8d9352396a14144bba52c8fec72a80f425f6a4d653ad/olefile-0.46.zip (112kB)
+Requirement already satisfied: six>=1.5 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from python-dateutil==2.6.0->-r requirements.txt (line 3))
+Collecting MarkupSafe>=0.9.2 (from mako==1.0.6->-r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/6e/57/d40124076756c19ff2269678de7ae25a14ebbb3f6314eb5ce9477f191350/MarkupSafe-1.1.1-cp35-cp35m-manylinux1_x86_64.whl
+Collecting appdirs>=1.4.0 (from setuptools==34.3.2->-r requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+Collecting packaging>=16.8 (from setuptools==34.3.2->-r requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/3e/89/7ea760b4daa42653ece2380531c90f64788d979110a2ab51049d92f408af/packaging-20.9-py2.py3-none-any.whl (40kB)
+Collecting smartypants>=1.8.3 (from typogrify==2.0.7->-r requirements-extras.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/da/ed/1da76d11aa858ee23dac5b52d9ac2db7df02b89f7679d5d8970bcd44b59c/smartypants-2.0.1-py2.py3-none-any.whl
+Collecting jupyter-core (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/63/0d/df2d17cdf389cea83e2efa9a4d32f7d527ba78667e0153a8e676e957b2f7/jupyter_core-4.6.3-py2.py3-none-any.whl (83kB)
+Collecting nbformat (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/13/1d/59cbc5a6b627ba3b4c0ec5ccc82a9002e58b324e2620a4929b81f1f8d309/nbformat-5.1.2-py3-none-any.whl (113kB)
+Collecting nbconvert (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/79/6c/05a569e9f703d18aacb89b7ad6075b404e8a4afde2c26b73ca77bb644b14/nbconvert-5.6.1-py2.py3-none-any.whl (455kB)
+Collecting traitlets>=4.2.1 (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/ca/ab/872a23e29cec3cf2594af7e857f18b687ad21039c1f9b922fac5b9b142d5/traitlets-4.3.3-py2.py3-none-any.whl (75kB)
+Collecting jupyter-client (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/83/d6/30aed7ef13ff3f359e99626c1b0a32ebbc3bf9b9d5616ec46e9e245d5fa9/jupyter_client-6.1.11-py3-none-any.whl (108kB)
+Collecting ipython-genutils (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/fa/bc/9bd3b5c2b4774d5f33b2d544f1460be9df7df2fe42f352135381c347c69a/ipython_genutils-0.2.0-py2.py3-none-any.whl
+Collecting terminado>=0.3.3; sys_platform != "win32" (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/ff/96/1d9a2c23990aea8f8e0b5c3b6627d03196a73771a17a2d9860bbe9823ab6/terminado-0.8.3-py2.py3-none-any.whl
+Collecting tornado>=4 (from notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/13/3b/817e081ae704bd67a9e23243a6773811b97ebebe9a56faca397d853f5013/tornado-6.1-cp35-cp35m-manylinux1_x86_64.whl (427kB)
+Collecting ipython>=4.0.0 (from ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/81/2e/59cdacea6476a4c21b7c090a91250ffbcd085900f5eb9f4e4d68dd2ee4e3/ipython-7.9.0-py3-none-any.whl (775kB)
+Collecting PyYAML>=3.10 (from watchdog==0.8.3->-r requirements-extras.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz (269kB)
+Collecting argh>=0.24.1 (from watchdog==0.8.3->-r requirements-extras.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/06/1c/e667a7126f0b84aaa1c56844337bf0ac12445d1beb9c8a6199a7314944bf/argh-0.26.2-py2.py3-none-any.whl
+Collecting pathtools>=0.1.1 (from watchdog==0.8.3->-r requirements-extras.txt (line 15))
+  Downloading https://files.pythonhosted.org/packages/e7/7f/470d6fcdf23f9f3518f6b0b76be9df16dcc8630ad409947f8be2eb0ed13a/pathtools-0.1.2.tar.gz
+Requirement already satisfied: pbr>=0.11 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from mock==2.0.0->-r requirements-tests.txt (line 2))
+Requirement already satisfied: py>=1.4.29 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from pytest==3.0.7->-r requirements-tests.txt (line 4))
+Collecting pyparsing>=2.0.2 (from packaging>=16.8->setuptools==34.3.2->-r requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl (67kB)
+Collecting jsonschema!=2.5.0,>=2.4 (from nbformat->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/c5/8f/51e89ce52a085483359217bc72cdbf6e75ee595d5b1d4b5ade40c7e018b8/jsonschema-3.2.0-py2.py3-none-any.whl (56kB)
+Collecting pandocfilters>=1.4.1 (from nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/28/78/bd59a9adb72fa139b1c9c186e6f65aebee52375a747e4b6a6dcf0880956f/pandocfilters-1.4.3.tar.gz
+Collecting defusedxml (from nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl
+Collecting testpath (from nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/1b/9e/1a170feaa54f22aeb5a5d16c9015e82234275a3c8ab630b552493f9cb8a9/testpath-0.4.4-py2.py3-none-any.whl (163kB)
+Collecting bleach (from nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/f0/46/2bbd92086a4c6f051214cb48df6d9132b5f32c5e881d3f4991b16ec7e499/bleach-3.3.0-py2.py3-none-any.whl (283kB)
+Collecting entrypoints>=0.2.2 (from nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/ac/c6/44694103f8c221443ee6b0041f69e2740d89a25641e62fb4f2ee568f2f9c/entrypoints-0.3-py2.py3-none-any.whl
+Collecting mistune<2,>=0.8.1 (from nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/09/ec/4b43dae793655b7d8a25f76119624350b4d65eb663459eb9603d7f1f0345/mistune-0.8.4-py2.py3-none-any.whl
+Collecting decorator (from traitlets>=4.2.1->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/ed/1b/72a1821152d07cf1d8b6fce298aeb06a7eb90f4d6d41acec9861e7cc6df0/decorator-4.4.2-py2.py3-none-any.whl
+Collecting pyzmq>=13 (from jupyter-client->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/c3/d0/f0478d50cf81f1594d111d9ab3f7a606b859dfc8218a5cf1d4792960c004/pyzmq-20.0.0-cp35-cp35m-manylinux1_x86_64.whl (1.1MB)
+Collecting ptyprocess; os_name != "nt" (from terminado>=0.3.3; sys_platform != "win32"->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/22/a6/858897256d0deac81a172289110f31629fc4cee19b6f01283303e18c8db3/ptyprocess-0.7.0-py2.py3-none-any.whl
+Collecting backcall (from ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/4c/1c/ff6546b6c12603d8dd1070aa3c3d273ad4c07f5771689a7b69a550e8c951/backcall-0.2.0-py2.py3-none-any.whl
+Collecting prompt-toolkit<2.1.0,>=2.0.0 (from ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/87/61/2dfea88583d5454e3a64f9308a686071d58d59a55db638268a6413e1eb6d/prompt_toolkit-2.0.10-py3-none-any.whl (340kB)
+Collecting pexpect; sys_platform != "win32" (from ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/39/7b/88dbb785881c28a102619d46423cb853b46dbccc70d3ac362d99773a78ce/pexpect-4.8.0-py2.py3-none-any.whl (59kB)
+Collecting jedi>=0.10 (from ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/c3/d4/36136b18daae06ad798966735f6c3fb96869c1be9f8245d2a8f556e40c36/jedi-0.17.2-py2.py3-none-any.whl (1.4MB)
+Collecting pickleshare (from ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/9a/41/220f49aaea88bc6fa6cba8d05ecf24676326156c23b991e80b3f2fc24c77/pickleshare-0.7.5-py2.py3-none-any.whl
+Collecting pyrsistent>=0.14.0 (from jsonschema!=2.5.0,>=2.4->nbformat->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/4d/70/fd441df751ba8b620e03fd2d2d9ca902103119616f0f6cc42e6405035062/pyrsistent-0.17.3.tar.gz (106kB)
+Collecting importlib-metadata; python_version < "3.8" (from jsonschema!=2.5.0,>=2.4->nbformat->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/98/b8/8ec57a8ef46fbe7f185318c7ff7df9a06c9df451d9a59a067bfa851bb828/importlib_metadata-2.1.1-py2.py3-none-any.whl
+Requirement already satisfied: attrs>=17.4.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from jsonschema!=2.5.0,>=2.4->nbformat->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+Collecting webencodings (from bleach->nbconvert->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl
+Collecting wcwidth (from prompt-toolkit<2.1.0,>=2.0.0->ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/59/7c/e39aca596badaf1b78e8f547c807b04dae603a433d3e7a7e04d67f2ef3e5/wcwidth-0.2.5-py2.py3-none-any.whl
+Collecting parso<0.8.0,>=0.7.0 (from jedi>=0.10->ipython>=4.0.0->ipykernel==4.5.2->-r requirements-extras.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/93/d1/e635bdde32890db5aeb2ffbde17e74f68986305a4466b0aa373b861e3f00/parso-0.7.1-py2.py3-none-any.whl (109kB)
+Collecting zipp>=0.5 (from importlib-metadata; python_version < "3.8"->jsonschema!=2.5.0,>=2.4->nbformat->notebook==5.0.0rc2->-r requirements-extras.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/96/0a/67556e9b7782df7118c1f49bdc494da5e5e429c93aa77965f33e81287c8c/zipp-1.2.0-py2.py3-none-any.whl
+Building wheels for collected packages: mako, Yapsy, PyRSS2Gen, logbook, blinker, Markdown, husl, micawber, typogrify, phpserialize, webassets, ws4py, watchdog, olefile, PyYAML, pathtools, pandocfilters, pyrsistent
+  Running setup.py bdist_wheel for mako: started
+  Running setup.py bdist_wheel for mako: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/1e/bc/97/b0a2ce42c17a138ea1f4da3e6080b187dcf6dff225b81e2587
+  Running setup.py bdist_wheel for Yapsy: started
+  Running setup.py bdist_wheel for Yapsy: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/1a/a1/5d/fc7f9660a88c7554d3795a4966fc5d7777a62e70add237d82a
+  Running setup.py bdist_wheel for PyRSS2Gen: started
+  Running setup.py bdist_wheel for PyRSS2Gen: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/08/2e/3d/50052096754e548b10de94a42182f27a1b18966dfa36c6b968
+  Running setup.py bdist_wheel for logbook: started
+  Running setup.py bdist_wheel for logbook: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/93/63/c8/cc284c2fee01ab185c914b067a1884a887dd0114b069cccc4d
+  Running setup.py bdist_wheel for blinker: started
+  Running setup.py bdist_wheel for blinker: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/92/a0/00/8690a57883956a301d91cf4ec999cc0b258b01e3f548f86e89
+  Running setup.py bdist_wheel for Markdown: started
+  Running setup.py bdist_wheel for Markdown: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/8d/f6/5a/5306219d3eecbae42705af03bd4f4db7ce7bb8e39e24174e4f
+  Running setup.py bdist_wheel for husl: started
+  Running setup.py bdist_wheel for husl: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/7e/23/42/a8f5ee0e57b34587c8760d9f6d55df930b3516dba7fbfe1da4
+  Running setup.py bdist_wheel for micawber: started
+  Running setup.py bdist_wheel for micawber: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/90/b1/0b/00ee9109796e55201a9bac372400c251dade74a434479c8eee
+  Running setup.py bdist_wheel for typogrify: started
+  Running setup.py bdist_wheel for typogrify: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/e0/c7/c1/81a2564d08a632c935d320c9bc1d4ea34e35a0287b9b8bc01a
+  Running setup.py bdist_wheel for phpserialize: started
+  Running setup.py bdist_wheel for phpserialize: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/21/d7/12/bcfef4b55857340f19215866cad6ea4e1bf0039030c9295f70
+  Running setup.py bdist_wheel for webassets: started
+  Running setup.py bdist_wheel for webassets: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/eb/2a/fd/d10453a8c9ee05159da8877d083947e376caeca041988df18e
+  Running setup.py bdist_wheel for ws4py: started
+  Running setup.py bdist_wheel for ws4py: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/c7/f6/7e/067da903fa69299ef82e3a799e68d9d2eefd35b3f3182f2952
+  Running setup.py bdist_wheel for watchdog: started
+  Running setup.py bdist_wheel for watchdog: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/3b/a0/6f/8c52fea32c994f833b55e7b73078f81c155ec108011c04e708
+  Running setup.py bdist_wheel for olefile: started
+  Running setup.py bdist_wheel for olefile: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/4b/f4/11/bc4166107c27f07fd7bba707ffcb439619197638a1ac986df3
+  Running setup.py bdist_wheel for PyYAML: started
+  Running setup.py bdist_wheel for PyYAML: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/a7/c1/ea/cf5bd31012e735dc1dfea3131a2d5eae7978b251083d6247bd
+  Running setup.py bdist_wheel for pathtools: started
+  Running setup.py bdist_wheel for pathtools: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/0b/04/79/c3b0c3a0266a3cb4376da31e5bfe8bba0c489246968a68e843
+  Running setup.py bdist_wheel for pandocfilters: started
+  Running setup.py bdist_wheel for pandocfilters: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/93/9a/79/b2c3567908fd6209e4674ca23d9fcf005aae5fe89148913727
+  Running setup.py bdist_wheel for pyrsistent: started
+  Running setup.py bdist_wheel for pyrsistent: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/f0/b8/de/b593ad311be4eb458499d100db081e453576032272398b7ddc
+Successfully built mako Yapsy PyRSS2Gen logbook blinker Markdown husl micawber typogrify phpserialize webassets ws4py watchdog olefile PyYAML pathtools pandocfilters pyrsistent
+Installing collected packages: Pygments, olefile, Pillow, python-dateutil, docutils, MarkupSafe, mako, unidecode, lxml, Yapsy, PyRSS2Gen, logbook, blinker, appdirs, pyparsing, packaging, setuptools, natsort, requests, piexif, Markdown, Jinja2, husl, pyphen, micawber, pygal, smartypants, typogrify, phpserialize, webassets, ipython-genutils, decorator, traitlets, jupyter-core, pyrsistent, zipp, importlib-metadata, jsonschema, nbformat, tornado, pyzmq, jupyter-client, backcall, wcwidth, prompt-toolkit, ptyprocess, pexpect, parso, jedi, pickleshare, ipython, ipykernel, pandocfilters, defusedxml, testpath, webencodings, bleach, entrypoints, mistune, nbconvert, terminado, notebook, ghp-import2, ws4py, PyYAML, argh, pathtools, watchdog, coverage, pytest, pytest-cov, freezegun, codacy-coverage, colorama
+  Found existing installation: setuptools 40.0.0
+    Uninstalling setuptools-40.0.0:
+      Successfully uninstalled setuptools-40.0.0
+  Found existing installation: pytest 3.7.1
+    Uninstalling pytest-3.7.1:
+      Successfully uninstalled pytest-3.7.1
+Successfully installed Jinja2-2.9.5 Markdown-2.6.8 MarkupSafe-1.1.1 Pillow-4.0.0 PyRSS2Gen-1.1 PyYAML-5.3.1 Pygments-2.2.0 Yapsy-1.11.223 appdirs-1.4.4 argh-0.26.2 backcall-0.2.0 bleach-3.3.0 blinker-1.4 codacy-coverage-1.3.6 colorama-0.3.7 coverage-4.3.4 decorator-4.4.2 defusedxml-0.7.1 docutils-0.13.1 entrypoints-0.3 freezegun-0.3.8 ghp-import2-1.0.1 husl-4.0.3 importlib-metadata-2.1.1 ipykernel-4.5.2 ipython-7.9.0 ipython-genutils-0.2.0 jedi-0.17.2 jsonschema-3.2.0 jupyter-client-6.1.11 jupyter-core-4.6.3 logbook-1.0.0 lxml-3.7.3 mako-1.0.6 micawber-0.3.3 mistune-0.8.4 natsort-5.0.2 nbconvert-5.6.1 nbformat-5.1.2 notebook-5.0.0rc2 olefile-0.46 packaging-20.9 pandocfilters-1.4.3 parso-0.7.1 pathtools-0.1.2 pexpect-4.8.0 phpserialize-1.3 pickleshare-0.7.5 piexif-1.0.12 prompt-toolkit-2.0.10 ptyprocess-0.7.0 pygal-2.3.1 pyparsing-2.4.7 pyphen-0.9.4 pyrsistent-0.17.3 pytest-3.0.7 pytest-cov-2.4.0 python-dateutil-2.6.0 pyzmq-20.0.0 requests-2.13.0 setuptools-34.3.2 smartypants-2.0.1 terminado-0.8.3 testpath-0.4.4 tornado-6.1 traitlets-4.3.3 typogrify-2.0.7 unidecode-0.4.20 watchdog-0.8.3 wcwidth-0.2.5 webassets-0.12.1 webencodings-0.5.1 ws4py-0.4.0 zipp-1.2.0
+
+travis_time:end:0ae04914:start=1615647679093960421,finish=1615647746242532949,duration=67148572528[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:15d53e83[0K$ if [[ $NMODE == 'nikola' ]]; then pip install .; fi
+Processing /home/travis/build/failed/getnikola/nikola
+Requirement already satisfied: Pygments==2.2.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: Pillow==4.0.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: python-dateutil==2.6.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: docutils==0.13.1 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: mako==1.0.6 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: unidecode==0.04.20 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: lxml==3.7.3 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: Yapsy==1.11.223 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: PyRSS2Gen==1.1 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: logbook==1.0.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: blinker==1.4 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: setuptools==34.3.2 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: natsort==5.0.2 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: requests==2.13.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Requirement already satisfied: piexif==1.0.12 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Nikola==7.8.3)
+Collecting doit>=0.28.0 (from Nikola==7.8.3)
+  Downloading https://files.pythonhosted.org/packages/b9/af/3540a68099c4b8c3a9b80b3e1fdfeed7a920d97d9cb2038bd35278de06ed/doit-0.33.1-py3-none-any.whl (84kB)
+Requirement already satisfied: olefile in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from Pillow==4.0.0->Nikola==7.8.3)
+Requirement already satisfied: six>=1.5 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from python-dateutil==2.6.0->Nikola==7.8.3)
+Requirement already satisfied: MarkupSafe>=0.9.2 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from mako==1.0.6->Nikola==7.8.3)
+Requirement already satisfied: appdirs>=1.4.0 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from setuptools==34.3.2->Nikola==7.8.3)
+Requirement already satisfied: packaging>=16.8 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from setuptools==34.3.2->Nikola==7.8.3)
+Collecting pyinotify; sys_platform == "linux" (from doit>=0.28.0->Nikola==7.8.3)
+  Downloading https://files.pythonhosted.org/packages/e3/c0/fd5b18dde17c1249658521f69598f3252f11d9d7a980c5be8619970646e1/pyinotify-0.9.6.tar.gz (60kB)
+Collecting cloudpickle (from doit>=0.28.0->Nikola==7.8.3)
+  Downloading https://files.pythonhosted.org/packages/e7/e3/898487e5dbeb612054cf2e0c188463acb358167fef749c53c8bb8918cea1/cloudpickle-1.6.0-py3-none-any.whl
+Requirement already satisfied: pyparsing>=2.0.2 in /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages (from packaging>=16.8->setuptools==34.3.2->Nikola==7.8.3)
+Building wheels for collected packages: pyinotify
+  Running setup.py bdist_wheel for pyinotify: started
+  Running setup.py bdist_wheel for pyinotify: finished with status 'done'
+  Stored in directory: /home/travis/.cache/pip/wheels/e0/62/fe/a68c26dff6ed01a86d8a5aa8e01d7687a5a29c7d765af383cb
+Successfully built pyinotify
+Installing collected packages: pyinotify, cloudpickle, doit, Nikola
+  Running setup.py install for Nikola: started
+    Running setup.py install for Nikola: finished with status 'done'
+Successfully installed Nikola-7.8.3 cloudpickle-1.6.0 doit-0.33.1 pyinotify-0.9.6
+
+travis_time:end:15d53e83:start=1615647746250751766,finish=1615647755435348412,duration=9184596646[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:2c77d6d3[0K$ if [[ $NMODE == 'flake8' ]]; then pip install flake8==3.3.0 pydocstyle==1.1.1; fi
+
+travis_time:end:2c77d6d3:start=1615647755443019426,finish=1615647755450206521,duration=7187095[0Ktravis_fold:end:install.4[0Ktravis_time:start:03801284[0K$ if [[ $NMODE == 'nikola' ]]; then py.test --doctest-modules nikola/; fi
+============================= test session starts ==============================
+platform linux -- Python 3.5.6, pytest-3.0.7, py-1.5.4, pluggy-0.4.0
+rootdir: /home/travis/build/failed/getnikola/nikola, inifile: setup.cfg
+plugins: cov-2.4.0
+collected 10 items
+
+nikola/rc4.py .
+nikola/shortcodes.py .
+nikola/utils.py s.....
+nikola/plugins/compile/markdown/mdx_podcast.py .
+nikola/plugins/task/sitemap/__init__.py .
+
+----------- coverage: platform linux, python 3.5.6-final-0 -----------
+Name                                             Stmts   Miss  Cover   Missing
+------------------------------------------------------------------------------
+nikola/__init__.py                                   7      0   100%
+nikola/__main__.py                                 227    180    21%   60, 70-175, 188-198, 206-236, 244-248, 261-262, 266-285, 297-300, 305-309, 313-366, 371, 381-399
+nikola/filters.py                                  199    138    31%   70-74, 88-92, 99-101, 119-139, 145-160, 166, 172, 178, 184, 190, 196, 202, 208, 214-218, 224-234, 240-249, 255, 261-272, 276-282, 288-300, 308-317, 323-334, 340-350, 356-366, 372-373, 379-381, 386-390
+nikola/image_processing.py                         133    113    15%   61-64, 69-93, 97-147, 151-189, 193-214
+nikola/nikola.py                                  1350   1255     7%   81, 369-380, 392-999, 1003-1137, 1145-1236, 1240-1248, 1253-1258, 1261-1277, 1282-1291, 1297-1311, 1316-1331, 1342-1369, 1386-1434, 1439-1447, 1464-1574, 1592-1605, 1614-1630, 1634-1643, 1647-1650, 1655-1657, 1660-1665, 1671-1749, 1755-1758, 1793-1811, 1820, 1833-1837, 1846-1852, 1861-1867, 1871-1874, 1878-1880, 1885-1893, 1898-1920, 1924-1927, 1931-1934, 1938-1966, 1976-1983, 1987-1990, 1994-2002, 2007-2024, 2033-2042, 2049-2144, 2161-2198, 2202-2239, 2249-2267, 2279-2437, 2466-2609, 2646-2700, 2705-2709, 2718-2735, 2740-2743, 2749-2759, 2767-2773
+nikola/plugin_categories.py                        215     74    66%   61-62, 66-80, 84, 88, 113-114, 118-120, 124-130, 143-156, 177, 245, 270, 274-279, 283-290, 294-297, 304, 325, 329, 337-341, 345-349, 451, 459, 641, 645, 661, 674, 741, 748, 775, 779, 791
+nikola/plugins/__init__.py                           2      0   100%
+nikola/plugins/basic_import.py                     104     68    35%   74-76, 81-96, 100-114, 124, 129-141, 146-155, 164-171, 176-181, 185-194, 199-201, 206
+nikola/plugins/command/__init__.py                   1      0   100%
+nikola/plugins/command/auto/__init__.py            245    182    26%   40, 134-262, 268-284, 290-293, 297-326, 330-335, 339-340, 344-345, 356-358, 362-389, 393-405, 409-420, 428-429, 433, 441-442, 446-447, 457, 461-464, 467-469
+nikola/plugins/command/bootswatch_theme.py          50     36    28%   40-43, 80-116
+nikola/plugins/command/check.py                    268    236    12%   38, 51-67, 72-90, 96-100, 162-179, 187-358, 362-385, 389-411, 415-439
+nikola/plugins/command/console.py                   62     44    29%   79-90, 94-101, 105-122, 126-149
+nikola/plugins/command/deploy.py                    75     55    27%   56-128, 146-164
+nikola/plugins/command/github_deploy.py             76     54    29%   43-44, 49-54, 86-110, 114-125, 129-167
+nikola/plugins/command/import_wordpress.py         719    653     9%   47, 68-92, 230-240, 244-251, 255-328, 332-349, 353-425, 430-438, 443-445, 449-499, 503-511, 516-667, 680-697, 702-705, 709-712, 716-758, 762-789, 795-814, 818-837, 842-855, 859-1058, 1064-1071, 1075-1083, 1087-1088, 1092-1108, 1112-1121, 1127-1133, 1142-1178
+nikola/plugins/command/init.py                     281    209    26%   140, 166-171, 176-206, 213-221, 227-233, 266-267, 272-276, 281-283, 288-289, 294-483, 487-517
+nikola/plugins/command/install_theme.py             26     14    46%   73-91
+nikola/plugins/command/new_page.py                  15      6    60%   107-114
+nikola/plugins/command/new_post.py                 248    221    11%   53-62, 84-114, 220-430, 440-471, 479-543
+nikola/plugins/command/orphans.py                   12      2    83%   49-50
+nikola/plugins/command/plugin.py                   218    188    14%   116-157, 161-166, 170-194, 198-224, 228-325, 329-348, 352-360
+nikola/plugins/command/rst2html/__init__.py         34     21    38%   48-71
+nikola/plugins/command/serve.py                    138    107    22%   38, 113-120, 124-178, 190-194, 216-286
+nikola/plugins/command/status.py                    73     58    21%   91-159, 163-172
+nikola/plugins/command/theme.py                    195    164    16%   138-175, 179-195, 199-237, 241-258, 262-267, 271-276, 280-288, 293-317, 321-353, 357-365
+nikola/plugins/command/version.py                   22      8    64%   61-69
+nikola/plugins/compile/__init__.py                   1      0   100%
+nikola/plugins/compile/html.py                      41     29    29%   46-48, 52-65, 69-84
+nikola/plugins/compile/ipynb.py                    112     82    27%   78-79, 83-89, 93, 97-98, 103-105, 109-121, 129-136, 140-194, 202-221
+nikola/plugins/compile/markdown/__init__.py         71     50    30%   55, 59-61, 74-86, 90-96, 100-114, 118-134
+nikola/plugins/compile/markdown/mdx_gist.py         69     42    39%   111-112, 121, 125-131, 135-141, 145-174, 183-187, 191-199
+nikola/plugins/compile/markdown/mdx_nikola.py       26     10    62%   56-62, 70-71, 75-76, 80-82
+nikola/plugins/compile/markdown/mdx_podcast.py      29      1    97%   81
+nikola/plugins/compile/pandoc.py                    46     32    30%   50-51, 55-71, 75, 79-94
+nikola/plugins/compile/php.py                       39     25    36%   47-52, 56, 60-86, 90
+nikola/plugins/compile/rest/__init__.py            123     85    31%   67-92, 97, 101-119, 123-137, 141-149, 154-177, 185-187, 191-194, 198-201, 207, 248-252, 278-299, 307
+nikola/plugins/compile/rest/chart.py                56     38    32%   53-56, 159-161, 165-197
+nikola/plugins/compile/rest/doc.py                  55     43    22%   43-47, 53-76, 81-95, 100-110, 115-116
+nikola/plugins/compile/rest/gist.py                 40     23    42%   20-22, 45-46, 50-54, 58-77
+nikola/plugins/compile/rest/listing.py             112     73    35%   70-120, 135-146, 171-200, 204, 208
+nikola/plugins/compile/rest/media.py                27     11    59%   49-52, 64-65, 69-73
+nikola/plugins/compile/rest/post_list.py           122    103    16%   54-58, 166-191, 198-319
+nikola/plugins/compile/rest/slides.py               22      9    59%   46-49, 62-75
+nikola/plugins/compile/rest/soundcloud.py           29     11    62%   19-22, 55-67
+nikola/plugins/compile/rest/thumbnail.py            32     16    50%   44-46, 54, 58-61, 70-81
+nikola/plugins/compile/rest/vimeo.py                52     30    42%   47-49, 87-103, 107, 112-126, 130-131
+nikola/plugins/compile/rest/youtube.py              25     10    60%   43-45, 76-87
+nikola/plugins/misc/__init__.py                      1      0   100%
+nikola/plugins/misc/post_encryption.py              28     14    50%   47-51, 55-62, 66-68
+nikola/plugins/misc/scan_posts.py                   47     35    26%   48-108
+nikola/plugins/misc/taxonomies_classifier.py       196    173    12%   49-190, 194-198, 203, 229-256, 261-267, 271-273, 277-295, 299, 303, 306-319, 323-328
+nikola/plugins/shortcode/gist.py                    31     22    29%   18-20, 24-25, 29-33, 37-56
+nikola/plugins/task/__init__.py                      1      0   100%
+nikola/plugins/task/archive.py                     137    102    26%   78-93, 97, 101-102, 106-109, 113-132, 136-143, 147, 151, 155-220, 225-238, 242
+nikola/plugins/task/authors.py                      66     39    41%   76-78, 82-86, 90, 94, 98, 102-106, 110-120, 124-139, 143-154
+nikola/plugins/task/bundles.py                      62     50    19%   49-55, 59-125, 130-145
+nikola/plugins/task/categories.py                   82     46    44%   82-84, 88, 92-93, 97-98, 102-109, 113-115, 119-128, 132, 136, 140, 144-158, 162-188
+nikola/plugins/task/copy_assets.py                  43     34    21%   49-106
+nikola/plugins/task/copy_files.py                   17     10    41%   42-56
+nikola/plugins/task/galleries.py                   257    219    15%   66-107, 112-123, 135-136, 151-152, 165-166, 172-320, 343-346, 351-376, 381-389, 400-424, 428-437, 442-452, 456-490, 512-531, 555-593, 601-652
+nikola/plugins/task/gzip.py                         34     23    32%   45-70, 75-80
+nikola/plugins/task/indexes.py                      46     21    54%   72-79, 83, 87, 91, 95-105, 109-117, 121, 125
+nikola/plugins/task/listings.py                    140    122    13%   51-53, 57-108, 113-253, 273-276, 289-312
+nikola/plugins/task/page_index.py                   48     20    58%   62, 66-71, 75, 79, 83, 87, 91-100, 104-109
+nikola/plugins/task/pages.py                        22     15    32%   41-62
+nikola/plugins/task/posts.py                        50     40    20%   43, 53-119, 123-127
+nikola/plugins/task/py3_switch.py                   32     16    50%   69-76, 86-103
+nikola/plugins/task/redirect.py                     14      6    57%   44-54
+nikola/plugins/task/robots.py                       31     20    35%   48-88
+nikola/plugins/task/scale_images.py                 41     30    27%   43-44, 48-64, 74-75, 79-101
+nikola/plugins/task/sections.py                     70     44    37%   71-74, 78-82, 86, 90-93, 97, 101-104, 108-128, 132-140, 144-150
+nikola/plugins/task/sitemap/__init__.py            155    125    19%   37, 116-304, 316-323
+nikola/plugins/task/sources.py                      23     16    30%   42-66
+nikola/plugins/task/tagcloud.py                     29     20    31%   44-79
+nikola/plugins/task/tags.py                         60     31    48%   78-81, 85, 89, 93, 97-102, 106-113, 117, 123-137, 141-159
+nikola/plugins/task/taxonomies.py                  217    192    12%   51-114, 118-140, 144-146, 151-180, 184-208, 212-227, 231-245, 249-267, 271-274, 278-303, 308-364, 368-403
+nikola/plugins/template/__init__.py                  1      0   100%
+nikola/plugins/template/jinja.py                    80     54    32%   54-55, 59-73, 77-79, 83, 88-89, 93-101, 105, 109-117, 121-123, 127-130, 134-138
+nikola/plugins/template/mako.py                     86     54    37%   60-72, 76-77, 81-93, 97-99, 103, 110-111, 115-122, 126-127, 133-140, 144-148, 153
+nikola/post.py                                     698    612    12%   101-259, 262, 283-289, 294-300, 305-308, 312-319, 324-325, 330-338, 343, 348-356, 361, 366-367, 371, 375, 383-385, 393-400, 404-406, 410-417, 434-439, 466-469, 473-475, 480-490, 493-506, 510-528, 536-540, 544-565, 574-586, 590-594, 598, 602-610, 614, 618-626, 641-717, 722-732, 737-742, 747-764, 769-781, 785-788, 796-809, 813-817, 821-834, 838-843, 847-864, 868-891, 896-906, 914-920, 927-937, 947-959, 964-975, 987-1000, 1005-1029, 1035-1091, 1103-1146, 1152-1180, 1185-1203
+nikola/rc4.py                                       36      1    97%   83
+nikola/shortcodes.py                               190     60    68%   51-65, 76, 98-114, 129-133, 139, 156, 159-160, 165, 188-192, 194, 207-209, 239, 248, 251, 291, 319, 324-325, 329, 331-339
+nikola/state.py                                     41     26    37%   50-52, 56-57, 61-62, 66-68, 72-75, 78-80, 83-92
+nikola/utils.py                                   1064    772    27%   51-52, 113-116, 130, 138, 158, 165-169, 193-218, 227-229, 234-236, 241-254, 262-263, 267-269, 298-301, 305, 316-335, 339-347, 356-359, 363, 367, 375-378, 382-439, 443, 447, 451-454, 458-461, 489-490, 518, 522, 534-541, 549-552, 556-570, 576, 580-583, 600, 604, 614-620, 631, 656-657, 661, 670-700, 718-731, 742-758, 763-766, 791, 793, 809-813, 822-828, 833-841, 855-870, 875-885, 894, 899-903, 913-945, 993-1004, 1047, 1058, 1106-1122, 1125-1131, 1139-1149, 1167-1170, 1174-1175, 1180, 1184-1185, 1194-1201, 1206-1221, 1225-1251, 1261-1264, 1268-1274, 1282-1285, 1289-1292, 1304-1307, 1312-1317, 1322-1332, 1337-1354, 1406, 1419-1434, 1439-1450, 1455-1471, 1478-1479, 1482-1486, 1501-1532, 1535, 1539-1555, 1573-1576, 1584-1587, 1593-1604, 1609-1614, 1619-1642, 1647-1657, 1662, 1667-1671, 1676-1678, 1724-1726, 1730-1735, 1739, 1743, 1747-1750, 1768-1782, 1787-1818, 1823-1850, 1855-1858, 1868-1891, 1896-1907, 1915-1933, 1938-1952, 1968-1986, 1998-2005, 2010-2027, 2034-2043, 2048-2054
+------------------------------------------------------------------------------
+TOTAL                                            10300   7873    24%
+
+
+===================== 9 passed, 1 skipped in 7.12 seconds ======================
+
+travis_time:end:03801284:start=1615647755459965541,finish=1615647763434538244,duration=7974572703[0K
+[32;1mThe command "if [[ $NMODE == 'nikola' ]]; then py.test --doctest-modules nikola/; fi" exited with 0.[0m
+travis_time:start:1cd4fbb8[0K$ if [[ $NMODE == 'nikola' ]]; then py.test tests/; fi
+============================= test session starts ==============================
+platform linux -- Python 3.5.6, pytest-3.0.7, py-1.5.4, pluggy-0.4.0
+rootdir: /home/travis/build/failed/getnikola/nikola, inifile: setup.cfg
+plugins: cov-2.4.0
+collected 168 items
+
+tests/test_command_import_wordpress.py ....................
+tests/test_command_init.py ......
+tests/test_commands.py .
+tests/test_compile_markdown.py ...
+tests/test_integration.py ........F...................................................................
+tests/test_locale.py ...................
+tests/test_plugin_importing.py ...
+tests/test_rss_feeds.py ..
+tests/test_rst_compiler.py ..........
+tests/test_scheduling.py .
+tests/test_shortcodes.py .....
+tests/test_slugify.py ........
+tests/test_template_shortcodes.py ....
+tests/test_utils.py ..........
+
+----------- coverage: platform linux, python 3.5.6-final-0 -----------
+Name                                             Stmts   Miss  Cover   Missing
+------------------------------------------------------------------------------
+nikola/__init__.py                                   7      0   100%
+nikola/__main__.py                                 227     96    58%   60, 72, 77, 87-92, 97-99, 101-102, 123, 131, 133-141, 144, 149-153, 159-160, 170, 174, 188-198, 244-248, 267, 317-318, 321-332, 335, 337, 344-345, 347-359, 363-365, 371, 381-399
+nikola/filters.py                                  199    123    38%   70-74, 99-101, 119-139, 145-160, 166, 172, 178, 184, 190, 196, 202, 208, 214-218, 224-234, 240-249, 255, 262-263, 276-282, 288-300, 308-317, 323-334, 340-350, 356-366, 372-373, 379-381, 388-389
+nikola/image_processing.py                         133     77    42%   61-64, 69-93, 98-99, 107, 119, 121, 123, 125, 132-141, 144-147, 151-189, 197-198, 205, 209-210
+nikola/nikola.py                                  1350    438    68%   81, 373-377, 633-634, 707-708, 715-716, 720-721, 725, 738-741, 753-756, 761-764, 769-772, 777-780, 786-789, 797-800, 805-808, 813-822, 827-828, 833-841, 844-851, 856-858, 862, 865-870, 873-878, 881, 902-903, 909-912, 916-920, 932-933, 935-936, 940-947, 952-954, 1028, 1040-1045, 1059-1060, 1071-1073, 1082-1083, 1095-1096, 1150-1151, 1242-1246, 1264-1269, 1272-1275, 1289-1291, 1307, 1322-1324, 1351-1359, 1365-1366, 1400, 1406, 1409, 1422, 1430, 1445-1447, 1484, 1494-1503, 1510-1511, 1517, 1536-1538, 1565, 1572, 1628, 1634-1643, 1648-1649, 1661, 1694, 1705, 1715-1721, 1804, 1809-1811, 1820, 1848, 1851, 1861-1867, 1872, 1888, 1891, 1907, 1916, 1924-1927, 1951, 1960-1961, 1963, 1977-1981, 1988, 2084-2090, 2109-2113, 2115-2119, 2143, 2216, 2279-2437, 2486-2493, 2503-2507, 2511, 2514, 2517, 2523, 2533-2536, 2538-2546, 2548-2549, 2552-2553, 2557-2562, 2578-2603, 2607-2609, 2686, 2692-2697, 2730-2731, 2740-2743, 2750, 2756, 2758, 2771-2773
+nikola/plugin_categories.py                        215     15    93%   75, 84, 88, 128-129, 153-155, 245, 297, 304, 451, 459, 741, 748
+nikola/plugins/__init__.py                           2      0   100%
+nikola/plugins/basic_import.py                     104     37    64%   74-76, 93, 103-104, 124, 134-137, 146-155, 164-171, 176-181, 199-201, 206
+nikola/plugins/command/__init__.py                   1      0   100%
+nikola/plugins/command/auto/__init__.py            245    182    26%   40, 134-262, 268-284, 290-293, 297-326, 330-335, 339-340, 344-345, 356-358, 362-389, 393-405, 409-420, 428-429, 433, 441-442, 446-447, 457, 461-464, 467-469
+nikola/plugins/command/bootswatch_theme.py          50     36    28%   40-43, 80-116
+nikola/plugins/command/check.py                    268     92    66%   38, 53, 99, 165-166, 168, 177, 197, 208-209, 222-223, 227-232, 240, 254, 260, 264-266, 273-319, 343, 353-357, 378-379, 382, 405-408, 415-439
+nikola/plugins/command/console.py                   62     44    29%   79-90, 94-101, 105-122, 126-149
+nikola/plugins/command/deploy.py                    75     55    27%   56-128, 146-164
+nikola/plugins/command/github_deploy.py             76     54    29%   43-44, 49-54, 86-110, 114-125, 129-167
+nikola/plugins/command/import_wordpress.py         719    271    62%   47, 68-92, 230-240, 244-251, 262, 296-300, 307-308, 310, 313-314, 317-326, 336-349, 358, 365, 374, 383, 392, 394-395, 399-410, 419-425, 436, 461-462, 480, 495, 503-511, 523, 545, 553-557, 575, 582-584, 611, 627, 656, 682-683, 718-725, 728-738, 742-745, 747, 753-758, 762-789, 795-814, 820, 822-834, 843, 850, 853-855, 860, 877, 880-881, 889-897, 908-911, 914, 929-930, 932-934, 936-938, 949, 956, 972-974, 977-978, 980-981, 989, 996-999, 1001-1009, 1026, 1044-1052, 1056-1058, 1083, 1087-1088, 1128
+nikola/plugins/command/init.py                     281    165    41%   140, 176-206, 228-231, 281-283, 294-483, 496-497, 511
+nikola/plugins/command/install_theme.py             26     14    46%   73-91
+nikola/plugins/command/new_page.py                  15      6    60%   107-114
+nikola/plugins/command/new_post.py                 248    204    18%   53-62, 85, 97-98, 107, 110, 220-430, 440-471, 479-543
+nikola/plugins/command/orphans.py                   12      2    83%   49-50
+nikola/plugins/command/plugin.py                   218    188    14%   116-157, 161-166, 170-194, 198-224, 228-325, 329-348, 352-360
+nikola/plugins/command/rst2html/__init__.py         34     21    38%   48-71
+nikola/plugins/command/serve.py                    138    107    22%   38, 113-120, 124-178, 190-194, 216-286
+nikola/plugins/command/status.py                    73     58    21%   91-159, 163-172
+nikola/plugins/command/theme.py                    195    164    16%   138-175, 179-195, 199-237, 241-258, 262-267, 271-276, 280-288, 293-317, 321-353, 357-365
+nikola/plugins/command/version.py                   22      6    73%   63-69
+nikola/plugins/compile/__init__.py                   1      0   100%
+nikola/plugins/compile/html.py                      41     29    29%   46-48, 52-65, 69-84
+nikola/plugins/compile/ipynb.py                    112     82    27%   78-79, 83-89, 93, 97-98, 103-105, 109-121, 129-136, 140-194, 202-221
+nikola/plugins/compile/markdown/__init__.py         71     20    72%   91, 93, 101, 110-114, 118-134
+nikola/plugins/compile/markdown/mdx_gist.py         69     32    54%   111-112, 125-131, 135-141, 145-174, 187
+nikola/plugins/compile/markdown/mdx_nikola.py       26      0   100%
+nikola/plugins/compile/markdown/mdx_podcast.py      29      8    72%   62-68, 81
+nikola/plugins/compile/pandoc.py                    46     32    30%   50-51, 55-71, 75, 79-94
+nikola/plugins/compile/php.py                       39     25    36%   47-52, 56, 60-86, 90
+nikola/plugins/compile/rest/__init__.py            123     26    79%   90, 97, 110, 119, 123-137, 193, 207, 248-252, 307
+nikola/plugins/compile/rest/chart.py                56      7    88%   166-167, 175, 177, 183-184, 190
+nikola/plugins/compile/rest/doc.py                  55     18    67%   62-63, 67-69, 84-86, 91-95, 100-110
+nikola/plugins/compile/rest/gist.py                 40      8    80%   45-46, 53-54, 59, 66-68
+nikola/plugins/compile/rest/listing.py             112     18    84%   73, 75, 80, 86, 92-93, 96-101, 107, 176-177, 182, 186, 189, 208
+nikola/plugins/compile/rest/media.py                27      7    74%   64-65, 69-73
+nikola/plugins/compile/rest/post_list.py           122     98    20%   166-191, 198-319
+nikola/plugins/compile/rest/slides.py               22      1    95%   63
+nikola/plugins/compile/rest/soundcloud.py           29      1    97%   64
+nikola/plugins/compile/rest/thumbnail.py            32      6    81%   54, 58-61, 73, 78
+nikola/plugins/compile/rest/vimeo.py                52     14    73%   96, 100, 113-126, 131
+nikola/plugins/compile/rest/youtube.py              25      1    96%   84
+nikola/plugins/misc/__init__.py                      1      1     0%   27
+nikola/plugins/misc/post_encryption.py              28      9    68%   47-51, 59-62
+nikola/plugins/misc/scan_posts.py                   47      3    94%   104-106
+nikola/plugins/misc/taxonomies_classifier.py       196     17    91%   69, 169-170, 175-185, 189, 198, 231, 240, 242, 263, 299
+nikola/plugins/shortcode/gist.py                    31     19    39%   24-25, 29-33, 37-56
+nikola/plugins/task/__init__.py                      1      1     0%   27
+nikola/plugins/task/archive.py                     137     40    71%   79, 90, 115, 123-124, 130-132, 161-162, 181, 191-213, 217-218, 226-236
+nikola/plugins/task/authors.py                      66      4    94%   83, 94, 105, 149
+nikola/plugins/task/bundles.py                      62     12    81%   51-54, 83-89, 141-143
+nikola/plugins/task/categories.py                   82      9    89%   103-107, 120-121, 123, 186
+nikola/plugins/task/copy_assets.py                  43      3    93%   76-78
+nikola/plugins/task/copy_files.py                   17      0   100%
+nikola/plugins/task/galleries.py                   257     15    94%   96-98, 118-123, 241, 256, 419, 564, 576, 609, 651
+nikola/plugins/task/gzip.py                         34     21    38%   47-70, 75-80
+nikola/plugins/task/indexes.py                      46      1    98%   91
+nikola/plugins/task/listings.py                    140     28    80%   75-77, 119-127, 132-137, 176, 228, 299-308
+nikola/plugins/task/page_index.py                   48     19    60%   66-71, 75, 79, 83, 87, 91-100, 104-109
+nikola/plugins/task/pages.py                        22      1    95%   53
+nikola/plugins/task/posts.py                        50      9    82%   80, 84-85, 115-118, 125-127
+nikola/plugins/task/py3_switch.py                   32     11    66%   69-76, 89-93
+nikola/plugins/task/redirect.py                     14      0   100%
+nikola/plugins/task/robots.py                       31      5    84%   69-70, 85-88
+nikola/plugins/task/scale_images.py                 41      1    98%   56
+nikola/plugins/task/sections.py                     70     28    60%   79, 90-93, 97, 101-104, 108-128, 138, 144-150
+nikola/plugins/task/sitemap/__init__.py            155     29    81%   37, 100, 106, 146, 156-166, 169, 175, 177, 209, 228-235, 276, 283, 317
+nikola/plugins/task/sources.py                      23      3    87%   55, 57, 63
+nikola/plugins/task/tagcloud.py                     29      1    97%   51
+nikola/plugins/task/tags.py                         60      9    85%   93, 98-99, 107-111, 157
+nikola/plugins/task/taxonomies.py                  217     17    92%   120, 171-172, 224, 231-245, 255, 260, 267, 274, 290, 310, 315
+nikola/plugins/template/__init__.py                  1      1     0%   27
+nikola/plugins/template/jinja.py                    80     35    56%   55, 60, 77-79, 93-101, 109-117, 121-123, 127-130, 134-138
+nikola/plugins/template/mako.py                     86     14    84%   84-88, 97-99, 119-121, 147-148, 153
+nikola/post.py                                     698    198    72%   107, 123, 187, 192, 200-201, 210, 231-233, 237-239, 243-245, 286, 295, 315, 317, 333-337, 351-355, 375, 411, 413, 435, 439, 466-469, 473-475, 481, 489-490, 500, 505, 515, 523, 525, 546, 578, 608, 624, 649, 655, 658-663, 672-673, 679-698, 705-706, 722-732, 737-742, 747-764, 769-781, 800, 806, 813-817, 821-834, 838-843, 848, 853, 857, 859, 863, 873, 878, 887, 889, 906, 918, 928, 933, 955, 968, 972-975, 1039, 1041-1083, 1157, 1164-1166, 1175, 1177, 1188
+nikola/rc4.py                                       36     29    19%   34-43, 48-56, 61-62, 71-84
+nikola/shortcodes.py                               190     15    92%   56-61, 105-106, 156, 194, 209, 319, 335-339
+nikola/state.py                                     41     21    49%   61-62, 66-68, 72-75, 78-80, 83-92
+nikola/utils.py                                   1064    400    62%   51-52, 113-116, 138, 158, 165-169, 193-218, 227-229, 235, 245, 251-254, 300-301, 305, 341-347, 367, 375-378, 397, 403, 412, 420-424, 428-429, 436, 447, 451-454, 458-461, 487-493, 513-514, 518, 522, 557, 563, 570, 600, 604, 620, 631, 656-657, 661, 688-689, 696-697, 723, 728, 754-756, 763-766, 791, 793, 823, 838-839, 855-870, 884-885, 894, 915, 922-923, 928, 942, 1042, 1107, 1126, 1167-1170, 1208-1210, 1216-1220, 1232, 1241-1243, 1250, 1317, 1323, 1326-1327, 1340, 1351, 1354, 1406, 1419-1434, 1439-1450, 1455-1471, 1478-1479, 1482-1486, 1501-1532, 1535, 1539-1555, 1573-1576, 1595, 1597, 1614, 1621-1641, 1647-1657, 1662, 1667-1671, 1743, 1747-1750, 1781, 1832-1847, 1868-1891, 1896-1907, 1915-1933, 1938-1952, 1968-1986, 1998-2005, 2010-2027, 2034-2043, 2053
+------------------------------------------------------------------------------
+TOTAL                                            10300   3917    62%
+
+
+=================================== FAILURES ===================================
+_______________________ FuturePostTest.test_future_post ________________________
+
+self = <tests.test_integration.FuturePostTest testMethod=test_future_post>
+
+    def test_future_post(self):
+        """ Ensure that the future post is not present in the index and sitemap."""
+        index_path = os.path.join(self.target_dir, "output", "index.html")
+        sitemap_path = os.path.join(self.target_dir, "output", "sitemap.xml")
+        foo_path = os.path.join(self.target_dir, "output", "posts", "foo.html")
+        bar_path = os.path.join(self.target_dir, "output", "posts", "bar.html")
+        self.assertTrue(os.path.isfile(index_path))
+        self.assertTrue(os.path.isfile(foo_path))
+        self.assertTrue(os.path.isfile(bar_path))
+        index_data = io.open(index_path, "r", encoding="utf8").read()
+        sitemap_data = io.open(sitemap_path, "r", encoding="utf8").read()
+        self.assertTrue('foo.html' in index_data)
+>       self.assertFalse('bar.html' in index_data)
+E       AssertionError: True is not false
+
+tests/test_integration.py:180: AssertionError
+==================== 1 failed, 167 passed in 92.33 seconds =====================
+
+travis_time:end:1cd4fbb8:start=1615647763442772115,finish=1615647857804912132,duration=94362140017[0K
+[31;1mThe command "if [[ $NMODE == 'nikola' ]]; then py.test tests/; fi" exited with 1.[0m
+travis_time:start:03950e50[0K$ if [[ $NMODE == 'nikola' ]]; then nikola; fi
+Nikola is a tool to create static websites and blogs. For full documentation and more information, please visit https://getnikola.com/
+
+
+Available commands:
+  nikola auto                 builds and serves a site; automatically detects site changes, rebuilds, and optionally refreshes a browser
+  nikola bootswatch_theme     given a swatch name from bootswatch.com and a parent theme, creates a custom theme
+  nikola build                run tasks
+  nikola check                check links and files in the generated site
+  nikola clean                clean action / remove targets
+  nikola console              start an interactive Python console with access to your site
+  nikola deploy               deploy the site
+  nikola doit_auto            automatically execute tasks when a dependency changes
+  nikola dumpdb               dump dependency DB
+  nikola forget               clear successful run status from internal DB
+  nikola github_deploy        deploy the site to GitHub Pages
+  nikola help                 show help
+  nikola ignore               ignore task (skip) on subsequent runs
+  nikola import_wordpress     import a WordPress dump
+  nikola info                 show info about a task
+  nikola init                 create a Nikola site in the specified folder
+  nikola install_theme        install theme into current site
+  nikola list                 list tasks from dodo file
+  nikola new_page             create a new page in the site
+  nikola new_post             create a new blog post or site page
+  nikola orphans              list all orphans
+  nikola plugin               manage plugins
+  nikola reset-dep            recompute and save the state of file dependencies without executing actions
+  nikola rst2html             compile reStructuredText to HTML files
+  nikola serve                start the test webserver
+  nikola status               display site status
+  nikola strace               use strace to list file_deps and targets
+  nikola tabcompletion        generate script for tab-completion
+  nikola theme                manage themes
+  nikola version              print the Nikola version number
+
+  nikola help                 show help / reference
+  nikola help <command>       show command usage
+  nikola help <task-name>     show task usage
+
+travis_time:end:03950e50:start=1615647857816591901,finish=1615647859004460853,duration=1187868952[0K
+[32;1mThe command "if [[ $NMODE == 'nikola' ]]; then nikola; fi" exited with 0.[0m
+travis_time:start:0c4ebd9c[0K$ if [[ $NMODE == 'nikola' ]]; then nikola help; fi
+Nikola is a tool to create static websites and blogs. For full documentation and more information, please visit https://getnikola.com/
+
+
+Available commands:
+  nikola auto                 builds and serves a site; automatically detects site changes, rebuilds, and optionally refreshes a browser
+  nikola bootswatch_theme     given a swatch name from bootswatch.com and a parent theme, creates a custom theme
+  nikola build                run tasks
+  nikola check                check links and files in the generated site
+  nikola clean                clean action / remove targets
+  nikola console              start an interactive Python console with access to your site
+  nikola deploy               deploy the site
+  nikola doit_auto            automatically execute tasks when a dependency changes
+  nikola dumpdb               dump dependency DB
+  nikola forget               clear successful run status from internal DB
+  nikola github_deploy        deploy the site to GitHub Pages
+  nikola help                 show help
+  nikola ignore               ignore task (skip) on subsequent runs
+  nikola import_wordpress     import a WordPress dump
+  nikola info                 show info about a task
+  nikola init                 create a Nikola site in the specified folder
+  nikola install_theme        install theme into current site
+  nikola list                 list tasks from dodo file
+  nikola new_page             create a new page in the site
+  nikola new_post             create a new blog post or site page
+  nikola orphans              list all orphans
+  nikola plugin               manage plugins
+  nikola reset-dep            recompute and save the state of file dependencies without executing actions
+  nikola rst2html             compile reStructuredText to HTML files
+  nikola serve                start the test webserver
+  nikola status               display site status
+  nikola strace               use strace to list file_deps and targets
+  nikola tabcompletion        generate script for tab-completion
+  nikola theme                manage themes
+  nikola version              print the Nikola version number
+
+  nikola help                 show help / reference
+  nikola help <command>       show command usage
+  nikola help <task-name>     show task usage
+
+travis_time:end:0c4ebd9c:start=1615647859012578097,finish=1615647860144099230,duration=1131521133[0K
+[32;1mThe command "if [[ $NMODE == 'nikola' ]]; then nikola help; fi" exited with 0.[0m
+travis_time:start:001bdfbc[0K$ if [[ $NMODE == 'nikola' ]]; then scripts/baseline.sh check; fi
+[35m>> Version 3.5 does not support baseline testing.[0m
+
+travis_time:end:001bdfbc:start=1615647860152937183,finish=1615647860192748714,duration=39811531[0K
+[32;1mThe command "if [[ $NMODE == 'nikola' ]]; then scripts/baseline.sh check; fi" exited with 0.[0m
+travis_time:start:13eeea73[0K$ if [[ $NMODE == 'nikola' ]]; then scripts/codacy_coverage.sh; fi
+
+travis_time:end:13eeea73:start=1615647860202124529,finish=1615647860243185047,duration=41060518[0K
+[32;1mThe command "if [[ $NMODE == 'nikola' ]]; then scripts/codacy_coverage.sh; fi" exited with 0.[0m
+travis_time:start:0ca57c11[0K$ if [[ $NMODE == 'flake8' ]]; then flake8 nikola/; fi
+
+travis_time:end:0ca57c11:start=1615647860252830421,finish=1615647860260757056,duration=7926635[0K
+[32;1mThe command "if [[ $NMODE == 'flake8' ]]; then flake8 nikola/; fi" exited with 0.[0m
+travis_time:start:1acfa708[0K$ if [[ $NMODE == 'flake8' ]]; then pydocstyle --count --match-dir='(?!^\\.)(?!data).*' nikola/; fi
+
+travis_time:end:1acfa708:start=1615647860269394350,finish=1615647860276641479,duration=7247129[0K
+[32;1mThe command "if [[ $NMODE == 'flake8' ]]; then pydocstyle --count --match-dir='(?!^\.)(?!data).*' nikola/; fi" exited with 0.[0m
+
+Done. Your build exited with 1.

@@ -1,0 +1,1091 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+W: GPG error: http://apt.postgresql.org precise-pgdg Release: The following signatures were invalid: KEYEXPIRED 1562078959
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-amd64/Packages  403  Forbidden
+
+W: Failed to fetch http://ppa.launchpad.net/travis-ci/zero-mq/ubuntu/dists/precise/main/binary-i386/Packages  403  Forbidden
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-amd64/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+W: Failed to fetch http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/10gen/binary-i386/Packages  Undetermined Error [IP: 54.175.147.155 80]
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ cd passed/jindrapetrik/jpexs-decompiler
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:247d261a[0K$ ant deps
+Buildfile: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build.xml
+
+-get-home-from-user-windows-appdata:
+
+-get-home-from-user-windows-home:
+
+-get-home-from-user-osx-home:
+
+-get-home-from-user:
+
+-get-home-no:
+     [echo] Detected homedir in current dir: .
+
+-get-home:
+
+-get-playerglobal-home:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/flashlib
+     [echo] PlayerGlobal homedir: ./flashlib
+
+download-playerglobal:
+      [get] Getting: https://www.adobe.com/support/flashplayer/debug_downloads.html
+      [get] To: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/adobepages1212076649.html
+      [get] Getting: https://fpdownload.macromedia.com/get/flashplayer/updaters/32/playerglobal32_0.swc
+      [get] To: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/flashlib/playerglobal32_0.swc
+   [delete] Deleting: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/adobepages1212076649.html
+
+deps:
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
+
+travis_time:end:247d261a:start=1619583835299586035,finish=1619583837655564972,duration=2355978937[0Ktravis_fold:end:install[0Ktravis_time:start:1bac2d86[0K$ ant test
+Buildfile: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build.xml
+
+-test-halt-newver:
+
+-test-halt-nonewver:
+
+-test_lib-newver:
+
+-test_lib-nonewver:
+Trying to override old definition of task testng
+Trying to override old definition of task antlib:org.jacoco.ant:coverage
+Trying to override old definition of task antlib:org.jacoco.ant:agent
+Trying to override old definition of task antlib:org.jacoco.ant:report
+Trying to override old definition of task antlib:org.jacoco.ant:merge
+Trying to override old definition of task antlib:org.jacoco.ant:dump
+Trying to override old definition of task antlib:org.jacoco.ant:instrument
+
+-test-setnohalt:
+
+lexers:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+compile:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/build/classes
+    [javac] Compiling 1330 source files to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/build/classes
+     [copy] Copying 27 files to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/build/classes
+
+compile-tests:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/build/test
+    [javac] Compiling 25 source files to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/build/test
+
+test:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/reports/tests
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/reports/tests/raw
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/coverage
+[jacoco:coverage] Enhancing testng with coverage
+   [testng] [TestNG] Running:
+   [testng]   Ant suite
+   [testng] 
+   [testng] PASSED: testS32
+   [testng] PASSED: testU30
+   [testng] PASSED: testU32
+   [testng] PASSED: testModifiedConstantPools
+   [testng] PASSED: testNegativeFloatValue
+   [testng] PASSED: testEvailExpressionAfterWhile
+   [testng] PASSED: testRemoveBasicFalseExpressions("1==5")
+   [testng] PASSED: testRemoveBasicFalseExpressions("5!=5")
+   [testng] PASSED: testRemoveBasicFalseExpressions("1>4")
+   [testng] PASSED: testRemoveBasicFalseExpressions("5<4")
+   [testng] PASSED: testRemoveBasicFalseExpressions("5*7==12")
+   [testng] PASSED: testRemoveBasicTrueExpressions("1!=5")
+   [testng] PASSED: testRemoveBasicTrueExpressions("5==5")
+   [testng] PASSED: testRemoveBasicTrueExpressions("1<4")
+   [testng] PASSED: testRemoveBasicTrueExpressions("5>4")
+   [testng] PASSED: testRemoveBasicTrueExpressions("5*6==30")
+   [testng] PASSED: testRemoveGetTime
+   [testng] PASSED: testRemoveGetTimeAndIncrement
+   [testng] PASSED: testRemoveJumpsToTheNextAction
+   [testng] PASSED: testAddActionAfterContainer
+   [testng] PASSED: testAddActionIf
+   [testng] PASSED: testAddAtion1
+   [testng] PASSED: testAddAtionFirst
+   [testng] PASSED: testAddAtionToContainer
+   [testng] PASSED: testAddToJumpTarget
+   [testng] PASSED: testRemoveActionFromContainer
+   [testng] PASSED: testRemoveIfTargetAction
+   [testng] PASSED: testRemoveIfTargetLastAction
+   [testng] PASSED: testRemoveJumpAction
+   [testng] PASSED: testRemoveLastActionFromContainer
+   [testng] PASSED: testAS2Parse1
+   [testng] PASSED: testAS2Parse2
+   [testng] PASSED: testAS2Parse3
+   [testng] PASSED: testAS2Parse4
+   [testng] PASSED: testAS2Parse5
+   [testng] PASSED: frame23_Test
+   [testng] PASSED: frame24_unicodeTest
+   [testng] PASSED: frame25_ifWithElseTest
+   [testng] PASSED: frame26_forTest
+   [testng] PASSED: frame27_whileTest
+   [testng] PASSED: frame28_forWithContinueTest
+   [testng] PASSED: frame29_doWhileTest
+   [testng] PASSED: frame30_switchTest
+   [testng] PASSED: frame31_strictEqualsTest
+   [testng] PASSED: frame32_switchForTest
+   [testng] PASSED: frame33_functionTest
+   [testng] PASSED: frame34_multipleConditionsTest
+   [testng] PASSED: frame35_multipleConditions2Test
+   [testng] PASSED: frame36_chainedAssignmentsTest
+   [testng] PASSED: frame37_objectsTest
+   [testng] PASSED: frame38_doWhile2Test
+   [testng] PASSED: frame39_whileAndTest
+   [testng] PASSED: frame40_forInTest
+   [testng] PASSED: frame41_tryTest
+   [testng] PASSED: frame42_indicesTest
+   [testng] PASSED: frame43_incDecTest
+   [testng] PASSED: frame44_chainedAssignments2Test
+   [testng] PASSED: frame45_function2Test
+   [testng] PASSED: frame46_tryFunctionTest
+   [testng] PASSED: frame47_ternarTest
+   [testng] PASSED: frame48_forInInTest
+   [testng] PASSED: frame49_registersFuncTest
+   [testng] PASSED: frame50_ifFrameLoadedTest
+   [testng] PASSED: frame51_function3Test
+   [testng] PASSED: frame52_commaOperatorTest
+   [testng] PASSED: frame53_commaOperator2Test
+   [testng] PASSED: frame54_function4Test
+   [testng] PASSED: frame55_pushTest
+   [testng] PASSED: frame56_commaOperator3Test
+   [testng] PASSED: frame57_commaOperator4Test
+   [testng] PASSED: frame58_globalFunctionsTest
+   [testng] PASSED: frame59_unaryOpTest
+   [testng] PASSED: frame61_switchDefaultTest
+   [testng] PASSED: frame62_Test
+   [testng] PASSED: removeInstruction
+   [testng] PASSED: removeInstruction2
+   [testng] PASSED: replaceInstruction
+   [testng] PASSED: replaceInstruction2
+   [testng] PASSED: testAddressToPos
+   [testng] PASSED: testInstructionStackSizes
+   [testng] PASSED: testJumps
+   [testng] PASSED: testArguments
+   [testng] PASSED: testCatchFinally
+   [testng] PASSED: testChain2
+   [testng] PASSED: testChainedAssignments
+   [testng] PASSED: testComplexExpressions
+   [testng] PASSED: testContinueLevels
+   [testng] PASSED: testDecl2
+   [testng] PASSED: testDeclarations
+   [testng] PASSED: testDefaultNotLastGrouped
+   [testng] PASSED: testDoWhile
+   [testng] PASSED: testDoWhile2
+   [testng] PASSED: testExpressions
+   [testng] PASSED: testFinallyZeroJump
+   [testng] PASSED: testFor
+   [testng] PASSED: testForBreak
+   [testng] PASSED: testForContinue
+   [testng] PASSED: testForEach
+   [testng] PASSED: testForEachObjectArray
+   [testng] PASSED: testForEachObjectAttribute
+   [testng] PASSED: testForIn
+   [testng] PASSED: testHello
+   [testng] PASSED: testIf
+   [testng] PASSED: testIfElse
+   [testng] PASSED: testInc2
+   [testng] PASSED: testIncDec
+   [testng] PASSED: testInlineFunctions
+   [testng] PASSED: testInnerFunctions
+   [testng] PASSED: testInnerIf
+   [testng] PASSED: testInnerTry
+   [testng] PASSED: testLogicalComputing
+   [testng] PASSED: testManualConvert
+   [testng] PASSED: testMissingDefault
+   [testng] PASSED: testMultipleCondition
+   [testng] PASSED: testMyPackage1MyNamespace
+   [testng] PASSED: testMyPackage1TestClass
+   [testng] PASSED: testMyPackage1TestClass2
+   [testng] PASSED: testMyPackage1TestInterface
+   [testng] PASSED: testMyPackage2TestClass
+   [testng] PASSED: testMyPackage2TestInterface
+   [testng] PASSED: testMyPackage3TestClass
+   [testng] PASSED: testNamedAnonFunctions
+   [testng] PASSED: testNames
+   [testng] PASSED: testOptionalParameters
+   [testng] PASSED: testParamNames
+   [testng] PASSED: testParamsCount
+   [testng] PASSED: testPrecedence
+   [testng] PASSED: testPrecedenceX
+   [testng] PASSED: testProperty
+   [testng] PASSED: testRegExp
+   [testng] PASSED: testRest
+   [testng] PASSED: testStringConcat
+   [testng] PASSED: testStrings
+   [testng] PASSED: testSwitch
+   [testng] PASSED: testSwitchDefault
+   [testng] PASSED: testTernarOperator
+   [testng] PASSED: testTry
+   [testng] PASSED: testTryReturn
+   [testng] PASSED: testVector
+   [testng] PASSED: testVector2
+   [testng] PASSED: testWhileAnd
+   [testng] PASSED: testWhileContinue
+   [testng] PASSED: testWhileTry
+   [testng] PASSED: testWhileTry2
+   [testng] PASSED: testRecompile("all.bin")
+   [testng] PASSED: testNoSerializerHandlingInArrayAssociative
+   [testng] PASSED: testNoSerializerHandlingInArrayDense
+   [testng] PASSED: testNoSerializerHandlingInDictionaryKeys
+   [testng] PASSED: testNoSerializerHandlingInDictionaryValues
+   [testng] PASSED: testNoSerializerHandlingInObjectDynamicProp
+   [testng] PASSED: testNoSerializerHandlingInObjectSealedProp
+   [testng] PASSED: testNoSerializerHandlingInVector
+   [testng] PASSED: testReadCustomSerialized
+   [testng] PASSED: testReadCustomSerializedNeedsSerializer
+   [testng] PASSED: testReadObject
+   [testng] PASSED: testUnsupportedMarker
+   [testng] PASSED: testRecompile("all.bin")
+   [testng] PASSED: testRecompile("custom.bin")
+   [testng] PASSED: testRecompile("noserializer_array_associative.bin")
+   [testng] PASSED: testRecompile("noserializer_array_dense.bin")
+   [testng] PASSED: testRecompile("noserializer_dictionary_key.bin")
+   [testng] PASSED: testRecompile("noserializer_dictionary_value.bin")
+   [testng] PASSED: testRecompile("noserializer_object_dynamic.bin")
+   [testng] PASSED: testRecompile("noserializer_object_sealed.bin")
+   [testng] PASSED: testRecompile("noserializer_vector.bin")
+   [testng] PASSED: testDecompileAS("testdata/as2/as2.swf")
+   [testng] PASSED: testDecompileAS("testdata/as3/as3.swf")
+   [testng] PASSED: testDecompileAS("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] PASSED: testDecompileAS("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] PASSED: testDecompileAS("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] PASSED: testDecompileAS("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] PASSED: testDecompileAS("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] PASSED: testDecompilePcode("testdata/as2/as2.swf")
+   [testng] PASSED: testDecompilePcode("testdata/as3/as3.swf")
+   [testng] PASSED: testDecompilePcode("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] PASSED: testDecompilePcode("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] PASSED: testDecompilePcode("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] PASSED: testDecompilePcode("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] PASSED: testDecompilePcode("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] PASSED: testFileHashMap
+   [testng] PASSED: testAS3InstructionParsing("testdata/as2/as2.swf")
+   [testng] PASSED: testAS3InstructionParsing("testdata/as3/as3.swf")
+   [testng] PASSED: testAS3InstructionParsing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] PASSED: testAS3InstructionParsing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] PASSED: testAS3InstructionParsing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] PASSED: testAS3InstructionParsing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] PASSED: testAS3InstructionParsing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] PASSED: testRecompile("testdata/as2/as2.swf")
+   [testng] PASSED: testRecompile("testdata/as3/as3.swf")
+   [testng] PASSED: testRecompile("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] PASSED: testRecompile("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] PASSED: testRecompile("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] PASSED: testRecompile("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] PASSED: testRecompile("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] PASSED: testTagEditing("testdata/as2/as2.swf")
+   [testng] PASSED: testTagEditing("testdata/as3/as3.swf")
+   [testng] PASSED: testTagEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] PASSED: testTagEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] PASSED: testTagEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] PASSED: testTagEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] PASSED: testTagEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] PASSED: testFB
+   [testng] PASSED: testFIXEDandFIXED8
+   [testng] PASSED: testFLOATAndDouble
+   [testng] PASSED: testNeededBits
+   [testng] PASSED: testRECT
+   [testng] PASSED: testSB
+   [testng] PASSED: testUB
+   [testng] PASSED: testExportImportXml("testdata/as2/as2.swf")
+   [testng] PASSED: testExportImportXml("testdata/as3/as3.swf")
+   [testng] PASSED: testExportImportXml("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] PASSED: testExportImportXml("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] PASSED: testExportImportXml("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] PASSED: testExportImportXml("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] PASSED: testExportImportXml("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] FAILED: testRemoveBasicFalseExpressions("1==5")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicFalseExpressions(ActionScript3DeobfuscatorTest.java:154)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicFalseExpressions("5!=5")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicFalseExpressions(ActionScript3DeobfuscatorTest.java:154)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicFalseExpressions("1>4")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicFalseExpressions(ActionScript3DeobfuscatorTest.java:154)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicFalseExpressions("5<4")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicFalseExpressions(ActionScript3DeobfuscatorTest.java:154)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicFalseExpressions("5*7==12")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicFalseExpressions(ActionScript3DeobfuscatorTest.java:154)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicTrueExpressions("1!=5")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicTrueExpressions(ActionScript3DeobfuscatorTest.java:139)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicTrueExpressions("5==5")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicTrueExpressions(ActionScript3DeobfuscatorTest.java:139)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicTrueExpressions("1<4")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicTrueExpressions(ActionScript3DeobfuscatorTest.java:139)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicTrueExpressions("5>4")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicTrueExpressions(ActionScript3DeobfuscatorTest.java:139)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveBasicTrueExpressions("5*6==30")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveBasicTrueExpressions(ActionScript3DeobfuscatorTest.java:139)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveKnownVariables
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveKnownVariables(ActionScript3DeobfuscatorTest.java:169)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testRemoveKnownVariables2
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.initPlayer(ActionScript3Parser.java:2574)
+   [testng] 	at com.jpexs.decompiler.flash.abc.avm2.parser.script.ActionScript3Parser.<init>(ActionScript3Parser.java:2561)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.recompile(ActionScript3DeobfuscatorTest.java:115)
+   [testng] 	at com.jpexs.decompiler.flash.ActionScript3DeobfuscatorTest.testRemoveKnownVariables2(ActionScript3DeobfuscatorTest.java:202)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("testdata/as2/as2.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("testdata/as3/as3.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/enemy-behavior-run-away-follow-player.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as2/flash-game-projectile-weapons-v3.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/pixel.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/space.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] FAILED: testDirectEditing("/home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/testdata/freeactionscript.com/as3/weaponsystem.swf")
+   [testng] java.io.IOException: Player SWC library not found, please place it to /home/travis/.FFDec/flashlib
+   [testng] 	at com.jpexs.decompiler.flash.DirectEditingTest.testDirectEditing(DirectEditingTest.java:68)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   [testng] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   [testng] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   [testng] 	at java.lang.reflect.Method.invoke(Method.java:483)
+   [testng] 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+   [testng] 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+   [testng] 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+   [testng] 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+   [testng] 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+   [testng] 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+   [testng] 	at org.testng.TestRunner.run(TestRunner.java:617)
+   [testng] 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+   [testng] 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+   [testng] 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+   [testng] 	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+   [testng] 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+   [testng] 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+   [testng] 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+   [testng] 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+   [testng] 	at org.testng.TestNG.run(TestNG.java:1031)
+   [testng] 	at org.testng.TestNG.privateMain(TestNG.java:1338)
+   [testng] 	at org.testng.TestNG.main(TestNG.java:1307)
+   [testng] 
+   [testng] 
+   [testng] ===============================================
+   [testng]     Ant test
+   [testng]     Tests run: 234, Failures: 19, Skips: 0
+   [testng] ===============================================
+   [testng] 
+   [testng] 
+   [testng] ===============================================
+   [testng] Ant suite
+   [testng] Total tests run: 234, Failures: 19, Skips: 0
+   [testng] ===============================================
+   [testng] 
+   [testng] [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@35e2d654: 60 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@63475ace: 23 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.jq.Main@145f66e3: 95 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.XMLReporter@292b08d6: 53 ms
+   [testng] [TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 6 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.EmailableReporter@61322f9d: 48 ms
+   [testng] The tests failed.
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/reports/coverage
+[jacoco:report] Loading execution data file /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/coverage/jacoco.exec
+[jacoco:report] Writing bundle 'FFDec_Lib' with 1370 classes
+
+test_lib:
+
+-loadversion-prop:
+
+-loadversion-private:
+
+-loadversion:
+
+-save-version-info-file:
+[propertyfile] Creating new property file: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/version.properties
+
+-save-version-info:
+
+build_lib:
+     [copy] Copying 1 file to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib
+Trying to override old definition of task testng
+Trying to override old definition of task antlib:org.jacoco.ant:coverage
+Trying to override old definition of task antlib:org.jacoco.ant:agent
+Trying to override old definition of task antlib:org.jacoco.ant:report
+Trying to override old definition of task antlib:org.jacoco.ant:merge
+Trying to override old definition of task antlib:org.jacoco.ant:dump
+Trying to override old definition of task antlib:org.jacoco.ant:instrument
+
+-check-versionfile-exists:
+
+-load-version-file:
+
+-load-version-null:
+
+-load-version:
+
+-dotimestamp:
+
+-git-check-exists:
+
+-no-git-tag:
+
+-do-git-tag:
+     [echo] Git tag:80b12aa459fe99c4739704f7005ef154235c4552
+     [echo] Git shorttag:80b12aa
+
+-git-tag:
+
+-timestamp:
+     [echo] Library Version: 0.0.0
+
+-nightly-suffix:
+
+-private-suffix:
+
+-no-suffix:
+
+-suffix:
+
+lexers:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+-lexer:
+
+compile:
+
+build:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/dist
+[propertyfile] Creating new property file: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/build/classes/project.properties
+      [jar] Building jar: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/libsrc/ffdec_lib/dist/ffdec_lib.jar
+
+-copy-lib:
+     [copy] Copying 1 file to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/lib
+
+compile:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build/classes
+    [javac] Compiling 229 source files to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build/classes
+     [copy] Copying 574 files to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build/classes
+
+compile-tests:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build/test
+    [javac] Compiling 5 source files to /home/travis/build/passed/jindrapetrik/jpexs-decompiler/build/test
+
+test:
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/reports/tests
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/reports/tests/raw
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/coverage
+[jacoco:coverage] Enhancing testng with coverage
+   [testng] [TestNG] Running:
+   [testng]   Ant suite
+   [testng] 
+   [testng] PASSED: testAdvancedSettginsDialog
+   [testng] 
+   [testng] ===============================================
+   [testng]     Ant test
+   [testng]     Tests run: 1, Failures: 0, Skips: 0
+   [testng] ===============================================
+   [testng] 
+   [testng] 
+   [testng] ===============================================
+   [testng] Ant suite
+   [testng] Total tests run: 1, Failures: 0, Skips: 0
+   [testng] ===============================================
+   [testng] 
+   [testng] [TestNG] Time taken by org.testng.reporters.jq.Main@4a22f9e2: 48 ms
+   [testng] [TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.XMLReporter@3427b02d: 5 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.EmailableReporter@9f116cc: 3 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@74fe5c40: 2 ms
+   [testng] [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1c93084c: 6 ms
+    [mkdir] Created dir: /home/travis/build/passed/jindrapetrik/jpexs-decompiler/reports/coverage
+[jacoco:report] Loading execution data file /home/travis/build/passed/jindrapetrik/jpexs-decompiler/coverage/jacoco.exec
+[jacoco:report] Writing bundle 'FFDec' with 661 classes
+
+BUILD SUCCESSFUL
+Total time: 49 seconds
+
+travis_time:end:1bac2d86:start=1619583837663792617,finish=1619583887863245425,duration=50199452808[0K
+[32;1mThe command "ant test" exited with 0.[0m
+
+Done. Your build exited with 0.

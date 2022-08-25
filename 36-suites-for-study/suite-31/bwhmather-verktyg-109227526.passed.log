@@ -1,0 +1,440 @@
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+Build id: ''
+Job id: ''
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+grep: /etc/apt/sources.list.d/*: No such file or directory
+sed: cannot rename /etc/hosts: Device or resource busy
+sed: cannot rename /etc/hosts: Device or resource busy
+$ cd passed/bwhmather/verktyg
+travis_time:start:019ab748[0K$ source ~/virtualenv/python3.4/bin/activate
+
+travis_time:end:019ab748:start=1615607418148366676,finish=1615607418157762692,duration=9396016[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:install.1[0Ktravis_time:start:0c4d2458[0K$ pip install -e .
+Obtaining file:///home/travis/build/passed/bwhmather/verktyg
+Collecting werkzeug<0.11,>=0.10 (from verktyg==0.8.5)
+  Downloading https://files.pythonhosted.org/packages/49/0c/e33c2caec86a7926186f7d454f6a901f45f05ad90337c6972d170b9ee806/Werkzeug-0.10.4-py2.py3-none-any.whl (293kB)
+Installing collected packages: verktyg, werkzeug
+  Running setup.py develop for verktyg
+    Creating /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/verktyg.egg-link (link to .)
+    Adding verktyg 0.8.5 to easy-install.pth file
+    Installed /home/travis/build/passed/bwhmather/verktyg
+
+Successfully installed verktyg werkzeug-0.10.4
+
+travis_time:end:0c4d2458:start=1615607418488538275,finish=1615607420264556924,duration=1776018649[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:1c3a5f7d[0K$ pip install coveralls==1.1
+Collecting coveralls==1.1
+  Downloading https://files.pythonhosted.org/packages/81/f9/da2ad9334f60e418cb229c58724330be2635b369676d3eec8f61e1f85faa/coveralls-1.1-py2.py3-none-any.whl
+Collecting coverage>=3.6 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/38/df/d5e67851e83948def768d7fb1a0fd373665b20f56ff63ed220c6cd16cb11/coverage-5.5.tar.gz (691kB)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+Collecting docopt>=0.6.1 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+Collecting requests>=1.0.0 (from coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl (61kB)
+Collecting certifi>=2017.4.17 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/5e/a0/5f06e1e1d463903cf0c0eebeb751791119ed7a4b3737fdc9a77f1cdfb51f/certifi-2020.12.5-py2.py3-none-any.whl (147kB)
+Collecting chardet<5,>=3.0.2 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl (178kB)
+Collecting urllib3<1.27,>=1.21.1 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/23/fc/8a49991f7905261f9ca9df5aa9b58363c3c821ce3e7f671895442b7100f2/urllib3-1.26.3-py2.py3-none-any.whl (137kB)
+Collecting idna<3,>=2.5 (from requests>=1.0.0->coveralls==1.1)
+  Downloading https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl (58kB)
+Installing collected packages: idna, urllib3, chardet, certifi, requests, docopt, coverage, coveralls
+
+
+
+
+
+  Running setup.py install for docopt
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/module.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/coverage/tracer.cpython-34m.so
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'python_requires'
+      warnings.warn(msg)
+    /opt/python/3.4.2/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'project_urls'
+      warnings.warn(msg)
+    Installing coverage-3.4 script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.4.2/bin
+
+Successfully installed certifi-2020.12.5 chardet-4.0.0 coverage-5.5 coveralls-1.1 docopt-0.6.2 idna-2.10 requests-2.25.1 urllib3-1.26.3
+
+travis_time:end:1c3a5f7d:start=1615607420274630371,finish=1615607425820763654,duration=5546133283[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:000b477d[0K$ pip install pyflakes==1.0.0
+Collecting pyflakes==1.0.0
+  Downloading https://files.pythonhosted.org/packages/6d/65/3272c6bb4dba7974175981d8b8e64b6a1d7022a7f9412417684563650e3a/pyflakes-1.0.0-py2.py3-none-any.whl (152kB)
+Installing collected packages: pyflakes
+
+Successfully installed pyflakes-1.0.0
+
+travis_time:end:000b477d:start=1615607425831917320,finish=1615607426563620171,duration=731702851[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:0a264cd8[0K$ pip install pep8==1.7.0
+Collecting pep8==1.7.0
+  Downloading https://files.pythonhosted.org/packages/8a/cb/7d0fdca7e03f997945fb1bd60a8ddfea5c51229b865c470b4f7a64619d20/pep8-1.7.0-py2.py3-none-any.whl (41kB)
+Installing collected packages: pep8
+
+Successfully installed pep8-1.7.0
+
+travis_time:end:0a264cd8:start=1615607426572356783,finish=1615607427253419216,duration=681062433[0Ktravis_fold:end:install.4[0Ktravis_time:start:18558cc6[0K$ coverage run --source=verktyg setup.py test
+running test
+running egg_info
+writing dependency_links to verktyg.egg-info/dependency_links.txt
+writing top-level names to verktyg.egg-info/top_level.txt
+writing verktyg.egg-info/PKG-INFO
+writing requirements to verktyg.egg-info/requires.txt
+reading manifest file 'verktyg.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'verktyg.egg-info/SOURCES.txt'
+running build_ext
+test_append_slash_redirect (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_cached_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_cached_property_doc (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_can_set_cached_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_environ_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_inspect_treats_cached_property_as_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect_no_unicode_header_keys (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect_with_custom_response_class (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect_xss (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_secure_filename (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_validate_arguments (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_callback_dict_reads (verktyg.testsuite.test_datastructures.CallbackDictTestCase) ... ok
+test_callback_dict_writes (verktyg.testsuite.test_datastructures.CallbackDictTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_datastructures.CombinedMultiDictTestCase) ... ok
+test_length (verktyg.testsuite.test_datastructures.CombinedMultiDictTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableDictTestCase) ... ok
+test_list_hashable (verktyg.testsuite.test_datastructures.ImmutableListTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_multidict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_ordered_multidict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableTypeConversionDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableTypeConversionDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableTypeConversionDictTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_iter_interfaces (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_multidict_pop (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_pickle (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_setlistdefault (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_basic (verktyg.testsuite.test_datastructures.NativeItermethodsTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_iterables (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_ordered_interface (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_pickle (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_aborter_custom (verktyg.testsuite.test_exceptions.ExceptionsTestCase) ... ok
+test_aborter_general (verktyg.testsuite.test_exceptions.ExceptionsTestCase) ... ok
+test_exception_repr (verktyg.testsuite.test_exceptions.ExceptionsTestCase) ... ok
+test_parse_authorization_header (verktyg.testsuite.test_http.AuthorizationTestCase) ... ok
+test_cache_control_header (verktyg.testsuite.test_http.CacheControlTestCase) ... ok
+test_repr (verktyg.testsuite.test_http.CacheControlTestCase) ... ok
+test_parse_content_range (verktyg.testsuite.test_http.ContentRangeTestCase) ... ok
+test_parse_etags (verktyg.testsuite.test_http.ETagsTestCase) ... ok
+test_cookie_domain_encoding (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_domain_resolving (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_quoting (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_unicode_dumping (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_unicode_keys (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_unicode_parsing (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookies (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_date_formatting (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_dict_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_dump_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_dump_options_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_etags_nonzero (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_is_resource_modified (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_list_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_parse_date (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_parse_date_overflows (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_parse_options_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_remove_entity_headers (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_remove_hop_by_hop_headers (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_http.HeaderSetTestCase) ... ok
+test_parse_set_header (verktyg.testsuite.test_http.HeaderSetTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_bytes_operations (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_copying (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_defaults_and_conversion (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_header_set_duplication_bug (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_popping (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_reject_newlines (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_set_arguments (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_slicing (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_to_wsgi_list (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_parse_if_range_header (verktyg.testsuite.test_http.IfRangeTestCase) ... ok
+test_parse_range (verktyg.testsuite.test_http.RangeTestCase) ... ok
+test_parse_www_authenticate_header (verktyg.testsuite.test_http.WWWAuthenticateTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_wsgi.EnvironHeadersTestCase) ... ok
+test_bytes_operations (verktyg.testsuite.test_wsgi.EnvironHeadersTestCase) ... ok
+test_return_type_is_unicode (verktyg.testsuite.test_wsgi.EnvironHeadersTestCase) ... ok
+test_dispatchermiddleware (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_current_url_unicode (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host_fallback (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host_multiple_forwarded (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host_validation (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_iter_functions_support_iterators (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_limited_stream (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_limited_stream_disconnection (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_lines_longer_buffer_size (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_make_chunk_iter (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_make_chunk_iter_bytes (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_multi_part_line_breaks (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_multi_part_line_breaks_bytes (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_multi_part_line_breaks_problematic (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_path_info_and_script_name_fetching (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_path_info_extraction (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_peek_path_info (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_pop_path_info (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_query_string_fetching (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_responder (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_shared_data_middleware (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_shareddatamiddleware_get_file_loader (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_access_route (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_authorization_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_base_request (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_common_request_descriptors_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_data_descriptor_triggers_parsing (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_etag_request_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_file_closing (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_file_closing_with (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_form_data_ordering (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_form_parsing_failed (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_get_data_method_parsing_caching_behavior (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_modified_url_encoding (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_other_method_payload (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_query_string_is_bytes (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_request_method_case_sensitivity (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_request_mimetype_always_lowercase (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_request_repr (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_shallow_mode (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_storage_classes (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_stream_only_mixing (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_stream_wrapping (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_charset_reflection (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_request_descriptors (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_request_descriptors_hosts (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_request_descriptors_query_quoting (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_user_agent_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_authenticate_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_authenticate_mixin_quoted_qop (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_auto_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_base_response (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_common_response_descriptors_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_disabled_auto_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_etag_response_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_etag_response_mixin_freezing (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_location_header_autocorrect (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_new_response_iterator_behavior (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_ranges (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_304_no_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_freeze (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_headers_passthrough (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_iter_wrapping (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_status_codes (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_stream_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_streamed (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_stream_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_type_forcing (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_urlfication (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_adapter_match_return_route (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_adapter_url_parameter_sorting (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_alias_redirects (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_basic_building (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_basic_routing (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_build_append_unknown (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_complex_routing_routes (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_converter_parser (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_default_converters (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_defaults (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_double_defaults (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_environ_defaults (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_environ_nonascii_pathinfo (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_external_building_with_port (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_external_building_with_port_bind_to_environ (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_external_building_with_port_bind_to_environ_bad_servername (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_greedy (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_host_matching (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_http_host_before_server_name (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_map_repr (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_non_string_parts (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_path (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_protocol_joining_bug (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_redirect_path_quoting (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_request_direct_charset_bug (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_request_redirect_default (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_request_redirect_default_subdomain (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_route_templates (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_server_name_casing (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_server_name_interpolation (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_unicode_routes (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_uuid_converter (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_accept_dispatch (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_head_fallback (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_method_dispatch (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_method_override (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_name_dispatch (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_nested (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_match (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_match_basic (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_match_quality (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_match_subtype_wildcard (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_match_wildcard (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_parse (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_parse_accept_basic (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_parse_accept_case (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_parse_accept_invalid_params (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_parse_accept_multiple (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_parse_accept_params (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_serialize (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_serialize_accept (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_serialize_accept_multiple (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_serialize_accept_q_before_params (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_serialize_accept_redundant_q (verktyg.testsuite.test_accept_content_type.ContentTypeTestCase) ... ok
+test_match (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_match_basic (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_match_partial (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_match_quality (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_match_wildcard (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_parse (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_parse_accept_basic (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_parse_accept_multiple (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_parse_accept_params (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_parse_accept_q (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_serialize (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_serialize_accept_multiple (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_serialize_accept_redundant_q (verktyg.testsuite.test_accept_language.LanguageTestCase) ... ok
+test_match (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_match_basic (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_match_quality (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_match_wildcard (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_parse (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_parse_accept_basic (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_parse_accept_multiple (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_parse_accept_params (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_parse_accept_q (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_serialize (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_serialize_accept (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_serialize_accept_multiple (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_serialize_accept_redundant_q (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_serialize_accept_with_q (verktyg.testsuite.test_accept_charset.CharsetTestCase) ... ok
+test_content_type_dispatch (verktyg.testsuite.test_accept.RepresentationTestCase) ... ok
+test_not_acceptable (verktyg.testsuite.test_accept.RepresentationTestCase) ... ok
+test_select_representation (verktyg.testsuite.test_accept.RepresentationTestCase) ... ok
+test_class_view (verktyg.testsuite.test_views.ViewsTestCase) ... ok
+test_decorators (verktyg.testsuite.test_views.ViewsTestCase) ... ok
+test_basic (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_close_request (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_exception_content_type (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_exception_handlers (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_middleware (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+
+----------------------------------------------------------------------
+Ran 247 tests in 0.173s
+
+OK
+
+travis_time:end:18558cc6:start=1615607427265414237,finish=1615607428383335798,duration=1117921561[0K
+[32;1mThe command "coverage run --source=verktyg setup.py test" exited with 0.[0m
+travis_time:start:0010a3fd[0K$ pep8 verktyg setup.py
+
+travis_time:end:0010a3fd:start=1615607428391380300,finish=1615607430532293011,duration=2140912711[0K
+[32;1mThe command "pep8 verktyg setup.py" exited with 0.[0m
+travis_time:start:00e4542a[0K$ pyflakes verktyg setup.py
+
+travis_time:end:00e4542a:start=1615607430541396979,finish=1615607431072287211,duration=530890232[0K
+[32;1mThe command "pyflakes verktyg setup.py" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:03125ce8[0K$ coveralls
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/bin/coveralls", line 7, in <module>
+    from coveralls.cli import main
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/coveralls/__init__.py", line 3, in <module>
+    from .api import Coveralls
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/coveralls/api.py", line 12, in <module>
+    from .reporter import CoverallReporter
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/coveralls/reporter.py", line 8, in <module>
+    from coverage.report import Reporter
+ImportError: cannot import name 'Reporter'
+
+travis_time:end:03125ce8:start=1615607431082647438,finish=1615607431364061297,duration=281413859[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.
